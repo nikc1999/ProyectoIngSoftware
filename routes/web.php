@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/agregarcarrera', function () {  //Manda la vista
-    return view('carreras.crear');
+    return view('administrador.crear');
 });
 
 Auth::routes();

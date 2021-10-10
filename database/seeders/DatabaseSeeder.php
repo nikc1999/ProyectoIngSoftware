@@ -13,6 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::Create([
+            'name' => 'Yo Soy Admin',
+            'email' => 'AdminPrueba@ucn.cl',
+            'rut' => '202119557',
+            'habilitado' => 1,
+            'rol' => 'Administrador',
+            'password' => bcrypt('123123'),
+        ]);
     }
 }
