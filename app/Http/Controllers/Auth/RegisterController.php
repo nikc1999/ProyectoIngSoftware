@@ -53,9 +53,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'rut' => ['required', 'string', 'unique:users', 'regex:(\d{1,2}(?:\.\d{1,3}){2}-[\dkK])']
-
-            //20.211.955-7
+            'rut' => ['required', 'string', 'unique:users', 'min:8','max:9']
         ]);
     }
 
