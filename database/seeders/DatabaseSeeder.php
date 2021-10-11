@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
             'habilitado' => 1,
             'rol' => 'Administrador',
             'password' => bcrypt('123123'),
-        ]);
 
+        ]);
         \App\Models\User::Create([
             'name' => 'Yo Soy Jefe',
             'email' => 'JefePrueba@ucn.cl',
