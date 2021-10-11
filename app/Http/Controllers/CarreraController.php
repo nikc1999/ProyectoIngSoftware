@@ -55,7 +55,7 @@ class CarreraController extends Controller
         $carrera->codigo=$request->codigo;
         //llamar validator
         $validated = $request->validate([
-            'nombre' => 'required|max:20',
+            'nombre' => 'required|max:255',
             'codigo' => 'required|unique:carreras|max:4|min:4|regex:/[1-9][0-9][0-9][0-9]/']);
             //llamar validator
         $carrera->save();
@@ -82,7 +82,7 @@ class CarreraController extends Controller
      */
     public function edit(Carrera $carrera)
     {
-        //
+        //return view('carrera.edit')->with('carrera',$carrera);
     }
 
     /**

@@ -31,5 +31,4 @@ Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/agregarcarrera/crear', [App\Http\Controllers\CarreraController::class, 'store'])->name('crearcarrera'); //Se encarga de registrar la carrera
-//Route::post('/editarcarrera', [App\Http\Controllers\CarreraController::class, 'update'])->name('editarcarrera'); //Se encarga de registrar la carrera
 
