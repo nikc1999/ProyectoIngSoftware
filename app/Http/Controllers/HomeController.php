@@ -35,9 +35,9 @@ class HomeController extends Controller
             $carreras = Carrera::all();  //Se debería cargar todos los datos que corresponden a los de jefe carrera
              return view('administrador.index')->with('carrera', $carreras); //Retornar la vista de jefe de carrera
         }
-        else if(Auth::user()->rol=='Estudiante'){
+        else if(Auth::user()->rol=='Alumno'){
             $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
-             return view('administrador.index')->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
+            return view('estudiante.index');
         }
     }
 }
