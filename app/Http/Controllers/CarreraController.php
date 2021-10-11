@@ -77,7 +77,7 @@ class CarreraController extends Controller
      */
     public function show(Carrera $carrera)
     {
-        //
+
     }
 
     /**
@@ -86,6 +86,13 @@ class CarreraController extends Controller
      * @param  \App\Models\Carrera  $carrera
      * @return \Illuminate\Http\Response
      */
+
+    public function mostrarPanelCarreras()
+    {
+        $carreras = Carrera::all();
+        return view('administrador.gestionar_carreras')->with('carrera', $carreras);
+    }
+
     public function edit(Carrera $carrera)
     {
         return view('administrador.editar')->with('carrera', $carrera);

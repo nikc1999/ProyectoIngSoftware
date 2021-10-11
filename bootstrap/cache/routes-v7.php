@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::zYyaeC7LvhxVLSRt',
+            '_route' => 'generated::nWWLWCH75bGBjyh9',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::7z8zWIcWfYsMhxy4',
+            '_route' => 'generated::aEUxxJ6ZfmmpfPQt',
           ),
           1 => NULL,
           2 => 
@@ -64,7 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3paEaoqEm3BIQlkS',
+            '_route' => 'generated::ruXdbWCAPK1ybOkL',
           ),
           1 => NULL,
           2 => 
@@ -84,7 +84,63 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Pxo1kOZ6MTps4zmM',
+            '_route' => 'generated::jHm7YAXsy9SyutuY',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/carrera' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/carrera/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.create',
           ),
           1 => NULL,
           2 => 
@@ -121,7 +177,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ncNDdMTT91ZUp1sh',
+            '_route' => 'generated::nJnQgb8aJyOGavSP',
           ),
           1 => NULL,
           2 => 
@@ -176,7 +232,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::aWnptCSdhKjTpEhX',
+            '_route' => 'generated::dYzqFP0yorQFZfKM',
           ),
           1 => NULL,
           2 => 
@@ -267,7 +323,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::BYSDFpYpK9Ydku09',
+            '_route' => 'generated::yO3kayRa7LQVgGt1',
           ),
           1 => NULL,
           2 => 
@@ -320,6 +376,26 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/gestionarcarreras' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'mostrarcarreras',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/agregarcarrera/crear' => 
       array (
         0 => 
@@ -342,11 +418,99 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/password/reset/([^/]++)(*:31))/?$}sDu',
+      0 => '{^(?|/carrera/([^/]++)(?|(*:27)|/edit(*:39)|(*:46))|/password/reset/([^/]++)(*:78))/?$}sDu',
     ),
     3 => 
     array (
-      31 => 
+      27 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.show',
+          ),
+          1 => 
+          array (
+            0 => 'carrera',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      39 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.edit',
+          ),
+          1 => 
+          array (
+            0 => 'carrera',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      46 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.update',
+          ),
+          1 => 
+          array (
+            0 => 'carrera',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'carrera',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      78 => 
       array (
         0 => 
         array (
@@ -384,7 +548,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::zYyaeC7LvhxVLSRt' => 
+    'generated::nWWLWCH75bGBjyh9' => 
     array (
       'methods' => 
       array (
@@ -405,7 +569,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::zYyaeC7LvhxVLSRt',
+        'as' => 'generated::nWWLWCH75bGBjyh9',
       ),
       'fallback' => false,
       'defaults' => 
@@ -421,7 +585,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::7z8zWIcWfYsMhxy4' => 
+    'generated::aEUxxJ6ZfmmpfPQt' => 
     array (
       'methods' => 
       array (
@@ -436,15 +600,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@j+Y320qje5XKJ76x+QSWJEdZ7LDbZvTKrZ6BRkiF0Ek=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@TuuZgM+Lu4xJM5L7qTJCS6Rn3d1PsFdO2rz40qSRQR8=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000003b5629a5000000007c6d9801";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000063cca11500000000427d7fcf";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::7z8zWIcWfYsMhxy4',
+        'as' => 'generated::aEUxxJ6ZfmmpfPQt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -460,7 +624,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::3paEaoqEm3BIQlkS' => 
+    'generated::ruXdbWCAPK1ybOkL' => 
     array (
       'methods' => 
       array (
@@ -474,15 +638,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":261:{@8iDvNiZLZFAB83pP69wKLOGMA/1lwe8Ba/6ztxsUjeQ=.a:5:{s:3:"use";a:0:{}s:8:"function";s:49:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":259:{@N6jyI3Vqw373QmbD5Dxy9Vv9hUsgxEpauu8RRxlHkvw=.a:5:{s:3:"use";a:0:{}s:8:"function";s:47:"function () {
     return \\view(\'auth.login\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000003b5629ab000000007c6d9801";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000063cca11b00000000427d7fcf";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::3paEaoqEm3BIQlkS',
+        'as' => 'generated::ruXdbWCAPK1ybOkL',
       ),
       'fallback' => false,
       'defaults' => 
@@ -498,7 +662,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Pxo1kOZ6MTps4zmM' => 
+    'generated::jHm7YAXsy9SyutuY' => 
     array (
       'methods' => 
       array (
@@ -512,15 +676,279 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":283:{@cTzJvJNvELoRXaBxKDBcQdyes127x4eQBIwQv5sSATc=.a:5:{s:3:"use";a:0:{}s:8:"function";s:71:"function () {  //Manda la vista
-    return \\view(\'carreras.crear\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000003b5629a9000000007c6d9801";}}',
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":286:{@PO/p6BFpmS3d5cFX0c7SBTuGFiGWBvk8kxOP8wZHCJ0=.a:5:{s:3:"use";a:0:{}s:8:"function";s:74:"function () {  //Manda la vista
+    return \\view(\'administrador.crear\');
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000063cca11900000000427d7fcf";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::Pxo1kOZ6MTps4zmM',
+        'as' => 'generated::jHm7YAXsy9SyutuY',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'carrera.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'carrera',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'carrera.index',
+        'uses' => 'App\\Http\\Controllers\\CarreraController@index',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@index',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'carrera.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'carrera/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'carrera.create',
+        'uses' => 'App\\Http\\Controllers\\CarreraController@create',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@create',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'carrera.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'carrera',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'carrera.store',
+        'uses' => 'App\\Http\\Controllers\\CarreraController@store',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@store',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'carrera.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'carrera/{carrera}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'carrera.show',
+        'uses' => 'App\\Http\\Controllers\\CarreraController@show',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@show',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'carrera.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'carrera/{carrera}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'carrera.edit',
+        'uses' => 'App\\Http\\Controllers\\CarreraController@edit',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@edit',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'carrera.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'carrera/{carrera}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'carrera.update',
+        'uses' => 'App\\Http\\Controllers\\CarreraController@update',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@update',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'carrera.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'carrera/{carrera}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'carrera.destroy',
+        'uses' => 'App\\Http\\Controllers\\CarreraController@destroy',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@destroy',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
       ),
       'fallback' => false,
       'defaults' => 
@@ -573,7 +1001,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ncNDdMTT91ZUp1sh' => 
+    'generated::nJnQgb8aJyOGavSP' => 
     array (
       'methods' => 
       array (
@@ -593,7 +1021,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ncNDdMTT91ZUp1sh',
+        'as' => 'generated::nJnQgb8aJyOGavSP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -682,7 +1110,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::aWnptCSdhKjTpEhX' => 
+    'generated::dYzqFP0yorQFZfKM' => 
     array (
       'methods' => 
       array (
@@ -702,7 +1130,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::aWnptCSdhKjTpEhX',
+        'as' => 'generated::dYzqFP0yorQFZfKM',
       ),
       'fallback' => false,
       'defaults' => 
@@ -901,7 +1329,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::BYSDFpYpK9Ydku09' => 
+    'generated::yO3kayRa7LQVgGt1' => 
     array (
       'methods' => 
       array (
@@ -921,7 +1349,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::BYSDFpYpK9Ydku09',
+        'as' => 'generated::yO3kayRa7LQVgGt1',
       ),
       'fallback' => false,
       'defaults' => 
@@ -996,6 +1424,43 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'home',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'mostrarcarreras' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'gestionarcarreras',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\CarreraController@mostrarPanelCarreras',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@mostrarPanelCarreras',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'mostrarcarreras',
       ),
       'fallback' => false,
       'defaults' => 
