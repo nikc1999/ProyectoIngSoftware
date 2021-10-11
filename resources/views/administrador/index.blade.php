@@ -31,6 +31,11 @@
         @endif
     </div>
 </div>
+@else
+@php
+header("Location: /home" );
+exit();
+@endphp
 @endif
 
 

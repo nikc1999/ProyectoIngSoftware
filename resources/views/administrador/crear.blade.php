@@ -3,8 +3,6 @@
 @section('content')
 @if (Auth::user()->rol == 'Administrador')
 
-@if (Auth::user()->rol=='Administrador')
-
 
 <div>
     <form id="formulario" method="POST" action="{{ route('crearcarrera') }}">
@@ -34,12 +32,17 @@
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button id = "boton" type="submit" class="btn btn-primary">
-                     Agregar
+                    Agregar
                 </button>
             </div>
         </div>
     </form>
 </div>
+@else
+@php
+header("Location: /home" );
+exit();
+@endphp
 @endif
 
 <script>
@@ -64,5 +67,5 @@
     })
 </script>
 
-@endif
+
 @endsection
