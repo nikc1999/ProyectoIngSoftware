@@ -32,12 +32,12 @@ class HomeController extends Controller
              return view('administrador.index')->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
         }
         else if(Auth::user()->rol=='Jefe de Carrera'){
-            //Logica de jefe de carrera
-            //Retornar vista de jefe de carrera
+            //$carreras = Carrera::all();  //Se debería cargar todos los datos que corresponden a los de jefe carrera
+            return view('JefeCarrera.index');//Retornar la vista de jefe de carreras
         }
-        else if(Auth::user()->rol=='Estudiante'){
-            //Logica de Estudiante
-            //Retornar vista de estudiante
+        else if(Auth::user()->rol=='Alumno'){
+            $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
+            return view('estudiante.index');
         }
     }
 }
