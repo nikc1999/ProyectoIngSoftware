@@ -2,13 +2,6 @@
 
 @section('content')
 
-<select class="form-select" aria-label="Default select example">
-    <option selected>Seleccione una Carrera</option>
-    @foreach($carrera as $car)
-    <option value='{{$car->id}}'>{{$car->nombre}}</option>
-    @endforeach
-</select>
-
 <div class="container col-md-8 col-md-offset-2">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -30,7 +23,7 @@
                         <tr>
                             <td>{!! $car->codigo !!}</td>
                             <td>{!! $car->nombre !!}</td>
-                            <td><a class="btn btn-info" href={{ route('editarcarrera', [$car]) }}>Editar</a></td>
+                            <td><a class="btn btn-info" href={{ route('carrera.edit', [$car]) }}>Editar</a></td>
                         </tr>
                     @endforeach
                 </tbody>

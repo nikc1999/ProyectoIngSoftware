@@ -3,22 +3,24 @@
 @section('content')
 
 <div>
-    <form id="formulario" method="POST" action="{{ route('aplicareditarcarrera', [$carrera]) }}">
+    <form id="formulario" method="POST" action="{{ route('carrera.update', [$carrera]) }}">
         @csrf
-        <div class="form-group row">
-            <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre Carrera</label>
+        @method('PUT')
+        <div class="form-group">
+            <label class="form-control-label">NOMBRE</label>
+            <input value="{{$carrera->nombre}}" id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror"
+                name="nombre" required>
 
-            <div class="col-md-6">
-                <input id="nombre" type="text" class="form-control" name="nombre" required autofocus>
-
-            </div>
+            @error('nombre')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
 
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button id = "boton" type="submit" class="btn btn-primary">
-                     Editar
-                </button>
+        <div class="col-lg-12 py-3">
+            <div class="col-lg-12 text-center">
+                <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
             </div>
         </div>
     </form>

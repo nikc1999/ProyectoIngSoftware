@@ -36,11 +36,6 @@ class CarreraController extends Controller
         }
     }
 
-    public function mostrarPaginaEdicion(Carrera $carrera)
-    {
-        return view('administrador.editar')->with('carrera', $carrera);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -93,7 +88,7 @@ class CarreraController extends Controller
      */
     public function edit(Carrera $carrera)
     {
-        //
+        return view('administrador.editar')->with('carrera', $carrera);
     }
 
     /**
@@ -105,10 +100,9 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
-        dd($carrera->nombre);
-
-
-
+        $carrera->nombre = $request->nombre;
+        $carrera->save();
+        return redirect('/carrera');
     }
 
     /**

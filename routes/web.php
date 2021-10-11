@@ -21,6 +21,8 @@ Route::get('/agregarcarrera', function () {  //Manda la vista
     return view('administrador.crear');
 });
 
+Route::resource('carrera', App\Http\Controllers\CarreraController::class,['middleware'=>'auth']);
+
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->name('admin');
@@ -28,7 +30,3 @@ Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/agregarcarrera/crear', [App\Http\Controllers\CarreraController::class, 'store'])->name('crearcarrera'); //Se encarga de registrar la carrera
-
-Route::get('/editarcarrera', [App\Http\Controllers\CarreraController::class, 'mostrarPaginaEdicion'])->name('editarcarrera');
-
-Route::post('/editarcarrera/aplicar',[App\Http\Controllers\CarreraController::class, 'update'])->name('aplicareditarcarrera'); //Se encarga de editar la carrera
