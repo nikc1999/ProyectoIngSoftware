@@ -21,5 +21,23 @@ class DatabaseSeeder extends Seeder
             'rol' => 'Administrador',
             'password' => bcrypt('123123'),
         ]);
+
+        \App\Models\User::Create([
+            'name' => 'Yo Soy Jefe',
+            'email' => 'JefePrueba@ucn.cl',
+            'rut' => '202119558',
+            'habilitado' => 1,
+            'rol' => 'Jefe de Carrera',
+            'password' => bcrypt('123123'),
+        ]);
+
+        \App\Models\User::Create([
+            'name' => 'Yo Soy Estudiante',
+            'email' => 'EstudiantePrueba@ucn.cl',
+            'rut' => '202119559',
+            'habilitado' => 1,
+            'rol' => 'Alumno',
+            'password' => bcrypt('123123'),
+        ]);
     }
 }
