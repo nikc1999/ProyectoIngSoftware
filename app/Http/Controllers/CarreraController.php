@@ -20,8 +20,6 @@ class CarreraController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'codigo' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-
-
         ]);
     }
 
@@ -36,6 +34,11 @@ class CarreraController extends Controller
             $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
             return view('administrador.index')->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
         }
+    }
+
+    public function mostrarPaginaEdicion(Carrera $carrera)
+    {
+        return view('administrador.editar')->with('carrera', $carrera);
     }
 
     /**
@@ -102,7 +105,10 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
-        //
+        dd($carrera->nombre);
+
+
+
     }
 
     /**
