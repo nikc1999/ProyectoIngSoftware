@@ -2,6 +2,9 @@
 
 @section('content')
 
+@if (Auth::user()->rol=='Administrador')
+
+
 <div>
     <form id="formulario" method="POST" action="{{ route('crearcarrera') }}">
         @csrf
@@ -36,6 +39,7 @@
         </div>
     </form>
 </div>
+@endif
 
 <script>
     const button = document.getElementById('boton');
