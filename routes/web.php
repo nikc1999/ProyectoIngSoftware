@@ -20,9 +20,12 @@ Route::get('/', function () {
 Route::get('/agregarcarrera', function () {  //Manda la vista
     return view('administrador.crear');
 });
-Route::get('/menuAdmi', function () {  //Manda la vista
+
+Route::get('/menuAdmi', function () {  //Manda la vista lo cree yo
+
     return view('Administrador.menu_admi');
 });
+
 
 Route::resource('carrera', App\Http\Controllers\CarreraController::class,['middleware'=>'auth']);
 
