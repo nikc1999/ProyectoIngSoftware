@@ -183,7 +183,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\storage\\framework/cache/data',
+        'path' => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -354,12 +354,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\storage\\app',
+        'root' => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\storage\\app/public',
+        'root' => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -377,7 +377,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\ProyectoIngSoftware\\public\\storage' => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\storage\\app/public',
+      'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\public\\storage' => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -411,13 +411,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\storage\\logs/laravel.log',
+        'path' => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\storage\\logs/laravel.log',
+        'path' => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -468,7 +468,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\storage\\logs/laravel.log',
+        'path' => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -534,7 +534,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\resources\\views/vendor/mail',
+        0 => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -635,7 +635,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\storage\\framework/sessions',
+    'files' => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -655,9 +655,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\resources\\views',
+      0 => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\ProyectoIngSoftware\\storage\\framework\\views',
+    'compiled' => 'D:\\Xampp\\htdocs\\ProyectoIngSoftware\\storage\\framework\\views',
   ),
   'flare' => 
   array (

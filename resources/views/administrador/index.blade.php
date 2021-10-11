@@ -2,19 +2,13 @@
 
 @section('content')
 
-<div class="container">
-    <p align="right"><a href="/agregarcarrera" class="btn btn-primary" role="button" data-bs-toggle="button">Nueva carrera</a></p>
-</div>
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a href="/agregarcarrera" class="btn btn-primary" role="button" data-bs-toggle="button">Nueva carrera</a>
-  </div>
-
 <div class="container col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
         <div class="panel-heading">
             <h2>Gestionar Carreras</h2>
         </div>
         @if ($carrera->isEmpty())
-            <div>No hay Mensajes</div>
+            <div>No hay Carreras</div>
         @else
             <table class="table">
                 <thead>
@@ -29,13 +23,15 @@
                         <tr>
                             <td>{!! $car->codigo !!}</td>
                             <td>{!! $car->nombre !!}</td>
-                            <td><a href="/agregarcarrera" class="btn btn-primary" role="button" data-bs-toggle="button">Nueva carrera</a></td>
+                            <td><a class="btn btn-info" href={{ route('carrera.edit', [$car]) }}>Editar</a></td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
         @endif
     </div>
 </div>
+
+
+
 @endsection

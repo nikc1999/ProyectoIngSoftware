@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Carrera;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
+use Illuminate\Support\Facades\Validator;
 
 class CarreraController extends Controller
 {
@@ -14,11 +15,16 @@ class CarreraController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'codigo' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        ]);
+    }
 
     public function index()
     {
-
         if(Auth::user()==null)
         {
             return view('auth.login');
@@ -26,7 +32,7 @@ class CarreraController extends Controller
         if(Auth::user()->rol=='Administrador')
         {
             $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
-            return view('carreras.index')->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
+            return view('administrador.index')->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
         }
     }
 
@@ -50,16 +56,16 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'codigo' => 'required|unique:carreras|regex:/[1-9][0-9][0-9][0-9]/',
+            'nombre' => 'required',
+        ]);
+
         $carrera= new Carrera();
         $carrera->nombre=$request->nombre;
         $carrera->codigo=$request->codigo;
-        //llamar validator
-        $validated = $request->validate([
-            'nombre' => 'required|max:255',
-            'codigo' => 'required|unique:carreras|max:4|min:4|regex:/[1-9][0-9][0-9][0-9]/']);
-            //llamar validator
-        $carrera->save();
 
+        $carrera->save();
         return redirect('/admin');
     }
 
@@ -82,7 +88,7 @@ class CarreraController extends Controller
      */
     public function edit(Carrera $carrera)
     {
-        //return view('carrera.edit')->with('carrera',$carrera);
+        return view('administrador.editar')->with('carrera', $carrera);
     }
 
     /**
@@ -94,7 +100,9 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
-        //
+        $carrera->nombre = $request->nombre;
+        $carrera->save();
+        return redirect('/carrera');
     }
 
     /**
