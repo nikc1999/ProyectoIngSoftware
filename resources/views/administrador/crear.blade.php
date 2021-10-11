@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if (Auth::user()->rol == 'Administrador')
 
 @if (Auth::user()->rol=='Administrador')
 
@@ -63,5 +64,5 @@
     })
 </script>
 
-
+@endif
 @endsection
