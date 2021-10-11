@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div>aaaaaaaaaaaaaa</div>
+<div><H1>SOY ESTUDIANTE</H1></div>
 
 
 
