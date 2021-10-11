@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <h3><center>Crear Usuario</center></h3></div>
+                <div class="card-body" style = "border: 1px solid grey;">
 
-                <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -66,6 +66,15 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="form-control-label" style="color: black">Rol</label>
+
+                                <select  class="form-control" name="rol" id="rol">
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="Jefe de Carrera">Jefe de carrera</option>
+                                    <option value="Alumno">Alumno</option>
+                                </select>
+                        </div>
 
 
                         <div class="form-group row">
@@ -93,7 +102,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ ('Register') }}
+                                    Registrar
                                 </button>
                             </div>
                         </div>

@@ -18,6 +18,7 @@ class CarreraController extends Controller
 
     public function index()
     {
+
         if(Auth::user()==null)
         {
             return view('auth.login');
@@ -53,7 +54,12 @@ class CarreraController extends Controller
         $carrera->nombre=$request->nombre;
         $carrera->codigo=$request->codigo;
         //llamar validator
+        $validated = $request->validate([
+            'nombre' => 'required|max:20',
+            'codigo' => 'required|unique:carreras|max:4|min:4|regex:/[1-9][0-9][0-9][0-9]/']);
+            //llamar validator
         $carrera->save();
+
         return redirect('/admin');
     }
 

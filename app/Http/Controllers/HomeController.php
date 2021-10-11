@@ -30,7 +30,8 @@ class HomeController extends Controller
         if (Auth::user()->rol=='Administrador') {
              $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
              return view('carreras.index')->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
-        }
+            //return view('Administrador.menu_admi');
+            }
         else if(Auth::user()->rol=='Jefe de Carrera'){
             //Logica de jefe de carrera
             //Retornar vista de jefe de carrera
