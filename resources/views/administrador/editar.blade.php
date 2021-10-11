@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if (Auth::user()->rol == 'Administrador')
-
+@if (Auth::user()->rol=='Administrador')
 <div>
     <form id="formulario" method="POST" action="{{ route('carrera.update', [$carrera]) }}">
         @csrf
