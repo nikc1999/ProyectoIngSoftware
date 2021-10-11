@@ -20,8 +20,6 @@ class CarreraController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'codigo' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-
-
         ]);
     }
 
@@ -90,7 +88,7 @@ class CarreraController extends Controller
      */
     public function edit(Carrera $carrera)
     {
-        //
+        return view('administrador.editar')->with('carrera', $carrera);
     }
 
     /**
@@ -102,7 +100,9 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
-        //
+        $carrera->nombre = $request->nombre;
+        $carrera->save();
+        return redirect('/carrera');
     }
 
     /**
