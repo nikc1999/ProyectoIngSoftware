@@ -6,22 +6,22 @@
     <form id="formulario" method="POST" action="{{ route('carrera.update', [$carrera]) }}">
         @csrf
         @method('PUT')
+        <div class="col-md-2">
+            <label>Codigo carrera: </label>
+        </div>
+        <div class="col-md-2">
+            <label>  </label>
+            <label>{!! $carrera->codigo !!}</label>
+        </div>
         <div class="form-group">
-            <label class="form-control-label">NOMBRE</label>
-            <input value="{{$carrera->nombre}}" id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror"
-                name="nombre" required>
-
-            @error('nombre')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+            <div class="col-md-2">
+                <label class="form-control-label">Nuevo nombre:</label>
+                <input id="nombre" type="text" class="form-control" name="nombre" required>
+            </div>
         </div>
 
-        <div class="col-lg-12 py-3">
-            <div class="col-lg-12 text-center">
-                <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
-            </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
         </div>
     </form>
 </div>
