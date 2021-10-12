@@ -98,6 +98,14 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="form-control-label">Carrera</label>
+                            <select class="form-control" name="carrera" id="carrera">
+                                {{-- <option value="Administrador">Administrador</option>
+                                <option value="Jefe Carrera">Jefe de carrera</option>
+                                <option value="Alumno">Alumno</option> --}}
+                            </select>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

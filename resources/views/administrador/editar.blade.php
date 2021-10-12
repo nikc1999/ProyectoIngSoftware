@@ -2,7 +2,9 @@
 
 @section('content')
 @if (Auth::user()->rol=='Administrador')
-<div>
+<div class = "container">
+        <div class="card">
+    <center>
     <form id="formulario" method="POST" action="{{ route('carrera.update', [$carrera]) }}">
         @csrf
         @method('PUT')
@@ -23,7 +25,12 @@
         <div class="col-md-2">
             <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
         </div>
-    </form>
+    </form></center>
 </div>
+@else
+@php
+header("Location: /home" );
+exit();
+@endphp
 @endif
 @endsection
