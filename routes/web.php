@@ -19,16 +19,28 @@ Route::get('/', function () {
 });
 
 Route::get('/agregarcarrera', function () {  //Manda la vista
-    return view('administrador.crear');
+    return view('administrador.crearcarrera');
 });
 
+/*Route::get('/agregarusuario', function () {  //Manda la vista
+    //obtener carreras
+    return view('auth.register');
+
+});
+*/
+
 Route::resource('carrera', App\Http\Controllers\CarreraController::class,['middleware'=>'auth']);
+
+Route::resource('usuario', App\Http\Controllers\UserController::class,['middleware'=>'auth']);
+
 
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->name('admin');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/agregarusuario', [App\Http\Controllers\UserController::class, 'mostrarAgregarUsuario'])->name('crearusuario');
 
 Route::get('/gestionarcarreras', [App\Http\Controllers\CarreraController::class, 'mostrarPanelCarreras'])->name('mostrarcarreras');
 
