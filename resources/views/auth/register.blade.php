@@ -13,7 +13,7 @@
                         <h3><center>Crear Usuario</center></h3></div>
                         <div class="card-body" style = "border: 1px solid grey;">
 
-                            <form method="POST" action="{{ route('agregarusuario') }}">
+                            <form method="POST" action="{{ route('usuario.store') }}">
                                 @csrf
 
                                 <div class="form-group row">

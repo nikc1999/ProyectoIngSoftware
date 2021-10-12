@@ -64,7 +64,7 @@ class UserController extends Controller
         dd($request);
         //Logica para recortar el rut a 6 digitos:
 
-        $defaultPassword = 123456;
+        $defaultPassword = '123456';
 
         $newUser = User::create([
             'name' => $request->name,
