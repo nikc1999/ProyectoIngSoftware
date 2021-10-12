@@ -25,7 +25,7 @@ class CarreraController extends Controller
 
     public function index()
     {
-        if(Auth::user()==null)
+        if( Auth::user()->rol== null || !Auth::user()   )
         {
             return view('auth.login');
         }
