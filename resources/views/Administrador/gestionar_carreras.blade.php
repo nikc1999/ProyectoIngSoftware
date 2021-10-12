@@ -9,19 +9,20 @@
         </div>
         <a class="nav-link" href="/agregarcarrera"><button class="btn btn-primary" type="button">Crear Carrera</button></a>
 
-        @if ($carrera->isEmpty())
+        @if ($datos->$carreras->isEmpty())
             <div>No hay Carreras</div>
         @else
             <table class="table">
                 <thead>
                     <tr>
                         <th>CODIGO</th>
-                        <th>NOMBRE</th>
+                         <th>NOMBRE</th>
                         <th>EDITAR</th>
+                        <th>JEFE DE CARRERA<th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($carrera as $car)
+                    @foreach($datos->$carreras as $car)
                         <tr>
                             <td>{!! $car->codigo !!}</td>
                             <td>{!! $car->nombre !!}</td>
