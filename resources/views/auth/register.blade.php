@@ -96,7 +96,7 @@
                                     <select class="form-control" name="carrera" id="carrera">
                                         <option selected>Seleccione una carrera</option>
                                         @foreach($carrera as $car)
-                                            <option value='{{$car->codigo}}'>{{$car->nombre}}</option>
+                                            <option value='{{$car->id}}'>{{$car->nombre}}</option>
 
                                         @endforeach
                                     </select>
