@@ -13,7 +13,7 @@
                         <h3><center>Crear Usuario</center></h3></div>
                         <div class="card-body" style = "border: 1px solid grey;">
 
-                            <form method="POST" action="{{ route('register') }}">
+                            <form method="POST" action="{{ route('agregarusuario') }}">
                                 @csrf
 
                                 <div class="form-group row">
@@ -116,30 +116,7 @@
             </div>
         </div>
     @endif
-{{-- <script>
-    const rolSelect = document.getElementById('rol');
-    const carreraSelect = document.getElementById('carrera')
-    //variable de carreras desde el controlador de carreras
-    const listaCarreras = {!! json_encode($carrera) !!}
-    if (listaCarreras.length === 2) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'No puedes crear usuarios sin tener carreras en el sistema!',
-            footer: 'Para crear carreras has&nbsp;<a href="/agregarcarrera">click aca</a>'
-        }).then((result) => {
-            window.location.href = '/usuario'
-        })
-    }
-    rolSelect.addEventListener('change', function(e){
-        if (rolSelect.value === 'Jefe Carrera') {
-        carreraSelect.value = null;
-        carreraSelect.disabled = true;
-        }else{
-            carreraSelect.disabled = false;
-        }
-    })
-</script> --}}
+
 @else
 @php
 header("Location: /home" );
