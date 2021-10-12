@@ -58,7 +58,6 @@
         })
     })
 </script>
-
 @else
 @php
 header("Location: /home" );
