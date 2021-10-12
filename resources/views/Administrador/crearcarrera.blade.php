@@ -30,7 +30,7 @@
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button id = "boton" type="submit" class="btn btn-primary">
-                     Agregar
+                    Agregar
                 </button>
             </div>
         </div>

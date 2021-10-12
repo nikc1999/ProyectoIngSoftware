@@ -13,7 +13,7 @@
                         <h3><center>Crear Usuario</center></h3></div>
                         <div class="card-body" style = "border: 1px solid grey;">
 
-                            <form method="POST" action="{{ route('register') }}">
+                            <form method="POST" action="{{ route('usuario.store') }}">
                                 @csrf
 
                                 <div class="form-group row">
@@ -58,19 +58,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="habilitado" class="col-md-4 col-form-label text-md-right">{{ __('Estado Usuario') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="habilitado" type="checkbox" class="form-control @error('habilitado') is-invalid @enderror" name="habilitado">
-
-                                        @error('habilitado')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label for="form-control-label" style="color: black">Rol</label>
 
@@ -129,30 +116,7 @@
             </div>
         </div>
     @endif
-{{-- <script>
-    const rolSelect = document.getElementById('rol');
-    const carreraSelect = document.getElementById('carrera')
-    //variable de carreras desde el controlador de carreras
-    const listaCarreras = {!! json_encode($carrera) !!}
-    if (listaCarreras.length === 2) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'No puedes crear usuarios sin tener carreras en el sistema!',
-            footer: 'Para crear carreras has&nbsp;<a href="/agregarcarrera">click aca</a>'
-        }).then((result) => {
-            window.location.href = '/usuario'
-        })
-    }
-    rolSelect.addEventListener('change', function(e){
-        if (rolSelect.value === 'Jefe Carrera') {
-        carreraSelect.value = null;
-        carreraSelect.disabled = true;
-        }else{
-            carreraSelect.disabled = false;
-        }
-    })
-</script> --}}
+
 @else
 @php
 header("Location: /home" );
