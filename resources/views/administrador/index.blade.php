@@ -8,9 +8,9 @@
 </div>
 
 <div class="d-grid gap-2">
-    <center><button class="btn btn-primary" type="button">Administrar Usuarios</button></center>
+    <center><a href={{ route('usuario.index')}}><button class="btn btn-primary" type="button">Administrar Usuarios</button></a></center>
     <br>
-    <center><a class="btn btn-info" href={{ route('mostrarcarreras')}}>Administrar Carreras</a></center>
+    <center><a href={{ route('mostrarcarreras')}}><button class="btn btn-primary" type="button">Administrar Carreras</button></a></center>
 </div>
 
 @else

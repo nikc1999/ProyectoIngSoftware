@@ -2,4 +2,6 @@
 
 @section('content')
 
-<div>Soy jefe carrera</div>
+<div class= "container"><h1>Soy jefe carrera</h1></div>
+
+@endsection

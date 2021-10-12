@@ -23,7 +23,8 @@ class User extends Authenticatable
         'password',
         'rut',
         'habilitado',
-        'rol'
+        'rol',
+        'carrera_id'
     ];
 
     /**

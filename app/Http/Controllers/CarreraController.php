@@ -25,7 +25,7 @@ class CarreraController extends Controller
 
     public function index()
     {
-        if(Auth::user()==null)
+        if( Auth::user()->rol== null || !Auth::user()   )
         {
             return view('auth.login');
         }
@@ -66,7 +66,7 @@ class CarreraController extends Controller
         $carrera->codigo=$request->codigo;
 
         $carrera->save();
-        return redirect('/admin');
+        return redirect('/gestionarcarreras');
     }
 
     /**
@@ -109,7 +109,7 @@ class CarreraController extends Controller
     {
         $carrera->nombre = $request->nombre;
         $carrera->save();
-        return redirect('/carrera');
+        return redirect('/gestionarcarreras');
     }
 
     /**
