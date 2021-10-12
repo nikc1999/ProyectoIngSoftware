@@ -115,7 +115,21 @@
                 </div>
             </div>
         </div>
+
     @endif
+    <script>
+        const rolSelect = document.getElementById('rol');
+        const carreraSelect = document.getElementById('carrera')
+        //variable de carreras desde el controlador de carreras
+        rolSelect.addEventListener('change', function(e){
+            if (rolSelect.value === 'Jefe Carrera') {
+            carreraSelect.value = null;
+            carreraSelect.disabled = true;
+            }else{
+                carreraSelect.disabled = false;
+            }
+        })
+    </script>
 
 @else
 @php
