@@ -24,6 +24,7 @@ class UserController extends Controller
         }
         if(Auth::user()->rol=='Administrador')
         {
+            $usuarios = User::all();  //Lo que realiza es llamar de la base de datos todos los usuarios
             return view('administrador.gestionar_usuarios');
         }
     }

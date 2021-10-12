@@ -17,6 +17,7 @@ class CreateCarrerasTable extends Migration
             $table->id();
             $table->string('codigo')->unique();
             $table->string('nombre');
+            $table->unsignedBigInteger('jefe_carrera_id')->nullable();
             $table->timestamps();
         });
     }
