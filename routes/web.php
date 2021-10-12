@@ -40,7 +40,9 @@ Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/agregarusuario', [App\Http\Controllers\UserController::class, 'mostrarAgregarUsuario'])->name('crearusuario');
+Route::get('/agregarusuario', [App\Http\Controllers\UserController::class, 'mostrarAgregarUsuario'])->name('crearusuario');  //redirige a la pag para crear el usuario
+
+Route::post('/agregarusuario/crear', [App\Http\Controllers\UserController::class, 'store'])->name('agregarusuario');  //proceso para generar ,validar y guardar el usuario
 
 Route::get('/gestionarcarreras', [App\Http\Controllers\CarreraController::class, 'mostrarPanelCarreras'])->name('mostrarcarreras');
 
