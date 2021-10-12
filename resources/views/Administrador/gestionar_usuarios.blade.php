@@ -8,6 +8,7 @@
 
 <center><a href="{{ route('crearusuario') }}"><button class="btn btn-primary" type="button">Crear Usuario</button></a></center>
 
+
 @else
 @php
 header("Location: /home" );
