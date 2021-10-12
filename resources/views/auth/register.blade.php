@@ -58,19 +58,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="habilitado" class="col-md-4 col-form-label text-md-right">{{ __('Estado Usuario') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="habilitado" type="checkbox" class="form-control @error('habilitado') is-invalid @enderror" name="habilitado">
-
-                                        @error('habilitado')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label for="form-control-label" style="color: black">Rol</label>
 
@@ -109,7 +96,7 @@
                                     <select class="form-control" name="carrera" id="carrera">
                                         <option selected>Seleccione una carrera</option>
                                         @foreach($carrera as $car)
-                                            <option value='{{$car->codigo}}'>{{$car->nombre}} - {{$car->codigo}} </option>
+                                            <option value='{{$car->id}}'>{{$car->nombre}}</option>
 
                                         @endforeach
                                     </select>
@@ -129,6 +116,7 @@
             </div>
         </div>
     @endif
+
 @else
 @php
 header("Location: /home" );

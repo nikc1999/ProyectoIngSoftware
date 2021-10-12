@@ -6,7 +6,6 @@ use App\Models\Carrera;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -54,29 +53,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'rut' => ['required', 'string', 'unique:users','max:9', 'min:8'],
             'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
-            'carrera'=>['exists:App\Models\Carrera,codigo']
+            'carrera'=>['exists:App\Models\Carrera,id'] //este es ctm
         ]);
-        dd($request);
 
         //Logica para recortar el rut a 6 digitos:
 
-        $defaultPassword = 123456;
+        $defaultPassword = '123456';
+
+
+        $rut = $request->rut;
+        $contrasena = substr($rut, 0, 6);
 
         $newUser = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($defaultPassword),
+            'password' => bcrypt($contrasena),
             'rut' => $request['rut'],
             'rol' => $request['rol'],
             'habilitado' => 1,
             'carrera_id' => $request->carrera,
         ]);
-        return redirect('/home');
+
+        //$newUser->save();        solo para editar un usuario
+        return redirect('/usuario');
     }
 
     /**
