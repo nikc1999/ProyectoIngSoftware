@@ -96,6 +96,7 @@
                                     <select class="form-control" name="carrera" id="carrera">
                                         <option selected>Seleccione una carrera</option>
                                         @foreach($carrera as $car)
+
                                             <option value='{{$car->id}}'>{{$car->nombre}}</option>
 
                                         @endforeach
@@ -104,7 +105,7 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button id="boton"type="submit" class="btn btn-primary">
                                             Registrar
                                         </button>
                                     </div>
@@ -151,6 +152,29 @@
             }
         })
     </script>
+
+<script>
+
+    const button = document.getElementById('boton');
+    const form = document.getElementById('formulario')
+    button.addEventListener('click', function(e){
+        e.preventDefault();
+        //funciona
+
+
+        const rolSelect = document.getElementById('rol');
+        const carreraSelect = document.getElementById('carrera')
+        //variable de carreras desde el controlador de carreras
+        const listaCarreras = {!! json_encode($carrera) !!}
+
+        $carrera.forEach(element => element.id {
+
+        });
+    })
+
+
+</script>
+
 
 @else
 @php
