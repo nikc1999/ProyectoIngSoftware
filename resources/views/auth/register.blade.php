@@ -133,8 +133,8 @@
 
 </script>
 <br>
-<center><a href="/usuario"><button class="btn btn-danger btn-lg btn-block" type="button">Volver</button></a>
-<center><a href="{{ route('home') }}"><button class="btn btn-secondary btn-lg btn-block" type="button">Volver Menu</button></a>
+<center><a href="/usuario"><button class="btn btn-primary btn-lg btn-block" type="button">Volver</button></a>
+<center><a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a>
 
 @else
 @php
