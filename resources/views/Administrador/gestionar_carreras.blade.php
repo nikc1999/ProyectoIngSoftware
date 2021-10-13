@@ -41,6 +41,8 @@
     </div>
 </div>
 <br>
+<br>
+
 <center><a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a></center>
 @else
 @php

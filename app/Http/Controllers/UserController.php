@@ -27,7 +27,7 @@ class UserController extends Controller
         if(Auth::user()->rol=='Administrador')
         {
             $usuarios = User::all();  //Lo que realiza es llamar de la base de datos todos los usuarios
-            return view('administrador.gestionar_usuarios');
+            return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
         }
     }
 
@@ -44,6 +44,19 @@ class UserController extends Controller
     {
         $carreras = Carrera::with('users')->get();  //Lo que realiza es llamar de la base de datos todas las carreras
         return view('auth.register')->with('carreras', $carreras);
+    }
+
+    public function habilitarUsuario(User $user)
+    {
+        if ($user->habilitado === 0) {
+            $user->habilitado = 1;
+            $user->save();
+            return redirect('/usuario');
+        }else {
+            $user->habilitado = 0;
+            $user->save();
+            return redirect('/usuario');
+        }
     }
 
     /**
@@ -114,7 +127,16 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        dd($user);
+        if ($user->habilitado === 0) {
+            $user->habilitado = 1;
+            $user->save();
+            return redirect('/usuario');
+        }else {
+            $user->habilitado = 0;
+            $user->save();
+            return redirect('/usuario');
+        }
     }
 
     /**
