@@ -1,4 +1,3 @@
-<!--use Illuminate\Support\Facades\Auth;-->
 @extends('layouts.app')
 @section('content')
 @if (Auth::user()->rol=='Administrador')
@@ -6,7 +5,6 @@
         <center><h1> No hay carreras</h1></center>
         <br>
         <!--<center><a href="/usuario"><button class="btn btn-primary" type="button">Regresar</button></a></center>-->
-
     @else
         <div class="container">
             <div class="row justify-content-center">
@@ -133,8 +131,8 @@
 
 </script>
 <br>
-<center><a href="/usuario"><button class="btn btn-danger btn-lg btn-block" type="button">Volver</button></a>
-<center><a href="{{ route('home') }}"><button class="btn btn-secondary btn-lg btn-block" type="button">Volver Menu</button></a>
+<center><a href="/usuario"><button class="btn btn-primary btn-lg btn-block" type="button">Volver</button></a>
+<center><a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a>
 
 @else
 @php

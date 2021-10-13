@@ -45,6 +45,21 @@ class UserController extends Controller
         return view('auth.register')->with('carreras', $carreras);
     }
 
+    public function habilitarUsuario(Request $request)
+    {
+        $encontrarUsuario = User::where('id', $request->id)->first();
+
+        if ($encontrarUsuario->habilitado === 0) {
+            $encontrarUsuario->habilitado = 1;
+            $encontrarUsuario->save();
+            return redirect('/usuario');
+        }else {
+            $encontrarUsuario->habilitado = 0;
+            $encontrarUsuario->save();
+            return redirect('/usuario');
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -103,7 +118,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+       //jaj
     }
 
     /**
@@ -115,7 +130,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        //jej
     }
 
     /**
