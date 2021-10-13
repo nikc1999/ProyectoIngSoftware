@@ -58,6 +58,11 @@
         })
     })
 </script>
+
+<br>
+<center><a href="/gestionarcarreras"><button class="btn btn-info btn-lg btn-block" type="button">Volver</button></a></center>
+<center><a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a></center>
+
 @else
 @php
 header("Location: /home" );

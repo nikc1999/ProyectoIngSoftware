@@ -26,7 +26,7 @@ class UserController extends Controller
         if(Auth::user()->rol=='Administrador')
         {
             $usuarios = User::all();  //Lo que realiza es llamar de la base de datos todos los usuarios
-            return view('administrador.gestionar_usuarios');
+            return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
         }
     }
 
@@ -45,6 +45,21 @@ class UserController extends Controller
     public function create()
     {
         //
+    }
+
+    public function habilitarUsuario(Request $request)
+    {
+        $encontrarUsuario = User::where('id', $request->id)->first();
+
+        if ($encontrarUsuario->habilitado === 0) {
+            $encontrarUsuario->habilitado = 1;
+            $encontrarUsuario->save();
+            return redirect('/usuario');
+        }else {
+            $encontrarUsuario->habilitado = 0;
+            $encontrarUsuario->save();
+            return redirect('/usuario');
+        }
     }
 
     /**
@@ -105,7 +120,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+       //jaj
     }
 
     /**
@@ -117,7 +132,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        //jej
     }
 
     /**
