@@ -90,12 +90,11 @@ class CarreraController extends Controller
 
     public function mostrarPanelCarreras()
     {
-        $usuarios = User::all();
         $carreras = Carrera::all();
-
+        $usuarios = User::all();
         $datos = [
-            'usuarios'  => $usuarios,
-            'carreras'   => $carreras,
+            'carreras' => $carreras,
+            'usuarios' => $usuarios,
         ];
         return view('administrador.gestionar_carreras')->with('datos', $datos);
     }

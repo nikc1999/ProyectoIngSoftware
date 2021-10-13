@@ -9,24 +9,29 @@
         </div>
         <a class="nav-link" href="/agregarcarrera"><button class="btn btn-primary" type="button">Crear Carrera</button></a>
 
-        @if ($datos->$carreras->isEmpty())
+        @if ($datos['carreras']->isEmpty())
             <div>No hay Carreras</div>
         @else
             <table class="table">
                 <thead>
                     <tr>
                         <th>CODIGO</th>
-                         <th>NOMBRE</th>
+                        <th>NOMBRE</th>
                         <th>EDITAR</th>
-                        <th>JEFE DE CARRERA<th>
+                        <th>JEFE CARRERA</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($datos->$carreras as $car)
+                    @foreach($datos['carreras'] as $car)
                         <tr>
                             <td>{!! $car->codigo !!}</td>
                             <td>{!! $car->nombre !!}</td>
                             <td><a class="btn btn-info" href={{ route('carrera.edit', [$car]) }}>Editar</a></td>
+                            @foreach($datos['usuarios'] as $us)
+                                @if ($car->id == $us->carrera_id && $us->rol == 'Jefe de Carrera')
+                                    <td>{!! $us->name !!}</td>
+                                @endif
+                            @endforeach
                         </tr>
                     @endforeach
                 </tbody>
