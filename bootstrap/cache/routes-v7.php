@@ -13,25 +13,21 @@
 
 app('router')->setCompiledRoutes(
     array (
-  'compiled' => 
+  'compiled' =>
   array (
     0 => false,
-    1 => 
+    1 =>
     array (
-      '/sanctum/csrf-cookie' => 
+      '/sanctum/csrf-cookie' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
-<<<<<<< HEAD
             '_route' => 'generated::Io5JfhzXo2Re16fy',
-=======
-            '_route' => 'generated::Ga4y6phpbwyI5zey',
->>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -42,20 +38,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/user' => 
+      '/api/user' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
-<<<<<<< HEAD
             '_route' => 'generated::AB3ClCiLmIVM3JgS',
-=======
-            '_route' => 'generated::flF10260TgepdoPS',
->>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -66,20 +58,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/' => 
+      '/' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
-<<<<<<< HEAD
             '_route' => 'generated::wPTFKXXmFz6LGus8',
-=======
-            '_route' => 'generated::QJVBhCcT46oy9JAo',
->>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -90,11 +78,11 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/agregarcarrera' => 
+      '/agregarcarrera' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
 <<<<<<< HEAD
             '_route' => 'generated::l2LKDLeRYW1R31C6',
@@ -103,7 +91,7 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -114,16 +102,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/carrera' => 
+      '/carrera' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'carrera.index',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -133,14 +121,14 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'carrera.store',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -150,16 +138,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/carrera/create' => 
+      '/carrera/create' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'carrera.create',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -170,16 +158,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/usuario' => 
+      '/usuario' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'usuario.index',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -189,14 +177,14 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'usuario.store',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -206,16 +194,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/usuario/create' => 
+      '/usuario/create' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'usuario.create',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -226,16 +214,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/login' => 
+      '/login' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'login',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -245,9 +233,9 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
 <<<<<<< HEAD
             '_route' => 'generated::XBv54TzgG48RStkI',
@@ -256,7 +244,7 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -266,16 +254,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/logout' => 
+      '/logout' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'logout',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -285,16 +273,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/register' => 
+      '/register' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'register',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -304,9 +292,9 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
 <<<<<<< HEAD
             '_route' => 'generated::j9s6GknCdLEjOxmj',
@@ -315,7 +303,7 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -325,16 +313,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/password/reset' => 
+      '/password/reset' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.request',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -344,14 +332,14 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.update',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -361,16 +349,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/password/email' => 
+      '/password/email' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.email',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -380,16 +368,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/password/confirm' => 
+      '/password/confirm' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.confirm',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -399,9 +387,9 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
 <<<<<<< HEAD
             '_route' => 'generated::x9u0EoeHiFRypH8O',
@@ -410,7 +398,7 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -420,16 +408,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin' => 
+      '/admin' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'admin',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -440,16 +428,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/home' => 
+      '/home' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'home',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -460,16 +448,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/agregarusuario' => 
+      '/agregarusuario' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'crearusuario',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -480,16 +468,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/agregarusuario/crear' => 
+      '/agregarusuario/crear' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'agregarusuario',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -499,16 +487,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/gestionarcarreras' => 
+      '/gestionarcarreras' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'mostrarcarreras',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -519,16 +507,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/agregarcarrera/crear' => 
+      '/agregarcarrera/crear' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'crearcarrera',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -539,25 +527,25 @@ app('router')->setCompiledRoutes(
         ),
       ),
     ),
-    2 => 
+    2 =>
     array (
       0 => '{^(?|/carrera/([^/]++)(?|(*:27)|/edit(*:39)|(*:46))|/usuario/([^/]++)(?|(*:74)|/edit(*:86)|(*:93))|/password/reset/([^/]++)(*:125))/?$}sDu',
     ),
-    3 => 
+    3 =>
     array (
-      27 => 
+      27 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'carrera.show',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'carrera',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -568,19 +556,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      39 => 
+      39 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'carrera.edit',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'carrera',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -591,19 +579,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      46 => 
+      46 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'carrera.update',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'carrera',
           ),
-          2 => 
+          2 =>
           array (
             'PUT' => 0,
             'PATCH' => 1,
@@ -613,17 +601,17 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'carrera.destroy',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'carrera',
           ),
-          2 => 
+          2 =>
           array (
             'DELETE' => 0,
           ),
@@ -633,19 +621,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      74 => 
+      74 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'usuario.show',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'usuario',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -656,19 +644,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      86 => 
+      86 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'usuario.edit',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'usuario',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -679,19 +667,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      93 => 
+      93 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'usuario.update',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'usuario',
           ),
-          2 => 
+          2 =>
           array (
             'PUT' => 0,
             'PATCH' => 1,
@@ -701,17 +689,17 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'usuario.destroy',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'usuario',
           ),
-          2 => 
+          2 =>
           array (
             'DELETE' => 0,
           ),
@@ -721,19 +709,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      125 => 
+      125 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.reset',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'token',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -743,7 +731,7 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
           0 => NULL,
           1 => NULL,
@@ -757,30 +745,30 @@ app('router')->setCompiledRoutes(
     ),
     4 => NULL,
   ),
-  'attributes' => 
+  'attributes' =>
   array (
 <<<<<<< HEAD
-    'generated::Io5JfhzXo2Re16fy' => 
+    'generated::Io5JfhzXo2Re16fy' =>
 =======
-    'generated::Ga4y6phpbwyI5zey' => 
+    'generated::Ga4y6phpbwyI5zey' =>
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'sanctum/csrf-cookie',
-      'action' => 
+      'action' =>
       array (
         'uses' => 'Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show',
         'controller' => 'Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show',
         'namespace' => NULL,
         'prefix' => 'sanctum',
-        'where' => 
+        'where' =>
         array (
         ),
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -791,13 +779,13 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
@@ -805,20 +793,20 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
-    'generated::AB3ClCiLmIVM3JgS' => 
+    'generated::AB3ClCiLmIVM3JgS' =>
 =======
-    'generated::flF10260TgepdoPS' => 
+    'generated::flF10260TgepdoPS' =>
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'api/user',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'api',
           1 => 'auth:sanctum',
@@ -834,7 +822,7 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
         'namespace' => NULL,
         'prefix' => 'api',
-        'where' => 
+        'where' =>
         array (
         ),
 <<<<<<< HEAD
@@ -844,13 +832,13 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
@@ -858,20 +846,20 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
-    'generated::wPTFKXXmFz6LGus8' => 
+    'generated::wPTFKXXmFz6LGus8' =>
 =======
-    'generated::QJVBhCcT46oy9JAo' => 
+    'generated::QJVBhCcT46oy9JAo' =>
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => '/',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -886,7 +874,7 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
 <<<<<<< HEAD
@@ -896,13 +884,13 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
@@ -910,20 +898,20 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
-    'generated::l2LKDLeRYW1R31C6' => 
+    'generated::l2LKDLeRYW1R31C6' =>
 =======
-    'generated::sOh1LWz3OusRj1px' => 
+    'generated::sOh1LWz3OusRj1px' =>
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'agregarcarrera',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -938,7 +926,7 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
 <<<<<<< HEAD
@@ -948,30 +936,30 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'carrera.index' => 
+    'carrera.index' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'carrera',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -981,35 +969,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@index',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'carrera.create' => 
+    'carrera.create' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'carrera/create',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1019,34 +1007,34 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@create',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'carrera.store' => 
+    'carrera.store' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'carrera',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1056,35 +1044,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@store',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'carrera.show' => 
+    'carrera.show' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'carrera/{carrera}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1094,35 +1082,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@show',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'carrera.edit' => 
+    'carrera.edit' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'carrera/{carrera}/edit',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1132,35 +1120,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@edit',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'carrera.update' => 
+    'carrera.update' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'PUT',
         1 => 'PATCH',
       ),
       'uri' => 'carrera/{carrera}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1170,34 +1158,34 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@update',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'carrera.destroy' => 
+    'carrera.destroy' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'DELETE',
       ),
       'uri' => 'carrera/{carrera}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1207,35 +1195,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@destroy',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'usuario.index' => 
+    'usuario.index' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'usuario',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1245,35 +1233,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\UserController@index',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'usuario.create' => 
+    'usuario.create' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'usuario/create',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1283,34 +1271,34 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\UserController@create',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'usuario.store' => 
+    'usuario.store' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'usuario',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1320,35 +1308,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\UserController@store',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'usuario.show' => 
+    'usuario.show' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'usuario/{usuario}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1358,35 +1346,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\UserController@show',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'usuario.edit' => 
+    'usuario.edit' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'usuario/{usuario}/edit',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1396,35 +1384,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\UserController@edit',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'usuario.update' => 
+    'usuario.update' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'PUT',
         1 => 'PATCH',
       ),
       'uri' => 'usuario/{usuario}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1434,34 +1422,34 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\UserController@update',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'usuario.destroy' => 
+    'usuario.destroy' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'DELETE',
       ),
       'uri' => 'usuario/{usuario}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1471,35 +1459,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\UserController@destroy',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'login' => 
+    'login' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'login',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1507,19 +1495,19 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\LoginController@showLoginForm',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'login',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
@@ -1527,19 +1515,19 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
-    'generated::XBv54TzgG48RStkI' => 
+    'generated::XBv54TzgG48RStkI' =>
 =======
-    'generated::QzboPnXv1FBloMXh' => 
+    'generated::QzboPnXv1FBloMXh' =>
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'login',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1547,7 +1535,7 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\LoginController@login',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
 <<<<<<< HEAD
@@ -1557,29 +1545,29 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'logout' => 
+    'logout' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'logout',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1587,36 +1575,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\LoginController@logout',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'logout',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'register' => 
+    'register' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'register',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1624,19 +1612,19 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\RegisterController@showRegistrationForm',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'register',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
@@ -1644,19 +1632,19 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
-    'generated::j9s6GknCdLEjOxmj' => 
+    'generated::j9s6GknCdLEjOxmj' =>
 =======
-    'generated::0RPDelLs95EEAFhw' => 
+    'generated::0RPDelLs95EEAFhw' =>
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'register',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1664,7 +1652,7 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\RegisterController@register',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
 <<<<<<< HEAD
@@ -1674,30 +1662,30 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.request' => 
+    'password.request' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'password/reset',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1705,35 +1693,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\ForgotPasswordController@showLinkRequestForm',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.request',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.email' => 
+    'password.email' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'password/email',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1741,36 +1729,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\ForgotPasswordController@sendResetLinkEmail',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.email',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.reset' => 
+    'password.reset' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'password/reset/{token}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1778,35 +1766,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\ResetPasswordController@showResetForm',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.reset',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.update' => 
+    'password.update' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'password/reset',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1814,36 +1802,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\ResetPasswordController@reset',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.update',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.confirm' => 
+    'password.confirm' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'password/confirm',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1851,19 +1839,19 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\ConfirmPasswordController@showConfirmForm',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.confirm',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
@@ -1871,19 +1859,19 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
-    'generated::x9u0EoeHiFRypH8O' => 
+    'generated::x9u0EoeHiFRypH8O' =>
 =======
-    'generated::pUBqGuQsbsaH64Zu' => 
+    'generated::pUBqGuQsbsaH64Zu' =>
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'password/confirm',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1891,7 +1879,7 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Auth\\ConfirmPasswordController@confirm',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
 <<<<<<< HEAD
@@ -1901,30 +1889,30 @@ app('router')->setCompiledRoutes(
 >>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'admin' => 
+    'admin' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'admin',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1932,36 +1920,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@index',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'admin',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'home' => 
+    'home' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'home',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -1969,36 +1957,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\HomeController@index',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'home',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'crearusuario' => 
+    'crearusuario' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'agregarusuario',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -2006,35 +1994,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\UserController@mostrarAgregarUsuario',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'crearusuario',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'agregarusuario' => 
+    'agregarusuario' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'agregarusuario/crear',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -2042,36 +2030,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\UserController@store',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'agregarusuario',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'mostrarcarreras' => 
+    'mostrarcarreras' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'gestionarcarreras',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -2079,35 +2067,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@mostrarPanelCarreras',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'mostrarcarreras',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'crearcarrera' => 
+    'crearcarrera' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'agregarcarrera/crear',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -2115,19 +2103,19 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\CarreraController@store',
         'namespace' => NULL,
         'prefix' => NULL,
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'crearcarrera',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
@@ -2135,5 +2123,4 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
   ),
-)
 );
