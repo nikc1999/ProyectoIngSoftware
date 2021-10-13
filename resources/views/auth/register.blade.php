@@ -1,10 +1,11 @@
-use Illuminate\Support\Facades\Auth;
+<!--use Illuminate\Support\Facades\Auth;-->
 @extends('layouts.app')
 @section('content')
 @if (Auth::user()->rol=='Administrador')
     @if($carreras->isEmpty())
-        <h1>no hay carreras</h1>
-        <center><a href="/usuario"><button class="btn btn-primary" type="button">Regresar</button></a></center>
+        <center><h1> No hay carreras</h1></center>
+        <br>
+        <!--<center><a href="/usuario"><button class="btn btn-primary" type="button">Regresar</button></a></center>-->
 
     @else
         <div class="container">
@@ -81,7 +82,7 @@ use Illuminate\Support\Facades\Auth;
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button id="boton"type="submit" class="btn btn-primary">
+                                        <button id="boton"type="submit" class="btn btn-outline-primary">
                                             Registrar
                                         </button>
                                     </div>
@@ -129,8 +130,11 @@ use Illuminate\Support\Facades\Auth;
             })
         }
     })
-</script>
 
+</script>
+<br>
+<center><a href="/usuario"><button class="btn btn-danger btn-lg btn-block" type="button">Volver</button></a>
+<center><a href="{{ route('home') }}"><button class="btn btn-secondary btn-lg btn-block" type="button">Volver Menu</button></a>
 
 @else
 @php
