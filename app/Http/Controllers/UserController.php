@@ -45,7 +45,7 @@ class UserController extends Controller
         return view('auth.register')->with('carreras', $carreras);
     }
 
-    public function habilitarUsuario(User $user)
+    public function habilitarUsuario(Request $user)
     {
         if ($user->habilitado === 0) {
             $user->habilitado = 1;
