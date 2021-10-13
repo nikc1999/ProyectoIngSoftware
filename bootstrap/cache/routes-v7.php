@@ -24,7 +24,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::Io5JfhzXo2Re16fy',
+=======
+            '_route' => 'generated::Ga4y6phpbwyI5zey',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
           2 => 
@@ -44,7 +48,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::AB3ClCiLmIVM3JgS',
+=======
+            '_route' => 'generated::flF10260TgepdoPS',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
           2 => 
@@ -64,7 +72,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::wPTFKXXmFz6LGus8',
+=======
+            '_route' => 'generated::QJVBhCcT46oy9JAo',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
           2 => 
@@ -84,7 +96,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::l2LKDLeRYW1R31C6',
+=======
+            '_route' => 'generated::sOh1LWz3OusRj1px',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
           2 => 
@@ -233,7 +249,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::XBv54TzgG48RStkI',
+=======
+            '_route' => 'generated::QzboPnXv1FBloMXh',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
           2 => 
@@ -288,7 +308,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::j9s6GknCdLEjOxmj',
+=======
+            '_route' => 'generated::0RPDelLs95EEAFhw',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
           2 => 
@@ -379,7 +403,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::x9u0EoeHiFRypH8O',
+=======
+            '_route' => 'generated::pUBqGuQsbsaH64Zu',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
           ),
           1 => NULL,
           2 => 
@@ -419,6 +447,26 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'home',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/agregarusuario' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'crearusuario',
           ),
           1 => NULL,
           2 => 
@@ -711,7 +759,11 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
+<<<<<<< HEAD
     'generated::Io5JfhzXo2Re16fy' => 
+=======
+    'generated::Ga4y6phpbwyI5zey' => 
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
       'methods' => 
       array (
@@ -732,7 +784,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
+<<<<<<< HEAD
         'as' => 'generated::Io5JfhzXo2Re16fy',
+=======
+        'as' => 'generated::Ga4y6phpbwyI5zey',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
       'defaults' => 
@@ -748,7 +804,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::AB3ClCiLmIVM3JgS' => 
+=======
+    'generated::flF10260TgepdoPS' => 
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
       'methods' => 
       array (
@@ -763,15 +823,25 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
+<<<<<<< HEAD
         'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@krW5IDoKr/RNV/YVAAgeghB0YK3Q6+x0AVt3++00Lc0=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000058779a87000000007bffe3c5";}}',
+=======
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@gtkiisuHyAjDX9OTegVLB4DvbeEHRgiEJLJwF5PVvY8=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+    return $request->user();
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005267940f0000000046dcb15e";}}',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::AB3ClCiLmIVM3JgS',
+=======
+        'as' => 'generated::flF10260TgepdoPS',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
       'defaults' => 
@@ -787,7 +857,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::wPTFKXXmFz6LGus8' => 
+=======
+    'generated::QJVBhCcT46oy9JAo' => 
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
       'methods' => 
       array (
@@ -801,15 +875,25 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
+<<<<<<< HEAD
         'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":261:{@qcH7PnctTC/mNFURn7uIcELws22/AKMRXlMXVucESDo=.a:5:{s:3:"use";a:0:{}s:8:"function";s:49:"function () {
     return \\view(\'auth.login\');
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000058779a89000000007bffe3c5";}}',
+=======
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":261:{@Zg2REtt3WFMTemoSG/83jbLsFS5nc/HXWHNTXCFWmDk=.a:5:{s:3:"use";a:0:{}s:8:"function";s:49:"function () {
+    return \\view(\'auth.login\');
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000526794010000000046dcb15e";}}',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::wPTFKXXmFz6LGus8',
+=======
+        'as' => 'generated::QJVBhCcT46oy9JAo',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
       'defaults' => 
@@ -825,7 +909,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::l2LKDLeRYW1R31C6' => 
+=======
+    'generated::sOh1LWz3OusRj1px' => 
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
       'methods' => 
       array (
@@ -839,15 +927,25 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
+<<<<<<< HEAD
         'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":295:{@epex1DG1/jxSAQXnIwPX/1kilQxppVN2l1ZyoRFgfy8=.a:5:{s:3:"use";a:0:{}s:8:"function";s:83:"function () {  //Manda la vista
     return \\view(\'administrador.crearcarrera\');
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000058779a8b000000007bffe3c5";}}',
+=======
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":295:{@sv7dMKmP9mhlz0YCWXJQ2uV2lsw6YL0leN1053eNFtY=.a:5:{s:3:"use";a:0:{}s:8:"function";s:83:"function () {  //Manda la vista
+    return \\view(\'administrador.crearcarrera\');
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000526794030000000046dcb15e";}}',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::l2LKDLeRYW1R31C6',
+=======
+        'as' => 'generated::sOh1LWz3OusRj1px',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
       'defaults' => 
@@ -1428,7 +1526,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::XBv54TzgG48RStkI' => 
+=======
+    'generated::QzboPnXv1FBloMXh' => 
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
       'methods' => 
       array (
@@ -1448,7 +1550,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::XBv54TzgG48RStkI',
+=======
+        'as' => 'generated::QzboPnXv1FBloMXh',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
       'defaults' => 
@@ -1537,7 +1643,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::j9s6GknCdLEjOxmj' => 
+=======
+    'generated::0RPDelLs95EEAFhw' => 
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
       'methods' => 
       array (
@@ -1557,7 +1667,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::j9s6GknCdLEjOxmj',
+=======
+        'as' => 'generated::0RPDelLs95EEAFhw',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
       'defaults' => 
@@ -1756,7 +1870,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::x9u0EoeHiFRypH8O' => 
+=======
+    'generated::pUBqGuQsbsaH64Zu' => 
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
     array (
       'methods' => 
       array (
@@ -1776,7 +1894,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::x9u0EoeHiFRypH8O',
+=======
+        'as' => 'generated::pUBqGuQsbsaH64Zu',
+>>>>>>> parent of e9a56d8 (Merge branch 'matiRama' into juanRama)
       ),
       'fallback' => false,
       'defaults' => 
@@ -1851,6 +1973,43 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'home',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'crearusuario' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'agregarusuario',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\UserController@mostrarAgregarUsuario',
+        'controller' => 'App\\Http\\Controllers\\UserController@mostrarAgregarUsuario',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'crearusuario',
       ),
       'fallback' => false,
       'defaults' => 

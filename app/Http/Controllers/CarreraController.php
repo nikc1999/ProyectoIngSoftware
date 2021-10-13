@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carrera;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\Validator;
@@ -91,12 +90,7 @@ class CarreraController extends Controller
     public function mostrarPanelCarreras()
     {
         $carreras = Carrera::all();
-        $usuarios = User::all();
-        $datos = [
-            'carreras' => $carreras,
-            'usuarios' => $usuarios,
-        ];
-        return view('administrador.gestionar_carreras')->with('datos', $datos);
+        return view('administrador.gestionar_carreras')->with('carrera', $carreras);
     }
 
     public function edit(Carrera $carrera)

@@ -37,12 +37,14 @@ class UserController extends Controller
      */
     public function mostrarAgregarUsuario()
     {
+        $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
+        return view('auth.register')->with('carrera', $carreras);
+
 
     }
     public function create()
     {
-        $carreras = Carrera::with('users')->get();  //Lo que realiza es llamar de la base de datos todas las carreras
-        return view('auth.register')->with('carreras', $carreras);
+        //
     }
 
     /**
