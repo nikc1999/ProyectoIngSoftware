@@ -118,7 +118,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-       //jaj
+        return view('administrador.editar')->with('user', $user);
     }
 
     /**
@@ -130,7 +130,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //jej
+
     }
 
     /**
