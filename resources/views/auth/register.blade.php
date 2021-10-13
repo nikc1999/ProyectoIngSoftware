@@ -1,11 +1,9 @@
-use Illuminate\Support\Facades\Auth;
 @extends('layouts.app')
 @section('content')
 @if (Auth::user()->rol=='Administrador')
     @if($carreras->isEmpty())
         <h1>no hay carreras</h1>
         <center><a href="/usuario"><button class="btn btn-primary" type="button">Regresar</button></a></center>
-
     @else
         <div class="container">
             <div class="row justify-content-center">
