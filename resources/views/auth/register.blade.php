@@ -5,7 +5,6 @@
         <center><h1> No hay carreras</h1></center>
         <br>
         <!--<center><a href="/usuario"><button class="btn btn-primary" type="button">Regresar</button></a></center>-->
-
     @else
         <div class="container">
             <div class="row justify-content-center">

@@ -48,4 +48,8 @@ Route::get('/gestionarcarreras', [App\Http\Controllers\CarreraController::class,
 
 Route::post('/agregarcarrera/crear', [App\Http\Controllers\CarreraController::class, 'store'])->name('crearcarrera'); //Se encarga de registrar la carrera
 
-//Route::post('/editarusuario/habilitar', [App\Http\Controllers\UserController::class, 'habilitarUsuario'])->name('habilitar');
+Route::post('/editarusuario/habilitar', [App\Http\Controllers\UserController::class, 'habilitarUsuario'])->name('habilitar');
+
+Route::post('/modificaradministrador', [App\Http\Controllers\UserController::class, 'modificarAdmin'])->name('editarAdministrador');
+
+//Route::post('/editarusuario/modificarusuario', [App\Http\Controllers\UserController::class, 'modificarUsuario'])->name('editarUsuario');

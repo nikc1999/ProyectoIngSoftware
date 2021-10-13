@@ -46,15 +46,17 @@ class UserController extends Controller
         return view('auth.register')->with('carreras', $carreras);
     }
 
-    public function habilitarUsuario(User $user)
+    public function habilitarUsuario(Request $request)
     {
-        if ($user->habilitado === 0) {
-            $user->habilitado = 1;
-            $user->save();
+        $encontrarUsuario = User::where('id', $request->id)->first();
+
+        if ($encontrarUsuario->habilitado === 0) {
+            $encontrarUsuario->habilitado = 1;
+            $encontrarUsuario->save();
             return redirect('/usuario');
         }else {
-            $user->habilitado = 0;
-            $user->save();
+            $encontrarUsuario->habilitado = 0;
+            $encontrarUsuario->save();
             return redirect('/usuario');
         }
     }
@@ -127,16 +129,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        dd($user);
-        if ($user->habilitado === 0) {
-            $user->habilitado = 1;
-            $user->save();
-            return redirect('/usuario');
-        }else {
-            $user->habilitado = 0;
-            $user->save();
-            return redirect('/usuario');
-        }
+        return view('administrador.editar')->with('user', $user);
     }
 
     /**
@@ -148,7 +141,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+
     }
 
     /**
