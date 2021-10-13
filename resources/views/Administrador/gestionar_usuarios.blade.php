@@ -27,12 +27,16 @@
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
-                <td><a class="btn btn-info" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
+                <td><a class="btn btn-info" href={{ route('usuario.edit', [$user])}}>Editar</a></td>
+
+                <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
+                    @csrf
                 @if ($user->habilitado==0)
-                    <td><a class="btn btn-success" href={{ route('usuario.edit', [$user]) }}>Habilitar</a></td>
+                    <td><button class="btn btn-success">Habilitar</button></td>
                 @else
-                    <td><a class="btn btn-danger" href={{ route('usuario.edit', [$user]) }}>Deshabilitar</a></td>
+                    <td><button class="btn btn-danger">Deshabilitar</button></td>
                     @endif
+                </form>
             </tr>
         @endforeach
     </tbody>
