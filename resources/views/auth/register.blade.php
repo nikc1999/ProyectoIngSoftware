@@ -121,10 +121,31 @@
         const rolSelect = document.getElementById('rol');
         const carreraSelect = document.getElementById('carrera')
         //variable de carreras desde el controlador de carreras
+        const listaCarreras = {!! json_encode($carrera) !!}
+        if (listaCarreras.length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No puedes crear usuarios sin tener carreras en el sistema!',
+                footer: 'Para crear carreras has&nbsp;<a href="/carrera/create">click aca</a>'
+            }).then((result) => {
+                window.location.href = '/usuario'
+            })
+        }
         rolSelect.addEventListener('change', function(e){
             if (rolSelect.value === 'Jefe Carrera') {
-            carreraSelect.value = null;
-            carreraSelect.disabled = true;
+                for (let index = 0; index < listaCarreras.length; index++) {
+                    const element = listaCarreras[index];
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No puedes crear usuarios sin tener carreras en el sistema!',
+                        footer: 'Para crear carreras has&nbsp;<a href="/carrera/create">click aca</a>'
+            }).then((result) => {
+                window.location.href = '/usuario'
+            })
+                }
+
             }else{
                 carreraSelect.disabled = false;
             }
