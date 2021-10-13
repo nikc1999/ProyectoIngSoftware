@@ -1,7 +1,8 @@
+use Illuminate\Support\Facades\Auth;
 @extends('layouts.app')
 @section('content')
 @if (Auth::user()->rol=='Administrador')
-    @if($carrera->isEmpty())
+    @if($carreras->isEmpty())
         <h1>no hay carreras</h1>
         <center><a href="/usuario"><button class="btn btn-primary" type="button">Regresar</button></a></center>
 
@@ -61,8 +62,8 @@
                                 <div class="form-group">
                                     <label for="form-control-label" style="color: black">Rol</label>
 
-                                        <select  class="form-control" name="rol" id="rol">
-                                            <option selected>Seleccione un rol</option>
+                                        <select class="form-control" name="rol" id="rol">
+                                            <option>Seleccione un rol</option>
                                             <option value="Jefe de Carrera">Jefe de carrera</option>
                                             <option value="Alumno">Alumno</option>
                                         </select>
@@ -71,11 +72,9 @@
                                 <div class="form-group">
                                     <label for="form-control-label">Carrera</label>
                                     <select class="form-control" name="carrera" id="carrera">
-                                        <option selected>Seleccione una carrera</option>
-                                        @foreach($carrera as $car)
-
+                                        <option value={{null}}>Seleccione una carrera</option>
+                                        @foreach($carreras as $car)
                                             <option value='{{$car->id}}'>{{$car->nombre}}</option>
-
                                         @endforeach
                                     </select>
                                 </div>
@@ -97,24 +96,39 @@
 
 <script>
 
-    const button = document.getElementById('boton');
-    const form = document.getElementById('formulario')
-    button.addEventListener('click', function(e){
-        e.preventDefault();
-        //funciona
+    const rolSelect = document.getElementById('rol')
+    const carreraSelect = document.getElementById('carrera')
+    const optionSelect = document.getElementById("carrera").getElementsByTagName("option")
 
-
-        const rolSelect = document.getElementById('rol');
-        const carreraSelect = document.getElementById('carrera')
-        //variable de carreras desde el controlador de carreras
-        const listaCarreras = {!! json_encode($carrera) !!}
-
-        $carrera.forEach(element => element.id {
-
-        });
+    //variable de carreras que llegan desde el controlador de carreras
+    const listaCarreras = {!! json_encode($carreras) !!}
+    console.log(listaCarreras);
+    rolSelect.addEventListener('change', function(e){
+        if (rolSelect.value === 'Jefe de Carrera') {
+            listaCarreras.forEach(carrera => {
+               carrera.users.forEach(user =>{
+                    if(user.rol === "Jefe de Carrera") {
+                        for(let i = 0; i < optionSelect.length; i++){
+                            if(carrera.id == optionSelect[i].value){
+                                optionSelect[i].style.display = "none"
+                            }
+                        }
+                    }
+                })
+            })
+        }
+        else{
+            listaCarreras.forEach(carrera => {
+               carrera.users.forEach(user =>{
+                    for(let i = 0; i < optionSelect.length; i++){
+                        if(carrera.id == optionSelect[i].value){
+                             optionSelect[i].style.display = "unset"
+                         }
+                     }
+                })
+            })
+        }
     })
-
-
 </script>
 
 

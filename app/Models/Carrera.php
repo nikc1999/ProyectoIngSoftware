@@ -13,4 +13,8 @@ class Carrera extends Model
         'nombre',
         'codigo',
     ];
+
+    public function users(){
+        return $this->hasMany(User::class);
+    }
 }
