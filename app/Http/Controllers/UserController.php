@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carrera;
 use App\Models\User;
+use App\Rules\ValidarCarreraTieneJefe;
 use App\Rules\ValidarRut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
@@ -26,7 +27,7 @@ class UserController extends Controller
         if(Auth::user()->rol=='Administrador')
         {
             $usuarios = User::all();  //Lo que realiza es llamar de la base de datos todos los usuarios
-            return view('administrador.gestionar_usuarios');
+            return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
         }
     }
 
@@ -37,14 +38,27 @@ class UserController extends Controller
      */
     public function mostrarAgregarUsuario()
     {
-        $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
-        return view('auth.register')->with('carrera', $carreras);
-
 
     }
     public function create()
     {
-        //
+        $carreras = Carrera::with('users')->get();  //Lo que realiza es llamar de la base de datos todas las carreras
+        return view('auth.register')->with('carreras', $carreras);
+    }
+
+    public function habilitarUsuario(Request $request)
+    {
+        $encontrarUsuario = User::where('id', $request->id)->first();
+
+        if ($encontrarUsuario->habilitado === 0) {
+            $encontrarUsuario->habilitado = 1;
+            $encontrarUsuario->save();
+            return redirect('/usuario');
+        }else {
+            $encontrarUsuario->habilitado = 0;
+            $encontrarUsuario->save();
+            return redirect('/usuario');
+        }
     }
 
     /**
@@ -55,14 +69,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
-            'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
-            'carrera'=>['exists:App\Models\Carrera,id'] //este es ctm
-        ]);
+        if ($request['rol'] == 'Jefe de Carrera'){
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'carrera'=>['exists:App\Models\Carrera,id',new ValidarCarreraTieneJefe]
+            ]);
+        }
+        else{
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'carrera'=>['exists:App\Models\Carrera,id']
+            ]);
+        }
 
         $rut = $request->rut;
         $contrasena = substr($rut, 0, 6);
@@ -103,9 +127,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(int $id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $carreras = Carrera::with('users')->get();
+        $datos = [
+            'carreras' => $carreras,
+            'usuario' => $user,
+        ];
+        if ($user->rol == 'Administrador'){
+            return view('usuario.edit')->with('datos', $datos);
+        }
+        return view('usuario.edit')->with('datos', $datos);
     }
 
     /**
@@ -115,9 +148,46 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, int $id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        if ($user->rol == 'Administrador'){
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
+                'rut' => ['required', 'string','unique:users,rut,'.$user->id,'min:8', 'max:9',new ValidarRut],
+            ]);
+            $user->name = $request->name;
+            $user->rut = $request->rut;
+            $user->email = $request->email;
+            $user->save();
+            return redirect('/usuario');
+        }
+        if ($request['rol'] == 'Alumno' or ($request['rol'] == 'Jefe de Carrera' and $user['rol'] == 'Jefe de Carrera' and $request['carrera'] == $user['carrera_id'])){
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
+                'rut' => ['required', 'string', 'unique:users,rut,'.$user->id,'min:8', 'max:9',new ValidarRut],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'carrera'=>['exists:App\Models\Carrera,id']
+            ]);
+        }
+        else{
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
+                'rut' => ['required', 'string', 'unique:users,rut,'.$user->id,'min:8', 'max:9',new ValidarRut],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'carrera'=>['exists:App\Models\Carrera,id',new ValidarCarreraTieneJefe]
+            ]);
+        }
+        $user->name = $request->name;
+        $user->rut = $request->rut;
+        $user->email = $request->email;
+        $user->rol = $request->rol;
+        $user->carrera_id = $request->carrera;
+        $user->save();
+        return redirect('/usuario');
     }
 
     /**
