@@ -31,6 +31,8 @@ Route::get('/agregarcarrera', function () {  //Manda la vista
 
 Route::resource('carrera', App\Http\Controllers\CarreraController::class,['middleware'=>'auth']);
 
+Route::resource('contrasena', App\Http\Controllers\ContraseñaController::class,['middleware'=>'auth']);
+
 Route::resource('usuario', App\Http\Controllers\UserController::class,['middleware'=>'auth']);
 
 Auth::routes();
