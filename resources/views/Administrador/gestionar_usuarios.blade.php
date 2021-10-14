@@ -48,11 +48,16 @@
                     <td><center><button class="btn btn-danger">Deshabilitar</button></td></center>
                     @endif
                 </form>
-                <td><a class="btn btn-warning" href="">Restablecer</a></td>
 
+                <form class="formulariorestablecer" method="POST" action="{{ route('restablecer', ['id' => $user]) }}">
+                    @csrf
+                    <td><button class="btn btn-warning botonrestablecer">Restablecer</button></td>
+                </form>
                 </tr>
 
             @endif
+
+
 
         @endforeach
     </tbody>
@@ -61,9 +66,27 @@
 </div>
 </div>
 
+<script>
+    const button = document.getElementsByClassName("botonrestablecer")
+    const form = document.getElementsByClassName('formulariorestablecer')
+    button.addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Contraseña Restablecida',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        form.submit();
+    })
+</script>
 
 <br>
 <a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a>
+
+
+
 @else
 @php
 header("Location: /home" );

@@ -200,4 +200,14 @@ class UserController extends Controller
     {
         //
     }
+
+    public function restablecerContrasena(Request $request)
+    {
+        $encontrarUsuario = User::where('id', $request->id)->first();
+        $rut=$encontrarUsuario->rut;
+        $contrasena=substr($rut,0,6);
+        $encontrarUsuario->password=bcrypt($contrasena);
+        $encontrarUsuario->save();
+        return redirect('/usuario');
+    }
 }
