@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::5NF5VeI5KoyB84Zq',
+            '_route' => 'generated::ZG2luWqMhVntUDqg',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::TkI268mtHL30XWbj',
+            '_route' => 'generated::mq6RTschmCPW8RrZ',
           ),
           1 => NULL,
           2 => 
@@ -64,27 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::a6jNkJAfqFdm0obb',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/agregarcarrera' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::vzN0e7pw6mmT187f',
+            '_route' => 'generated::77vhiBNQUrayQaWm',
           ),
           1 => NULL,
           2 => 
@@ -289,7 +269,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Z2sJGsjL37imN6Zd',
+            '_route' => 'generated::k3khORu92zHRhMaX',
           ),
           1 => NULL,
           2 => 
@@ -344,7 +324,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::HOMBlL443sb8EUaZ',
+            '_route' => 'generated::80bEjMgNJ3NApTFB',
           ),
           1 => NULL,
           2 => 
@@ -435,7 +415,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3tn5vSQORMiGDFAJ',
+            '_route' => 'generated::wSP4tJAOT1fTrEWF',
           ),
           1 => NULL,
           2 => 
@@ -546,6 +526,26 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/agregarcarrera' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'addcarrera',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/editarusuario/habilitar' => 
       array (
         0 => 
@@ -553,6 +553,25 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'habilitar',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/modificar_usuario' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'modificar',
           ),
           1 => NULL,
           2 => 
@@ -912,7 +931,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::5NF5VeI5KoyB84Zq' => 
+    'generated::ZG2luWqMhVntUDqg' => 
     array (
       'methods' => 
       array (
@@ -933,7 +952,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::5NF5VeI5KoyB84Zq',
+        'as' => 'generated::ZG2luWqMhVntUDqg',
       ),
       'fallback' => false,
       'defaults' => 
@@ -949,7 +968,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::TkI268mtHL30XWbj' => 
+    'generated::mq6RTschmCPW8RrZ' => 
     array (
       'methods' => 
       array (
@@ -964,15 +983,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@E9W2d+mHDvinUvGnVg0rWzmTM0jt5Qmu63JD2oOn200=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@MWg2vSApIVXAUs/8AUXZmN9Ym58ojE7Tey4FGA6+blk=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007f938dd8000000004638b51d";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000777c19c2000000003c7b932e";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::TkI268mtHL30XWbj',
+        'as' => 'generated::mq6RTschmCPW8RrZ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -988,7 +1007,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::a6jNkJAfqFdm0obb' => 
+    'generated::77vhiBNQUrayQaWm' => 
     array (
       'methods' => 
       array (
@@ -1002,53 +1021,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":259:{@dfUGs373TRuDsLuWNPt3NhYYDqdwQunfeVxqjU8sKTI=.a:5:{s:3:"use";a:0:{}s:8:"function";s:47:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":261:{@f9YEkrn7meSDd51Fo5ezugOI25StnPkfHrjc453fZ3c=.a:5:{s:3:"use";a:0:{}s:8:"function";s:49:"function () {
     return \\view(\'auth.login\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007f938dd6000000004638b51d";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000777c19cc000000003c7b932e";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::a6jNkJAfqFdm0obb',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::vzN0e7pw6mmT187f' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'agregarcarrera',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":293:{@UwNaYtLkw6vdgB2QCIYpXke3O7pMsRr4R0Gc5XTQSkA=.a:5:{s:3:"use";a:0:{}s:8:"function";s:81:"function () {  //Manda la vista
-    return \\view(\'administrador.crearcarrera\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007f938dd4000000004638b51d";}}',
-        'namespace' => NULL,
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::vzN0e7pw6mmT187f',
+        'as' => 'generated::77vhiBNQUrayQaWm',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1893,7 +1874,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Z2sJGsjL37imN6Zd' => 
+    'generated::k3khORu92zHRhMaX' => 
     array (
       'methods' => 
       array (
@@ -1913,7 +1894,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Z2sJGsjL37imN6Zd',
+        'as' => 'generated::k3khORu92zHRhMaX',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2002,7 +1983,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::HOMBlL443sb8EUaZ' => 
+    'generated::80bEjMgNJ3NApTFB' => 
     array (
       'methods' => 
       array (
@@ -2022,7 +2003,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::HOMBlL443sb8EUaZ',
+        'as' => 'generated::80bEjMgNJ3NApTFB',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2221,7 +2202,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::3tn5vSQORMiGDFAJ' => 
+    'generated::wSP4tJAOT1fTrEWF' => 
     array (
       'methods' => 
       array (
@@ -2241,7 +2222,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::3tn5vSQORMiGDFAJ',
+        'as' => 'generated::wSP4tJAOT1fTrEWF',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2440,6 +2421,43 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'addcarrera' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'agregarcarrera',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\CarreraController@agregarCarrera',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@agregarCarrera',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'addcarrera',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'habilitar' => 
     array (
       'methods' => 
@@ -2461,6 +2479,42 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'habilitar',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'modificar' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'modificar_usuario',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\UserController@modificarUsuario',
+        'controller' => 'App\\Http\\Controllers\\UserController@modificarUsuario',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'modificar',
       ),
       'fallback' => false,
       'defaults' => 
