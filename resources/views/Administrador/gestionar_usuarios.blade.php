@@ -29,8 +29,7 @@
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
-                <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user])}}>Editar</a></td>
-
+                <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
                 <td><center>PARAMETROS</center></td>
                 <td>NO MODIFICABLE</td>
             </tr>
