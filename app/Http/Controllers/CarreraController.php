@@ -30,7 +30,7 @@ class CarreraController extends Controller
 
     public function index()
     {
-        if( Auth::user()->rol== null || !Auth::user()   )
+        if(Auth::user()== null)
         {
             return view('auth.login');
         }
@@ -39,6 +39,7 @@ class CarreraController extends Controller
             $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
             return view('administrador.index')->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
         }
+        return redirect('/home');
     }
 
     /**

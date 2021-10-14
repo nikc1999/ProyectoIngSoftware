@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class= "container"><h1>Soy jefe carrera</h1></div>
-
+@if (Auth::user()->rol == 'Jefe de Carrera')
+    <div><H1>soy Jefe de Carrera</H1></div>
+@else
+@php
+header("Location: /home" );
+exit();
+@endphp
+@endif
 @endsection
