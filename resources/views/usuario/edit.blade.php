@@ -10,15 +10,15 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="form-control-label">Nuevo nombre:</label>
-                        <input id="name" type="text" class="form-control" name="name" required>
+                    <div class="col-md-6">
+                        <label class="form-control-label">Editar nombre:</label>
+                        <input id="name" type="text" value="{{ $datos['usuario']->name }}" class="form-control" name="name" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="form-control-label">Nuevo rut:</label>
-                        <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror" name="rut" required>
+                    <div class="col-md-6">
+                        <label class="form-control-label">Editar rut:</label>
+                        <input id="rut" type="text" value="{{ $datos['usuario']->rut }}" class="form-control @error('rut') is-invalid @enderror" name="rut" required>
                         @error('rut')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -27,9 +27,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="form-control-label">Nuevo correo:</label>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required>
+                    <div class="col-md-6">
+                        <label class="form-control-label">Editar correo:</label>
+                        <input id="email" type="email" value="{{ $datos['usuario']->email }}" class="form-control @error('email') is-invalid @enderror" name="email" required>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -50,15 +50,15 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="form-control-label">Nuevo nombre:</label>
-                        <input id="name" type="text" class="form-control" name="name" required>
+                    <div class="col-md-6">
+                        <label class="form-control-label">Editar nombre:</label>
+                        <input id="name" type="text" value="{{ $datos['usuario']->name }}" class="form-control" name="name" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="form-control-label">Nuevo rut:</label>
-                        <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror" name="rut" required>
+                    <div class="col-md-6">
+                        <label class="form-control-label">Editar rut:</label>
+                        <input id="rut" type="text" value="{{ $datos['usuario']->rut }}" class="form-control @error('rut') is-invalid @enderror" name="rut" required>
                         @error('rut')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -67,9 +67,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="form-control-label">Nuevo correo:</label>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required>
+                    <div class="col-md-6">
+                        <label class="form-control-label">Editar correo:</label>
+                        <input id="email" type="email" value="{{ $datos['usuario']->email }}" class="form-control @error('email') is-invalid @enderror" name="email" required>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -77,19 +77,24 @@
                     @enderror
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="form-control-label" style="color: black">Nuevo rol</label>
+                <div class="form-group col-md-6">
+                    <label for="form-control-label" style="color: black">Editar rol</label>
 
-                        <select class="form-control" name="rol" id="rol">
-                            <option>Seleccione un rol</option>
+                        <select class="form-control @error('rol') is-invalid @enderror" name="rol" id="rol">
+                            <option value="{{ $datos['usuario']->rol }}">Mantener mismo rol</option>
                             <option value="Jefe de Carrera">Jefe de carrera</option>
                             <option value="Alumno">Alumno</option>
                         </select>
+                        @error('rol')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
-                <div class="form-group">
-                    <label for="form-control-label">Nueva carrera</label>
-                    <select class="form-control @error('carrera') is-invalid @enderror" name="carrera" value="{{ old('carrera') }}" id="carrera">
-                        <option value={{null}}>Seleccione una carrera</option>
+                <div  class="form-group col-md-6">
+                    <label for="form-control-label">Editar carrera</label>
+                    <select class="form-control @error('carrera') is-invalid @enderror" value="{{ $datos['usuario']->carrera }}" name="carrera" value="{{ old('carrera') }}" id="carrera">
+                        <option value="{{ $datos['usuario']->carrera_id }}">Mantener misma carrera</option>
                         @foreach($datos['carreras'] as $car)
                             <option value='{{$car->id}}'>{{$car->nombre}}</option>
                         @endforeach
