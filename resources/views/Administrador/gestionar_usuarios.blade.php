@@ -72,17 +72,20 @@
 <script>
     const button = document.getElementsByClassName("botonrestablecer")
     const form = document.getElementsByClassName('formulariorestablecer')
-    button.addEventListener('click', function(e){
+    for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', function(e){
         e.preventDefault();
         Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Contraseña Restablecida',
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000,
         })
-        form.submit();
+        form[i].submit();
     })
+    }
+
 </script>
 
 <br>
