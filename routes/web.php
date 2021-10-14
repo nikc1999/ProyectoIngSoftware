@@ -50,6 +50,9 @@ Route::post('/agregarcarrera/crear', [App\Http\Controllers\CarreraController::cl
 
 Route::post('/editarusuario/habilitar', [App\Http\Controllers\UserController::class, 'habilitarUsuario'])->name('habilitar');
 
+Route::post('/modificar_usuario', [App\Http\Controllers\UserController::class, 'modificarUsuario'])->name('modificar');
+
+
 Route::post('/modificaradministrador', [App\Http\Controllers\UserController::class, 'modificarAdmin'])->name('editarAdministrador');
 
 //Route::post('/editarusuario/modificarusuario', [App\Http\Controllers\UserController::class, 'modificarUsuario'])->name('editarUsuario');

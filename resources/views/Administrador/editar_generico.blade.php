@@ -45,7 +45,7 @@
                     <option value="Alumno">Alumno</option>
                 </select>
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="form-control-label">Nueva carrera</label>
             <select class="form-control @error('carrera') is-invalid @enderror" name="carrera" value="{{ old('carrera') }}" id="carrera">
                 <option value={{null}}>Seleccione una carrera</option>
@@ -58,14 +58,14 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-        </div>
+        </div> --}}
 
         <div class="col-md-2">
             <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
         </div>
     </form></center>
 </div>
-
+{{--
 <script>
 
     const rolSelect = document.getElementById('rol')
@@ -102,7 +102,7 @@
         }
     })
 
-</script>
+</script> --}}
 
 @else
 @php

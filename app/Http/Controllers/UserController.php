@@ -46,6 +46,13 @@ class UserController extends Controller
         return view('auth.register')->with('carreras', $carreras);
     }
 
+    public function modificarUsuario(Request $request){
+
+        $encontrarUsuario = User::where('id', $request->id)->first();
+        return view('administrador.editar_generico')->with('usuario', $encontrarUsuario);
+
+    }
+
     public function habilitarUsuario(Request $request)
     {
         $encontrarUsuario = User::where('id', $request->id)->first();
@@ -145,7 +152,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        dd($request);
+        dd($user);
         if ($request['rol'] == 'Jefe de Carrera'){
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
@@ -164,13 +171,16 @@ class UserController extends Controller
                 'carrera'=>['exists:App\Models\Carrera,id']
             ]);
         }
+        //dd($request);
         $user->name = $request->name;
         $user->rut = $request->rut;
         $user->email = $request->email;
         $user->rol = $request->rol;
-        $user->carrera_id = $request->carrera;
+        $user->habilitado = 1;
+
+        //$user->carrera_id = $request->carrera;
         $user->save();
-        return redirect('/usuario');
+        return redirect('/home');
     }
 
     /**
