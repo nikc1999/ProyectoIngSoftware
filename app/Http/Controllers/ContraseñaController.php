@@ -21,7 +21,7 @@ class ContraseñaController extends Controller
      */
     public function index()
     {
-        //
+        return redirect('/home');
     }
 
     /**
@@ -65,7 +65,10 @@ class ContraseñaController extends Controller
     public function edit(int $id)
     {
         $user = User::where('id', $id)->first();
-        return view('contrasena.edit')->with('user',$user);
+        if (Auth::user()==$user){
+            return view('contrasena.edit')->with('user',$user);
+        }
+        return redirect('/home');
     }
 
     /**
