@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carrera;
 use App\Models\User;
+use App\Rules\ValidarCarreraTieneJefe;
 use App\Rules\ValidarRut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
@@ -68,14 +69,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
-            'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
-            'carrera'=>['exists:App\Models\Carrera,id'] //este es ctm
-        ]);
+        if ($request['rol'] == 'Jefe de Carrera'){
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'carrera'=>['exists:App\Models\Carrera,id',new ValidarCarreraTieneJefe]
+            ]);
+        }
+        else{
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'carrera'=>['exists:App\Models\Carrera,id']
+            ]);
+        }
 
         $rut = $request->rut;
         $contrasena = substr($rut, 0, 6);
@@ -118,7 +129,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-       //jaj
+        dd($user);
+        if ($user->rol == 'Administrador'){
+            return view('administrador.editar_admin')->with('usuario', $user);
+        }
+        return view('administrador.editar_generico')->with('usuario', $user);
     }
 
     /**
@@ -130,7 +145,32 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //jej
+        dd($request);
+        if ($request['rol'] == 'Jefe de Carrera'){
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'carrera'=>['exists:App\Models\Carrera,id',new ValidarCarreraTieneJefe]
+            ]);
+        }
+        else{
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'carrera'=>['exists:App\Models\Carrera,id']
+            ]);
+        }
+        $user->name = $request->name;
+        $user->rut = $request->rut;
+        $user->email = $request->email;
+        $user->rol = $request->rol;
+        $user->carrera_id = $request->carrera;
+        $user->save();
+        return redirect('/usuario');
     }
 
     /**
