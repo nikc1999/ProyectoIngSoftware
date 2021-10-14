@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -40,6 +44,7 @@ class UserController extends Controller
     {
 
     }
+
     public function create()
     {
         $carreras = Carrera::with('users')->get();  //Lo que realiza es llamar de la base de datos todas las carreras

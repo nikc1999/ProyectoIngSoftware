@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Validator;
 
 class CarreraController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,9 +48,9 @@ class CarreraController extends Controller
      */
 
 
-    public function create()
+    public function agregarCarrera()
     {
-        //
+        return view('administrador.crearcarrera');
     }
 
     /**
@@ -125,6 +129,16 @@ class CarreraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Carrera $carrera)
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         //
     }
