@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class CarreraController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +29,7 @@ class CarreraController extends Controller
 
     public function index()
     {
-        if( Auth::user()->rol== null || !Auth::user()   )
+        if(Auth::user()== null)
         {
             return view('auth.login');
         }
@@ -34,6 +38,7 @@ class CarreraController extends Controller
             $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
             return view('administrador.index')->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
         }
+        return redirect('/home');
     }
 
     /**
@@ -43,9 +48,9 @@ class CarreraController extends Controller
      */
 
 
-    public function create()
+    public function agregarCarrera()
     {
-        //
+        return view('administrador.crearcarrera');
     }
 
     /**
@@ -119,6 +124,16 @@ class CarreraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Carrera $carrera)
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         //
     }

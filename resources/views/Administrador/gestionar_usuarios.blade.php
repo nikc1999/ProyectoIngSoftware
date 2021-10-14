@@ -3,7 +3,6 @@
 @section('content')
 
 @if (Auth::user()->rol=='Administrador')
-
 <center><h1>Aqui se administran los usuarios</h1></center>
 <center><a href="{{ route('usuario.create') }}"><button class="btn btn-primary" type="button">Crear Usuario</button></a></center>
 <br>
@@ -29,17 +28,16 @@
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
-                <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user])}}>Editar</a></td>
-
-                <td><center>PARAMETROS</center></td>
-                <td>NO MODIFICABLE</td>
+                <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
+                <td><center>No modificable</center></td>
+                <td>No restablecible</td>
             </tr>
             @else
                 <tr>
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
-                <td><a class="btn btn-info" href={{ route('usuario.edit', [$user])}}>Editar</a></td>
+                <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
 
                 <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
                     @csrf
@@ -49,11 +47,16 @@
                     <td><center><button class="btn btn-danger">Deshabilitar</button></td></center>
                     @endif
                 </form>
-                <td><a class="btn btn-warning" href="">Restablecer</a></td>
 
+                <form class="formulariorestablecer" method="POST" action="{{ route('restablecer', ['id' => $user]) }}">
+                    @csrf
+                    <td><button class="btn btn-warning botonrestablecer">Restablecer</button></td>
+                </form>
                 </tr>
 
             @endif
+
+
 
         @endforeach
     </tbody>
@@ -62,9 +65,28 @@
 </div>
 </div>
 
+<script>
+    const button = document.getElementsByClassName("botonrestablecer")
+    const form = document.getElementsByClassName('formulariorestablecer')
+    for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Contraseña Restablecida',
+          showConfirmButton: false,
+          timer: 2000,
+        })
+        form[i].submit();
+    })
+    }
+
+</script>
 
 <br>
 <a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a>
+
 @else
 @php
 header("Location: /home" );

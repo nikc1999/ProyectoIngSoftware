@@ -70,12 +70,17 @@
 
                                 <div class="form-group">
                                     <label for="form-control-label">Carrera</label>
-                                    <select class="form-control" name="carrera" id="carrera">
+                                    <select class="form-control @error('carrera') is-invalid @enderror" name="carrera" value="{{ old('carrera') }}" id="carrera">
                                         <option value={{null}}>Seleccione una carrera</option>
                                         @foreach($carreras as $car)
                                             <option value='{{$car->id}}'>{{$car->nombre}}</option>
                                         @endforeach
                                     </select>
+                                    @error('carrera')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group row mb-0">

@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::19jH4vl6FzXYOE1v',
+            '_route' => 'generated::V16xsN3E9xLne2Pl',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::lsDnbiKBteVQw0hN',
+            '_route' => 'generated::mx6OKI1iHwQHFwpQ',
           ),
           1 => NULL,
           2 => 
@@ -64,27 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ICgQ05E1RyRJ9NS2',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/agregarcarrera' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::gJPniIjPRv0y1mHD',
+            '_route' => 'generated::NAWxHO2h7t80vPbL',
           ),
           1 => NULL,
           2 => 
@@ -141,6 +121,62 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'carrera.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/contrasena' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/contrasena/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.create',
           ),
           1 => NULL,
           2 => 
@@ -233,7 +269,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3IqMHYpYpORI3Jq6',
+            '_route' => 'generated::vWXARdW0BDv5ah8G',
           ),
           1 => NULL,
           2 => 
@@ -288,7 +324,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::I67P5GhLfxdNJSSy',
+            '_route' => 'generated::51CFQQIiO0HrXXBC',
           ),
           1 => NULL,
           2 => 
@@ -379,7 +415,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::h4WCVemPDknV7aq0',
+            '_route' => 'generated::5aRI6V0Tr157S5ie',
           ),
           1 => NULL,
           2 => 
@@ -490,6 +526,26 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/agregarcarrera' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'addcarrera',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/editarusuario/habilitar' => 
       array (
         0 => 
@@ -509,14 +565,71 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/modificar_usuario' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'modificar',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/modificaradministrador' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'editarAdministrador',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/editarusuario/restablecerContrasena' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'restablecer',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/carrera/([^/]++)(?|(*:27)|/edit(*:39)|(*:46))|/usuario/([^/]++)(?|(*:74)|/edit(*:86)|(*:93))|/password/reset/([^/]++)(*:125))/?$}sDu',
+      0 => '{^(?|/c(?|arrera/([^/]++)(?|(*:30)|/edit(*:42)|(*:49))|ontrasena/([^/]++)(?|(*:78)|/edit(*:90)|(*:97)))|/usuario/([^/]++)(?|(*:126)|/edit(*:139)|(*:147))|/password/reset/([^/]++)(*:180))/?$}sDu',
     ),
     3 => 
     array (
-      27 => 
+      30 => 
       array (
         0 => 
         array (
@@ -539,7 +652,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      39 => 
+      42 => 
       array (
         0 => 
         array (
@@ -562,7 +675,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      46 => 
+      49 => 
       array (
         0 => 
         array (
@@ -604,7 +717,95 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      74 => 
+      78 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.show',
+          ),
+          1 => 
+          array (
+            0 => 'contrasena',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      90 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.edit',
+          ),
+          1 => 
+          array (
+            0 => 'contrasena',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      97 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.update',
+          ),
+          1 => 
+          array (
+            0 => 'contrasena',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'contrasena',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      126 => 
       array (
         0 => 
         array (
@@ -627,7 +828,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      86 => 
+      139 => 
       array (
         0 => 
         array (
@@ -650,7 +851,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      93 => 
+      147 => 
       array (
         0 => 
         array (
@@ -692,7 +893,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      125 => 
+      180 => 
       array (
         0 => 
         array (
@@ -730,7 +931,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::19jH4vl6FzXYOE1v' => 
+    'generated::V16xsN3E9xLne2Pl' => 
     array (
       'methods' => 
       array (
@@ -751,7 +952,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::19jH4vl6FzXYOE1v',
+        'as' => 'generated::V16xsN3E9xLne2Pl',
       ),
       'fallback' => false,
       'defaults' => 
@@ -767,7 +968,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::lsDnbiKBteVQw0hN' => 
+    'generated::mx6OKI1iHwQHFwpQ' => 
     array (
       'methods' => 
       array (
@@ -782,15 +983,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@Mb2+iFtksMq2Iz7OUD0PXBoFQHSG+tBAD8uGCpmaa3w=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@O7W7Y2V3ONhWLsVA3+Bl1jIXbojBI0dnRWtsD7pt2ek=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000002ba42cec000000000621deb5";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000182a992b0000000057602e23";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::lsDnbiKBteVQw0hN',
+        'as' => 'generated::mx6OKI1iHwQHFwpQ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -806,7 +1007,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ICgQ05E1RyRJ9NS2' => 
+    'generated::NAWxHO2h7t80vPbL' => 
     array (
       'methods' => 
       array (
@@ -820,53 +1021,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":259:{@R3Yqvd9VwYtXT6y1EEAI86AYVPIIvlP6Q8vE9XQjeIs=.a:5:{s:3:"use";a:0:{}s:8:"function";s:47:"function () {
-    return \\view(\'auth.login\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000002ba42ce2000000000621deb5";}}',
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":258:{@HvYvtbMrBz0TxxsPTx5fKDjoVQ6yLm/gRtUXIcpCGfA=.a:5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
+    return \\redirect(\'/home\');
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000182a99250000000057602e23";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::ICgQ05E1RyRJ9NS2',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::gJPniIjPRv0y1mHD' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'agregarcarrera',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":293:{@qISuj43ltOMLkL84UOpzktNSL9MX4oz6bsWmXxrMFDE=.a:5:{s:3:"use";a:0:{}s:8:"function";s:81:"function () {  //Manda la vista
-    return \\view(\'administrador.crearcarrera\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000002ba42ce0000000000621deb5";}}',
-        'namespace' => NULL,
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::gJPniIjPRv0y1mHD',
+        'as' => 'generated::NAWxHO2h7t80vPbL',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1126,6 +1289,270 @@ app('router')->setCompiledRoutes(
         'as' => 'carrera.destroy',
         'uses' => 'App\\Http\\Controllers\\CarreraController@destroy',
         'controller' => 'App\\Http\\Controllers\\CarreraController@destroy',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'contrasena.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'contrasena',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'contrasena.index',
+        'uses' => 'App\\Http\\Controllers\\ContraseñaController@index',
+        'controller' => 'App\\Http\\Controllers\\ContraseñaController@index',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'contrasena.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'contrasena/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'contrasena.create',
+        'uses' => 'App\\Http\\Controllers\\ContraseñaController@create',
+        'controller' => 'App\\Http\\Controllers\\ContraseñaController@create',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'contrasena.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'contrasena',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'contrasena.store',
+        'uses' => 'App\\Http\\Controllers\\ContraseñaController@store',
+        'controller' => 'App\\Http\\Controllers\\ContraseñaController@store',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'contrasena.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'contrasena/{contrasena}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'contrasena.show',
+        'uses' => 'App\\Http\\Controllers\\ContraseñaController@show',
+        'controller' => 'App\\Http\\Controllers\\ContraseñaController@show',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'contrasena.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'contrasena/{contrasena}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'contrasena.edit',
+        'uses' => 'App\\Http\\Controllers\\ContraseñaController@edit',
+        'controller' => 'App\\Http\\Controllers\\ContraseñaController@edit',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'contrasena.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'contrasena/{contrasena}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'contrasena.update',
+        'uses' => 'App\\Http\\Controllers\\ContraseñaController@update',
+        'controller' => 'App\\Http\\Controllers\\ContraseñaController@update',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'contrasena.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'contrasena/{contrasena}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'contrasena.destroy',
+        'uses' => 'App\\Http\\Controllers\\ContraseñaController@destroy',
+        'controller' => 'App\\Http\\Controllers\\ContraseñaController@destroy',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
@@ -1447,7 +1874,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::3IqMHYpYpORI3Jq6' => 
+    'generated::vWXARdW0BDv5ah8G' => 
     array (
       'methods' => 
       array (
@@ -1467,7 +1894,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::3IqMHYpYpORI3Jq6',
+        'as' => 'generated::vWXARdW0BDv5ah8G',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1556,7 +1983,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::I67P5GhLfxdNJSSy' => 
+    'generated::51CFQQIiO0HrXXBC' => 
     array (
       'methods' => 
       array (
@@ -1576,7 +2003,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::I67P5GhLfxdNJSSy',
+        'as' => 'generated::51CFQQIiO0HrXXBC',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1775,7 +2202,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::h4WCVemPDknV7aq0' => 
+    'generated::5aRI6V0Tr157S5ie' => 
     array (
       'methods' => 
       array (
@@ -1795,7 +2222,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::h4WCVemPDknV7aq0',
+        'as' => 'generated::5aRI6V0Tr157S5ie',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1994,6 +2421,43 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'addcarrera' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'agregarcarrera',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\CarreraController@agregarCarrera',
+        'controller' => 'App\\Http\\Controllers\\CarreraController@agregarCarrera',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'addcarrera',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'habilitar' => 
     array (
       'methods' => 
@@ -2015,6 +2479,114 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'habilitar',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'modificar' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'modificar_usuario',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\UserController@modificarUsuario',
+        'controller' => 'App\\Http\\Controllers\\UserController@modificarUsuario',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'modificar',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'editarAdministrador' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'modificaradministrador',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\UserController@modificarAdmin',
+        'controller' => 'App\\Http\\Controllers\\UserController@modificarAdmin',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'editarAdministrador',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'restablecer' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'editarusuario/restablecerContrasena',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\UserController@restablecerContrasena',
+        'controller' => 'App\\Http\\Controllers\\UserController@restablecerContrasena',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'restablecer',
       ),
       'fallback' => false,
       'defaults' => 
