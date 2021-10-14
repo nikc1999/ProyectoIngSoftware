@@ -49,12 +49,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        dd($data);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'rut' => ['required', 'string', 'unique:users', 'max:9', 'min:8']
-
+            'rut' => ['required', 'string', 'unique:users', 'max:9', 'min:8'],
+            'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+            'carrera'=>['exists:App\Models\Carrera,id']
         ]);
     }
 
@@ -66,12 +68,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        dd($data);
         return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
         'password' => Hash::make($data['password']),
         'rut' => $data['rut'],
-        'habilitado' => 1
+        'rol' => $data['rol'],
+        'habilitado' => 1,
+        'carrera_id'=> $data['carrera'],
+
         ]);
     }
 }

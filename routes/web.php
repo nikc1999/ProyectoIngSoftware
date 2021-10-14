@@ -40,6 +40,9 @@ Route::get('/agregarcarrera', [App\Http\Controllers\CarreraController::class, 'a
 
 Route::post('/editarusuario/habilitar', [App\Http\Controllers\UserController::class, 'habilitarUsuario'])->name('habilitar');
 
+Route::post('/modificar_usuario', [App\Http\Controllers\UserController::class, 'modificarUsuario'])->name('modificar');
+
+
 Route::post('/modificaradministrador', [App\Http\Controllers\UserController::class, 'modificarAdmin'])->name('editarAdministrador');
 
 Route::post('/editarusuario/restablecerContrasena', [App\Http\Controllers\UserController::class, 'restablecerContrasena'])->name('restablecer');
