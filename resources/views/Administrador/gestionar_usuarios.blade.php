@@ -38,7 +38,7 @@
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
                 {{-- <td><a class="btn btn-info" href={{ route('usuario.edit', [$user])}}>Editar</a></td> --}}
-                <form method="POST" action="{{ route('modificar', ['id' => $user]) }}">
+                <form method="get" action="{{ route('usuario.edit', $user) }}">
                     @csrf
                     <td><center><button class="btn btn-success">Editar</button></td></center>
                 </form>

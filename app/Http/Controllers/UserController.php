@@ -134,9 +134,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(string $id)
     {
-        dd($user);
+        $user = User::where('id',$id)->first();
         if ($user->rol == 'Administrador'){
             return view('administrador.editar_admin')->with('usuario', $user);
         }
@@ -150,7 +150,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, string $user)
     {
         dd($user);
         if ($request['rol'] == 'Jefe de Carrera'){
