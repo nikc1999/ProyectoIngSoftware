@@ -145,7 +145,6 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        dd($request);
         if ($request['rol'] == 'Jefe de Carrera'){
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],

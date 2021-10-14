@@ -33,7 +33,6 @@ Route::resource('carrera', App\Http\Controllers\CarreraController::class,['middl
 
 Route::resource('usuario', App\Http\Controllers\UserController::class,['middleware'=>'auth']);
 
-
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->name('admin');

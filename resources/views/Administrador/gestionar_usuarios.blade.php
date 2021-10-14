@@ -9,7 +9,7 @@
 <br>
 
 @if ($usuarios->isEmpty())
-<center><div>No hay Carreras</div></center>
+<div>No hay Carreras</div>
 @else
 <table class="table">
     <thead>
@@ -18,23 +18,12 @@
             <th>RUT</th>
             <th>ROL</th>
             <th>EDITAR</th>
-            <th><center>HABILITACION</center></th>
-            <th>CONTRASEÑA</th>
+            <th>HABILITACION</th>
         </tr>
     </thead>
     <tbody>
         @foreach($usuarios as $user)
-            @if ($user->rol=="Administrador")
             <tr>
-                <td>{!! $user->name !!}</td>
-                <td>{!! $user->rut !!}</td>
-                <td>{!! $user->rol !!}</td>
-                <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
-                <td><center>PARAMETROS</center></td>
-                <td>NO MODIFICABLE</td>
-            </tr>
-            @else
-                <tr>
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
@@ -43,24 +32,16 @@
                 <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
                     @csrf
                 @if ($user->habilitado==0)
-                    <td><center><button class="btn btn-success">Habilitar</button></td></center>
+                    <td><button class="btn btn-success">Habilitar</button></td>
                 @else
-                    <td><center><button class="btn btn-danger">Deshabilitar</button></td></center>
+                    <td><button class="btn btn-danger">Deshabilitar</button></td>
                     @endif
                 </form>
-                <td><a class="btn btn-warning" href="">Restablecer</a></td>
+            </tr>
 
-                </tr>
-
-            @endif
-
-        @endforeach
-    </tbody>
-</table>
 @endif
-</div>
-</div>
 
+@endif
 
 <br>
 <a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a>
