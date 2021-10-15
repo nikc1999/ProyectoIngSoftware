@@ -2,7 +2,7 @@
 
 @section('content')
 @if (Auth::user()->rol == 'Alumno')
-    <div><H1>SOY ESTUDIANTE</H1></div>
+    <div><H1>Menú Estudiante</H1></div>
 @else
 @php
 header("Location: /home" );

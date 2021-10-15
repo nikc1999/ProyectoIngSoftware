@@ -5,12 +5,17 @@
 <div class="container col-md-8 col-md-offset-2">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2>Gestionar Carreras</h2>
+            <h2>Panel de Carreras</h2>
         </div>
         <a class="nav-link" href="/agregarcarrera"><button class="btn btn-primary" type="button">Crear Carrera</button></a>
         @if ($datos['carreras']->isEmpty())
-            <div>No hay Carreras</div>
+            <br>
+            <br>
+            <div class="alert alert-danger" role="alert">
+                No existen carreras en el sistema
+            </div>
         @else
+        <br>
             <table class="table">
                 <thead>
                     <tr>
