@@ -40,7 +40,7 @@
                 {{-- <td><a class="btn btn-info" href={{ route('usuario.edit', [$user])}}>Editar</a></td> --}}
                 <form method="get" action="{{ route('usuario.edit', $user) }}">
                     @csrf
-                    <td><button class="btn btn-success">Editar</button></td>
+                    <td><button class="btn btn-primary">Editar</button></td>
                 </form>
 
                 <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
