@@ -63,7 +63,7 @@ class CarreraController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'codigo' => 'required|unique:carreras|regex:/[1-9][0-9][0-9][0-9]/|min:4|max:4',
+            'codigo' => 'required|unique:carreras|regex:/[1-9][0-9][0-9][0-9]/|size:4',
             'nombre' => 'required',
         ]);
 
