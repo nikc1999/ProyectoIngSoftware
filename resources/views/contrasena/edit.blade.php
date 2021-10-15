@@ -9,9 +9,14 @@
         @method('PUT')
 
         <div class="form-group">
-            <div class="col-md-2">
+            <div class="col-md-6">
                 <label class="form-control-label">Nueva Contraseña</label>
-                <input id="contrasena" type="text" class="form-control" name="contrasena" required>
+                <input id="contrasena" type="text" class="form-control @error('contrasena') is-invalid @enderror" name="contrasena" required>
+                @error('contrasena')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             </div>
         </div>
 

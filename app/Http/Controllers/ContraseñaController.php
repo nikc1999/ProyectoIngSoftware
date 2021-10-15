@@ -82,6 +82,9 @@ class ContraseñaController extends Controller
     {
         $user = User::where('id', $id)->first();
         $user->password = bcrypt($request->contrasena);
+        $request->validate([
+            'contrasena' => ['required', 'string', 'min:6','max:255'],
+        ]);
         $user->save();
 
         if($user->rol == 'Administrador'){
