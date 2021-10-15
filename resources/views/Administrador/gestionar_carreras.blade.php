@@ -7,9 +7,7 @@
         <div class="panel-heading">
             <h2>Gestionar Carreras</h2>
         </div>
-        <center><a class="nav-link" href="/agregarcarrera"><button class="btn btn-primary" type="button">Crear Carrera</button></a></center>
-
-
+        <a class="nav-link" href="/agregarcarrera"><button class="btn btn-primary" type="button">Crear Carrera</button></a>
         @if ($datos['carreras']->isEmpty())
             <div>No hay Carreras</div>
         @else

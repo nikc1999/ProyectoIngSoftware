@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +24,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        if(Auth::user()==null)
+        if(Auth::user()== null)
         {
             return view('auth.login');
         }
@@ -29,6 +33,7 @@ class UserController extends Controller
             $usuarios = User::all();  //Lo que realiza es llamar de la base de datos todos los usuarios
             return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
         }
+        return redirect('/home');
     }
 
     /**
@@ -40,6 +45,7 @@ class UserController extends Controller
     {
 
     }
+
     public function create()
     {
         $carreras = Carrera::with('users')->get();  //Lo que realiza es llamar de la base de datos todas las carreras

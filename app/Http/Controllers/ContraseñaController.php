@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Validator;
 
 class ContraseñaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +21,7 @@ class ContraseñaController extends Controller
      */
     public function index()
     {
-        //
+        return redirect('/home');
     }
 
     /**
@@ -61,7 +65,10 @@ class ContraseñaController extends Controller
     public function edit(int $id)
     {
         $user = User::where('id', $id)->first();
-        return view('contrasena.edit')->with('user',$user);
+        if (Auth::user()==$user){
+            return view('contrasena.edit')->with('user',$user);
+        }
+        return redirect('/home');
     }
 
     /**
@@ -75,6 +82,9 @@ class ContraseñaController extends Controller
     {
         $user = User::where('id', $id)->first();
         $user->password = bcrypt($request->contrasena);
+        $request->validate([
+            'contrasena' => ['required', 'string', 'min:6','max:255'],
+        ]);
         $user->save();
 
         if($user->rol == 'Administrador'){

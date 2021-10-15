@@ -29,19 +29,15 @@
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
                 <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
-                <td><center>PARAMETROS</center></td>
-                <td>NO MODIFICABLE</td>
+                <td><center>No modificable</center></td>
+                <td>No restablecible</td>
             </tr>
             @else
                 <tr>
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
-                {{-- <td><a class="btn btn-info" href={{ route('usuario.edit', [$user])}}>Editar</a></td> --}}
-                <form method="get" action="{{ route('usuario.edit', $user) }}">
-                    @csrf
-                    <td><button class="btn btn-success">Editar</button></td>
-                </form>
+                <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
 
                 <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
                     @csrf
@@ -90,8 +86,6 @@
 
 <br>
 <a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a>
-
-
 
 @else
 @php
