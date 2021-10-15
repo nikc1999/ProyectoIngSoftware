@@ -4,7 +4,7 @@
 @if (Auth::user()->rol=='Administrador')
     @if($datos['usuario']->rol=='Administrador')
         <div class = "container">
-                <div class="card">
+            <div class="card">
             <center>
             <form id="formulario" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
                 @csrf
@@ -12,7 +12,12 @@
                 <div class="form-group">
                     <div class="col-md-6">
                         <label class="form-control-label">Editar nombre:</label>
-                        <input id="name" type="text" value="{{ $datos['usuario']->name }}" class="form-control" name="name" required>
+                        <input id="nombre" type="text" value="{{ $datos['usuario']->name }}" class="form-control @error('nombre') is-invalid @enderror" name="nombre" required>
+                        @error('nombre')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                 </div>
                 <div class="form-group">
@@ -52,7 +57,12 @@
                 <div class="form-group">
                     <div class="col-md-6">
                         <label class="form-control-label">Editar nombre:</label>
-                        <input id="name" type="text" value="{{ $datos['usuario']->name }}" class="form-control" name="name" required>
+                        <input id="nombre" type="text" value="{{ $datos['usuario']->name }}" class="form-control @error('nombre') is-invalid @enderror" name="nombre" required>
+                        @error('nombre')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                 </div>
                 <div class="form-group">
