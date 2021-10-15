@@ -61,11 +61,16 @@
                                 <div class="form-group">
                                     <label for="form-control-label" style="color: black">Rol</label>
 
-                                        <select class="form-control" name="rol" id="rol">
+                                        <select class="form-control @error('rol') is-invalid @enderror" name="rol" id="rol">
                                             <option>Seleccione un rol</option>
                                             <option value="Jefe de Carrera">Jefe de carrera</option>
                                             <option value="Estudiante">Estudiante</option>
                                         </select>
+                                        @error('rol')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
