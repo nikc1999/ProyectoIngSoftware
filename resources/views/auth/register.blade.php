@@ -64,7 +64,7 @@
                                         <select class="form-control" name="rol" id="rol">
                                             <option>Seleccione un rol</option>
                                             <option value="Jefe de Carrera">Jefe de carrera</option>
-                                            <option value="Alumno">Alumno</option>
+                                            <option value="Estudiante">Estudiante</option>
                                         </select>
                                 </div>
 

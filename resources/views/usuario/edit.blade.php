@@ -83,7 +83,7 @@
                         <select class="form-control @error('rol') is-invalid @enderror" name="rol" id="rol">
                             <option value="{{ $datos['usuario']->rol }}">Mantener mismo rol</option>
                             <option value="Jefe de Carrera">Jefe de carrera</option>
-                            <option value="Alumno">Alumno</option>
+                            <option value="Estudiante">Estudiante</option>
                         </select>
                         @error('rol')
                         <span class="invalid-feedback" role="alert">
