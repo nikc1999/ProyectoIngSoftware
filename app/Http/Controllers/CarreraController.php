@@ -118,6 +118,9 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+        ]);
         $carrera->nombre = $request->nombre;
         $carrera->save();
         return redirect('/gestionarcarreras');
