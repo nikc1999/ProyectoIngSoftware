@@ -22,7 +22,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if(Auth::user()== null)
         {
@@ -30,8 +30,15 @@ class UserController extends Controller
         }
         if(Auth::user()->rol=='Administrador')
         {
-            $usuarios = User::all();  //Lo que realiza es llamar de la base de datos todos los usuarios
-            return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
+            if ($request->search == null) {
+                $usuarios = User::simplePaginate(10);
+                return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
+            }else {
+                $usuarios = User::where('rut', $request->search)->simplePaginate(1);
+                return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
+            }
+            //$usuarios = User::all();  //Lo que realiza es llamar de la base de datos todos los usuarios
+            //return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
         }
         return redirect('/home');
     }
