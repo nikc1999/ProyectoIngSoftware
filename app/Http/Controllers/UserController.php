@@ -84,7 +84,7 @@ class UserController extends Controller
     {
         if ($request['rol'] == 'Jefe de Carrera'){
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
+                'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
                 'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Estudiante'],
@@ -93,7 +93,7 @@ class UserController extends Controller
         }
         else{
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
+                'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
                 'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Estudiante'],
@@ -105,7 +105,7 @@ class UserController extends Controller
         $contrasena = substr($rut, 0, 6);
 
         $newUser = User::create([
-            'name' => $request->name,
+            'name' => $request->nombre,
             'email' => $request->email,
             'password' => bcrypt($contrasena),
             'rut' => $request['rut'],
