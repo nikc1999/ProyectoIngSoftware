@@ -24,7 +24,7 @@ class CarreraController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'codigo' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'codigo' => ['required', 'string', 'email', 'min:4', 'max:4', 'unique:users'],
         ]);
     }
 
