@@ -15,7 +15,7 @@
         </form>
         <a href={{ route('usuario.index')}}><button class="btn btn-secondary" type="button">Mostrar todos</button></a>
             <p style="text-align:right;">
-            <a href="{{ route('usuario.create') }}"><button class="btn btn-primary" type="button">Crear Usuario</button></a>
+            <a href="{{ route('usuario.create') }}"><button class="btn btn-info" type="button">Crear Usuario</button></a>
             </p>
   </div>
 
@@ -46,7 +46,7 @@
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
-                <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
+                <td><a class="btn btn-outline-info" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
                 <td><center>No modificable</center></td>
                 <td>No restablecible</td>
             </tr>
@@ -55,20 +55,20 @@
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
-                <td><a class="btn btn-primary" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
+                <td><a class="btn btn-outline-info" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
 
                 <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
                     @csrf
                 @if ($user->habilitado==0)
-                    <td><center><button class="btn btn-success">Habilitar</button></td></center>
+                    <td><center><button class="btn btn-outline-success">Habilitar</button></td></center>
                 @else
-                    <td><center><button class="btn btn-danger">Deshabilitar</button></td></center>
+                    <td><center><button class="btn btn-outline-danger">Deshabilitar</button></td></center>
                     @endif
                 </form>
 
                 <form class="formulariorestablecer" method="POST" action="{{ route('restablecer', ['id' => $user]) }}">
                     @csrf
-                    <td><button class="btn btn-warning botonrestablecer">Restablecer</button></td>
+                    <td><button class="btn btn-outline-dark botonrestablecer">Restablecer</button></td>
                 </form>
                 </tr>
 

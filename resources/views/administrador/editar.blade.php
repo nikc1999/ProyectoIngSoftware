@@ -28,8 +28,9 @@
         </div>
 
         <div class="col-md-2">
-            <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
+            <button type="submit" class="btn btn-outline-info">{{ __('Editar') }}</button>
         </div>
+        <br>
     </form></center>
 </div>
 @else
