@@ -3,13 +3,31 @@
 @section('content')
 
 @if (Auth::user()->rol=='Administrador')
-<center><h1>Aqui se administran los usuarios</h1></center>
-<center><a href="{{ route('usuario.create') }}"><button class="btn btn-primary" type="button">Crear Usuario</button></a></center>
+<div class="container col-md-8 col-md-offset-2">
+<h1>Panel de usuarios</h1>
+
 <br>
 
+<div class="btn-group" role="group" aria-label="Basic example">
+        <form method="GET" action="{{ route('usuario.index') }}">
+            <input type="text" name="search" id="search" placeholder="Buscar por Rut">
+            <button class="btn btn-secondary">Buscar</button>
+        </form>
+        <a href={{ route('usuario.index')}}><button class="btn btn-secondary" type="button">Mostrar todos</button></a>
+            <p style="text-align:right;">
+            <a href="{{ route('usuario.create') }}"><button class="btn btn-primary" type="button">Crear Usuario</button></a>
+            </p>
+  </div>
+
 @if ($usuarios->isEmpty())
-<center><div>No hay Carreras</div></center>
+<br>
+<br>
+<div class="alert alert-danger" role="alert">
+    No existe usuario con ese rut en el sistema
+ </div>
 @else
+<br>
+<br>
 <table class="table">
     <thead>
         <tr>
@@ -62,6 +80,7 @@
     </tbody>
 </table>
 @endif
+</div>
 </div>
 </div>
 

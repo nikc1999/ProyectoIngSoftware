@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'EstudiantePrueba@ucn.cl',
             'rut' => '200000003',
             'habilitado' => 1,
-            'rol' => 'Alumno',
+            'rol' => 'Estudiante',
             'password' => bcrypt('123123'),
         ]);
     }
