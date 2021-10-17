@@ -119,7 +119,9 @@
                 <div class="col-md-2">
                     <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
                 </div>
+
             </form></center>
+            <br>
         </div>
     @endif
 <script>
