@@ -140,8 +140,8 @@
     })
 
 </script>
-<br>
-<center><a href="/usuario"><button class="btn btn-primary btn-lg btn-block" type="button">Volver</button></a>
+
+<center><a href="/usuario"><button class="btn btn-info btn-block" type="button">Volver</button></a>
 <center><a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a>
 
 @else
