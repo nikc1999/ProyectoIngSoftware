@@ -20,9 +20,9 @@
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
 
-                                        @error('name')
+                                        @error('nombre')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -61,11 +61,16 @@
                                 <div class="form-group">
                                     <label for="form-control-label" style="color: black">Rol</label>
 
-                                        <select class="form-control" name="rol" id="rol">
+                                        <select class="form-control @error('rol') is-invalid @enderror" name="rol" id="rol">
                                             <option>Seleccione un rol</option>
                                             <option value="Jefe de Carrera">Jefe de carrera</option>
-                                            <option value="Alumno">Alumno</option>
+                                            <option value="Estudiante">Estudiante</option>
                                         </select>
+                                        @error('rol')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
@@ -135,8 +140,8 @@
     })
 
 </script>
-<br>
-<center><a href="/usuario"><button class="btn btn-primary btn-lg btn-block" type="button">Volver</button></a>
+
+<center><a href="/usuario"><button class="btn btn-info btn-block" type="button">Volver</button></a>
 <center><a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a>
 
 @else

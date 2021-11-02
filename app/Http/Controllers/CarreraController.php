@@ -24,7 +24,7 @@ class CarreraController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'codigo' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'codigo' => ['required', 'string', 'email', 'min:4', 'max:4', 'unique:users'],
         ]);
     }
 
@@ -63,7 +63,7 @@ class CarreraController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'codigo' => 'required|unique:carreras|regex:/[1-9][0-9][0-9][0-9]/',
+            'codigo' => 'required|unique:carreras|regex:/[1-9][0-9][0-9][0-9]/|size:4',
             'nombre' => 'required',
         ]);
 
@@ -118,6 +118,9 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+        ]);
         $carrera->nombre = $request->nombre;
         $carrera->save();
         return redirect('/gestionarcarreras');

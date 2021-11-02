@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('rut')->unique();
             $table->tinyInteger('habilitado'); //0=deshabilido ,  1=habilitado
-            $table->enum('rol',['Administrador','Jefe de Carrera','Alumno']);
+            $table->enum('rol',['Administrador','Jefe de Carrera','Estudiante']);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

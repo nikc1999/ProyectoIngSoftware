@@ -84,19 +84,19 @@ class UserController extends Controller
     {
         if ($request['rol'] == 'Jefe de Carrera'){
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
+                'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
-                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Estudiante'],
                 'carrera'=>['exists:App\Models\Carrera,id',new ValidarCarreraTieneJefe]
             ]);
         }
         else{
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
+                'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
-                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Estudiante'],
                 'carrera'=>['exists:App\Models\Carrera,id']
             ]);
         }
@@ -105,7 +105,7 @@ class UserController extends Controller
         $contrasena = substr($rut, 0, 6);
 
         $newUser = User::create([
-            'name' => $request->name,
+            'name' => $request->nombre,
             'email' => $request->email,
             'password' => bcrypt($contrasena),
             'rut' => $request['rut'],
@@ -166,35 +166,35 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
         if ($user->rol == 'Administrador'){
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
+                'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
                 'rut' => ['required', 'string','unique:users,rut,'.$user->id,'min:8', 'max:9',new ValidarRut],
             ]);
-            $user->name = $request->name;
+            $user->name = $request->nombre;
             $user->rut = $request->rut;
             $user->email = $request->email;
             $user->save();
             return redirect('/usuario');
         }
-        if ($request['rol'] == 'Alumno' or ($request['rol'] == 'Jefe de Carrera' and $user['rol'] == 'Jefe de Carrera' and $request['carrera'] == $user['carrera_id'])){
+        if ($request['rol'] == 'Estudiante' or ($request['rol'] == 'Jefe de Carrera' and $user['rol'] == 'Jefe de Carrera' and $request['carrera'] == $user['carrera_id'])){
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
+                'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
                 'rut' => ['required', 'string', 'unique:users,rut,'.$user->id,'min:8', 'max:9',new ValidarRut],
-                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Estudiante'],
                 'carrera'=>['exists:App\Models\Carrera,id']
             ]);
         }
         else{
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
+                'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
                 'rut' => ['required', 'string', 'unique:users,rut,'.$user->id,'min:8', 'max:9',new ValidarRut],
-                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Alumno'],
+                'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Estudiante'],
                 'carrera'=>['exists:App\Models\Carrera,id',new ValidarCarreraTieneJefe]
             ]);
         }
-        $user->name = $request->name;
+        $user->name = $request->nombre;
         $user->rut = $request->rut;
         $user->email = $request->email;
         $user->rol = $request->rol;

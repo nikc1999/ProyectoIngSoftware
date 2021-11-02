@@ -30,7 +30,7 @@
                         <tr>
                             <td>{!! $car->codigo !!}</td>
                             <td>{!! $car->nombre !!}</td>
-                            <td><a class="btn btn-info" style="background-color: rgba(197,0,62); color: rgb(10, 255, 1)" href={{ route('carrera.edit', [$car]) }}>Editar</a></td>
+                            <td><a class="btn btn-outline-info" href={{ route('carrera.edit', [$car]) }}>Editar</a></td>
                             @foreach($datos['usuarios'] as $us)
                                 @if ($car->id == $us->carrera_id && $us->rol == 'Jefe de Carrera')
                                     <td>{!! $us->name !!}</td>

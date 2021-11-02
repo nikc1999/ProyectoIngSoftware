@@ -4,7 +4,7 @@
 @if (Auth::user()->rol=='Administrador')
     @if($datos['usuario']->rol=='Administrador')
         <div class = "container">
-                <div class="card">
+            <div class="card">
             <center>
             <form id="formulario" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
                 @csrf
@@ -12,7 +12,12 @@
                 <div class="form-group">
                     <div class="col-md-6">
                         <label class="form-control-label">Editar nombre:</label>
-                        <input id="name" type="text" value="{{ $datos['usuario']->name }}" class="form-control" name="name" required>
+                        <input id="nombre" type="text" value="{{ $datos['usuario']->name }}" class="form-control @error('nombre') is-invalid @enderror" name="nombre" required>
+                        @error('nombre')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                 </div>
                 <div class="form-group">
@@ -52,7 +57,12 @@
                 <div class="form-group">
                     <div class="col-md-6">
                         <label class="form-control-label">Editar nombre:</label>
-                        <input id="name" type="text" value="{{ $datos['usuario']->name }}" class="form-control" name="name" required>
+                        <input id="nombre" type="text" value="{{ $datos['usuario']->name }}" class="form-control @error('nombre') is-invalid @enderror" name="nombre" required>
+                        @error('nombre')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                 </div>
                 <div class="form-group">
@@ -83,7 +93,7 @@
                         <select class="form-control @error('rol') is-invalid @enderror" name="rol" id="rol">
                             <option value="{{ $datos['usuario']->rol }}">Mantener mismo rol</option>
                             <option value="Jefe de Carrera">Jefe de carrera</option>
-                            <option value="Alumno">Alumno</option>
+                            <option value="Estudiante">Estudiante</option>
                         </select>
                         @error('rol')
                         <span class="invalid-feedback" role="alert">
@@ -109,7 +119,9 @@
                 <div class="col-md-2">
                     <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
                 </div>
+
             </form></center>
+            <br>
         </div>
     @endif
 <script>
