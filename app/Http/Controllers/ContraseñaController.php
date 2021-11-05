@@ -81,18 +81,34 @@ class ContraseñaController extends Controller
     public function update(Request $request,int $id)
     {
         $user = User::where('id', $id)->first();
-        $user->password = bcrypt($request->contrasena);
-        $request->validate([
-            'contrasena' => ['required', 'string', 'min:6','max:255'],
-        ]);
-        $user->save();
+        //dd($request);
+        if($request->contrasena === $request->contrasena2){
+            $user->password = bcrypt($request->contrasena);
+            $request->validate([
+                'contrasena' => ['required', 'string', 'min:6','max:255'],
+            ]);
+            $user->save();
+            // <script >
+            //     Swal.fire({
+            //         position: 'center',
+            //         icon: 'success',
+            //         title: 'Contraseña Restablecida',
+            //         showConfirmButton: false,
+            //         timer: 2000,
+            //         })
+            //     if($user->rol == 'Administrador'){
+            //         Auth::logout();
+            //         return redirect('/login');
+            //     }
+            // <script>
 
-        if($user->rol == 'Administrador'){
-            Auth::logout();
-            return redirect('/login');
-        }
 
-        return redirect('/home');
+            return redirect('/home');
+            }else{
+
+                return redirect("/contrasena/". strval($id). "/edit")->with('error', 'Las contraseñas no coinciden');
+            }
+
     }
 
     /**
