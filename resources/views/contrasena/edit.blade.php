@@ -11,7 +11,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label class="form-control-label">Nueva Contraseña</label>
-                <input id="contrasena"  type="password" class="form-control @error('contrasena') is-invalid @enderror" name="contrasena" >
+                <input id="contrasena"  type="text" class="form-control @error('contrasena') is-invalid @enderror" name="contrasena" >
                 @error('contrasena')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-6">
                 <label class="form-control-label">Confirmar Contraseña</label>
-                <input id="contrasena2"  type="password" class="form-control @error('contrasena2') is-invalid @enderror" name="contrasena2">
+                <input id="contrasena2"  type="text" class="form-control @error('contrasena2') is-invalid @enderror" name="contrasena2">
                 @error('contrasena2')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -41,18 +41,22 @@
     </form></center>
 </div>
 <script>
-    const contrasena1 = document.getElementById('contrasena');
-    var contra2 = document.getElementById('contrasena2');
-    console.log(contrasena1);
-    console.log(contra2);
+
+
+    //console.log("pico pal q lee");
 
 
 
-    if (contrasena1 === contra2){
-        const button = document.getElementsByClassName("botonCambiar")
-        const form = document.getElementsByClassName('formularioCambiar')
-        for (let i = 0; i < button.length; i++) {
-            button[i].addEventListener('click', function(e){
+    const button = document.getElementsByClassName("botonCambiar")
+    const form = document.getElementsByClassName('formularioCambiar')
+    for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', function(e){
+        //aqui se activa todo al apretar el boton
+        const contrasena1 = document.getElementById('contrasena').value;
+        const contra2 = document.getElementById('contrasena2').value;
+        console.log(contrasena1);
+        console.log(contra2);
+        if (contrasena1 == contra2) {
             e.preventDefault();
             Swal.fire({
             position: 'center',
@@ -60,11 +64,17 @@
             title: 'Contraseña Restablecida',
             showConfirmButton: false,
             timer: 2000,
-            })
-            form[i].submit();
-            })
+        })
         }
+
+
+
+        form[i].submit();
+        })
     }
 
+
 </script>
+
+
 @endsection

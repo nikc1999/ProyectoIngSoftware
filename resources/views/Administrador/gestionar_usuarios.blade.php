@@ -91,11 +91,11 @@
         button[i].addEventListener('click', function(e){
         e.preventDefault();
         Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Contraseña Restablecida',
-          showConfirmButton: false,
-          timer: 2000,
+        position: 'center',
+        icon: 'success',
+        title: 'Contraseña Restablecida',
+        showConfirmButton: false,
+        timer: 2000,
         })
         form[i].submit();
     })
