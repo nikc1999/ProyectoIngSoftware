@@ -174,10 +174,8 @@
 <script>
     const button1 = document.getElementById('botoneditaradmin')
     const form1 = document.getElementById('formularioeditaradmin')
-    const button2 = document.getElementById('botoneditar')
-    const form2 = document.getElementById('formularioeditar')
 
-        button1.addEventListener('click', function(e){
+    button1.addEventListener('click', function(e){
         e.preventDefault();
         Swal.fire({
           position: 'center',
@@ -188,7 +186,11 @@
         })
         form1.submit();
     })
+</script>
 
+<script>
+    const button2 = document.getElementById('botoneditar')
+    const form2 = document.getElementById('formularioeditar')
     button2.addEventListener('click', function(e){
         e.preventDefault();
         Swal.fire({
