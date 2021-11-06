@@ -91,9 +91,12 @@
                     <label for="form-control-label" style="color: black">Editar rol</label>
 
                         <select class="form-control @error('rol') is-invalid @enderror" name="rol" id="rol">
-                            <option value="{{ $datos['usuario']->rol }}">Mantener mismo rol</option>
+                            <option value="{{ $datos['usuario']->rol }}">{{$datos['usuario']->rol}}</option>
+                            @if ($datos['usuario']->rol=="Estudiante")
                             <option value="Jefe de Carrera">Jefe de carrera</option>
+                            @else
                             <option value="Estudiante">Estudiante</option>
+                            @endif
                         </select>
                         @error('rol')
                         <span class="invalid-feedback" role="alert">
@@ -104,9 +107,15 @@
                 <div  class="form-group col-md-6">
                     <label for="form-control-label">Editar carrera</label>
                     <select class="form-control @error('carrera') is-invalid @enderror" value="{{ $datos['usuario']->carrera }}" name="carrera" value="{{ old('carrera') }}" id="carrera">
-                        <option value="{{ $datos['usuario']->carrera_id }}">Mantener misma carrera</option>
                         @foreach($datos['carreras'] as $car)
-                            <option value='{{$car->id}}'>{{$car->nombre}}</option>
+                            @if ($datos['usuario']->carrera_id == $car->id)
+                                <option value='{{$car->id}}'>{{$car->codigo}} - {{$car->nombre}}</option>
+                            @endif
+                        @endforeach
+                        @foreach($datos['carreras'] as $car)
+                        @if ($datos['usuario']->carrera_id != $car->id)
+                            <option value='{{$car->id}}'>{{$car->codigo}} - {{$car->nombre}}</option>
+                        @endif
                         @endforeach
                     </select>
                     @error('carrera')
@@ -161,6 +170,9 @@
     })
 
 </script>
+<br>
+<center><a href="/usuario"><button class="btn btn-info" type="button">Volver</button></a>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a> </center>
 
 @else
 @php
