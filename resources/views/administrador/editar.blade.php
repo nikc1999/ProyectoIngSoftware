@@ -5,7 +5,7 @@
 <div class = "container">
         <div class="card">
     <center>
-    <form id="formulario" method="POST" action="{{ route('carrera.update', [$carrera]) }}">
+    <form id="formulario" class="formulariowo" method="POST" action="{{ route('carrera.update', [$carrera]) }}">
         @csrf
         @method('PUT')
         <br>
@@ -19,7 +19,7 @@
         <div class="form-group">
             <div class="col-md-2">
                 <label class="form-control-label @error('nombre') is-invalid @enderror">Nuevo nombre:</label>
-                <input id="nombre" type="text" class="form-control" name="nombre" required>
+                <input id="nombre" type="text" value={{"$carrera->nombre"}} class="form-control" name="nombre" required>
                 @error('nombre')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -29,17 +29,37 @@
         </div>
 
         <div class="col-md-2">
-            <button type="submit" class="btn btn-outline-info">{{ __('Editar') }}</button>
+            <button type="submit" class="btn btn-outline-info botonsito">{{ __('Editar') }}</button>
         </div>
         <br>
     </form></center>
 </div>
 
-<br>
-<br>
-<center><a href="/gestionarcarreras"><button class="btn btn-info btn-block" type="button">Volver</button></a></center>
-<center><a href="{{ route('home') }}"><button class="btn btn-dark btn-block" type="button">Volver Menu</button></a></center>
+<script>
+    const button = document.getElementsByClassName('botonsito')
+    const form = document.getElementsByClassName('formulariowo')
+    for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Carrera editada',
+          showConfirmButton: false,
+          timer: 2000,
+        })
+        form[i].submit();
+    })
+    }
 
+</script>
+
+
+<br>
+<div class = "container">
+<center><a href="/gestionarcarreras"><button class="btn btn-info" type="button">Volver</button></a>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a><center>
+</div>
 @else
 
 @php

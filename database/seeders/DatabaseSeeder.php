@@ -16,10 +16,11 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::Create([
             'name' => 'Yo Soy Admin',
             'email' => 'AdminPrueba@ucn.cl',
-            'rut' => '200000001',
+            'rut' => '203482574',
             'habilitado' => 1,
             'rol' => 'Administrador',
             'password' => bcrypt('123123'),
 
         ]);
+    }
 }
