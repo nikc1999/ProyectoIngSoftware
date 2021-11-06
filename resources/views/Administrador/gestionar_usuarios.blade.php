@@ -8,15 +8,13 @@
 
 <br>
 
-<div class="btn-group" role="group" aria-label="Basic example">
+<div class="container" role="group" aria-label="Basic example">
         <form method="GET" action="{{ route('usuario.index') }}">
             <input type="text" name="search" id="search" placeholder="Buscar por Rut">
-            <button class="btn btn-secondary">Buscar</button>
-        </form>
+            <button class="btn btn-primary">Buscar</button>
         <a href={{ route('usuario.index')}}><button class="btn btn-secondary" type="button">Mostrar todos</button></a>
-            <p style="text-align:right;">
-            <a href="{{ route('usuario.create') }}"><button class="btn btn-info" type="button">Crear Usuario</button></a>
-            </p>
+        <a href="{{ route('usuario.create') }}"><button class="btn btn-info" type="button">Crear Usuario</button></a>
+         </form>
   </div>
 
 @if ($usuarios->isEmpty())
@@ -74,8 +72,6 @@
 
             @endif
 
-
-
         @endforeach
     </tbody>
 </table>
@@ -104,7 +100,7 @@
 </script>
 
 <br>
-<a href="{{ route('home') }}"><button class="btn btn-dark btn-lg btn-block" type="button">Volver Menu</button></a>
+<center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a></center>
 
 @else
 @php
