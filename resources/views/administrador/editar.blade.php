@@ -44,7 +44,7 @@
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Usuario editado',
+          title: 'Carrera editada',
           showConfirmButton: false,
           timer: 2000,
         })

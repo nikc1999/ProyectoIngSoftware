@@ -6,7 +6,7 @@
         <div class = "container">
             <div class="card">
             <center>
-            <form id="formulario" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
+            <form id="formularioeditaradmin" class="formularioeditar" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
+                    <button type="submit" id="botoneditaradmin" class="btn btn-outline-primary botoneditaradmin">{{ __('Editar') }}</button>
                 </div>
             </form></center>
         </div>
@@ -51,7 +51,7 @@
         <div class = "container">
                 <div class="card">
             <center>
-            <form id="formulario" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
+            <form id="formularioeditar" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
@@ -126,7 +126,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
+                    <button type="submit" id="botoneditar" class="btn btn-outline-primary botoneditar">{{ __('Editar') }}</button>
                 </div>
 
             </form></center>
@@ -170,6 +170,39 @@
     })
 
 </script>
+
+<script>
+    const button1 = document.getElementById('botoneditaradmin')
+    const form1 = document.getElementById('formularioeditaradmin')
+    const button2 = document.getElementById('botoneditar')
+    const form2 = document.getElementById('formularioeditar')
+
+        button1.addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuario editado',
+          showConfirmButton: false,
+          timer: 2000,
+        })
+        form1.submit();
+    })
+
+    button2.addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuario editado',
+          showConfirmButton: false,
+          timer: 2000,
+        })
+        form2.submit();
+    })
+</script>
+
+
 <br>
 <center><a href="/usuario"><button class="btn btn-info" type="button">Volver</button></a>
 <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a> </center>
