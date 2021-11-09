@@ -6,7 +6,7 @@
         <div class = "container">
             <div class="card">
             <center>
-            <form id="formulario" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
+            <form id="formularioeditaradmin" class="formularioeditar" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
+                    <button type="submit" id="botoneditaradmin" class="btn btn-outline-primary botoneditaradmin">{{ __('Editar') }}</button>
                 </div>
             </form></center>
         </div>
@@ -51,7 +51,7 @@
         <div class = "container">
                 <div class="card">
             <center>
-            <form id="formulario" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
+            <form id="formularioeditar" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
@@ -91,9 +91,12 @@
                     <label for="form-control-label" style="color: black">Editar rol</label>
 
                         <select class="form-control @error('rol') is-invalid @enderror" name="rol" id="rol">
-                            <option value="{{ $datos['usuario']->rol }}">Mantener mismo rol</option>
+                            <option value="{{ $datos['usuario']->rol }}">{{$datos['usuario']->rol}}</option>
+                            @if ($datos['usuario']->rol=="Estudiante")
                             <option value="Jefe de Carrera">Jefe de carrera</option>
+                            @else
                             <option value="Estudiante">Estudiante</option>
+                            @endif
                         </select>
                         @error('rol')
                         <span class="invalid-feedback" role="alert">
@@ -104,9 +107,15 @@
                 <div  class="form-group col-md-6">
                     <label for="form-control-label">Editar carrera</label>
                     <select class="form-control @error('carrera') is-invalid @enderror" value="{{ $datos['usuario']->carrera }}" name="carrera" value="{{ old('carrera') }}" id="carrera">
-                        <option value="{{ $datos['usuario']->carrera_id }}">Mantener misma carrera</option>
                         @foreach($datos['carreras'] as $car)
-                            <option value='{{$car->id}}'>{{$car->nombre}}</option>
+                            @if ($datos['usuario']->carrera_id == $car->id)
+                                <option value='{{$car->id}}'>{{$car->codigo}} - {{$car->nombre}}</option>
+                            @endif
+                        @endforeach
+                        @foreach($datos['carreras'] as $car)
+                        @if ($datos['usuario']->carrera_id != $car->id)
+                            <option value='{{$car->id}}'>{{$car->codigo}} - {{$car->nombre}}</option>
+                        @endif
                         @endforeach
                     </select>
                     @error('carrera')
@@ -117,7 +126,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
+                    <button type="submit" id="botoneditar" class="btn btn-outline-primary botoneditar">{{ __('Editar') }}</button>
                 </div>
 
             </form></center>
@@ -161,6 +170,44 @@
     })
 
 </script>
+
+<script>
+    const button1 = document.getElementById('botoneditaradmin')
+    const form1 = document.getElementById('formularioeditaradmin')
+
+    button1.addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuario editado',
+          showConfirmButton: false,
+          timer: 2000,
+        })
+        form1.submit();
+    })
+</script>
+
+<script>
+    const button2 = document.getElementById('botoneditar')
+    const form2 = document.getElementById('formularioeditar')
+    button2.addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuario editado',
+          showConfirmButton: false,
+          timer: 2000,
+        })
+        form2.submit();
+    })
+</script>
+
+
+<br>
+<center><a href="/usuario"><button class="btn btn-info" type="button">Volver</button></a>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a> </center>
 
 @else
 @php
