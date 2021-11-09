@@ -101,7 +101,10 @@ class ContraseñaController extends Controller
             //         return redirect('/login');
             //     }
             // <script>
-
+            if($user->rol == 'Administrador'){
+                Auth::logout();
+                return redirect('/login');
+            }
 
             return redirect('/home');
             }else{
