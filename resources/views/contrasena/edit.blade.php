@@ -11,7 +11,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label class="form-control-label">Nueva Contraseña</label>
-                <input id="contrasena" type="password" class="form-control @error('contrasena') is-invalid @enderror" name="contrasena" >
+                <input id="contrasena"  type="password" class="form-control @error('contrasena') is-invalid @enderror" name="contrasena" >
                 @error('contrasena')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-6">
                 <label class="form-control-label">Confirmar Contraseña</label>
-                <input id="contrasena2" type="password" class="form-control @error('contrasena2') is-invalid @enderror" name="contrasena2">
+                <input id="contrasena2"  type="password" class="form-control @error('contrasena2') is-invalid @enderror" name="contrasena2">
                 @error('contrasena2')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -36,13 +36,12 @@
 
         <div class="col-md-2">
             <button type="submit" class="btn btn-outline-primary botonCambiar">{{ __('Cambiar') }}</button>
+
         </div>
     </form></center>
 </div>
 <script>
-    //console.log("pico pal q lee");
-
-
+    // siempre se ejecuta en todo momento
 
     const button = document.getElementsByClassName("botonCambiar")
     const form = document.getElementsByClassName('formularioCambiar')
@@ -51,24 +50,22 @@
         //aqui se activa todo al apretar el boton
         const contrasena1 = document.getElementById('contrasena').value;
         const contra2 = document.getElementById('contrasena2').value;
-        console.log(contrasena1);
-        console.log(contra2);
-        if (contrasena1 == contra2) {
+        //console.log(contrasena1);
+        //console.log(contra2);
+        if (contrasena1 == contra2 && contrasena1 != '' && contra2 != '' && contrasena1.length>=6 && contra2.length>=6) {
             e.preventDefault();
             Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Contraseña Restablecida',
+            title: 'Contraseña cambiada',
             showConfirmButton: false,
             timer: 2000,
         })
         }
-
-
-
         form[i].submit();
         })
     }
+
 </script>
 
 

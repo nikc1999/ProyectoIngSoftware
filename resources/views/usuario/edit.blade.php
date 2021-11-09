@@ -176,6 +176,7 @@
     const form1 = document.getElementById('formularioeditaradmin')
 
     button1.addEventListener('click', function(e){
+        form1.submit();
         e.preventDefault();
         Swal.fire({
           position: 'center',
@@ -184,7 +185,7 @@
           showConfirmButton: false,
           timer: 2000,
         })
-        form1.submit();
+
     })
 </script>
 
@@ -193,6 +194,7 @@
     const form2 = document.getElementById('formularioeditar')
     button2.addEventListener('click', function(e){
         e.preventDefault();
+        form2.submit();
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -200,7 +202,8 @@
           showConfirmButton: false,
           timer: 2000,
         })
-        form2.submit();
+        // validar rut si es falso se cae
+
     })
 </script>
 
