@@ -88,20 +88,6 @@ class ContraseñaController extends Controller
                 'contrasena' => ['required', 'string', 'min:6','max:255'],
             ]);
             $user->save();
-            // <script >
-            //     Swal.fire({
-            //         position: 'center',
-            //         icon: 'success',
-            //         title: 'Contraseña Restablecida',
-            //         showConfirmButton: false,
-            //         timer: 2000,
-            //         })
-            //     if($user->rol == 'Administrador'){
-            //         Auth::logout();
-            //         return redirect('/login');
-            //     }
-            // <script>
-
 
             return redirect('/home');
             }else{

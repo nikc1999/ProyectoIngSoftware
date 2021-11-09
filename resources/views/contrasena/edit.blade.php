@@ -41,11 +41,7 @@
     </form></center>
 </div>
 <script>
-
-
-    //console.log("pico pal q lee");
-
-
+    // siempre se ejecuta en todo momento
 
     const button = document.getElementsByClassName("botonCambiar")
     const form = document.getElementsByClassName('formularioCambiar')
@@ -54,8 +50,8 @@
         //aqui se activa todo al apretar el boton
         const contrasena1 = document.getElementById('contrasena').value;
         const contra2 = document.getElementById('contrasena2').value;
-        console.log(contrasena1);
-        console.log(contra2);
+        //console.log(contrasena1);
+        //console.log(contra2);
         if (contrasena1 == contra2) {
             e.preventDefault();
             Swal.fire({
@@ -66,13 +62,9 @@
             timer: 2000,
         })
         }
-
-
-
         form[i].submit();
         })
     }
-
 
 </script>
 
