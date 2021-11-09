@@ -174,23 +174,27 @@
 <script>
     const button1 = document.getElementById('botoneditaradmin')
     const form1 = document.getElementById('formularioeditaradmin')
+
+    button1.addEventListener('click', function(e){
+        form1.submit();
+        e.preventDefault();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuario editado',
+          showConfirmButton: false,
+          timer: 2000,
+        })
+
+    })
+</script>
+
+<script>
     const button2 = document.getElementById('botoneditar')
     const form2 = document.getElementById('formularioeditar')
-
-        button1.addEventListener('click', function(e){
-        e.preventDefault();
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Usuario editado',
-          showConfirmButton: false,
-          timer: 2000,
-        })
-        form1.submit();
-    })
-
     button2.addEventListener('click', function(e){
         e.preventDefault();
+        form2.submit();
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -198,7 +202,8 @@
           showConfirmButton: false,
           timer: 2000,
         })
-        form2.submit();
+        // validar rut si es falso se cae
+
     })
 </script>
 
