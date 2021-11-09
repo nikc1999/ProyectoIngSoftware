@@ -88,6 +88,10 @@ class ContraseñaController extends Controller
                 'contrasena' => ['required', 'string', 'min:6','max:255'],
             ]);
             $user->save();
+            if($user->rol == 'Administrador'){
+                Auth::logout();
+                return redirect('/login');
+            }
 
             return redirect('/home');
             }else{
