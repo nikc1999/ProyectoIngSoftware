@@ -86,12 +86,14 @@
     for (let i = 0; i < button.length; i++) {
         button[i].addEventListener('click', function(e){
         e.preventDefault();
-        Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Contraseña Restablecida',
-        showConfirmButton: false,
-        timer: 2000,
+        if (form[i].noValidate==false) {
+           Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Contraseña Restablecida',
+            showConfirmButton: false,
+            timer: 2000,
+        }
         })
         form[i].submit();
     })
