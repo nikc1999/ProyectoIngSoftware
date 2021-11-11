@@ -24,6 +24,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                <img class="img-fluid mr-5" src="http://www.ucn.cl/wp-content/uploads/2018/05/Escudo-UCN-Full-Color.png"
+                style="width: 5%;" alt="">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     ChocoSoft Demo <!--Esto es pa modificar el titulo del up bar -->
                 </a>
