@@ -52,7 +52,7 @@
         const contra2 = document.getElementById('contrasena2').value;
         //console.log(contrasena1);
         //console.log(contra2);
-        if (contrasena1 == contra2 && contrasena1 != '' && contra2 != '' && contrasena1.length>=6 && contra2.length>=6) {
+        if (contrasena1 == contra2 && contrasena1 != '' && contra2 != '' && contrasena1.length>=6 && contra2.length>=6 && !contrasena1.isEmpty() && !contra2.isEmpty()) {
             e.preventDefault();
             Swal.fire({
             position: 'center',
