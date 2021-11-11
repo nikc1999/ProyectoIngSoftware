@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::2QTN1SfOc5laCeSn',
+            '_route' => 'generated::XOu6sDnteeLtKqOL',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::KqRlSxAlp1ycFi9t',
+            '_route' => 'generated::UtzkSD1E2pCZAKl6',
           ),
           1 => NULL,
           2 => 
@@ -64,7 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::JXx2DOVszFE3FQxy',
+            '_route' => 'generated::fOePxOLXUM1HVjYz',
           ),
           1 => NULL,
           2 => 
@@ -246,6 +246,62 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/solicitud' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/solicitud/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/login' => 
       array (
         0 => 
@@ -269,7 +325,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::4X6gScoI4LGh7E6Q',
+            '_route' => 'generated::PbYSH68TfVCmjVse',
           ),
           1 => NULL,
           2 => 
@@ -324,7 +380,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::JSt1MHHD5tCpcJyn',
+            '_route' => 'generated::sfIjlaISPCu2KL7j',
           ),
           1 => NULL,
           2 => 
@@ -415,7 +471,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::N3lTyN3Sql5obzQH',
+            '_route' => 'generated::GhjHvsIvTHRrEZUh',
           ),
           1 => NULL,
           2 => 
@@ -625,7 +681,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/c(?|arrera/([^/]++)(?|(*:30)|/edit(*:42)|(*:49))|ontrasena/([^/]++)(?|(*:78)|/edit(*:90)|(*:97)))|/usuario/([^/]++)(?|(*:126)|/edit(*:139)|(*:147))|/password/reset/([^/]++)(*:180))/?$}sDu',
+      0 => '{^(?|/c(?|arrera/([^/]++)(?|(*:30)|/edit(*:42)|(*:49))|ontrasena/([^/]++)(?|(*:78)|/edit(*:90)|(*:97)))|/usuario/([^/]++)(?|(*:126)|/edit(*:139)|(*:147))|/solicitud/([^/]++)(?|(*:178)|/edit(*:191)|(*:199))|/password/reset/([^/]++)(*:232))/?$}sDu',
     ),
     3 => 
     array (
@@ -893,7 +949,95 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      180 => 
+      178 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.show',
+          ),
+          1 => 
+          array (
+            0 => 'solicitud',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      191 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.edit',
+          ),
+          1 => 
+          array (
+            0 => 'solicitud',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      199 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.update',
+          ),
+          1 => 
+          array (
+            0 => 'solicitud',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'solicitud',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      232 => 
       array (
         0 => 
         array (
@@ -931,7 +1075,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::2QTN1SfOc5laCeSn' => 
+    'generated::XOu6sDnteeLtKqOL' => 
     array (
       'methods' => 
       array (
@@ -952,7 +1096,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::2QTN1SfOc5laCeSn',
+        'as' => 'generated::XOu6sDnteeLtKqOL',
       ),
       'fallback' => false,
       'defaults' => 
@@ -968,7 +1112,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::KqRlSxAlp1ycFi9t' => 
+    'generated::UtzkSD1E2pCZAKl6' => 
     array (
       'methods' => 
       array (
@@ -983,15 +1127,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@3XoE2lhjSdQkj/DegJiiArpxfVyQicwfXFfqAtFVT6s=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@in4AjhzaIP5e5Zzz8kJitMeGhGMcNOoXMTnsiS94M/w=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000661c70a3000000007fa34b58";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005a32ea2d000000007881fa06";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::KqRlSxAlp1ycFi9t',
+        'as' => 'generated::UtzkSD1E2pCZAKl6',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1007,7 +1151,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::JXx2DOVszFE3FQxy' => 
+    'generated::fOePxOLXUM1HVjYz' => 
     array (
       'methods' => 
       array (
@@ -1021,15 +1165,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":258:{@n5/OAUOhUmei81Bid2+Wuzz64p8+XzIcElDPR+Q54wI=.a:5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":258:{@at6odby5By4TuTwdMvp7OCr7ylpkZSeM1+bHIbpHUy0=.a:5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
     return \\redirect(\'/home\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000661c70ad000000007fa34b58";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005a32ea23000000007881fa06";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::JXx2DOVszFE3FQxy',
+        'as' => 'generated::fOePxOLXUM1HVjYz',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1837,6 +1981,270 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'solicitud.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'solicitud',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitud.index',
+        'uses' => 'App\\Http\\Controllers\\SolicitudController@index',
+        'controller' => 'App\\Http\\Controllers\\SolicitudController@index',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitud.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'solicitud/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitud.create',
+        'uses' => 'App\\Http\\Controllers\\SolicitudController@create',
+        'controller' => 'App\\Http\\Controllers\\SolicitudController@create',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitud.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'solicitud',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitud.store',
+        'uses' => 'App\\Http\\Controllers\\SolicitudController@store',
+        'controller' => 'App\\Http\\Controllers\\SolicitudController@store',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitud.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'solicitud/{solicitud}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitud.show',
+        'uses' => 'App\\Http\\Controllers\\SolicitudController@show',
+        'controller' => 'App\\Http\\Controllers\\SolicitudController@show',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitud.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'solicitud/{solicitud}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitud.edit',
+        'uses' => 'App\\Http\\Controllers\\SolicitudController@edit',
+        'controller' => 'App\\Http\\Controllers\\SolicitudController@edit',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitud.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'solicitud/{solicitud}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitud.update',
+        'uses' => 'App\\Http\\Controllers\\SolicitudController@update',
+        'controller' => 'App\\Http\\Controllers\\SolicitudController@update',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitud.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'solicitud/{solicitud}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitud.destroy',
+        'uses' => 'App\\Http\\Controllers\\SolicitudController@destroy',
+        'controller' => 'App\\Http\\Controllers\\SolicitudController@destroy',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'login' => 
     array (
       'methods' => 
@@ -1874,7 +2282,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::4X6gScoI4LGh7E6Q' => 
+    'generated::PbYSH68TfVCmjVse' => 
     array (
       'methods' => 
       array (
@@ -1894,7 +2302,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::4X6gScoI4LGh7E6Q',
+        'as' => 'generated::PbYSH68TfVCmjVse',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1983,7 +2391,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::JSt1MHHD5tCpcJyn' => 
+    'generated::sfIjlaISPCu2KL7j' => 
     array (
       'methods' => 
       array (
@@ -2003,7 +2411,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::JSt1MHHD5tCpcJyn',
+        'as' => 'generated::sfIjlaISPCu2KL7j',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2202,7 +2610,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::N3lTyN3Sql5obzQH' => 
+    'generated::GhjHvsIvTHRrEZUh' => 
     array (
       'methods' => 
       array (
@@ -2222,7 +2630,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::N3lTyN3Sql5obzQH',
+        'as' => 'generated::GhjHvsIvTHRrEZUh',
       ),
       'fallback' => false,
       'defaults' => 

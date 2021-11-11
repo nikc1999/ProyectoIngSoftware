@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Solicitud;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 
 class SolicitudController extends Controller
 {
@@ -14,7 +15,16 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::user()== null)
+        {
+            return view('auth.login');
+        }
+        if(Auth::user()->rol=='Estudiante')
+        {
+            $solicitudes = Solicitud::all();
+            return view('solicitud.index')->with('solicitudes', $solicitudes);
+        }
+        return redirect('/home');
     }
 
     /**
@@ -24,7 +34,15 @@ class SolicitudController extends Controller
      */
     public function create()
     {
-        //
+        if(Auth::user()== null)
+        {
+            return view('auth.login');
+        }
+        if(Auth::user()->rol=='Estudiante')
+        {
+            return view('solicitud.create'); //lo que se envía como $carreras el html lo reconoce como 'carrera'
+        }
+        return redirect('/home');
     }
 
     /**
