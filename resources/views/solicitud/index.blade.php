@@ -17,7 +17,7 @@
         @else
         <br>
             <table class="table">
-                <!-- aqui se pone la tabla quedespliega la informacion de cada solicitud del estudiante xoxoxo -->
+                Si hay solicitudes, pero nos da flojera mostrárselas <!-- aqui se pone la tabla quedespliega la informacion de cada solicitud del estudiante xoxoxo -->
             </table>
         @endif
     </div>

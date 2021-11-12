@@ -12,6 +12,7 @@ class Solicitud extends Model
     protected $fillable = [
         'telefono',
         'estado',
+        'tipo',
         'detalles_jefe_carrera',
         'NRC',
         'nombre_asignatura',

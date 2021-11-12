@@ -17,7 +17,8 @@ class CreateSolicitudsTable extends Migration
             $table->id();
 
             $table->string('telefono');
-            $table->enum('estado',['Pendiente','Aceptada','Aceptada con observaciones','Anulada']); //0: Pendiente, 1:Aceptada, 2:Aceptada con obs, 3:Rechazada
+            $table->enum('estado',['Pendiente','Aceptada','Aceptada con observaciones','Anulada']);
+            $table->enum('tipo',['Sobrecupo','Cambio paralelo','Eliminacion asignatura','Inscripcion asignatura','Ayudantia','Facilidades']);
             $table->string('detalles_jefe_carrera')->nullable();
 
             //columnas para sobrecupo, cambio paralelo, eliminación e inscripción asignatura.
