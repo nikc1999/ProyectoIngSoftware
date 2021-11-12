@@ -35,9 +35,10 @@
         </div>
 
         <div class="col-md-2">
-            <button type="submit" class="btn btn-outline-primary botonCambiar">{{ __('Cambiar') }}</button>
+            <button type="submit" style="color:white; background-color:rgb(0,181,226)" class="btn botonCambiar">{{ __('Cambiar') }}</button>
 
         </div>
+        <br>
     </form></center>
 </div>
 <script>
