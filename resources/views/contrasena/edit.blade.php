@@ -51,16 +51,26 @@
         const contrasena1 = document.getElementById('contrasena').value;
         const contra2 = document.getElementById('contrasena2').value;
         //console.log(contrasena1);
-        //console.log(contra2);
-        if (contrasena1 == contra2 && contrasena1 != '' && contra2 != '' && contrasena1.length>=6 && contra2.length>=6 && !contrasena1.isEmpty() && !contra2.isEmpty()) {
-            e.preventDefault();
-            Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Contraseña cambiada',
-            showConfirmButton: false,
-            timer: 2000,
-        })
+        //console.log(contra2);   && (!contrasena1.isEmpty()) && (!contra2.isEmpty())
+        if (contrasena1 === contra2) {
+            if(contrasena1 != '' && contra2 != '' ){
+                if(contrasena1.length>=6 && contra2.length>=6){
+                    const c1 = contrasena1.replace(/\s+/g, '');
+                    const c2 = contra2.replace(/\s+/g, '');
+                    if (c1.length != 0) {
+                        e.preventDefault();
+                        Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Contraseña cambiada',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        })
+
+                    }
+
+                }
+            }
         }
         form[i].submit();
         })

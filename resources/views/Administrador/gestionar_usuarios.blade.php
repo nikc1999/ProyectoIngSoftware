@@ -11,9 +11,9 @@
 <div class="container" role="group" aria-label="Basic example">
         <form method="GET" action="{{ route('usuario.index') }}">
             <input type="text" name="search" id="search" placeholder="Buscar por Rut">
-            <button class="btn btn-primary">Buscar</button>
-        <a href={{ route('usuario.index')}}><button class="btn btn-secondary" type="button">Mostrar todos</button></a>
-        <a href="{{ route('usuario.create') }}"><button class="btn btn-info" type="button">Crear Usuario</button></a>
+            <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar</button>
+        <a href={{ route('usuario.index')}}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
+        <a href="{{ route('usuario.create') }}"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Crear Usuario</button></a>
          </form>
   </div>
 
@@ -44,7 +44,7 @@
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
-                <td><a class="btn btn-outline-info" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
+                <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
                 <td><center>No modificable</center></td>
                 <td>No restablecible</td>
             </tr>
@@ -53,7 +53,7 @@
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->rut !!}</td>
                 <td>{!! $user->rol !!}</td>
-                <td><a class="btn btn-outline-info" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
+                <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
 
                 <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
                     @csrf
