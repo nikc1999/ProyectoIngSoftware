@@ -158,7 +158,7 @@
 
                         <div hidden id="groupButton" class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button type="submit" id="boton" class="btn btn-outline-primary">{{ __('Agregar')
+                                <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="boton" class="btn btn-outline-primary">{{ __('Agregar')
                                     }}</button>
                             </div>
                         </div>
@@ -273,7 +273,7 @@
 
 <br>
 <br>
-<center><a href={{ route('solicitud.index')}}><button class="btn btn-info" type="button">Volver</button></a>
+<center><a href={{ route('solicitud.index')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
 <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a></center>
 
 @else
