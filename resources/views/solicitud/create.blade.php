@@ -23,7 +23,7 @@
                             <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
                                 <option >Seleccione tipo de solicitud</option>
                                 <option value="Sobrecupo">Sobrecupo</option>
-                                <option value="Cambio pararelo">Cambio de Paralelo</option>
+                                <option value="Cambio paralelo">Cambio de Paralelo</option>
                                 <option value="Eliminacion asignatura">Eliminación de Asignatura</option>
                                 <option value="Inscripcion asignatura">Inscripción de Asignatura</option>
                                 <option value="Ayudantia">Ayudantía</option>
