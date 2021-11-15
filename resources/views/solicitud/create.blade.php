@@ -75,9 +75,13 @@
 
                         <div class="form-group" id="groupDetalles" hidden>
                             <label class="form-control-label">Detalles de la solicitud</label>
-                            <textarea id="detalle" type="text"
+                            <textarea maxlength=500 id="detalle" type="text"
                                 class="form-control @error('detalle') is-invalid @enderror" name="detalle"
                                 value="{{ old('detalle') }}" autocomplete="detalle" autofocus></textarea>
+                                <div id="count">
+                                    <span id="current_count">0</span>
+                                    <span id="maximum_count">/ 500</span>
+                                </div>
 
                             @error('detalle')
                             <span class="invalid-feedback" role="alert">
@@ -301,6 +305,17 @@
         }
     })
 </script>
+
+<script type="text/javascript">
+    const detalles_solicitud = document.getElementById('detalle');
+    $('detalle').keyup(function() {
+        var characterCount = $(this).val().length,
+            current_count = $('#current_count'),
+            maximum_count = $('#maximum_count'),
+            count = $('#count');
+            current_count.text(characterCount);
+    });
+    </script>
 
 <br>
 <br>
