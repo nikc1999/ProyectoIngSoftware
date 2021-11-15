@@ -151,32 +151,27 @@
                             {{--  --}}
                             <br>
                             @if ($errors->has('adjunto.0'))
-                            <div class="alert alert-danger" role="alert">
-                                El primer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
-                            </div>
-                        @endif
+                                <div class="alert alert-danger" role="alert">
+                                    El primer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+                                </div>
+                            @endif
 
-                        @if ($errors->has('adjunto.1'))
-                            <div class="alert alert-danger" role="alert">
-                                El segundo archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+                            @if ($errors->has('adjunto.1'))
+                                <div class="alert alert-danger" role="alert">
+                                    El segundo archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+                                </div>
+                            @endif
+                            @if ($errors->has('adjunto.2'))
+                                <div class="alert alert-danger" role="alert">
+                                    El tercer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+                                </div>
+                            @endif
 
-                            </div>
-                        @endif
-                        @if ($errors->has('adjunto.2'))
-                            <div class="alert alert-danger" role="alert">
-                                El tercer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
-
-                            </div>
-                        @endif
-
-                        @error('adjunto')
-                        <div class="alert alert-danger" role="alert">
-                             {{ $message }}
-                        </div>
-                        @enderror
-
-                            {{--  --}}
-
+                            @error('adjunaato')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
 
