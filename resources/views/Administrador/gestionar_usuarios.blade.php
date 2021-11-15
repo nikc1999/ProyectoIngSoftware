@@ -14,14 +14,15 @@
             <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar</button>
         <a href={{ route('usuario.index')}}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
         <a href="{{ route('usuario.create') }}"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Crear Usuario</button></a>
-         </form>
+        <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a>
+    </form>
   </div>
 
 @if ($usuarios->isEmpty())
 <br>
 <br>
 <div class="alert alert-danger" role="alert">
-    No existe usuario con ese rut en el sistema
+    No existe usuario con ese rut en el sistema.
  </div>
 @else
 <br>
@@ -33,7 +34,7 @@
             <th>RUT</th>
             <th>ROL</th>
             <th>EDITAR</th>
-            <th><center>HABILITACION</center></th>
+            <th><center>HABILITACIÓN</center></th>
             <th>CONTRASEÑA</th>
         </tr>
     </thead>
@@ -58,15 +59,15 @@
                 <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
                     @csrf
                 @if ($user->habilitado==0)
-                    <td><center><button class="btn btn-outline-success">Habilitar</button></td></center>
+                    <td><center><button style="background-color:rgb(72,162,79); color:white" class="btn">Habilitar</button></td></center>
                 @else
-                    <td><center><button class="btn btn-outline-danger">Deshabilitar</button></td></center>
+                    <td><center><button style="background-color:rgb(196,49,44); color:white" class="btn">Deshabilitar</button></td></center>
                     @endif
                 </form>
 
                 <form class="formulariorestablecer" method="POST" action="{{ route('restablecer', ['id' => $user]) }}">
                     @csrf
-                    <td><button class="btn btn-outline-dark botonrestablecer">Restablecer</button></td>
+                    <td><button style='background-color:rgb(180,41,160); color:white' class="btn botonrestablecer">Restablecer</button></td>
                 </form>
                 </tr>
 
@@ -100,8 +101,6 @@
 </script>
 
 <br>
-<center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a></center>
-
 @else
 @php
 header("Location: /home" );

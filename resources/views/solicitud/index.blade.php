@@ -7,7 +7,7 @@
         <div class="panel-heading">
             <h2>Panel de Solicitudes</h2>
         </div>
-        <a class="nav-link" href={{ route('solicitud.create')}}><button class="btn btn-primary" type="button">Crear Solicitud</button></a>
+        <a class="nav-link" href={{ route('solicitud.create')}}><button class="btn" style="color:white; background-color:rgb(0,181,226)" type="button">Crear Solicitud</button></a>
         @if ($solicitudes->isEmpty())
             <br>
             <br>
@@ -24,7 +24,7 @@
 </div>
 <br>
 
-<center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a></center>
+<center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
 @else
 @php
 header("Location: /home" );

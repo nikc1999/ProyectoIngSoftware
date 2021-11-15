@@ -6,7 +6,7 @@
     <form id="formulario" method="POST" action="{{ route('crearcarrera') }}">
         @csrf
         <div class="form-group row">
-            <label for="codigo" class="col-md-4 col-form-label text-md-right">Codigo Carrera</label>
+            <label for="codigo" class="col-md-4 col-form-label text-md-right">Código Carrera</label>
 
             <div class="col-md-6">
                 <input id="codigo" type="text" class="form-control @error('codigo') is-invalid @enderror" name="codigo" value="{{ old('codigo') }}"  name="codigo" required autofocus>
@@ -35,7 +35,7 @@
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button style="color:white; background-color:rgb(0,181,226)" id = "boton" type="submit" class="btn btn-info">
-                    Agregar
+                    Agregar Carrera
                 </button>
             </div>
         </div>
@@ -48,17 +48,24 @@
     button.addEventListener('click', function(e){
         e.preventDefault();
         Swal.fire({
-            title: '¿Estás seguro que quieres agregar la carrera? Esta acción es irreversible.',
+            title: 'El código de la carrera no es posible modificarlo una vez registrado en el sistema ¿Realizar operación?',
             showDenyButton: true,
             showCancelButton: false,
-            confirmButtonText: 'Guardar',
+            confirmButtonText: 'Confirmar',
+            confirmButtonColor: '#00b5e2',
+            denyButtonColor: '#000000',
             denyButtonText: `Cancelar`,
             }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 form.submit();
             } else if (result.isDenied) {
-                Swal.fire('No guardado', '', 'info')
+                Swal.fire({
+                    title: 'No guardado',
+                    icon: 'info',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#000000',
+                })
             }
         })
     })
@@ -67,7 +74,8 @@
 <br>
 <br>
 <center><a href="/gestionarcarreras"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
-<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a></center>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
+
 
 @else
 @php

@@ -10,7 +10,7 @@
         @method('PUT')
         <br>
         <div class="col-md-2">
-            <label>Codigo carrera: </label>
+            <label>Código carrera: </label>
         </div>
         <div class="col-md-2">
             <label>  </label>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-md-2">
-            <button style="color:white; background-color:rgb(0,181,226)" type="submit" class="btn btn-outline-info botonsito">{{ __('Editar') }}</button>
+            <button style="color:white; background-color:rgb(0,181,226)" type="submit" class="btn btn-outline-info botonsito">Editar Carrera</button>
         </div>
         <br>
     </form></center>
@@ -61,7 +61,7 @@
 <br>
 <div class = "container">
 <center><a href="/gestionarcarreras"><button style="color:white; background-color:rgb(0,48,87)" class="btn" type="button">Volver</button></a>
-<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a><center>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a><center>
 </div>
 @else
 
