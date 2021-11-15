@@ -15,7 +15,7 @@
             <br>
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
-                    <form id="formulario" method="POST" action="{{ route('solicitud.update')  }}"
+                    <form id="formulario" method="POST" action="{{ route('solicitud.store') }}"
                         enctype="multipart/form-data">
                         @csrf
                         <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
