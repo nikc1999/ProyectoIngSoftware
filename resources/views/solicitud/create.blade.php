@@ -75,9 +75,13 @@
 
                         <div class="form-group" id="groupDetalles" hidden>
                             <label class="form-control-label">Detalles de la solicitud</label>
-                            <textarea maxlength = 200 id="detalle" type="text"
+                            <textarea maxlength=500 id="detalle" type="text"
                                 class="form-control @error('detalle') is-invalid @enderror" name="detalle"
                                 value="{{ old('detalle') }}" autocomplete="detalle" autofocus></textarea>
+                                <div id="count">
+                                    <span id="current_count">0</span>
+                                    <span id="maximum_count">/ 500</span>
+                                </div>
 
                             @error('detalle')
                             <span class="invalid-feedback" role="alert">
@@ -145,38 +149,31 @@
                         </div>
 
                         <div class="form-group" id="groupAdjunto" hidden>
-                            <label class="form-control-label">Adjuntar archivos</label>
+                            <label class="form-control-label">Adjuntar archivos (hasta 3 archivos, máximo de 20Mb por archivo)</label>
                             <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
-
-                            {{--  --}}
                             <br>
                             @if ($errors->has('adjunto.0'))
-                            <div class="alert alert-danger" role="alert">
-                                El primer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
-                            </div>
-                        @endif
+                                <div class="alert alert-danger" role="alert">
+                                    {{$errors->first('adjunto.0')}}
+                                </div>
+                            @endif
 
-                        @if ($errors->has('adjunto.1'))
-                            <div class="alert alert-danger" role="alert">
-                                El segundo archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+                            @if ($errors->has('adjunto.1'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{$errors->first('adjunto.1')}}
+                                </div>
+                            @endif
+                            @if ($errors->has('adjunto.2'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{$errors->first('adjunto.2')}}
+                                </div>
+                            @endif
 
-                            </div>
-                        @endif
-                        @if ($errors->has('adjunto.2'))
-                            <div class="alert alert-danger" role="alert">
-                                El tercer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
-
-                            </div>
-                        @endif
-
-                        @error('adjunto')
-                        <div class="alert alert-danger" role="alert">
-                             {{ $message }}
-                        </div>
-                        @enderror
-
-                            {{--  --}}
-
+                            @error('adjunto')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
 
@@ -293,26 +290,33 @@
         }
     })
 </script>
+
 <script>
-    $("#sub-btn").click(function(e) {
-      var logoimg = document.getElementById("logoimg");
-            let size = logoimg.files[0].size;
-            if (size > 2000000) {
-                alert("Error: El archivo pesa más de 40 Mb");
+    const button_enviar = document.getElementById('boton');
+    button_enviar.addEventListener('click', function(e){
+        var input_archivos = document.getElementById("adjunto");
+        for (var i = 0; i < input_archivos.size; i++) {
+            let size = input_archivos.files[i].size;
+            if (size > 20000000) {
+                let index = i+1;
+                alert("el archivo "+index+" pesa más de 20Mb");
                 event.preventDefault();
             }
-    });
+        }
+    })
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.min.js"></script>
 
-<!-- Detalle de la incidencia -->
-<div class="detalle">
-  <p class="lbl_detalle">Descripción de la incidencia
-    <span class="contador" id="contador">1000 caracteres restantes
-    </span>
-  </p>
-  <textarea class="txt_detalle" id="txt_detalle" name="txt_detalle" rows="4" cols="50" maxlength="1000"></textarea>
-</div>
+<script type="text/javascript">
+    const detalles_solicitud = document.getElementById('detalle');
+    $('detalle').keyup(function() {
+        var characterCount = $(this).val().length,
+            current_count = $('#current_count'),
+            maximum_count = $('#maximum_count'),
+            count = $('#count');
+            current_count.text(characterCount);
+    });
+    </script>
+
 <br>
 <br>
 <center><a href={{ route('solicitud.index')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
