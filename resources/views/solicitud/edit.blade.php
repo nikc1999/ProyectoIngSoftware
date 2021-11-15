@@ -15,9 +15,10 @@
             <br>
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
-                    <form id="formulario" method="POST" action="{{ route('solicitud.store') }}"
+                    <form id="formulario" method="POST" action="{{ route('solicitud.update',[$solicitud]) }}"
                         enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
                         <div class="form-group">
                             <label for="form-control-label" style="color: black">Tipo Solicitud</label>
