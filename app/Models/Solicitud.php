@@ -17,7 +17,7 @@ class Solicitud extends Model
         'NRC',
         'nombre_asignatura',
         'detalles_estudiante',
-        'calificacion_aporb',
+        'calificacion_aprob',
         'cant_ayudantias',
         'tipo_facilidad',
         'nombre_profesor',

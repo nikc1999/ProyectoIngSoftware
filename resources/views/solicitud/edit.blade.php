@@ -23,12 +23,7 @@
                             <label for="form-control-label" style="color: black">Tipo Solicitud</label>
                             <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
                                 <option value="{{$solicitud->tipo}}">  {{$solicitud->tipo}} </option>
-                                <option value="Sobrecupo">Sobrecupo</option>
-                                <option value="Cambio paralelo">Cambio de Paralelo</option>
-                                <option value="Eliminacion asignatura">Eliminación de Asignatura</option>
-                                <option value="Inscripcion asignatura">Inscripción de Asignatura</option>
-                                <option value="Ayudantia">Ayudantía</option>
-                                <option value="Facilidades">Facilidades Académicas</option>
+
                             </select>
                             @error('tipo')
                             <span class="invalid-feedback" role="alert">
@@ -41,7 +36,7 @@
                             <label class="form-control-label">Teléfono de contacto</label>
                             <input id="telefono" type="text"
                                 class="form-control @error('telefono') is-invalid @enderror" name="telefono"
-                                value="{{ old('telefono') }}" autocomplete="telefono" autofocus>
+                                value="{{ $solicitud->telefono }}" autocomplete="telefono" autofocus>
 
                             @error('telefono')
                             <span class="invalid-feedback" role="alert">
@@ -52,7 +47,7 @@
                         <div class="form-group" id="groupNrc" hidden>
                             <label class="form-control-label">NRC asignatura</label>
                             <input id="nrc" type="text" class="form-control @error('nrc') is-invalid @enderror"
-                                name="nrc" value="{{ old('nrc') }}" autocomplete="nrc" autofocus>
+                                name="nrc" value="{{ $solicitud->NRC }}" autocomplete="nrc" autofocus>
 
                             @error('nrc')
                             <span class="invalid-feedback" role="alert">
@@ -64,7 +59,7 @@
                         <div class="form-group" id="groupNombre" hidden>
                             <label class="form-control-label">Nombre asignatura</label>
                             <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror"
-                                name="nombre" value="{{ old('nombre') }}" autocomplete="nombre" autofocus>
+                                name="nombre" value="{{ $solicitud->nombre_asignatura }}" autocomplete="nombre" autofocus>
 
                             @error('nombre')
                             <span class="invalid-feedback" role="alert">
@@ -77,7 +72,7 @@
                             <label class="form-control-label">Detalles de la solicitud</label>
                             <textarea maxlength=500 id="detalle" type="text"
                                 class="form-control @error('detalle') is-invalid @enderror" name="detalle"
-                                value="{{ old('detalle') }}" autocomplete="detalle" autofocus></textarea>
+                                autocomplete="detalle" autofocus>{{ $solicitud->detalles_estudiante }}</textarea>
                                 <div id="count">
                                     <span id="current_count">0</span>
                                     <span id="maximum_count">/ 500</span>
@@ -94,7 +89,7 @@
                             <label class="form-control-label">Calificación de aprobación</label>
                             <input id="calificacion" type="text"
                                 class="form-control @error('calificacion') is-invalid @enderror" name="calificacion"
-                                value="{{ old('calificacion') }}" autocomplete="calificacion" placeholder="Ej. 6.8"
+                                value="{{ $solicitud->calificacion_aprob }}" autocomplete="calificacion" placeholder="Ej. 6.8"
                                 autofocus>
 
                             @error('calificacion')
@@ -108,7 +103,7 @@
                             <label class="form-control-label">Cantidad de ayudantias realizadas anteriormente</label>
                             <input id="cantidad" type="text"
                                 class="form-control @error('cantidad') is-invalid @enderror" name="cantidad"
-                                value="{{ old('cantidad') }}"
+                                value="{{ $solicitud->cant_ayudantias }}"
                                 placeholder="Ej. 2, ingrese 0 en caso no haber realizado antes ayudantias"
                                 autocomplete="cantidad" autofocus>
 
@@ -122,11 +117,34 @@
                         <div class="form-group" id="groupTipoFacilidad" hidden>
                             <label for="form-control-label">Tipo de  facilidad académica</label>
                             <select class="form-control @error('facilidad') is-invalid @enderror" name="facilidad" id="facilidad">
-                                <option value={{null}}>Seleccione una facilidad</option>
-                                <option value="Licencia">Licencia Médica o Certificado Médico</option>
-                                <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
-                                <option value="Representacion">Representación de la Universidad</option>
-                                <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos Familiares</option>
+                                @if ($solicitud->tipo_facilidad == "Licencia")
+                                    <option value="Licencia">Licencia Médica o Certificado Médico</option>
+                                    <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
+                                    <option value="Representacion">Representación de la Universidad</option>
+                                    <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos Familiares</option>
+                                @endif
+                                @if ($solicitud->tipo_facilidad == "Inasistencia Fuerza Mayor")
+                                    <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
+                                    <option value="Licencia">Licencia Médica o Certificado Médico</option>
+                                    <option value="Representacion">Representación de la Universidad</option>
+                                    <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos Familiares</option>
+                                @endif
+                                @if ($solicitud->tipo_facilidad == "Representacion")
+                                    <option value="Representacion">Representación de la Universidad</option>
+                                    <option value="Licencia">Licencia Médica o Certificado Médico</option>
+                                    <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
+                                    <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos Familiares</option>
+                                @endif
+                                @if ($solicitud->tipo_facilidad == "Inasistencia Motivo Personal")
+                                    <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos Familiares</option>
+                                    <option value="Licencia">Licencia Médica o Certificado Médico</option>
+                                    <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
+                                    <option value="Representacion">Representación de la Universidad</option>
+
+                                @endif
+
+
+
                             </select>
                             @error('facilidad')
                             <span class="invalid-feedback" role="alert">
@@ -139,7 +157,7 @@
                             <label class="form-control-label">Nombre profesor</label>
                             <input id="profesor" type="text"
                                 class="form-control @error('profesor') is-invalid @enderror" name="profesor"
-                                value="{{ old('profesor') }}" autocomplete="profesor" autofocus>
+                                value="{{ $solicitud->nombre_profesor }}" autocomplete="profesor" autofocus>
 
                             @error('profesor')
                             <span class="invalid-feedback" role="alert">
