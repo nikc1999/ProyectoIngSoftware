@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <div class="col-md-6">
                         <label class="form-control-label">Editar nombre:</label>
-                        <input id="nombre" type="text" value="{{ $datos['usuario']->name }}" class="form-control @error('nombre') is-invalid @enderror" name="nombre" required>
+                        <input id="nombreadmin" type="text" value="{{ $datos['usuario']->name }}" class="form-control @error('nombre') is-invalid @enderror" name="nombre" required>
                         @error('nombre')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <div class="col-md-6">
                         <label class="form-control-label">Editar rut:</label>
-                        <input id="rut" type="text" value="{{ $datos['usuario']->rut }}" class="form-control @error('rut') is-invalid @enderror" name="rut" required>
+                        <input id="rutadmin" type="text" value="{{ $datos['usuario']->rut }}" class="form-control @error('rut') is-invalid @enderror" name="rut" required>
                         @error('rut')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <div class="col-md-6">
                         <label class="form-control-label">Editar correo:</label>
-                        <input id="email" type="email" value="{{ $datos['usuario']->email }}" class="form-control @error('email') is-invalid @enderror" name="email" required>
+                        <input id="emailadmin" type="email" value="{{ $datos['usuario']->email }}" class="form-control @error('email') is-invalid @enderror" name="email" required>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -43,8 +43,9 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" id="botoneditaradmin" class="btn btn-outline-primary botoneditaradmin">{{ __('Editar') }}</button>
+                    <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="botoneditaradmin" class="btn botoneditaradmin">{{ __('Editar') }}</button>
                 </div>
+                <br>
             </form></center>
         </div>
     @else
@@ -126,7 +127,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <button type="submit" id="botoneditar" class="btn btn-outline-primary botoneditar">{{ __('Editar') }}</button>
+                    <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="botoneditar" class="btn botoneditar">{{ __('Editar') }}</button>
                 </div>
 
             </form></center>
@@ -172,11 +173,15 @@
 </script>
 
 <script>
+    //Editar Admin
     const button1 = document.getElementById('botoneditaradmin')
     const form1 = document.getElementById('formularioeditaradmin')
 
     button1.addEventListener('click', function(e){
-        form1.submit();
+    const nombreadmin = document.getElementById('nombreadmin').value;
+    const rutadmin = document.getElementById('rutadmin').value;
+    const correoadmin= document.getElementById('emailadmin').value;
+    if(nombreadmin != '' && rutadmin != '' && correoadmin != ''){
         e.preventDefault();
         Swal.fire({
           position: 'center',
@@ -185,7 +190,8 @@
           showConfirmButton: false,
           timer: 2000,
         })
-
+        form1.submit();
+    }
     })
 </script>
 
@@ -193,8 +199,11 @@
     const button2 = document.getElementById('botoneditar')
     const form2 = document.getElementById('formularioeditar')
     button2.addEventListener('click', function(e){
+        const nombre = document.getElementById('nombre').value;
+        const rut = document.getElementById('rut').value;
+        const correo= document.getElementById('email').value;
+        if(nombre != '' && rut != '' && correo != ''){
         e.preventDefault();
-        form2.submit();
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -202,14 +211,15 @@
           showConfirmButton: false,
           timer: 2000,
         })
-        // validar rut si es falso se cae
-
+        form2.submit();
+        }
     })
+
 </script>
 
 
 <br>
-<center><a href="/usuario"><button class="btn btn-info" type="button">Volver</button></a>
+<center><a href="/usuario"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
 <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a> </center>
 
 @else

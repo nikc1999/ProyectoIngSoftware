@@ -24,6 +24,8 @@ Route::resource('contrasena', App\Http\Controllers\ContraseñaController::class,
 
 Route::resource('usuario', App\Http\Controllers\UserController::class,['middleware'=>'auth']);
 
+Route::resource('solicitud', App\Http\Controllers\SolicitudController::class,['middleware'=>'auth']);
+
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->name('admin');

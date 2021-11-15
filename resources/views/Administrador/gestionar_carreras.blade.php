@@ -7,7 +7,9 @@
         <div class="panel-heading">
             <h2>Panel de Carreras</h2>
         </div>
-        <a class="nav-link" href="/agregarcarrera"><button class="btn btn-primary" type="button">Crear Carrera</button></a>
+        <br>
+        <a href="/agregarcarrera"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Crear Carrera</button></a>
+       <br>
         @if ($datos['carreras']->isEmpty())
             <br>
             <br>
@@ -30,7 +32,7 @@
                         <tr>
                             <td>{!! $car->codigo !!}</td>
                             <td>{!! $car->nombre !!}</td>
-                            <td><a class="btn btn-outline-info" href={{ route('carrera.edit', [$car]) }}>Editar</a></td>
+                            <td><a class="btn btn-outline-rgb" style="color:white; background-color:rgb(0,181,226)" href={{ route('carrera.edit', [$car]) }}>Editar</a></td>
                             @foreach($datos['usuarios'] as $us)
                                 @if ($car->id == $us->carrera_id && $us->rol == 'Jefe de Carrera')
                                     <td>{!! $us->name !!}</td>
