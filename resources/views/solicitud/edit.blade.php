@@ -23,12 +23,7 @@
                             <label for="form-control-label" style="color: black">Tipo Solicitud</label>
                             <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
                                 <option value="{{$solicitud->tipo}}">  {{$solicitud->tipo}} </option>
-                                <option value="Sobrecupo">Sobrecupo</option>
-                                <option value="Cambio paralelo">Cambio de Paralelo</option>
-                                <option value="Eliminacion asignatura">Eliminación de Asignatura</option>
-                                <option value="Inscripcion asignatura">Inscripción de Asignatura</option>
-                                <option value="Ayudantia">Ayudantía</option>
-                                <option value="Facilidades">Facilidades Académicas</option>
+
                             </select>
                             @error('tipo')
                             <span class="invalid-feedback" role="alert">
