@@ -17,7 +17,37 @@
         @else
         <br>
             <table class="table">
-                Si hay solicitudes del estudiante, panel en construcción <!-- aqui se pone la tabla quedespliega la informacion de cada solicitud del estudiante xoxoxo -->
+                <thead>
+                    <tr>
+                        <th>N° SOLICITUD</th>
+                        <th>TIPO SOLICITUD</th>
+                        <th>FECHA SOLICITUD</th>
+                        <th>ESTADO</th>
+                        <th>EDITAR</th>
+                        <th>ANULAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($solicitudes as $solicitud)
+                        <tr>
+                            <td>{!! $solicitud->id !!}</td>
+                            @if($solicitud->tipo == 'Facilidades')
+                                <td>{!! $solicitud->tipo !!}: {!! $solicitud->tipo_facilidad !!}</td>
+                            @else
+                                <td>{!! $solicitud->tipo !!}</td>
+                            @endif
+                            <td>{!! $solicitud->created_at !!}</td>
+                            <td>{!! $solicitud->estado !!}</td>
+                            @if ($solicitud->estado == 'Anulada' || $solicitud->estado == 'Aceptada')
+                                <td>No editable</td>
+                                <td>No disponible</td>
+                            @else
+                                <td><a class="btn btn-outline-rgb" style="color:white; background-color:rgb(0,181,226)" href={{ route('solicitud.show', [$solicitud]) }}>Editar</a></td>
+                                <td><a class="btn btn-outline-rgb" href={{ route('solicitud.edit', [$solicitud])}} style="color:white; background-color:rgb(196,49,44)">Anular</a></td>
+                            @endif
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         @endif
     </div>

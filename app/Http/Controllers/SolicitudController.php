@@ -23,6 +23,10 @@ class SolicitudController extends Controller
         if(Auth::user()->rol=='Estudiante')
         {
             $solicitudes = Auth::user()->solicitudes;
+            $solicitudes = $solicitudes->sortBy('updated_at');
+
+
+
             return view('solicitud.index')->with('solicitudes', $solicitudes);
         }
         return redirect('/home');
@@ -231,7 +235,7 @@ class SolicitudController extends Controller
      */
     public function show(Solicitud $solicitud)
     {
-        //
+        return view('solicitud.edit')->with('solicitud',$solicitud);
     }
 
     /**
@@ -242,7 +246,10 @@ class SolicitudController extends Controller
      */
     public function edit(Solicitud $solicitud)
     {
-        //
+        $solicitud->estado='Anulada';
+        $solicitud->save();
+
+        return redirect('/solicitud');
     }
 
     /**
@@ -254,7 +261,7 @@ class SolicitudController extends Controller
      */
     public function update(Request $request, Solicitud $solicitud)
     {
-        //
+
     }
 
     /**
@@ -265,6 +272,6 @@ class SolicitudController extends Controller
      */
     public function destroy(Solicitud $solicitud)
     {
-        //
+
     }
 }
