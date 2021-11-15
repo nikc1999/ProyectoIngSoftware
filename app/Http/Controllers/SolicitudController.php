@@ -147,7 +147,10 @@ class SolicitudController extends Controller
      */
     public function edit(Solicitud $solicitud)
     {
-        //
+        $solicitud->estado='Anulada';
+        $solicitud->save();
+
+        return redirect('/solicitud');
     }
 
     /**
@@ -170,6 +173,6 @@ class SolicitudController extends Controller
      */
     public function destroy(Solicitud $solicitud)
     {
-        //
+
     }
 }
