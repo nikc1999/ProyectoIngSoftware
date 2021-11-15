@@ -148,16 +148,13 @@
                             <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
 
                             {{--  --}}
-                            @if ($errors->has('adjunto.*'))
-                            <span class="help-block">
-                                @foreach ($errors->has('adjunto.*') as $mensaje)
-                                <li>
-                                    {{$mensaje}}
-                                </li>
-                            @endforeach
+                            @if($errors->has('adjunto'))
+                            @foreach ($errors->all() as $error)
+                               <span class="help-block">
+                                <strong>{{ $error }}</strong>
                             </span>
-                        @endif
-
+                           @endforeach
+                            @endif
 
                             {{--  --}}
                             @error('adjunto')
