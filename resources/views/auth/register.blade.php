@@ -89,7 +89,7 @@
                                 </div>
 
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
+                                    <div class="col-md-6 offset-md-5">
                                         <button style="color:white; background-color:rgb(0,181,226)" id="boton"type="submit" class="btn btn-outline-primary">
                                             Registrar
                                         </button>
