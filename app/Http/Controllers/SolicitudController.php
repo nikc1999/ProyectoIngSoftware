@@ -136,7 +136,7 @@ class SolicitudController extends Controller
      */
     public function show(Solicitud $solicitud)
     {
-        //
+        return view('solicitud.edit')->with('solicitud',$solicitud);
     }
 
     /**
