@@ -75,7 +75,7 @@
 
                         <div class="form-group" id="groupDetalles" hidden>
                             <label class="form-control-label">Detalles de la solicitud</label>
-                            <textarea id="detalle" type="text"
+                            <textarea maxlength = 200 id="detalle" type="text"
                                 class="form-control @error('detalle') is-invalid @enderror" name="detalle"
                                 value="{{ old('detalle') }}" autocomplete="detalle" autofocus></textarea>
 
@@ -303,7 +303,16 @@
             }
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.min.js"></script>
 
+<!-- Detalle de la incidencia -->
+<div class="detalle">
+  <p class="lbl_detalle">Descripción de la incidencia
+    <span class="contador" id="contador">1000 caracteres restantes
+    </span>
+  </p>
+  <textarea class="txt_detalle" id="txt_detalle" name="txt_detalle" rows="4" cols="50" maxlength="1000"></textarea>
+</div>
 <br>
 <br>
 <center><a href={{ route('solicitud.index')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
