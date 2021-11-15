@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'JefeCarrera@ucn.cl',
             'rut' => '202119557',
             'habilitado' => 1,
-            'rol' => 'Estudiante',
+            'rol' => 'Jefe de Carrera',
             'password' => bcrypt('123123'),
             'carrera_id' => 1,
 
@@ -80,15 +80,7 @@ class DatabaseSeeder extends Seeder
             'detalles_estudiante' => 'quiero botar esta asignatura por'
         ]);
 
-        \App\Models\Solicitud::Create([
-            'user_id' => 2,
-            'estado' => 'Pendiente',
-            'tipo' => 'Inscripcion asignatura',
-            'telefono' => '98574827',
-            'NRC' => '123456',
-            'nombre_asignatura' => 'calculo 4',
-            'detalles_estudiante' => 'quiero inscribir esta asignatura por'
-        ]);
+
 
         \App\Models\Solicitud::Create([
             'user_id' => 2,
