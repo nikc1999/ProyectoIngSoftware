@@ -130,8 +130,8 @@ class SolicitudController extends Controller
                     'detalle' => ['required'],
                     'facilidad' => ['required','in:Licencia,Inasistencia Fuerza Mayor,Representacion,Inasistencia Motivo Personal'],
                     'profesor' => ['required'],
-                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx'],
-                    'adjunto' => ['array','min:0','max:3','size:40000'],
+                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx','max:20000'],
+                    'adjunto' => ['array','min:0','max:3'],
                 ]);
 
                 $findUser = User::find($request->user);

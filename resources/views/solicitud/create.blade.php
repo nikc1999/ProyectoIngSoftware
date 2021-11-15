@@ -145,29 +145,27 @@
                         </div>
 
                         <div class="form-group" id="groupAdjunto" hidden>
-                            <label class="form-control-label">Adjuntar archivos</label>
+                            <label class="form-control-label">Adjuntar archivos (hasta 3 archivos, máximo de 20Mb por archivo)</label>
                             <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
-
-                            {{--  --}}
                             <br>
                             @if ($errors->has('adjunto.0'))
                                 <div class="alert alert-danger" role="alert">
-                                    El primer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+                                    {{$errors->first('adjunto.0')}}
                                 </div>
                             @endif
 
                             @if ($errors->has('adjunto.1'))
                                 <div class="alert alert-danger" role="alert">
-                                    El segundo archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+                                    {{$errors->first('adjunto.1')}}
                                 </div>
                             @endif
                             @if ($errors->has('adjunto.2'))
                                 <div class="alert alert-danger" role="alert">
-                                    El tercer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+                                    {{$errors->first('adjunto.2')}}
                                 </div>
                             @endif
 
-                            @error('adjunaato')
+                            @error('adjunto')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
@@ -288,15 +286,20 @@
         }
     })
 </script>
+
 <script>
-    $("#sub-btn").click(function(e) {
-      var logoimg = document.getElementById("logoimg");
-            let size = logoimg.files[0].size;
-            if (size > 2000000) {
-                alert("Error: El archivo pesa más de 40 Mb");
+    const button_enviar = document.getElementById('boton');
+    button_enviar.addEventListener('click', function(e){
+        var input_archivos = document.getElementById("adjunto");
+        for (var i = 0; i < input_archivos.size; i++) {
+            let size = input_archivos.files[i].size;
+            if (size > 20000000) {
+                let index = i+1;
+                alert("el archivo "+index+" pesa más de 20Mb");
                 event.preventDefault();
             }
-    });
+        }
+    })
 </script>
 
 <br>
