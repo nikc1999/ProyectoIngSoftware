@@ -10,7 +10,7 @@
                 <i class="fas fa-chalkboard-teacher"></i>
             </div>
             <div class="col-lg-12 login-title">
-                Nueva Solicitud
+                <center>Nueva Solicitud<center>
             </div>
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
@@ -19,7 +19,7 @@
                         @csrf
                         <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
                         <div class="form-group">
-                            <label for="form-control-label" style="color: white">Tipo Solicitud</label>
+                            <label for="form-control-label" style="color: black">Tipo Solicitud</label>
                             <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
                                 <option >Seleccione tipo de solicitud</option>
                                 <option value="Sobrecupo">Sobrecupo</option>
