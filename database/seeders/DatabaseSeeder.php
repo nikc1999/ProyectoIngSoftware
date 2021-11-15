@@ -50,6 +50,67 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        \App\Models\Solicitud::Create([
+            'user_id' => 2,
+            'estado' => 'Pendiente',
+            'tipo' => 'Sobrecupo',
+            'telefono' => '98574827',
+            'NRC' => '123456',
+            'nombre_asignatura' => 'calculo 1',
+            'detalles_estudiante' => 'le queria pedir el sobre cupo por'
+        ]);
+
+        \App\Models\Solicitud::Create([
+            'user_id' => 2,
+            'estado' => 'Pendiente',
+            'tipo' => 'Cambio paralelo',
+            'telefono' => '98574827',
+            'NRC' => '123456',
+            'nombre_asignatura' => 'calculo 2',
+            'detalles_estudiante' => 'me queria cambiar de paralelo por'
+        ]);
+
+        \App\Models\Solicitud::Create([
+            'user_id' => 2,
+            'estado' => 'Pendiente',
+            'tipo' => 'Eliminacion asignatura',
+            'telefono' => '98574827',
+            'NRC' => '123456',
+            'nombre_asignatura' => 'calculo 3',
+            'detalles_estudiante' => 'quiero botar esta asignatura por'
+        ]);
+
+        \App\Models\Solicitud::Create([
+            'user_id' => 2,
+            'estado' => 'Pendiente',
+            'tipo' => 'Inscripcion asignatura',
+            'telefono' => '98574827',
+            'NRC' => '123456',
+            'nombre_asignatura' => 'calculo 4',
+            'detalles_estudiante' => 'quiero inscribir esta asignatura por'
+        ]);
+
+        \App\Models\Solicitud::Create([
+            'user_id' => 2,
+            'estado' => 'Pendiente',
+            'tipo' => 'Inscripcion asignatura',
+            'telefono' => '98574827',
+            'NRC' => '123456',
+            'nombre_asignatura' => 'calculo 4',
+            'detalles_estudiante' => 'quiero inscribir esta asignatura por'
+        ]);
+
+        \App\Models\Solicitud::Create([
+            'user_id' => 2,
+            'estado' => 'Pendiente',
+            'tipo' => 'Ayudantia',
+            'telefono' => '98574827',
+
+            'nombre_asignatura' => 'calculo 4',
+            'detalles_estudiante' => 'quiero ser ayudante por',
+            'calificacion_aprob' => '69',
+            'cant_ayudantias' => 3,
+        ]);
 
 
     }
