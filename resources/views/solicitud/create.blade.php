@@ -149,20 +149,34 @@
                             <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
 
                             {{--  --}}
-                            @if($errors->has('adjunto'))
-                            @foreach ($errors->all() as $error)
-                               <span class="help-block">
-                                <strong>{{ $error }}</strong>
-                            </span>
-                           @endforeach
-                            @endif
+                            <br>
+                            @if ($errors->has('adjunto.0'))
+                            <div class="alert alert-danger" role="alert">
+                                El primer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+                            </div>
+                        @endif
+
+                        @if ($errors->has('adjunto.1'))
+                            <div class="alert alert-danger" role="alert">
+                                El segundo archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+
+                            </div>
+                        @endif
+                        @if ($errors->has('adjunto.2'))
+                            <div class="alert alert-danger" role="alert">
+                                El tercer archivo adjunto no es del tipo pdf, jpg, jpeg, doc o docx.
+
+                            </div>
+                        @endif
+
+                        @error('adjunto')
+                        <div class="alert alert-danger" role="alert">
+                             {{ $message }}
+                        </div>
+                        @enderror
 
                             {{--  --}}
-                            @error('adjunto')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+
                         </div>
 
 
@@ -278,6 +292,16 @@
                 break;
         }
     })
+</script>
+<script>
+    $("#sub-btn").click(function(e) {
+      var logoimg = document.getElementById("logoimg");
+            let size = logoimg.files[0].size;
+            if (size > 2000000) {
+                alert("Error: El archivo pesa más de 40 Mb");
+                event.preventDefault();
+            }
+    });
 </script>
 
 <br>

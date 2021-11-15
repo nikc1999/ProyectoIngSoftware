@@ -62,17 +62,66 @@ class SolicitudController extends Controller
                     'nombre' => ['required'],
                     'detalle' => ['required']
                 ]);
+                //no se que hace esto U///w///U
+                // $findUser = User::find($request->user);
 
-                $findUser = User::find($request->user);
-
-                $findUser->solicitudes()->attach($request->tipo, [
+                // $findUser->solicitudes()->attach($request->tipo, [
+                //     'telefono' => $request->telefono,
+                //     'NRC' => $request->nrc,
+                //     'nombre_asignatura' => $request->nombre,
+                //     'detalles' => $request->detalle
+                // ]);
+                Solicitud::create([
                     'telefono' => $request->telefono,
-                    'NRC' => $request->nrc,
+                    'tipo' => $request->tipo,
                     'nombre_asignatura' => $request->nombre,
-                    'detalles' => $request->detalle
+                    'NRC' =>$request->nrc,
+                    'detalles_estudiante' => $request->detalle,
+                    'user_id' => $request->user,
                 ]);
                 return redirect('/solicitud');
                 break;
+
+            case 'Cambio paralelo':
+                $request->validate([
+                    'telefono' => ['regex:/[0-9]*/','required'],
+                    'nrc' => ['required'],
+                    'nombre' => ['required'],
+                    'detalle' => ['required']
+                ]);
+
+                Solicitud::create([
+                    'telefono' => $request->telefono,
+                    'tipo' => $request->tipo,
+                    'nombre_asignatura' => $request->nombre,
+                    'NRC' =>$request->nrc,
+                    'detalles_estudiante' => $request->detalle,
+                    'user_id' => $request->user,
+                ]);
+                return redirect('/solicitud');
+                break;
+
+
+
+                case 'Eliminacion asignatura':
+                    $request->validate([
+                        'telefono' => ['regex:/[0-9]*/','required'],
+                        'nrc' => ['required'],
+                        'nombre' => ['required'],
+                        'detalle' => ['required']
+                    ]);
+
+                    Solicitud::create([
+                        'telefono' => $request->telefono,
+                        'tipo' => $request->tipo,
+                        'nombre_asignatura' => $request->nombre,
+                        'NRC' =>$request->nrc,
+                        'detalles_estudiante' => $request->detalle,
+                        'user_id' => $request->user,
+                    ]);
+                    return redirect('/solicitud');
+                    break;
+
 
             case 'Facilidades':
                 $request->validate([
@@ -82,6 +131,7 @@ class SolicitudController extends Controller
                     'facilidad' => ['required','in:Licencia,Inasistencia Fuerza Mayor,Representacion,Inasistencia Motivo Personal'],
                     'profesor' => ['required'],
                     'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx'],
+                    'adjunto' => ['array','min:0','max:3','size:40000'],
                 ]);
 
                 $findUser = User::find($request->user);
