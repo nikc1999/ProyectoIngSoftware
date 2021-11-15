@@ -22,5 +22,35 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123123'),
 
         ]);
+
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Civil Industrial',
+            'codigo' => '4526'
+        ]);
+
+        \App\Models\User::Create([
+            'name' => 'Yo Soy Estudiante',
+            'email' => 'Estudiante@ucn.cl',
+            'rut' => '201078164',
+            'habilitado' => 1,
+            'rol' => 'Estudiante',
+            'password' => bcrypt('123123'),
+            'carrera_id' => 1,
+
+        ]);
+
+        \App\Models\User::Create([
+            'name' => 'Yo Soy Jefe Carrera',
+            'email' => 'JefeCarrera@ucn.cl',
+            'rut' => '202119557',
+            'habilitado' => 1,
+            'rol' => 'Estudiante',
+            'password' => bcrypt('123123'),
+            'carrera_id' => 1,
+
+        ]);
+
+
+
     }
 }
