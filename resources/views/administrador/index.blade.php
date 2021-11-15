@@ -9,9 +9,9 @@
 <br>
 
 <div class="d-grid gap-2">
-    <center><a href={{ route('usuario.index')}}><button class="btn btn-primary" type="button">Administrar Usuarios</button></a></center>
+    <center><a href={{ route('usuario.index')}}><button style="color:white; background-color:rgb(205,167,136)" class="btn" type="button">Administrar Usuarios</button></a></center>
     <br>
-    <center><a href={{ route('mostrarcarreras')}}><button class="btn btn-primary" type="button">Administrar Carreras</button></a></center>
+    <center><a href={{ route('mostrarcarreras')}}><button  style="color:white; background-color:rgb(205,167,136)" class="btn" type="button">Administrar Carreras</button></a></center>
 </div>
 
 @else

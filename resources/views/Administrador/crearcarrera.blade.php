@@ -34,7 +34,7 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button id = "boton" type="submit" class="btn btn-info">
+                <button style="color:white; background-color:rgb(0,181,226)" id = "boton" type="submit" class="btn btn-info">
                     Agregar
                 </button>
             </div>
@@ -48,7 +48,7 @@
     button.addEventListener('click', function(e){
         e.preventDefault();
         Swal.fire({
-            title: 'Estas seguro que quieres agregar la carrera?, esta accion es irreversible',
+            title: '¿Estás seguro que quieres agregar la carrera? Esta acción es irreversible.',
             showDenyButton: true,
             showCancelButton: false,
             confirmButtonText: 'Guardar',
@@ -66,7 +66,7 @@
 
 <br>
 <br>
-<center><a href="/gestionarcarreras"><button class="btn btn-info" type="button">Volver</button></a>
+<center><a href="/gestionarcarreras"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
 <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a></center>
 
 @else

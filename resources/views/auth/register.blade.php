@@ -90,7 +90,7 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button id="boton"type="submit" class="btn btn-outline-primary">
+                                        <button style="color:white; background-color:rgb(0,181,226)" id="boton"type="submit" class="btn btn-outline-primary">
                                             Registrar
                                         </button>
                                     </div>
@@ -141,7 +141,7 @@
 
 </script>
 
-<center><a href="/usuario"><button class="btn btn-info" type="button">Volver</button></a>
+<center><a href="/usuario"><button style="color:white; background-color:rgb(0,48,87)" class="btn" type="button">Volver</button></a>
 <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a> </center>
 
 @else
