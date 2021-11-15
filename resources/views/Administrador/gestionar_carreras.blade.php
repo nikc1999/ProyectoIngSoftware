@@ -9,7 +9,8 @@
         </div>
         <br>
         <a href="/agregarcarrera"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Crear Carrera</button></a>
-       <br>
+        <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a>
+        <br>
         @if ($datos['carreras']->isEmpty())
             <br>
             <br>
@@ -21,7 +22,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>CODIGO</th>
+                        <th>CÓDIGO</th>
                         <th>NOMBRE</th>
                         <th>EDITAR</th>
                         <th>JEFE CARRERA</th>
@@ -47,7 +48,6 @@
 </div>
 <br>
 
-<center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a></center>
 @else
 @php
 header("Location: /home" );

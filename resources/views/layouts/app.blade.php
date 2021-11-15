@@ -44,7 +44,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a style="color:white" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a style="color:white" class="nav-link" href="{{ route('login') }}">Ingresar</a>
                                 </li>
                             @endif
 
@@ -83,4 +83,9 @@
         </main>
     </div>
 </body>
+
+<script>
+    window.document.title = 'SEJC';
+</script>
+
 </html>

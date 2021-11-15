@@ -10,8 +10,9 @@
                 <i class="fas fa-chalkboard-teacher"></i>
             </div>
             <div class="col-lg-12 login-title">
-                <center>Nueva Solicitud<center>
+                <h2><center>Nueva Solicitud<center></h2>
             </div>
+            <br>
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
                     <form id="formulario" method="POST" action="{{ route('solicitud.store') }}"
@@ -115,7 +116,7 @@
                         </div>
 
                         <div class="form-group" id="groupTipoFacilidad" hidden>
-                            <label for="form-control-label" style="color: white">Tipo de  facilidad académica</label>
+                            <label for="form-control-label">Tipo de  facilidad académica</label>
                             <select class="form-control @error('facilidad') is-invalid @enderror" name="facilidad" id="facilidad">
                                 <option value={{null}}>Seleccione una facilidad</option>
                                 <option value="Licencia">Licencia Médica o Certificado Médico</option>
@@ -158,8 +159,7 @@
 
                         <div hidden id="groupButton" class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="boton" class="btn btn-outline-primary">{{ __('Agregar')
-                                    }}</button>
+                                <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="boton" class="btn">Enviar Solicitud</button>
                             </div>
                         </div>
                     </form>
@@ -274,7 +274,7 @@
 <br>
 <br>
 <center><a href={{ route('solicitud.index')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
-<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a></center>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
 
 @else
 @php

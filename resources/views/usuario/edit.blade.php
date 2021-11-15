@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="botoneditaradmin" class="btn botoneditaradmin">{{ __('Editar') }}</button>
+                    <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="botoneditaradmin" class="btn botoneditaradmin">Editar Usuario</button>
                 </div>
                 <br>
             </form></center>
@@ -127,7 +127,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="botoneditar" class="btn botoneditar">{{ __('Editar') }}</button>
+                    <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="botoneditar" class="btn botoneditar">Editar Usuario</button>
                 </div>
 
             </form></center>
@@ -218,9 +218,10 @@
 </script>
 
 
+
 <br>
 <center><a href="/usuario"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
-<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a> </center>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a> </center>
 
 @else
 @php
