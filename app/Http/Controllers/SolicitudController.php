@@ -88,24 +88,37 @@ class SolicitudController extends Controller
 
                 $aux = 0;
 
-                foreach ($request->adjunto as $file) {
-                    // todo falla cuando el archivo subido es PDF
-                    $name = $aux.time().'-'.$findUser->name.'.pdf';
-                    $file->move(public_path('\storage\docs'), $name);
-                    $datos[] = $name;
-                    $aux++;
+                if($request->adjunto != ''){
+                    foreach ($request->adjunto as $file) {
+                        // todo falla cuando el archivo subido es PDF
+                        $name = $aux.time().'-'.$findUser->name;
+                        $file->move(public_path('\storage\docs'), $name);
+                        $datos[] = $name;
+                        $aux++;
+                    }
+                    Solicitud::create([
+                        'telefono' => $request->telefono,
+                        'tipo' => $request->tipo,
+                        'nombre_asignatura' => $request->nombre,
+                        'detalles_estudiante' => $request->detalle,
+                        'tipo_facilidad' => $request->facilidad,
+                        'nombre_profesor' => $request->profesor,
+                        'archivos' => json_encode($datos),
+                        'user_id' => $request->user,
+                    ]);
+                }else{
+                    Solicitud::create([
+                        'telefono' => $request->telefono,
+                        'tipo' => $request->tipo,
+                        'nombre_asignatura' => $request->nombre,
+                        'detalles_estudiante' => $request->detalle,
+                        'tipo_facilidad' => $request->facilidad,
+                        'nombre_profesor' => $request->profesor,
+                        'user_id' => $request->user,
+                    ]);
                 }
 
-                Solicitud::create([
-                    'telefono' => $request->telefono,
-                    'tipo' => $request->tipo,
-                    'nombre_asignatura' => $request->nombre,
-                    'detalles_estudiante' => $request->detalle,
-                    'tipo_facilidad' => $request->facilidad,
-                    'nombre_profesor' => $request->profesor,
-                    'archivos' => json_encode($datos),
-                    'user_id' => $request->user,
-                ]);
+
                 return redirect('/solicitud');
                 break;
 

@@ -145,9 +145,21 @@
 
                         <div class="form-group" id="groupAdjunto" hidden>
                             <label class="form-control-label">Adjuntar archivos</label>
-                            <input id="adjunto" type="file" class="form-control @error('adjunto') is-invalid @enderror"
-                                name="adjunto[]" multiple>
+                            <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
 
+                            {{--  --}}
+                            @if ($errors->has('adjunto.*'))
+                            <span class="help-block">
+                                @foreach ($errors->has('adjunto.*') as $mensaje)
+                                <li>
+                                    {{$mensaje}}
+                                </li>
+                            @endforeach
+                            </span>
+                        @endif
+
+
+                            {{--  --}}
                             @error('adjunto')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
