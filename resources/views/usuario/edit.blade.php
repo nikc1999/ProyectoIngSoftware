@@ -6,7 +6,7 @@
         <div class = "container">
             <div class="card">
             <center>
-            <form id="formularioeditaradmin" class="formularioeditar" method="POST" action="{{ route('usuario.update', [$datos['usuario']]) }}">
+            <form id="formularioeditaradmin" class="formularioeditar" method="POST" action="{{ route('usuario.update', $datos['usuario']) }}">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
