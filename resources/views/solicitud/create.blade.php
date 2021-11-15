@@ -75,9 +75,13 @@
 
                         <div class="form-group" id="groupDetalles" hidden>
                             <label class="form-control-label">Detalles de la solicitud</label>
-                            <textarea id="detalle" type="text"
+                            <textarea maxlength=500 id="detalle" type="text"
                                 class="form-control @error('detalle') is-invalid @enderror" name="detalle"
                                 value="{{ old('detalle') }}" autocomplete="detalle" autofocus></textarea>
+                                <div id="count">
+                                    <span id="current_count">0</span>
+                                    <span id="maximum_count">/ 500</span>
+                                </div>
 
                             @error('detalle')
                             <span class="invalid-feedback" role="alert">
@@ -145,23 +149,30 @@
                         </div>
 
                         <div class="form-group" id="groupAdjunto" hidden>
-                            <label class="form-control-label">Adjuntar archivos</label>
+                            <label class="form-control-label">Adjuntar archivos (hasta 3 archivos, máximo de 20Mb por archivo)</label>
                             <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
-
-                            {{--  --}}
-                            @if($errors->has('adjunto'))
-                            @foreach ($errors->all() as $error)
-                               <span class="help-block">
-                                <strong>{{ $error }}</strong>
-                            </span>
-                           @endforeach
+                            <br>
+                            @if ($errors->has('adjunto.0'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{$errors->first('adjunto.0')}}
+                                </div>
                             @endif
 
-                            {{--  --}}
+                            @if ($errors->has('adjunto.1'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{$errors->first('adjunto.1')}}
+                                </div>
+                            @endif
+                            @if ($errors->has('adjunto.2'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{$errors->first('adjunto.2')}}
+                                </div>
+                            @endif
+
                             @error('adjunto')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
 
@@ -279,6 +290,32 @@
         }
     })
 </script>
+
+<script>
+    const button_enviar = document.getElementById('boton');
+    button_enviar.addEventListener('click', function(e){
+        var input_archivos = document.getElementById("adjunto");
+        for (var i = 0; i < input_archivos.size; i++) {
+            let size = input_archivos.files[i].size;
+            if (size > 20000000) {
+                let index = i+1;
+                alert("el archivo "+index+" pesa más de 20Mb");
+                event.preventDefault();
+            }
+        }
+    })
+</script>
+
+<script type="text/javascript">
+    const detalles_solicitud = document.getElementById('detalle');
+    $('detalle').keyup(function() {
+        var characterCount = $(this).val().length,
+            current_count = $('#current_count'),
+            maximum_count = $('#maximum_count'),
+            count = $('#count');
+            current_count.text(characterCount);
+    });
+    </script>
 
 <br>
 <br>
