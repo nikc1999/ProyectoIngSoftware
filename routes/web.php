@@ -48,4 +48,6 @@ Route::post('/modificaradministrador', [App\Http\Controllers\UserController::cla
 
 Route::post('/editarusuario/restablecerContrasena', [App\Http\Controllers\UserController::class, 'restablecerContrasena'])->name('restablecer');
 
-Route::get('/mostrarsolicitudesjefe', [App\Http\Controllers\UserController::class, 'mostrarsolicitudesJefe'])->name('mostrarSolicitudesJefe');
+Route::get('/mostrarsolicitudespendientesjefe', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesPendientesJefe'])->name('mostrarSolicitudesPendientesJefe');
+
+Route::get('/mostrarsolicitudesdfiltrar', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesFiltrar'])->name('mostrarSolicitudesFiltrar');
