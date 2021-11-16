@@ -12,7 +12,7 @@
             <br>
             <br>
             <div class="alert alert-danger" role="alert">
-                No existen solicitudes realizadas por el estudiante
+                No hay solicitudes ingresadas
             </div>
         @else
         <br>
@@ -36,7 +36,7 @@
                             @else
                                 <td>{!! $solicitud->tipo !!}</td>
                             @endif
-                            <td>{!! $solicitud->created_at !!}</td>
+                            <td>{!! $solicitud->updated_at !!}</td>
                             <td>{!! $solicitud->estado !!}</td>
                             @if ($solicitud->estado == 'Anulada' || $solicitud->estado == 'Aceptada')
                                 <td>No editable</td>

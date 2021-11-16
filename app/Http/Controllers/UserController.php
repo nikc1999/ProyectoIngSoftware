@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carrera;
+use App\Models\Solicitud;
 use App\Models\User;
 use App\Rules\ValidarCarreraTieneJefe;
 use App\Rules\ValidarRut;
@@ -223,4 +224,61 @@ class UserController extends Controller
         $encontrarUsuario->save();
         return redirect('/usuario');
     }
+
+    public function mostrarSolicitudesPendientesJefe(){
+        $solicitudes = Solicitud::all();
+        $usuarios = User::all();
+        $carreraIdJefe = Auth::user()->carrera_id;
+
+
+        $listaSolicitudes = collect();
+        $listaEstudiantes = collect();
+
+        foreach ($solicitudes as $solicitud) {
+            if ($solicitud->estado == 'Pendiente') {
+                $idUsuario = $solicitud->user_id;
+                foreach ($usuarios as $usuario) {
+                    if ($usuario->id == $idUsuario) {
+                        if ($usuario->carrera_id == $carreraIdJefe) {
+                            $listaSolicitudes->push($solicitud);
+                            $listaEstudiantes->push([$usuario->rut,$usuario->name,$usuario->email]);
+                        }
+                    }
+                }
+            }
+        }
+
+        $listaSolicitudes = $listaSolicitudes->sortBy('updated_at');
+
+        //dd($listaSolicitudes,$listaEstudiantes);
+        return view('JefeCarrera.solicitudes')->with('solicitudesPendientes', $listaSolicitudes)->with('datosEstudiantesPendientes' , $listaEstudiantes);
+    }
+
+    public function mostrarSolicitudesFiltrar(){
+        $solicitudes = Solicitud::all();
+        $usuarios = User::all();
+        $carreraIdJefe = Auth::user()->carrera_id;
+
+
+        $listaSolicitudes = collect();
+        $listaEstudiantes = collect();
+
+        foreach ($solicitudes as $solicitud) {
+            $idUsuario = $solicitud->user_id;
+            foreach ($usuarios as $usuario) {
+                if ($usuario->id == $idUsuario) {
+                    if ($usuario->carrera_id == $carreraIdJefe) {
+                        $listaSolicitudes->push($solicitud);
+                        $listaEstudiantes->push([$usuario->rut,$usuario->name,$usuario->email]);
+                    }
+                }
+            }
+        }
+
+        $listaSolicitudes = $listaSolicitudes->sortBy('updated_at');
+
+        //dd($listaSolicitudes,$listaEstudiantes);
+        return view('JefeCarrera.filtrarSolicitudes')->with('solicitudes', $listaSolicitudes)->with('datosEstudiantes' , $listaEstudiantes);
+    }
+
 }
