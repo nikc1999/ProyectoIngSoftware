@@ -23,12 +23,8 @@
                         <div class="form-group">
                             <label for="form-control-label" style="color: black">Tipo Solicitud</label>
                             <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
-                                <option value="Sobrecupo" @if ($solicitud->tipo == 'Sobrecupo') selected="selected" @endif>Sobrecupo</option>
-                                <option value="Cambio paralelo" @if ($solicitud->tipo == 'Cambio paralelo') selected="selected" @endif>Cambio de Paralelo</option>
-                                <option value="Eliminacion asignatura" @if ($solicitud->tipo == 'Eliminacion asignatura') selected="selected" @endif>Eliminación de Asignatura</option>
-                                <option value="Inscripcion asignatura" @if ($solicitud->tipo == 'Inscripcion asignatura') selected="selected" @endif>Inscripción de Asignatura</option>
-                                <option value="Ayudantia" @if ($solicitud->tipo == 'Ayudantia') selected="selected" @endif>Ayudantía</option>
-                                <option value="Facilidades" @if ($solicitud->tipo == 'Facilidades') selected="selected" @endif>Facilidades Académicas</option>
+                                <option value="{{$solicitud->tipo}}">  {{$solicitud->tipo}} </option>
+
                             </select>
                             @error('tipo')
                             <span class="invalid-feedback" role="alert">
@@ -79,7 +75,7 @@
                                 class="form-control @error('detalle') is-invalid @enderror" name="detalle"
                                 autocomplete="detalle" autofocus>{{ $solicitud->detalles_estudiante }}</textarea>
                                 <div id="count">
-                                    <span id="current_count">{{ Str::length($solicitud->detalles_estudiante) }}</span>
+                                    <span id="current_count">0</span>
                                     <span id="maximum_count">/ 500</span>
                                 </div>
 
@@ -212,7 +208,6 @@
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
     //mostrarAlInicio{
     //  obtenerSeleccionado
@@ -229,7 +224,6 @@
     const inputProfesor = document.getElementById('groupProfesor');
     const inputAdjunto = document.getElementById('groupAdjunto');
     const button = document.getElementById('groupButton');
-
     switch (selectSolicitud.value) {
         case "Sobrecupo":
             inputTelefono.hidden = false;
@@ -422,15 +416,15 @@
 </script>
 
 <script type="text/javascript">
-    const textarea_detalle = document.getElementById('detalle');
-    textarea_detalle.addEventListener('keyup', function() {
+    const detalles_solicitud = document.getElementById('detalle');
+    $('detalle').keyup(function() {
         var characterCount = $(this).val().length,
             current_count = $('#current_count'),
             maximum_count = $('#maximum_count'),
             count = $('#count');
             current_count.text(characterCount);
     });
-</script>
+    </script>
 
 <br>
 <br>
