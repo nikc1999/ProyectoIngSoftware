@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-@if (Auth::user()->rol=='Estudiante')
+@if (Auth::user()->rol=='Jefe de Carrera')
 <div class="container col-md-8 col-md-offset-2">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2>Panel de Solicitudes</h2>
         </div>
-        <a class="nav-link" href={{ route('solicitud.create')}}><button class="btn" style="color:white; background-color:rgb(0,181,226)" type="button">Crear Solicitud</button></a>
+
         @if ($solicitudes->isEmpty())
             <br>
             <br>
             <div class="alert alert-danger" role="alert">
-                No hay solicitudes ingresadas
+                No existen solicitudes pendientes
             </div>
         @else
         <br>
@@ -22,9 +22,10 @@
                         <th>N° SOLICITUD</th>
                         <th>TIPO SOLICITUD</th>
                         <th>FECHA SOLICITUD</th>
+                        <th>RUT ESTUDIANTE</th>
+                        <th>NOMBRE ESTUDIANTE</th>
                         <th>ESTADO</th>
-                        <th>EDITAR</th>
-                        <th>ANULAR</th>
+                        <th>RESOLVER</th>
                     </tr>
                 </thead>
                 <tbody>

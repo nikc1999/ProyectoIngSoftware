@@ -47,3 +47,5 @@ Route::post('/modificar_usuario', [App\Http\Controllers\UserController::class, '
 Route::post('/modificaradministrador', [App\Http\Controllers\UserController::class, 'modificarAdmin'])->name('editarAdministrador');
 
 Route::post('/editarusuario/restablecerContrasena', [App\Http\Controllers\UserController::class, 'restablecerContrasena'])->name('restablecer');
+
+Route::get('/mostrarsolicitudesjefe', [App\Http\Controllers\UserController::class, 'mostrarsolicitudesJefe'])->name('mostrarSolicitudesJefe');
