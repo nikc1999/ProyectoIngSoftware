@@ -295,6 +295,7 @@ class SolicitudController extends Controller
                     'detalle' => ['required']
                 ]);
 
+
                 Solicitud::create([
                     'telefono' => $request->telefono,
                     'tipo' => $request->tipo,
