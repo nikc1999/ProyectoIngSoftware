@@ -250,8 +250,8 @@ class UserController extends Controller
 
         $listaSolicitudes = $listaSolicitudes->sortBy('updated_at');
 
-        dd($listaSolicitudes,$listaEstudiantes);
-        return view('JefeCarrera.solicitudes')->with('solicitudes', $listaSolicitudes, 'datosEstudiantes', $listaEstudiantes);
+        //dd($listaSolicitudes,$listaEstudiantes);
+        return view('JefeCarrera.solicitudes')->with('solicitudes', $listaSolicitudes)->with('datosEstudiantes' , $listaEstudiantes);
     }
 
 }

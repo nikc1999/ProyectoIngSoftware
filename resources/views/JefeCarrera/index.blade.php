@@ -3,7 +3,7 @@
 @section('content')
 @if (Auth::user()->rol == 'Jefe de Carrera')
     <div class="">
-        <center><h1>Menú Estudiante</h1></center>
+        <center><h1>Menú Jefe de Carrera</h1></center>
     </div>
     <br>
     <div class="d-grid gap-2">
