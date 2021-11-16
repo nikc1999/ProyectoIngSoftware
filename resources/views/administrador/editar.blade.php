@@ -10,7 +10,7 @@
         @method('PUT')
         <br>
         <div class="col-md-2">
-            <label>Codigo carrera: </label>
+            <label>Código carrera: </label>
         </div>
         <div class="col-md-2">
             <label>  </label>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-md-2">
-            <button type="submit" class="btn btn-outline-info botonsito">{{ __('Editar') }}</button>
+            <button style="color:white; background-color:rgb(0,181,226)" type="submit" class="btn btn-outline-info botonsito">Editar Carrera</button>
         </div>
         <br>
     </form></center>
@@ -40,6 +40,8 @@
     const form = document.getElementsByClassName('formulariowo')
     for (let i = 0; i < button.length; i++) {
         button[i].addEventListener('click', function(e){
+        const nuevoNombre = document.getElementById('nombre').value;
+        if (nuevoNombre != ''){
         e.preventDefault();
         Swal.fire({
           position: 'center',
@@ -49,6 +51,7 @@
           timer: 2000,
         })
         form[i].submit();
+        }
     })
     }
 
@@ -57,8 +60,8 @@
 
 <br>
 <div class = "container">
-<center><a href="/gestionarcarreras"><button class="btn btn-info" type="button">Volver</button></a>
-<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menu</button></a><center>
+<center><a href="/gestionarcarreras"><button style="color:white; background-color:rgb(0,48,87)" class="btn" type="button">Volver</button></a>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a><center>
 </div>
 @else
 
