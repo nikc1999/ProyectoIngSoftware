@@ -269,15 +269,8 @@ class SolicitudController extends Controller
                     'nombre' => ['required'],
                     'detalle' => ['required']
                 ]);
-                //no se que hace esto U///w///U
-                // $findUser = User::find($request->user);
 
-                // $findUser->solicitudes()->attach($request->tipo, [
-                //     'telefono' => $request->telefono,
-                //     'NRC' => $request->nrc,
-                //     'nombre_asignatura' => $request->nombre,
-                //     'detalles' => $request->detalle
-                // ]);
+                $solicitud->tipo = $request->tipo;
                 $solicitud->telefono = $request->telefono;
                 $solicitud->nombre_asignatura = $request->nombre;
                 $solicitud->NRC = $request->nrc;
@@ -295,18 +288,15 @@ class SolicitudController extends Controller
                     'detalle' => ['required']
                 ]);
 
-                Solicitud::create([
-                    'telefono' => $request->telefono,
-                    'tipo' => $request->tipo,
-                    'nombre_asignatura' => $request->nombre,
-                    'NRC' =>$request->nrc,
-                    'detalles_estudiante' => $request->detalle,
-                    'user_id' => $request->user,
-                ]);
+                $solicitud->tipo = $request->tipo;
+                $solicitud->telefono = $request->telefono;
+                $solicitud->nombre_asignatura = $request->nombre;
+                $solicitud->NRC = $request->nrc;
+                $solicitud->detalles_estudiante = $request->detalle;
+
+                $solicitud->save();
                 return redirect('/solicitud');
                 break;
-
-
 
             case 'Eliminacion asignatura':
                 $request->validate([
@@ -316,14 +306,13 @@ class SolicitudController extends Controller
                     'detalle' => ['required']
                 ]);
 
-                Solicitud::create([
-                    'telefono' => $request->telefono,
-                    'tipo' => $request->tipo,
-                    'nombre_asignatura' => $request->nombre,
-                    'NRC' =>$request->nrc,
-                    'detalles_estudiante' => $request->detalle,
-                    'user_id' => $request->user,
-                ]);
+                $solicitud->tipo = $request->tipo;
+                $solicitud->telefono = $request->telefono;
+                $solicitud->nombre_asignatura = $request->nombre;
+                $solicitud->NRC = $request->nrc;
+                $solicitud->detalles_estudiante = $request->detalle;
+
+                $solicitud->save();
                 return redirect('/solicitud');
                 break;
 
@@ -335,14 +324,13 @@ class SolicitudController extends Controller
                     'detalle' => ['required']
                 ]);
 
-                Solicitud::create([
-                    'telefono' => $request->telefono,
-                    'tipo' => $request->tipo,
-                    'nombre_asignatura' => $request->nombre,
-                    'NRC' =>$request->nrc,
-                    'detalles_estudiante' => $request->detalle,
-                    'user_id' => $request->user,
-                ]);
+                $solicitud->tipo = $request->tipo;
+                $solicitud->telefono = $request->telefono;
+                $solicitud->nombre_asignatura = $request->nombre;
+                $solicitud->NRC = $request->nrc;
+                $solicitud->detalles_estudiante = $request->detalle;
+
+                $solicitud->save();
                 return redirect('/solicitud');
                 break;
 
@@ -351,27 +339,20 @@ class SolicitudController extends Controller
                     'telefono' => ['regex:/[0-9]*/','int','required'],
                     'nombre' => ['required'],
                     'detalle' => ['required'],
-                    'calificacion'=>['regex:/([1-6]\.[0-9])|([7]\.[0])/','required'],// revisar regex 6.9
+                    'calificacion'=>['regex:/([1-6]\.[0-9])|([7]\.[0])/','required'],
                     'cantidad'=>['regex:/[0-9]*/','required','int']
                 ]);
 
-                Solicitud::create([
-                    'telefono' => $request->telefono,
-                    'tipo' => $request->tipo,
-                    'nombre_asignatura' => $request->nombre,
-                    'detalles_estudiante' => $request->detalle,
-                    'calificacion_aprob' =>$request->calificacion,
-                    'cant_ayudantias' =>$request->cantidad,
-                    'user_id' => $request->user,
-                ]);
+                $solicitud->tipo = $request->tipo;
+                $solicitud->telefono = $request->telefono;
+                $solicitud->nombre_asignatura = $request->nombre;
+                $solicitud->detalles_estudiante = $request->detalle;
+                $solicitud->calificacion_aprob = $request->calificacion;
+                $solicitud->cant_ayudantias = $request->cantidad;
+
+                $solicitud->save();
                 return redirect('/solicitud');
                 break;
-
-
-
-
-
-
 
             case 'Facilidades':
                 $request->validate([
@@ -388,7 +369,7 @@ class SolicitudController extends Controller
 
                 $aux = 0;
 
-                if($request->adjunto != ''){
+                if($request->adjunto != null){ //revisar
                     foreach ($request->adjunto as $file) {
                         // todo falla cuando el archivo subido es PDF
                         $name = $aux.time().'-'.$findUser->name;
@@ -396,34 +377,34 @@ class SolicitudController extends Controller
                         $datos[] = $name;
                         $aux++;
                     }
-                    Solicitud::create([
-                        'telefono' => $request->telefono,
-                        'tipo' => $request->tipo,
-                        'nombre_asignatura' => $request->nombre,
-                        'detalles_estudiante' => $request->detalle,
-                        'tipo_facilidad' => $request->facilidad,
-                        'nombre_profesor' => $request->profesor,
-                        'archivos' => json_encode($datos),
-                        'user_id' => $request->user,
-                    ]);
+
+                    $solicitud->tipo = $request->tipo;
+                    $solicitud->telefono = $request->telefono;
+                    $solicitud->nombre_asignatura = $request->nombre;
+                    $solicitud->detalles_estudiante = $request->detalle;
+                    $solicitud->tipo_facilidad = $request->facilidad;
+                    $solicitud->nombre_profesor = $request->profesor;
+                    $solicitud->archivos = json_encode($datos); //revisar
+
+                    $solicitud->save();
+                    return redirect('/solicitud');
+                    break;
+
                 }else{
-                    Solicitud::create([
-                        'telefono' => $request->telefono,
-                        'tipo' => $request->tipo,
-                        'nombre_asignatura' => $request->nombre,
-                        'detalles_estudiante' => $request->detalle,
-                        'tipo_facilidad' => $request->facilidad,
-                        'nombre_profesor' => $request->profesor,
-                        'user_id' => $request->user,
-                    ]);
+                    $solicitud->tipo = $request->tipo;
+                    $solicitud->telefono = $request->telefono;
+                    $solicitud->nombre_asignatura = $request->nombre;
+                    $solicitud->detalles_estudiante = $request->detalle;
+                    $solicitud->tipo_facilidad = $request->facilidad;
+                    $solicitud->nombre_profesor = $request->profesor;
+
+                    $solicitud->save();
+                    return redirect('/solicitud');
+                    break;
                 }
 
-
-                return redirect('/solicitud');
-                break;
-
             default:
-                # code...
+                return redirect('/solicitud');
                 break;
         }
     }
