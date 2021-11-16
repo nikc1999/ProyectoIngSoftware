@@ -23,8 +23,12 @@
                         <div class="form-group">
                             <label for="form-control-label" style="color: black">Tipo Solicitud</label>
                             <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
-                                <option value="{{$solicitud->tipo}}">  {{$solicitud->tipo}} </option>
-
+                                <option value="Sobrecupo" @if ($solicitud->tipo == 'Sobrecupo') selected="selected" @endif>Sobrecupo</option>
+                                <option value="Cambio paralelo" @if ($solicitud->tipo == 'Cambio paralelo') selected="selected" @endif>Cambio de Paralelo</option>
+                                <option value="Eliminacion asignatura" @if ($solicitud->tipo == 'Eliminacion asignatura') selected="selected" @endif>Eliminación de Asignatura</option>
+                                <option value="Inscripcion asignatura" @if ($solicitud->tipo == 'Inscripcion asignatura') selected="selected" @endif>Inscripción de Asignatura</option>
+                                <option value="Ayudantia" @if ($solicitud->tipo == 'Ayudantia') selected="selected" @endif>Ayudantía</option>
+                                <option value="Facilidades" @if ($solicitud->tipo == 'Facilidades') selected="selected" @endif>Facilidades Académicas</option>
                             </select>
                             @error('tipo')
                             <span class="invalid-feedback" role="alert">
@@ -75,7 +79,7 @@
                                 class="form-control @error('detalle') is-invalid @enderror" name="detalle"
                                 autocomplete="detalle" autofocus>{{ $solicitud->detalles_estudiante }}</textarea>
                                 <div id="count">
-                                    <span id="current_count">0</span>
+                                    <span id="current_count">{{ Str::length($solicitud->detalles_estudiante) }}</span>
                                     <span id="maximum_count">/ 500</span>
                                 </div>
 
@@ -118,34 +122,11 @@
                         <div class="form-group" id="groupTipoFacilidad" hidden>
                             <label for="form-control-label">Tipo de  facilidad académica</label>
                             <select class="form-control @error('facilidad') is-invalid @enderror" name="facilidad" id="facilidad">
-                                @if ($solicitud->tipo_facilidad == "Licencia")
-                                    <option value="Licencia">Licencia Médica o Certificado Médico</option>
-                                    <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
-                                    <option value="Representacion">Representación de la Universidad</option>
-                                    <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos Familiares</option>
-                                @endif
-                                @if ($solicitud->tipo_facilidad == "Inasistencia Fuerza Mayor")
-                                    <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
-                                    <option value="Licencia">Licencia Médica o Certificado Médico</option>
-                                    <option value="Representacion">Representación de la Universidad</option>
-                                    <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos Familiares</option>
-                                @endif
-                                @if ($solicitud->tipo_facilidad == "Representacion")
-                                    <option value="Representacion">Representación de la Universidad</option>
-                                    <option value="Licencia">Licencia Médica o Certificado Médico</option>
-                                    <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
-                                    <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos Familiares</option>
-                                @endif
-                                @if ($solicitud->tipo_facilidad == "Inasistencia Motivo Personal")
-                                    <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos Familiares</option>
-                                    <option value="Licencia">Licencia Médica o Certificado Médico</option>
-                                    <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
-                                    <option value="Representacion">Representación de la Universidad</option>
-
-                                @endif
-
-
-
+                                <option value={{null}}>Seleccione una facilidad</option>
+                                <option value="Licencia" @if ($solicitud->tipo_facilidad == 'Licencia') selected="selected" @endif>Licencia Médica o Certificado Médico</option>
+                                <option value="Inasistencia Fuerza Mayor" @if ($solicitud->tipo_facilidad  == 'Inasistencia Fuerza Mayor') selected="selected" @endif>Inasistencia por Fuerza Mayor</option>
+                                <option value="Representacion" @if ($solicitud->tipo_facilidad  == 'Representacion') selected="selected" @endif>Representación de la Universidad</option>
+                                <option value="Inasistencia Motivo Personal" @if ($solicitud->tipo_facilidad == 'Inasistencia Motivo Personal') selected="selected" @endif>Inasistencia a Clases por Motivos Familiares</option>
                             </select>
                             @error('facilidad')
                             <span class="invalid-feedback" role="alert">
@@ -168,31 +149,88 @@
                         </div>
 
                         <div class="form-group" id="groupAdjunto" hidden>
-                            <label class="form-control-label">Adjuntar archivos (hasta 3 archivos, máximo de 20Mb por archivo)</label>
-                            <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
-                            <br>
-                            @if ($errors->has('adjunto.0'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{$errors->first('adjunto.0')}}
+
+                            @if(is_null($solicitud->archivos))
+                                <div>
+                                    <label class="form-control-label">Adjuntar archivos (hasta 3 archivos, máximo de 20Mb por archivo)</label>
+                                    <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
+                                    <br>
+                                    @if ($errors->has('adjunto.0'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$errors->first('adjunto.0')}}
+                                        </div>
+                                    @endif
+
+                                    @if ($errors->has('adjunto.1'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$errors->first('adjunto.1')}}
+                                        </div>
+                                    @endif
+                                    @if ($errors->has('adjunto.2'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$errors->first('adjunto.2')}}
+                                        </div>
+                                    @endif
+
+                                    @error('adjunto')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
+                            @else
+                                <label class="form-control-label">Editar archivos adjuntos</label>
+
+                                <select class="form-control @error('archivo') is-invalid @enderror" name="archivo" id="archivo">
+                                    <option value={{null}}>Seleccione una opcion</option>
+                                    <option value= "0" >Guardar archivos anteriores</option>
+                                    <option value= "1" >Cambiar archivos</option>
+                                </select>
+                                <br>
+
+                                <div id="groupAdj" hidden>
+                                    <label class="form-control-label">Adjuntar archivos (hasta 3 archivos, máximo de 20Mb por archivo)</label>
+                                    <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
+                                    <br>
+                                    @if ($errors->has('adjunto.0'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$errors->first('adjunto.0')}}
+                                        </div>
+                                    @endif
+
+                                    @if ($errors->has('adjunto.1'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$errors->first('adjunto.1')}}
+                                        </div>
+                                    @endif
+                                    @if ($errors->has('adjunto.2'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$errors->first('adjunto.2')}}
+                                        </div>
+                                    @endif
+
+                                    @error('adjunto')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                @if(!is_null($solicitud->archivos))
+                                    <label class="form-control-label">Los archivos anteriores son los siguientes:</label>
+                                    <br>
+                                    @php
+                                    $i = 1
+                                    @endphp
+                                    @foreach (json_decode($solicitud->archivos) as $link)
+                                    <a href="http://localhost:8000/storage/docs/{{$link}}">Archivo {{$i++}}</a>
+                                    @endforeach
+
+                                @endif
+
                             @endif
 
-                            @if ($errors->has('adjunto.1'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{$errors->first('adjunto.1')}}
-                                </div>
-                            @endif
-                            @if ($errors->has('adjunto.2'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{$errors->first('adjunto.2')}}
-                                </div>
-                            @endif
 
-                            @error('adjunto')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                         </div>
 
 
@@ -208,6 +246,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     //mostrarAlInicio{
     //  obtenerSeleccionado
@@ -224,6 +263,11 @@
     const inputProfesor = document.getElementById('groupProfesor');
     const inputAdjunto = document.getElementById('groupAdjunto');
     const button = document.getElementById('groupButton');
+    const adjArchivo = document.getElementById('groupAdj');
+    const selectArchivo = document.getElementById('archivo');
+
+
+
     switch (selectSolicitud.value) {
         case "Sobrecupo":
             inputTelefono.hidden = false;
@@ -311,6 +355,7 @@
             break;
     }
     selectSolicitud.addEventListener('change', () => {
+
         switch (selectSolicitud.value) {
             case "Sobrecupo":
                 inputTelefono.hidden = false;
@@ -373,6 +418,7 @@
                 button.hidden = false
                 break;
             case "Facilidades":
+
                 inputTelefono.hidden = false;
                 inputNrc.hidden = true;
                 inputNombre.hidden = false;
@@ -398,6 +444,20 @@
                 break;
         }
     })
+
+    selectArchivo.addEventListener('change', () => {
+        switch (selectArchivo.value) {
+            case "0":
+                adjArchivo.hidden=true;
+                break;
+            case "1":
+                adjArchivo.hidden=false;
+                break;
+            default:
+                adjArchivo.hidden=true;
+                break;
+        }
+    })
 </script>
 
 <script>
@@ -416,15 +476,15 @@
 </script>
 
 <script type="text/javascript">
-    const detalles_solicitud = document.getElementById('detalle');
-    $('detalle').keyup(function() {
+    const textarea_detalle = document.getElementById('detalle');
+    textarea_detalle.addEventListener('keyup', function() {
         var characterCount = $(this).val().length,
             current_count = $('#current_count'),
             maximum_count = $('#maximum_count'),
             count = $('#count');
             current_count.text(characterCount);
     });
-    </script>
+</script>
 
 <br>
 <br>

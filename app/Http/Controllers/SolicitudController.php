@@ -6,6 +6,7 @@ use App\Models\Solicitud;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
+use Illuminate\Support\Facades\File; // clase para eliminar archivos
 
 class SolicitudController extends Controller
 {
@@ -276,6 +277,15 @@ class SolicitudController extends Controller
                 $solicitud->NRC = $request->nrc;
                 $solicitud->detalles_estudiante = $request->detalle;
 
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
                 $solicitud->save();
                 return redirect('/solicitud');
                 break;
@@ -293,6 +303,15 @@ class SolicitudController extends Controller
                 $solicitud->nombre_asignatura = $request->nombre;
                 $solicitud->NRC = $request->nrc;
                 $solicitud->detalles_estudiante = $request->detalle;
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
 
                 $solicitud->save();
                 return redirect('/solicitud');
@@ -311,6 +330,15 @@ class SolicitudController extends Controller
                 $solicitud->nombre_asignatura = $request->nombre;
                 $solicitud->NRC = $request->nrc;
                 $solicitud->detalles_estudiante = $request->detalle;
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
 
                 $solicitud->save();
                 return redirect('/solicitud');
@@ -329,6 +357,15 @@ class SolicitudController extends Controller
                 $solicitud->nombre_asignatura = $request->nombre;
                 $solicitud->NRC = $request->nrc;
                 $solicitud->detalles_estudiante = $request->detalle;
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
 
                 $solicitud->save();
                 return redirect('/solicitud');
@@ -350,6 +387,16 @@ class SolicitudController extends Controller
                 $solicitud->calificacion_aprob = $request->calificacion;
                 $solicitud->cant_ayudantias = $request->cantidad;
 
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
+
                 $solicitud->save();
                 return redirect('/solicitud');
                 break;
@@ -361,7 +408,7 @@ class SolicitudController extends Controller
                     'detalle' => ['required'],
                     'facilidad' => ['required','in:Licencia,Inasistencia Fuerza Mayor,Representacion,Inasistencia Motivo Personal'],
                     'profesor' => ['required'],
-                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx','max:20000'],
+                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx,png','max:20000'],
                     'adjunto' => ['array','min:0','max:3'],
                 ]);
 
