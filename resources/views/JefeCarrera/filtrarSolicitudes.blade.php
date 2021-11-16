@@ -99,7 +99,7 @@
                             <td>{!! $solicitudes[$i]->updated_at !!}</td>
                             <td>{!! $datosEstudiantes[$i][0] !!}</td>
                             <td>{!! $datosEstudiantes[$i][1] !!}</td>
-                            <td><a class="btn btn-outline-rgb" style="color:white; background-color:rgb(0,181,226)" href={{ route('solicitud.show', [$solicitudes[$i]]) }}>Resolver</a></td>
+                            <td><a class="btn btn-outline-rgb" style="color:white; background-color:rgb(0,181,226)" href={{ route('solicitud.show', [$solicitudes[$i]]) }}>Detalles</a></td>
 
                         </tr>
                     @endfor
