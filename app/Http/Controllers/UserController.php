@@ -270,32 +270,33 @@ class UserController extends Controller
         //return view('JefeCarrera.solicitudes')->with('solicitudesPendientes', $listaSolicitudes)->with('datosEstudiantesPendientes' , $listaEstudiantes);
     }
 
-    public function mostrarSolicitudesFiltrar(){
-        $solicitudes = Solicitud::all();
-        $usuarios = User::all();
+    public function mostrarSolicitudesFiltrar(Request $request){
+
+        $listaSolicitudes = collect();
         $carreraIdJefe = Auth::user()->carrera_id;
+        $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
 
-
-
-        $listaSolicitudes = collect(); //[matias,Juan]
-        $listaEstudiantes = collect(); //[202119557,205573453]
-
-        foreach ($solicitudes as $solicitud) {
-            $idUsuario = $solicitud->user_id;
-            foreach ($usuarios as $usuario) {
-                if ($usuario->id == $idUsuario) {
-                    if ($usuario->carrera_id == $carreraIdJefe) {
-                        $listaSolicitudes->push($solicitud);
-                        $listaEstudiantes->push([$usuario->rut,$usuario->name,$usuario->email]);
-                    }
-                }
+        foreach ($usuarios as $usuario){
+            $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
+            foreach($solicitudes as $solicitud){
+                if($solicitud->tipo == $request->tipo)
+                $listaSolicitudes->push($solicitud);
             }
         }
 
         $listaSolicitudes = $listaSolicitudes->sortBy('updated_at');
 
+        $solicitudes = $listaSolicitudes;
+
+        $datos = [
+            'solicitudes' => $solicitudes,
+            'usuarios' => $usuarios,
+        ];
+
+        return view('JefeCarrera.solicitudes')->with('datos', $datos);
+
         //dd($listaSolicitudes,$listaEstudiantes);
-        return view('JefeCarrera.filtrarSolicitudes')->with('solicitudes', $listaSolicitudes)->with('datosEstudiantes' , $listaEstudiantes);
+        //return view('JefeCarrera.filtrarSolicitudes')->with('solicitudes', $listaSolicitudes)->with('datosEstudiantes' , $listaEstudiantes);
     }
 
 }

@@ -24,23 +24,78 @@ class SolicitudJDC extends Controller
         }
         if(Auth::user()->rol=='Jefe de Carrera')
         {
-            $listaSolicitudes = collect();
-            $solicitud = Solicitud::where('id', $request->search)->first();
-            $user = User::where('id', $solicitud->user_id)->first();
+            $carreraIdJefe = Auth::user()->carrera_id;
+            if ($request->search == null) { //Cuanto por el buscador se entra vacio
+                $listaSolicitudes = collect();
+                $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
+                foreach ($usuarios as $usuario){
+                    $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
+                    foreach($solicitudes as $solicitud){
+                        $listaSolicitudes->push($solicitud);
+                }
+            }
 
-            $listaSolicitudes->push($solicitud);
+            $solicitudes = $listaSolicitudes;
 
-            $solicitud = $listaSolicitudes;
+            $solicitudes = $solicitudes->sortBy('created_at');
 
             $datos = [
-                'solicitudes' => $solicitud,
-                'usuarios' => $user,
+                'solicitudes' => $solicitudes,
+                'usuarios' => $usuarios,
             ];
 
             return view('JefeCarrera.solicitudes')->with('datos', $datos);
+            }
 
+            else{ //Cuando el buscador entra con algo
+                $listaSolicitudes = collect();
+                $solicitud = Solicitud::where('id', $request->search)->first();
+
+
+                if($solicitud == null){ //Cuando no existe la solicitud ingresada por el buscador
+
+                    $solicitud = null;
+                    $user = null;
+                    $datos = [
+                        'solicitudes' => $solicitud,
+                        'usuarios' => $user,
+                    ];
+                    return view('JefeCarrera.solicitudes')->with('datos', $datos);
+                }
+                if($solicitud->estado != 'Pendiente'){ //Cuando la solicitud encontrada no es pendiente
+
+                    $solicitud = null;
+                    $user = null;
+                    $datos = [
+                        'solicitudes' => $solicitud,
+                        'usuarios' => $user,
+                    ];
+                    return view('JefeCarrera.solicitudes')->with('datos', $datos);
+                }
+
+                $user = User::where('id', $solicitud->user_id)->get(); //Llegado a este punto si se encontró la solicitud
+
+                if($user[0]->carrera_id != $carreraIdJefe){ //Si la solicitud hecha por el usuario no pertenece al jefe de carrera que está logeado
+                    $solicitud = null;
+                    $user = null;
+                    $datos = [
+                        'solicitudes' => $solicitud,
+                        'usuarios' => $user,
+                    ];
+                    return view('JefeCarrera.solicitudes')->with('datos', $datos);
+                }
+
+                $listaSolicitudes->push($solicitud);
+
+                $solicitud = $listaSolicitudes;
+
+                $datos = [
+                'solicitudes' => $solicitud,
+                'usuarios' => $user,
+            ];
+                return view('JefeCarrera.infoEstudiante')->with('datos', $datos);
+            }
         }
-
         return redirect('/home');
     }
 
@@ -51,7 +106,7 @@ class SolicitudJDC extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -62,7 +117,8 @@ class SolicitudJDC extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $hola = "hola";
+        dd($hola);
     }
 
     /**

@@ -7,54 +7,43 @@
 <h1>Informacion Estudiante</h1>
 
 <br>
-@if ($usuarios->isEmpty())
-<br>
-<div class="alert alert-danger" role="alert">
-    No existe usuario con ese rut en el sistema.
- </div>
+@if(is_null($datos['solicitudes']) || $datos['solicitudes']->isEmpty())
+            <br>
+            <div class="alert alert-danger" role="alert">
+                No existen solicitudes pendientes
+            </div>
 @else
 <br>
 <br>
 <table class="table">
     <thead>
         <tr>
+            <th>N° SOLICITUD</th>
+            <th>TIPO SOLICITUD</th>
+            <th>FECHA SOLICITUD</th>
             <th>RUT</th>
             <th>NOMBRE</th>
-            <th>CARRERA</th>
+            <th>TELEFONO</th>
             <th>CORREO</th>
         </tr>
     </thead>
     <tbody>
-            <tr>
-                <td>{!! $user->name !!}</td>
-                <td>{!! $user->rut !!}</td>
-                <td>{!! $user->rol !!}</td>
-                <td>{!! $user->correo !!}</td>
-            </tr>
-            @else
-                <tr>
-                <td>{!! $user->name !!}</td>
-                <td>{!! $user->rut !!}</td>
-                <td>{!! $user->rol !!}</td>
-                <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('usuario.edit', [$user]) }}>Editar</a></td>
-
-                <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
-                    @csrf
-                @if ($user->habilitado==0)
-                    <td><center><button style="background-color:rgb(72,162,79); color:white" class="btn">Habilitar</button></td></center>
-                @else
-                    <td><center><button style="background-color:rgb(196,49,44); color:white" class="btn">Deshabilitar</button></td></center>
+        <tr>
+        @foreach ($datos['usuarios'] as $us)
+            @foreach($datos['solicitudes'] as $solicitud)
+                    <td>{!! $solicitud->id !!}</td>
+                    @if ($solicitud->tipo == 'Facilidades')
+                        <td>{!! $solicitud->tipo_facilidad !!}</td>
+                    @else
+                        <td>{!! $solicitud->tipo !!}</td>
                     @endif
-                </form>
-
-                <form class="formulariorestablecer" method="POST" action="{{ route('restablecer', ['id' => $user]) }}">
-                    @csrf
-                    <td><button style='background-color:rgb(180,41,160); color:white' class="btn botonrestablecer">Restablecer</button></td>
-                </form>
-                </tr>
-
-            @endif
-
+                    <td>{!! $solicitud->updated_at !!}</td>
+                    <td>{!! $us->rut !!}</td>
+                    <td>{!! $us->name !!}</td>
+                    <td>{!! $solicitud->telefono !!}</td>
+                    <td>{!! $us->email !!}</td>
+            </tr>
+            @endforeach
         @endforeach
     </tbody>
 </table>
@@ -62,6 +51,9 @@
 </div>
 </div>
 </div>
+
+<center><a href={{ route('mostrarSolicitudesPendientesJefe')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
 
 
 @else
