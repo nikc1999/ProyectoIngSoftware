@@ -60,3 +60,4 @@ Route::get('/mostrarsolicitudesdfiltrar', [App\Http\Controllers\UserController::
 Route::post('/buscarestudiante/buscar', [App\Http\Controllers\BuscarEstudiante::class, 'show'])->name('buscarEstudiante');
 
 
+Route::get('/infoSolicitud', [App\Http\Controllers\UserController::class, 'mostrarInfoSolicitudBoton'])->name('mostrarInfoSolicitudBoton');

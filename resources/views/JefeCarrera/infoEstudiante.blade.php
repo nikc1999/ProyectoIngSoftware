@@ -43,14 +43,79 @@
                     <td>{!! $solicitud->telefono !!}</td>
                     <td>{!! $us->email !!}</td>
             </tr>
+
+
+
             @endforeach
         @endforeach
     </tbody>
 </table>
+
+<br>
+<br>
+
+<table class="table" style="width:240px;">
+    <tbody>
+
+        @if($solicitud->nombre_asignatura != null)
+        <tr>
+            <th scope="row">Nombre Asignatura</th>
+            <td>{!! $solicitud->nombre_asignatura !!}</td>
+        </tr>
+        @endif
+
+        @if($solicitud->NRC != null)
+        <tr>
+            <th scope="row">NRC</th>
+            <td>{!! $solicitud->NRC !!}</td>
+        </tr>
+        @endif
+
+        @if($solicitud->nombre_profesor != null)
+        <tr>
+            <th scope="row">Profesor</th>
+            <td>{!! $solicitud->nombre_profesor !!}</td>
+        </tr>
+        @endif
+
+        @if($solicitud->calificacion_aprob != null)
+        <tr>
+            <th scope="row">Calificacion aprobada</th>
+            <td>{!! $solicitud->calificacion_aprob !!}</td>
+        </tr>
+        @endif
+
+        @if($solicitud->cant_ayudantias != null)
+        <tr>
+            <th scope="row">Ayudantias realizadas</th>
+            <td>{!! $solicitud->cant_ayudantias !!}</td>
+        </tr>
+        @endif
+
+        @if($solicitud->detalles_estudiante != null)
+        <tr>
+            <th scope="row">Razón</th>
+            <td>{!! $solicitud->detalles_estudiante !!}</td>
+        </tr>
+        @endif
+
+        @if($solicitud->archivos != null)
+        <tr>
+            <th scope="row">Archivos</th>
+            <td>{!! $solicitud->archivos !!}</td>
+        </tr>
+        @endif
+    </tbody>
+</table>
+
+
+
+
 @endif
 </div>
 </div>
 </div>
+
 
 <center><a href={{ route('mostrarSolicitudesPendientesJefe')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
 <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
