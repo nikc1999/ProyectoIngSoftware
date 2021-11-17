@@ -28,6 +28,9 @@ Route::resource('usuario', App\Http\Controllers\UserController::class,['middlewa
 
 Route::resource('solicitud', App\Http\Controllers\SolicitudController::class,['middleware'=>'auth']);
 
+Route::resource('buscarestudiante',App\Http\Controllers\BuscarEstudiante::class,['middleware'=>'auth']);
+
+
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->name('admin');
@@ -53,5 +56,8 @@ Route::post('/editarusuario/restablecerContrasena', [App\Http\Controllers\UserCo
 Route::get('/mostrarsolicitudespendientesjefe', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesPendientesJefe'])->name('mostrarSolicitudesPendientesJefe');
 
 Route::get('/mostrarsolicitudesdfiltrar', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesFiltrar'])->name('mostrarSolicitudesFiltrar');
+
+Route::post('/buscarestudiante/buscar', [App\Http\Controllers\BuscarEstudiante::class, 'show'])->name('buscarEstudiante');
+
 
 Route::get('/infoSolicitud', [App\Http\Controllers\UserController::class, 'mostrarInfoSolicitudBoton'])->name('mostrarInfoSolicitudBoton');

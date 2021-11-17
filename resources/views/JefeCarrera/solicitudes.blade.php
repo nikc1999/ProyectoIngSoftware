@@ -54,7 +54,7 @@
                     No existen solicitudes por resolver
                 </div>
             @else
-             <br>
+            <br>
                 <table class="table" id="TablaNormal">
                     <thead>
                         <tr>
