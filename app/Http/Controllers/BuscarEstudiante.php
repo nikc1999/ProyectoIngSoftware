@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrera;
 use Illuminate\Http\Request;
 use App\Models\Solicitud;
 use App\Models\User;
@@ -24,19 +25,24 @@ class BuscarEstudiante extends Controller
         {
             //dd(Auth::user()->rol);
             $user = null;
-            return view('BuscarEstudiante.index')->with('estudiante',$user);
+            $solicitudes = null;
+            $datos = [
+                'estudiante' => $user,
+                'solicitudes' => $solicitudes,
+            ];
+            return view('BuscarEstudiante.index')->with('datos',$datos);
         }
         return redirect('/home');
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request  $request)
     {
-        //
+
     }
 
     /**
@@ -47,7 +53,7 @@ class BuscarEstudiante extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -62,13 +68,25 @@ class BuscarEstudiante extends Controller
         $rutPedido = $request->rut;
         $user = User::where('rut', $rutPedido)->get();
         $user = $user[0];
-        //dd($user->carrera_id);
-        //dd($user);
         $carreraIdJefe = Auth::user()->carrera_id;
-        //dd($carreraIdJefe);
+
+        $solicitudes = Solicitud::where('user_id', $user->id)->get();
+        $solicitudes = $solicitudes->sortBy('updated_at');
+
+        $carrera = Carrera::where('id', $user->carrera_id)->get();
+        $carrera = $carrera[0];
+
+        $rut = $user->rut;
+        $datos = [
+            'estudiante' => $user,
+            'solicitudes' => $solicitudes,
+            'carrera' => $carrera,
+        ];
         if ($user->carrera_id == $carreraIdJefe && $user->rol == 'Estudiante') {
-            return view('BuscarEstudiante.index')->with('estudiante',$user);
+            return view('BuscarEstudiante.index')->with('datos',$datos)->with('rut' ,$rut);
         }
+
+        return view('BuscarEstudiante.index')->with('datos',$datos)->with('error', 'Las contraseñas no coinciden'); //ver el error texto
     }
 
 
@@ -80,7 +98,35 @@ class BuscarEstudiante extends Controller
      */
     public function edit($id)
     {
-        //
+        //dd($id);
+        if(Auth::user()== null)
+        {
+            return view('auth.login');
+        }
+        if(Auth::user()->rol=='Jefe de Carrera')
+        {
+            //dd($request);
+            $user = User::where('id', $id)->get();
+            $user = $user[0];
+
+
+
+            $solicitudes = Solicitud::where('user_id', $user->id)->get();
+            $solicitudes = $solicitudes->sortBy('updated_at');
+
+            $carrera = Carrera::where('id', $user->carrera_id)->get();
+            $carrera = $carrera[0];
+
+
+            $datos = [
+                'solicitudes' => $solicitudes,
+                'usuarios' => $user,
+            ];
+
+            return view('JefeCarrera.infoEstudiante')->with('datos', $datos);
+
+        }
+        return redirect('/home');
     }
 
     /**

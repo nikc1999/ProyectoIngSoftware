@@ -27,6 +27,11 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
@@ -41,9 +46,46 @@
         </div>
     </div>
     <br>
-    @if (!is_null($estudiante))
-        <h3>Informacion Alumno:</h3>
+    @if (!is_null($datos['estudiante']))
+        <center><div>
+            <h3>Informacion Estudiante:</h3>
+            <h4>Rut Estudiante: {{$datos['estudiante']->rut}}</h4>
+            <h4>Nombre Estudiante: {{$datos['estudiante']->name}}</h4>
+            <h4>Carrera Estudiante: {{$datos['carrera']->nombre}}</h4>
+            <h4>Correo Estudiante: {{$datos['estudiante']->email}}</h4>
+        </div></center>
+        <br>
+
+        <table class="table" id="TablaNormal">
+            <thead>
+                <tr>
+                    <th>N° SOLICITUD</th>
+                    <th>TIPO SOLICITUD</th>
+                    <th>FECHA SOLICITUD</th>
+                    <th>RESOLVER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                @foreach($datos['solicitudes'] as $solicitud)
+                    <td>{!! $solicitud->id !!}</td>
+                    @if ($solicitud->tipo == 'Facilidades')
+                        <td>{!! $solicitud->tipo_facilidad !!}</td>
+                    @else
+                        <td>{!! $solicitud->tipo !!}</td>
+                    @endif
+                    <td>{!! $solicitud->updated_at !!}</td>
+                    <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('buscarestudiante.edit', [$datos['estudiante']->id]) }}>Resolver</a></td>
+                </tr>
+                @endforeach
+
+        </table>
+
+
     @endif
+
+
+
 @else
 @php
 header("Location: /home" );

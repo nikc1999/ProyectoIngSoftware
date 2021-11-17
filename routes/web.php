@@ -58,3 +58,5 @@ Route::get('/mostrarsolicitudespendientesjefe', [App\Http\Controllers\UserContro
 Route::get('/mostrarsolicitudesdfiltrar', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesFiltrar'])->name('mostrarSolicitudesFiltrar');
 
 Route::post('/buscarestudiante/buscar', [App\Http\Controllers\BuscarEstudiante::class, 'show'])->name('buscarEstudiante');
+
+
