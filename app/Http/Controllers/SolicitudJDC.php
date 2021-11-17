@@ -32,25 +32,23 @@ class SolicitudJDC extends Controller
                     $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
                     foreach($solicitudes as $solicitud){
                         $listaSolicitudes->push($solicitud);
+                    }
                 }
+
+                $solicitudes = $listaSolicitudes;
+
+                $solicitudes = $solicitudes->sortBy('created_at');
+
+                $datos = [
+                    'solicitudes' => $solicitudes,
+                    'usuarios' => $usuarios,
+                ];
+
+                return view('JefeCarrera.solicitudes')->with('datos', $datos);
             }
-
-            $solicitudes = $listaSolicitudes;
-
-            $solicitudes = $solicitudes->sortBy('created_at');
-
-            $datos = [
-                'solicitudes' => $solicitudes,
-                'usuarios' => $usuarios,
-            ];
-
-            return view('JefeCarrera.solicitudes')->with('datos', $datos);
-            }
-
             else{ //Cuando el buscador entra con algo
                 $listaSolicitudes = collect();
                 $solicitud = Solicitud::where('id', $request->search)->first();
-
 
                 if($solicitud == null){ //Cuando no existe la solicitud ingresada por el buscador
 
@@ -117,17 +115,16 @@ class SolicitudJDC extends Controller
      */
     public function store(Request $request)
     {
-        $hola = "hola";
-        dd($hola);
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Solicitud  $solicitud
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Solicitud $Solicitud)
+    public function show(int $id)
     {
 
     }
@@ -135,22 +132,37 @@ class SolicitudJDC extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Solicitud  $solicitud
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Solicitud $Solicitud)
+    public function edit(int $id)
     {
-        //
+        $listaSolicitudes = collect();
+
+        $solicitud = Solicitud::where('id', $id)->first();
+        $user = User::where('id', $solicitud->user_id)->get();
+
+        $listaSolicitudes->push($solicitud);
+
+        $solicitud = $listaSolicitudes;
+
+        $datos = [
+            'solicitudes' => $solicitud,
+            'usuarios' => $user,
+        ];
+
+            return view('JefeCarrera.infoEstudiante')->with('datos', $datos);
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Solicitud  $solicitud
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Solicitud $Solicitud)
+    public function update(Request $request, int $id)
     {
         //
     }

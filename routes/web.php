@@ -53,3 +53,5 @@ Route::post('/editarusuario/restablecerContrasena', [App\Http\Controllers\UserCo
 Route::get('/mostrarsolicitudespendientesjefe', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesPendientesJefe'])->name('mostrarSolicitudesPendientesJefe');
 
 Route::get('/mostrarsolicitudesdfiltrar', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesFiltrar'])->name('mostrarSolicitudesFiltrar');
+
+Route::get('/infoSolicitud', [App\Http\Controllers\UserController::class, 'mostrarInfoSolicitudBoton'])->name('mostrarInfoSolicitudBoton');
