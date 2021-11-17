@@ -6,6 +6,7 @@ use App\Models\Solicitud;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
+use Illuminate\Support\Facades\File; // clase para eliminar archivos
 
 class SolicitudController extends Controller
 {
@@ -259,7 +260,198 @@ class SolicitudController extends Controller
      */
     public function update(Request $request, Solicitud $solicitud)
     {
-        dd($request);
+        switch ($request->tipo) {
+            case 'Sobrecupo':
+                $request->validate([
+                    'telefono' => ['regex:/[0-9]*/','int','required'],
+                    'nrc' => ['required'],
+                    'nombre' => ['required'],
+                    'detalle' => ['required']
+                ]);
+
+                $solicitud->tipo = $request->tipo;
+                $solicitud->telefono = $request->telefono;
+                $solicitud->nombre_asignatura = $request->nombre;
+                $solicitud->NRC = $request->nrc;
+                $solicitud->detalles_estudiante = $request->detalle;
+
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
+                $solicitud->save();
+                return redirect('/solicitud');
+                break;
+
+            case 'Cambio paralelo':
+                $request->validate([
+                    'telefono' => ['regex:/[0-9]*/','int','required'],
+                    'nrc' => ['required'],
+                    'nombre' => ['required'],
+                    'detalle' => ['required']
+                ]);
+
+                $solicitud->tipo = $request->tipo;
+                $solicitud->telefono = $request->telefono;
+                $solicitud->nombre_asignatura = $request->nombre;
+                $solicitud->NRC = $request->nrc;
+                $solicitud->detalles_estudiante = $request->detalle;
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
+
+                $solicitud->save();
+                return redirect('/solicitud');
+                break;
+
+            case 'Eliminacion asignatura':
+                $request->validate([
+                    'telefono' => ['regex:/[0-9]*/','int','required'],
+                    'nrc' => ['required'],
+                    'nombre' => ['required'],
+                    'detalle' => ['required']
+                ]);
+
+                $solicitud->tipo = $request->tipo;
+                $solicitud->telefono = $request->telefono;
+                $solicitud->nombre_asignatura = $request->nombre;
+                $solicitud->NRC = $request->nrc;
+                $solicitud->detalles_estudiante = $request->detalle;
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
+
+                $solicitud->save();
+                return redirect('/solicitud');
+                break;
+
+            case 'Inscripcion asignatura':
+                $request->validate([
+                    'telefono' => ['regex:/[0-9]*/','int','required'],
+                    'nrc' => ['required'],
+                    'nombre' => ['required'],
+                    'detalle' => ['required']
+                ]);
+
+                $solicitud->tipo = $request->tipo;
+                $solicitud->telefono = $request->telefono;
+                $solicitud->nombre_asignatura = $request->nombre;
+                $solicitud->NRC = $request->nrc;
+                $solicitud->detalles_estudiante = $request->detalle;
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
+
+                $solicitud->save();
+                return redirect('/solicitud');
+                break;
+
+            case 'Ayudantia':
+                $request->validate([
+                    'telefono' => ['regex:/[0-9]*/','int','required'],
+                    'nombre' => ['required'],
+                    'detalle' => ['required'],
+                    'calificacion'=>['regex:/([1-6]\.[0-9])|([7]\.[0])/','required'],
+                    'cantidad'=>['regex:/[0-9]*/','required','int']
+                ]);
+
+                $solicitud->tipo = $request->tipo;
+                $solicitud->telefono = $request->telefono;
+                $solicitud->nombre_asignatura = $request->nombre;
+                $solicitud->detalles_estudiante = $request->detalle;
+                $solicitud->calificacion_aprob = $request->calificacion;
+                $solicitud->cant_ayudantias = $request->cantidad;
+
+                if($solicitud->archivos != null){
+                    foreach(json_decode($solicitud->archivos) as $link){
+                        File::delete("storage/docs/{$link}");
+                        //dd($link);
+                    }
+                    $solicitud->archivos = null;
+
+                }
+
+
+                $solicitud->save();
+                return redirect('/solicitud');
+                break;
+
+            case 'Facilidades':
+                $request->validate([
+                    'telefono' => ['regex:/[0-9]*/','int','required'],
+                    'nombre' => ['required'],
+                    'detalle' => ['required'],
+                    'facilidad' => ['required','in:Licencia,Inasistencia Fuerza Mayor,Representacion,Inasistencia Motivo Personal'],
+                    'profesor' => ['required'],
+                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx,png','max:20000'],
+                    'adjunto' => ['array','min:0','max:3'],
+                ]);
+
+                $findUser = User::find($request->user);
+
+                $aux = 0;
+
+                if($request->adjunto != null){ //revisar
+                    foreach ($request->adjunto as $file) {
+                        // todo falla cuando el archivo subido es PDF
+                        $name = $aux.time().'-'.$findUser->name;
+                        $file->move(public_path('\storage\docs'), $name);
+                        $datos[] = $name;
+                        $aux++;
+                    }
+
+                    $solicitud->tipo = $request->tipo;
+                    $solicitud->telefono = $request->telefono;
+                    $solicitud->nombre_asignatura = $request->nombre;
+                    $solicitud->detalles_estudiante = $request->detalle;
+                    $solicitud->tipo_facilidad = $request->facilidad;
+                    $solicitud->nombre_profesor = $request->profesor;
+                    $solicitud->archivos = json_encode($datos); //revisar
+
+                    $solicitud->save();
+                    return redirect('/solicitud');
+                    break;
+
+                }else{
+                    $solicitud->tipo = $request->tipo;
+                    $solicitud->telefono = $request->telefono;
+                    $solicitud->nombre_asignatura = $request->nombre;
+                    $solicitud->detalles_estudiante = $request->detalle;
+                    $solicitud->tipo_facilidad = $request->facilidad;
+                    $solicitud->nombre_profesor = $request->profesor;
+
+                    $solicitud->save();
+                    return redirect('/solicitud');
+                    break;
+                }
+
+            default:
+                return redirect('/solicitud');
+                break;
+        }
     }
 
     /**

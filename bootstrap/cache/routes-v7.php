@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::fRz5a2wS3G5h2aIV',
+            '_route' => 'generated::VQpwRDgeMnRBKUbO',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::yeSawV7dcGyM7Orq',
+            '_route' => 'generated::d57nNqU2rDyL6PRW',
           ),
           1 => NULL,
           2 => 
@@ -64,63 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::RThRDZPYJU1iG4eF',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/solicitudJDC' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitudJDC.index',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitudJDC.store',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/solicitudJDC/create' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitudJDC.create',
+            '_route' => 'generated::7O7mMeosyCZKCsE0',
           ),
           1 => NULL,
           2 => 
@@ -381,7 +325,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::zYXeeHA4AshBhR6r',
+            '_route' => 'generated::3hcdEpmxX69O8ymE',
           ),
           1 => NULL,
           2 => 
@@ -436,7 +380,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::DSNpuvwdKofhoa5h',
+            '_route' => 'generated::aSdlViG0EWKazGFz',
           ),
           1 => NULL,
           2 => 
@@ -527,7 +471,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::xuOmIkN3yvMZont2',
+            '_route' => 'generated::a9ipxz5PcekMbQUJ',
           ),
           1 => NULL,
           2 => 
@@ -777,187 +721,11 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/solicitud(?|JDC/([^/]++)(?|(*:35)|/edit(*:47)|(*:54))|/([^/]++)(?|(*:74)|/edit(*:86)|(*:93)))|/c(?|arrera/([^/]++)(?|(*:125)|/edit(*:138)|(*:146))|ontrasena/([^/]++)(?|(*:176)|/edit(*:189)|(*:197)))|/usuario/([^/]++)(?|(*:227)|/edit(*:240)|(*:248))|/password/reset/([^/]++)(*:281))/?$}sDu',
+      0 => '{^(?|/c(?|arrera/([^/]++)(?|(*:30)|/edit(*:42)|(*:49))|ontrasena/([^/]++)(?|(*:78)|/edit(*:90)|(*:97)))|/usuario/([^/]++)(?|(*:126)|/edit(*:139)|(*:147))|/solicitud/([^/]++)(?|(*:178)|/edit(*:191)|(*:199))|/password/reset/([^/]++)(*:232))/?$}sDu',
     ),
     3 => 
     array (
-      35 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitudJDC.show',
-          ),
-          1 => 
-          array (
-            0 => 'solicitudJDC',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      47 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitudJDC.edit',
-          ),
-          1 => 
-          array (
-            0 => 'solicitudJDC',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      54 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitudJDC.update',
-          ),
-          1 => 
-          array (
-            0 => 'solicitudJDC',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitudJDC.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'solicitudJDC',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      74 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitud.show',
-          ),
-          1 => 
-          array (
-            0 => 'solicitud',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      86 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitud.edit',
-          ),
-          1 => 
-          array (
-            0 => 'solicitud',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      93 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitud.update',
-          ),
-          1 => 
-          array (
-            0 => 'solicitud',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'solicitud.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'solicitud',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      125 => 
+      30 => 
       array (
         0 => 
         array (
@@ -980,7 +748,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      138 => 
+      42 => 
       array (
         0 => 
         array (
@@ -1003,7 +771,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      146 => 
+      49 => 
       array (
         0 => 
         array (
@@ -1045,7 +813,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      176 => 
+      78 => 
       array (
         0 => 
         array (
@@ -1068,7 +836,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      189 => 
+      90 => 
       array (
         0 => 
         array (
@@ -1091,7 +859,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      197 => 
+      97 => 
       array (
         0 => 
         array (
@@ -1133,7 +901,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      227 => 
+      126 => 
       array (
         0 => 
         array (
@@ -1156,7 +924,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      240 => 
+      139 => 
       array (
         0 => 
         array (
@@ -1179,7 +947,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      248 => 
+      147 => 
       array (
         0 => 
         array (
@@ -1221,7 +989,95 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      281 => 
+      178 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.show',
+          ),
+          1 => 
+          array (
+            0 => 'solicitud',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      191 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.edit',
+          ),
+          1 => 
+          array (
+            0 => 'solicitud',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      199 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.update',
+          ),
+          1 => 
+          array (
+            0 => 'solicitud',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitud.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'solicitud',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      232 => 
       array (
         0 => 
         array (
@@ -1259,7 +1115,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::fRz5a2wS3G5h2aIV' => 
+    'generated::VQpwRDgeMnRBKUbO' => 
     array (
       'methods' => 
       array (
@@ -1280,7 +1136,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::fRz5a2wS3G5h2aIV',
+        'as' => 'generated::VQpwRDgeMnRBKUbO',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1296,7 +1152,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::yeSawV7dcGyM7Orq' => 
+    'generated::d57nNqU2rDyL6PRW' => 
     array (
       'methods' => 
       array (
@@ -1311,15 +1167,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@YFdW42GE2wjoG/3GRMSfZ/MHY6m9SnPdY6HBx89jzmM=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@5+lLaZOTqXW/Vaog2a9KV7rpps9TG/52YhxTRwKhZ98=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007193824f000000007fbb7f6f";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000dce253a00000000024b9c11";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::yeSawV7dcGyM7Orq',
+        'as' => 'generated::d57nNqU2rDyL6PRW',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1335,7 +1191,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::RThRDZPYJU1iG4eF' => 
+    'generated::7O7mMeosyCZKCsE0' => 
     array (
       'methods' => 
       array (
@@ -1349,279 +1205,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":260:{@iqKGLEsaiQBUYENVNZzdM42/Hw3GtQQ1nNtCUbiBO8I=.a:5:{s:3:"use";a:0:{}s:8:"function";s:48:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":260:{@JBu7TMhsiLh/X1/seaz3vSSy060iOqToHXFK1RPFWnM=.a:5:{s:3:"use";a:0:{}s:8:"function";s:48:"function () {
     return \\redirect(\'/home\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000071938241000000007fbb7f6f";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000dce253400000000024b9c11";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::RThRDZPYJU1iG4eF',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'solicitudJDC.index' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'solicitudJDC',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'as' => 'solicitudJDC.index',
-        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@index',
-        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@index',
-        'namespace' => NULL,
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'solicitudJDC.create' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'solicitudJDC/create',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'as' => 'solicitudJDC.create',
-        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@create',
-        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@create',
-        'namespace' => NULL,
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'solicitudJDC.store' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'solicitudJDC',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'as' => 'solicitudJDC.store',
-        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@store',
-        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@store',
-        'namespace' => NULL,
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'solicitudJDC.show' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'solicitudJDC/{solicitudJDC}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'as' => 'solicitudJDC.show',
-        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@show',
-        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@show',
-        'namespace' => NULL,
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'solicitudJDC.edit' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'solicitudJDC/{solicitudJDC}/edit',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'as' => 'solicitudJDC.edit',
-        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@edit',
-        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@edit',
-        'namespace' => NULL,
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'solicitudJDC.update' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'PUT',
-        1 => 'PATCH',
-      ),
-      'uri' => 'solicitudJDC/{solicitudJDC}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'as' => 'solicitudJDC.update',
-        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@update',
-        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@update',
-        'namespace' => NULL,
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'solicitudJDC.destroy' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'DELETE',
-      ),
-      'uri' => 'solicitudJDC/{solicitudJDC}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'as' => 'solicitudJDC.destroy',
-        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@destroy',
-        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@destroy',
-        'namespace' => NULL,
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
+        'as' => 'generated::7O7mMeosyCZKCsE0',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2730,7 +2322,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::zYXeeHA4AshBhR6r' => 
+    'generated::3hcdEpmxX69O8ymE' => 
     array (
       'methods' => 
       array (
@@ -2750,7 +2342,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::zYXeeHA4AshBhR6r',
+        'as' => 'generated::3hcdEpmxX69O8ymE',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2839,7 +2431,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::DSNpuvwdKofhoa5h' => 
+    'generated::aSdlViG0EWKazGFz' => 
     array (
       'methods' => 
       array (
@@ -2859,7 +2451,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::DSNpuvwdKofhoa5h',
+        'as' => 'generated::aSdlViG0EWKazGFz',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3058,7 +2650,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::xuOmIkN3yvMZont2' => 
+    'generated::a9ipxz5PcekMbQUJ' => 
     array (
       'methods' => 
       array (
@@ -3078,7 +2670,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::xuOmIkN3yvMZont2',
+        'as' => 'generated::a9ipxz5PcekMbQUJ',
       ),
       'fallback' => false,
       'defaults' => 
