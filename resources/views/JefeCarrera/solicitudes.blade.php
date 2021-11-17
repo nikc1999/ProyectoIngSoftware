@@ -7,14 +7,8 @@
         <div class="panel-heading">
             <h2>Panel de Solicitudes Pendientes</h2>
         </div>
-        <br>
 
-        <div class="d-grid gap-2">
-            <center><a href={{ route('mostrarSolicitudesFiltrar')}}><button style="color:white; background-color:rgb(205,167,136)" class="btn" type="button">Filtrar Solicitudes</button></a></center>
-        </div>
-
-        <br>
-        @if ($solicitudesPendientes->isEmpty())
+        @if(is_null($datos['solicitudes']) || $datos['solicitudes']->isEmpty())
             <br>
             <br>
             <div class="alert alert-danger" role="alert">
@@ -22,7 +16,13 @@
             </div>
         @else
         <br>
-            <table class="table" id="TablaNormal" >
+        <form method="GET" action="{{ route('solicitudJDC.index') }}">
+            <input type="text" name="search" id="search" placeholder="N° Solicitud">
+            <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar Solicitud</button>
+        </form>
+
+        <br>
+            <table class="table" id="TablaNormal">
                 <thead>
                     <tr>
                         <th>N° SOLICITUD</th>
@@ -34,30 +34,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for($i = 0; $i < count($solicitudesPendientes) ; $i++  )
-                        <tr>
-                            <td>{!! $solicitudesPendientes[$i]->id !!}</td>
-                            @if($solicitudesPendientes[$i]->tipo == 'Facilidades')
-                                <td>{!! $solicitudesPendientes[$i]->tipo !!}: {!! $solicitudesPendientes[$i]->tipo_facilidad !!}</td>
-                            @else
-                                <td>{!! $solicitudesPendientes[$i]->tipo !!}</td>
-                            @endif
-                            <td>{!! $solicitudesPendientes[$i]->updated_at !!}</td>
-                            <td>{!! $datosEstudiantesPendientes[$i][0] !!}</td>
-                            <td>{!! $datosEstudiantesPendientes[$i][1] !!}</td>
-                            <td><a class="btn btn-outline-rgb" style="color:white; background-color:rgb(0,181,226)" href={{ route('solicitud.show', [$solicitudesPendientes[$i]]) }}>Resolver</a></td>
+                    <tr>
+                     @foreach ($datos['usuarios'] as $us)
 
-                        </tr>
-                    @endfor
-                </tbody>
+                    @foreach($datos['solicitudes'] as $solicitud)
+                        @if($us->id == $solicitud->user_id && $solicitud->estado == 'Pendiente')
+                            <td>{!! $solicitud->id !!}</td>
+                            @if ($solicitud->tipo == 'Facilidades')
+                                <td>{!! $solicitud->tipo_facilidad !!}</td>
+                            @else
+                                <td>{!! $solicitud->tipo !!}</td>
+                            @endif
+                            <td>{!! $solicitud->updated_at !!}</td>
+                            <td>{!! $us->rut !!}</td>
+                            <td>{!! $us->name !!}</td>
+                        @endif
+                    </tr>
+                    @endforeach
+
+                    @endforeach
+
             </table>
         @endif
     </div>
 </div>
-
-
-
-
 
 <center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
 @else

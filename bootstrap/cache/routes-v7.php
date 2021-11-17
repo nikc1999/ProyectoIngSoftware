@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::pMd3LSJezI1dZF0E',
+            '_route' => 'generated::HTDT1dRJqvyJZPBa',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::FxUphU1Hkqhsm7ge',
+            '_route' => 'generated::A8EaLqtr98q3sXnO',
           ),
           1 => NULL,
           2 => 
@@ -64,7 +64,63 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ZedYzwrWMwpaR9X4',
+            '_route' => 'generated::4yrv7BfF66m4EvzK',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/solicitudJDC' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitudJDC.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitudJDC.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/solicitudJDC/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'solicitudJDC.create',
           ),
           1 => NULL,
           2 => 
@@ -325,7 +381,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::X7qE25EWwe3NVCSk',
+            '_route' => 'generated::5ruohfWnE4iM6hOj',
           ),
           1 => NULL,
           2 => 
@@ -380,7 +436,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3xwxnZQI23DtKXKv',
+            '_route' => 'generated::5KwV2UicWKRKsqJO',
           ),
           1 => NULL,
           2 => 
@@ -471,7 +527,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::AfEPqJmxv7z5cI4P',
+            '_route' => 'generated::xDbBxzHOs9EGzDQg',
           ),
           1 => NULL,
           2 => 
@@ -721,21 +777,21 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/c(?|arrera/([^/]++)(?|(*:30)|/edit(*:42)|(*:49))|ontrasena/([^/]++)(?|(*:78)|/edit(*:90)|(*:97)))|/usuario/([^/]++)(?|(*:126)|/edit(*:139)|(*:147))|/solicitud/([^/]++)(?|(*:178)|/edit(*:191)|(*:199))|/password/reset/([^/]++)(*:232))/?$}sDu',
+      0 => '{^(?|/solicitud(?|JDC/([^/]++)(?|(*:35)|/edit(*:47)|(*:54))|/([^/]++)(?|(*:74)|/edit(*:86)|(*:93)))|/c(?|arrera/([^/]++)(?|(*:125)|/edit(*:138)|(*:146))|ontrasena/([^/]++)(?|(*:176)|/edit(*:189)|(*:197)))|/usuario/([^/]++)(?|(*:227)|/edit(*:240)|(*:248))|/password/reset/([^/]++)(*:281))/?$}sDu',
     ),
     3 => 
     array (
-      30 => 
+      35 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'carrera.show',
+            '_route' => 'solicitudJDC.show',
           ),
           1 => 
           array (
-            0 => 'carrera',
+            0 => 'solicitudJDC',
           ),
           2 => 
           array (
@@ -748,17 +804,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      42 => 
+      47 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'carrera.edit',
+            '_route' => 'solicitudJDC.edit',
           ),
           1 => 
           array (
-            0 => 'carrera',
+            0 => 'solicitudJDC',
           ),
           2 => 
           array (
@@ -771,17 +827,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      49 => 
+      54 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'carrera.update',
+            '_route' => 'solicitudJDC.update',
           ),
           1 => 
           array (
-            0 => 'carrera',
+            0 => 'solicitudJDC',
           ),
           2 => 
           array (
@@ -797,11 +853,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'carrera.destroy',
+            '_route' => 'solicitudJDC.destroy',
           ),
           1 => 
           array (
-            0 => 'carrera',
+            0 => 'solicitudJDC',
           ),
           2 => 
           array (
@@ -813,183 +869,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      78 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'contrasena.show',
-          ),
-          1 => 
-          array (
-            0 => 'contrasena',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      90 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'contrasena.edit',
-          ),
-          1 => 
-          array (
-            0 => 'contrasena',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      97 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'contrasena.update',
-          ),
-          1 => 
-          array (
-            0 => 'contrasena',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'contrasena.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'contrasena',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      126 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'usuario.show',
-          ),
-          1 => 
-          array (
-            0 => 'usuario',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      139 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'usuario.edit',
-          ),
-          1 => 
-          array (
-            0 => 'usuario',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      147 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'usuario.update',
-          ),
-          1 => 
-          array (
-            0 => 'usuario',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'usuario.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'usuario',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      178 => 
+      74 => 
       array (
         0 => 
         array (
@@ -1012,7 +892,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      191 => 
+      86 => 
       array (
         0 => 
         array (
@@ -1035,7 +915,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      199 => 
+      93 => 
       array (
         0 => 
         array (
@@ -1077,7 +957,271 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      232 => 
+      125 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.show',
+          ),
+          1 => 
+          array (
+            0 => 'carrera',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      138 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.edit',
+          ),
+          1 => 
+          array (
+            0 => 'carrera',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      146 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.update',
+          ),
+          1 => 
+          array (
+            0 => 'carrera',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carrera.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'carrera',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      176 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.show',
+          ),
+          1 => 
+          array (
+            0 => 'contrasena',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      189 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.edit',
+          ),
+          1 => 
+          array (
+            0 => 'contrasena',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      197 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.update',
+          ),
+          1 => 
+          array (
+            0 => 'contrasena',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'contrasena.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'contrasena',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      227 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'usuario.show',
+          ),
+          1 => 
+          array (
+            0 => 'usuario',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      240 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'usuario.edit',
+          ),
+          1 => 
+          array (
+            0 => 'usuario',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      248 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'usuario.update',
+          ),
+          1 => 
+          array (
+            0 => 'usuario',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'usuario.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'usuario',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      281 => 
       array (
         0 => 
         array (
@@ -1115,7 +1259,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::pMd3LSJezI1dZF0E' => 
+    'generated::HTDT1dRJqvyJZPBa' => 
     array (
       'methods' => 
       array (
@@ -1136,7 +1280,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::pMd3LSJezI1dZF0E',
+        'as' => 'generated::HTDT1dRJqvyJZPBa',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1152,7 +1296,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::FxUphU1Hkqhsm7ge' => 
+    'generated::A8EaLqtr98q3sXnO' => 
     array (
       'methods' => 
       array (
@@ -1167,15 +1311,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@AEolfcUkTpJjrbZOjMS0XgG2zlNNuINhMNKvF1SRnJI=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@ATgRTx+HxjAD+HDkZIZmdKv3LrTuB1tK2bJmiNqsd8k=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000041548cdc00000000359c2c0f";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000024ff7a34000000003a8c01d1";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::FxUphU1Hkqhsm7ge',
+        'as' => 'generated::A8EaLqtr98q3sXnO',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1191,7 +1335,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ZedYzwrWMwpaR9X4' => 
+    'generated::4yrv7BfF66m4EvzK' => 
     array (
       'methods' => 
       array (
@@ -1205,15 +1349,279 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":258:{@6GfSzn1yzXu+KbmEZBNGygMseSvs8flaCzmwUIPeLh0=.a:5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":258:{@2pntd4RjZlQ47uadwRv0heT1C3gZ2JS/ebqfkMw/Z0M=.a:5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
     return \\redirect(\'/home\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000041548cd200000000359c2c0f";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000024ff7a3a000000003a8c01d1";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::ZedYzwrWMwpaR9X4',
+        'as' => 'generated::4yrv7BfF66m4EvzK',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitudJDC.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'solicitudJDC',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitudJDC.index',
+        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@index',
+        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@index',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitudJDC.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'solicitudJDC/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitudJDC.create',
+        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@create',
+        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@create',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitudJDC.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'solicitudJDC',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitudJDC.store',
+        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@store',
+        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@store',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitudJDC.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'solicitudJDC/{solicitudJDC}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitudJDC.show',
+        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@show',
+        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@show',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitudJDC.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'solicitudJDC/{solicitudJDC}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitudJDC.edit',
+        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@edit',
+        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@edit',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitudJDC.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'solicitudJDC/{solicitudJDC}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitudJDC.update',
+        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@update',
+        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@update',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'solicitudJDC.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'solicitudJDC/{solicitudJDC}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'solicitudJDC.destroy',
+        'uses' => 'App\\Http\\Controllers\\SolicitudJDC@destroy',
+        'controller' => 'App\\Http\\Controllers\\SolicitudJDC@destroy',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
       ),
       'fallback' => false,
       'defaults' => 
@@ -2322,7 +2730,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::X7qE25EWwe3NVCSk' => 
+    'generated::5ruohfWnE4iM6hOj' => 
     array (
       'methods' => 
       array (
@@ -2342,7 +2750,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::X7qE25EWwe3NVCSk',
+        'as' => 'generated::5ruohfWnE4iM6hOj',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2431,7 +2839,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::3xwxnZQI23DtKXKv' => 
+    'generated::5KwV2UicWKRKsqJO' => 
     array (
       'methods' => 
       array (
@@ -2451,7 +2859,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::3xwxnZQI23DtKXKv',
+        'as' => 'generated::5KwV2UicWKRKsqJO',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2650,7 +3058,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::AfEPqJmxv7z5cI4P' => 
+    'generated::xDbBxzHOs9EGzDQg' => 
     array (
       'methods' => 
       array (
@@ -2670,7 +3078,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::AfEPqJmxv7z5cI4P',
+        'as' => 'generated::xDbBxzHOs9EGzDQg',
       ),
       'fallback' => false,
       'defaults' => 

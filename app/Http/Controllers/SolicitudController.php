@@ -25,8 +25,6 @@ class SolicitudController extends Controller
             $solicitudes = Auth::user()->solicitudes;
             $solicitudes = $solicitudes->sortBy('updated_at');
 
-
-
             return view('solicitud.index')->with('solicitudes', $solicitudes);
         }
         return redirect('/home');
