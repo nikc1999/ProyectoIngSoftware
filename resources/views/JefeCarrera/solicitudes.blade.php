@@ -35,22 +35,23 @@
                 </thead>
                 <tbody>
                     <tr>
-                     @foreach ($datos['usuarios'] as $us)
+                    @foreach ($datos['usuarios'] as $us)
 
-                    @foreach($datos['solicitudes'] as $solicitud)
-                        @if($us->id == $solicitud->user_id && $solicitud->estado == 'Pendiente')
-                            <td>{!! $solicitud->id !!}</td>
-                            @if ($solicitud->tipo == 'Facilidades')
-                                <td>{!! $solicitud->tipo_facilidad !!}</td>
-                            @else
-                                <td>{!! $solicitud->tipo !!}</td>
+                        @foreach($datos['solicitudes'] as $solicitud)
+
+                            @if($us->id == $solicitud->user_id && $solicitud->estado == 'Pendiente')
+                                <td>{!! $solicitud->id !!}</td>
+                                @if ($solicitud->tipo == 'Facilidades')
+                                    <td>{!! $solicitud->tipo_facilidad !!}</td>
+                                @else
+                                    <td>{!! $solicitud->tipo !!}</td>
+                                @endif
+                                <td>{!! $solicitud->updated_at !!}</td>
+                                <td>{!! $us->rut !!}</td>
+                                <td>{!! $us->name !!}</td>
                             @endif
-                            <td>{!! $solicitud->updated_at !!}</td>
-                            <td>{!! $us->rut !!}</td>
-                            <td>{!! $us->name !!}</td>
-                        @endif
-                    </tr>
-                    @endforeach
+                        </tr>
+                        @endforeach
 
                     @endforeach
 

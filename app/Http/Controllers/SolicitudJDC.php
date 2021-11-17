@@ -24,19 +24,23 @@ class SolicitudJDC extends Controller
         }
         if(Auth::user()->rol=='Jefe de Carrera')
         {
-            $solicitud = Solicitud::where('id', $request->search)->simplePaginate(1);
-            $user = User::where('id', $solicitud->user_id)->simplePaginate(1);
+            $listaSolicitudes = collect();
+            $solicitud = Solicitud::where('id', $request->search)->first();
+            $user = User::where('id', $solicitud->user_id)->first();
+
+            $listaSolicitudes->push($solicitud);
+
+            $solicitud = $listaSolicitudes;
 
             $datos = [
                 'solicitudes' => $solicitud,
                 'usuarios' => $user,
             ];
 
-
-
             return view('JefeCarrera.solicitudes')->with('datos', $datos);
 
         }
+
         return redirect('/home');
     }
 
