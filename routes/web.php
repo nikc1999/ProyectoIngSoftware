@@ -58,9 +58,6 @@ Route::get('/mostrarsolicitudespendientesjefe', [App\Http\Controllers\UserContro
 Route::get('/mostrarsolicitudesdfiltrar', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesFiltrar'])->name('mostrarSolicitudesFiltrar');
 
 Route::post('/buscarestudiante/buscar', [App\Http\Controllers\BuscarEstudiante::class, 'show'])->name('buscarEstudiante');
-<<<<<<< HEAD
-
 
 Route::get('/infoSolicitud', [App\Http\Controllers\UserController::class, 'mostrarInfoSolicitudBoton'])->name('mostrarInfoSolicitudBoton');
-=======
->>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
+
