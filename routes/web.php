@@ -18,6 +18,8 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
+Route::resource('solicitudJDC', App\Http\Controllers\SolicitudJDC::class,['middleware'=>'auth']);
+
 Route::resource('carrera', App\Http\Controllers\CarreraController::class,['middleware'=>'auth']);
 
 Route::resource('contrasena', App\Http\Controllers\ContraseñaController::class,['middleware'=>'auth']);

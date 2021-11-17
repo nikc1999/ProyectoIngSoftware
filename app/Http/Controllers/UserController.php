@@ -226,59 +226,77 @@ class UserController extends Controller
     }
 
     public function mostrarSolicitudesPendientesJefe(){
-        $solicitudes = Solicitud::all();
-        $usuarios = User::all();
-        $carreraIdJefe = Auth::user()->carrera_id;
-
-
         $listaSolicitudes = collect();
-        $listaEstudiantes = collect();
-
-        foreach ($solicitudes as $solicitud) {
-            if ($solicitud->estado == 'Pendiente') {
-                $idUsuario = $solicitud->user_id;
-                foreach ($usuarios as $usuario) {
-                    if ($usuario->id == $idUsuario) {
-                        if ($usuario->carrera_id == $carreraIdJefe) {
-                            $listaSolicitudes->push($solicitud);
-                            $listaEstudiantes->push([$usuario->rut,$usuario->name,$usuario->email]);
-                        }
-                    }
-                }
+        $carreraIdJefe = Auth::user()->carrera_id;
+        $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
+        foreach ($usuarios as $usuario){
+            $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
+            foreach($solicitudes as $solicitud){
+                $listaSolicitudes->push($solicitud);
             }
         }
 
-        $listaSolicitudes = $listaSolicitudes->sortBy('updated_at');
+        $solicitudes = $listaSolicitudes;
+
+        $solicitudes = $solicitudes->sortBy('created_at');
+
+        $datos = [
+            'solicitudes' => $solicitudes,
+            'usuarios' => $usuarios,
+        ];
+
+        return view('JefeCarrera.solicitudes')->with('datos', $datos);
+
+       // $listaSolicitudes = collect();
+        //$listaEstudiantes = collect();
+
+        //foreach ($solicitudes as $solicitud) {
+        //    if ($solicitud->estado == 'Pendiente') {
+         //       $idUsuario = $solicitud->user_id;
+        //        foreach ($usuarios as $usuario) {
+        //            if ($usuario->id == $idUsuario) {
+        //                if ($usuario->carrera_id == $carreraIdJefe) {
+        //                    $listaSolicitudes->push($solicitud);
+        //                    $listaEstudiantes->push([$usuario->rut,$usuario->name,$usuario->email]);
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+        //$listaSolicitudes = $listaSolicitudes->sortBy('updated_at');
 
         //dd($listaSolicitudes,$listaEstudiantes);
-        return view('JefeCarrera.solicitudes')->with('solicitudesPendientes', $listaSolicitudes)->with('datosEstudiantesPendientes' , $listaEstudiantes);
+        //return view('JefeCarrera.solicitudes')->with('solicitudesPendientes', $listaSolicitudes)->with('datosEstudiantesPendientes' , $listaEstudiantes);
     }
 
-    public function mostrarSolicitudesFiltrar(){
-        $solicitudes = Solicitud::all();
-        $usuarios = User::all();
-        $carreraIdJefe = Auth::user()->carrera_id;
-
+    public function mostrarSolicitudesFiltrar(Request $request){
 
         $listaSolicitudes = collect();
-        $listaEstudiantes = collect();
+        $carreraIdJefe = Auth::user()->carrera_id;
+        $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
 
-        foreach ($solicitudes as $solicitud) {
-            $idUsuario = $solicitud->user_id;
-            foreach ($usuarios as $usuario) {
-                if ($usuario->id == $idUsuario) {
-                    if ($usuario->carrera_id == $carreraIdJefe) {
-                        $listaSolicitudes->push($solicitud);
-                        $listaEstudiantes->push([$usuario->rut,$usuario->name,$usuario->email]);
-                    }
-                }
+        foreach ($usuarios as $usuario){
+            $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
+            foreach($solicitudes as $solicitud){
+                if($solicitud->tipo == $request->tipo)
+                $listaSolicitudes->push($solicitud);
             }
         }
 
         $listaSolicitudes = $listaSolicitudes->sortBy('updated_at');
 
+        $solicitudes = $listaSolicitudes;
+
+        $datos = [
+            'solicitudes' => $solicitudes,
+            'usuarios' => $usuarios,
+        ];
+
+        return view('JefeCarrera.solicitudes')->with('datos', $datos);
+
         //dd($listaSolicitudes,$listaEstudiantes);
-        return view('JefeCarrera.filtrarSolicitudes')->with('solicitudes', $listaSolicitudes)->with('datosEstudiantes' , $listaEstudiantes);
+        //return view('JefeCarrera.filtrarSolicitudes')->with('solicitudes', $listaSolicitudes)->with('datosEstudiantes' , $listaEstudiantes);
     }
 
 }
