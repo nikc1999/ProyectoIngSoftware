@@ -22,13 +22,26 @@
                         <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
                         <div class="form-group">
                             <label for="form-control-label" style="color: black">Tipo Solicitud</label>
+
+
                             <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
-                                <option value="Sobrecupo" @if ($solicitud->tipo == 'Sobrecupo') selected="selected" @endif>Sobrecupo</option>
-                                <option value="Cambio paralelo" @if ($solicitud->tipo == 'Cambio paralelo') selected="selected" @endif>Cambio de Paralelo</option>
-                                <option value="Eliminacion asignatura" @if ($solicitud->tipo == 'Eliminacion asignatura') selected="selected" @endif>Eliminación de Asignatura</option>
-                                <option value="Inscripcion asignatura" @if ($solicitud->tipo == 'Inscripcion asignatura') selected="selected" @endif>Inscripción de Asignatura</option>
-                                <option value="Ayudantia" @if ($solicitud->tipo == 'Ayudantia') selected="selected" @endif>Ayudantía</option>
-                                <option value="Facilidades" @if ($solicitud->tipo == 'Facilidades') selected="selected" @endif>Facilidades Académicas</option>
+                                @if (old('tipo') == null)
+                                    <option value="Sobrecupo" @if ($solicitud->tipo == 'Sobrecupo') selected="selected" @endif>Sobrecupo</option>
+                                    <option value="Cambio paralelo" @if ($solicitud->tipo == 'Cambio paralelo') selected="selected" @endif>Cambio de Paralelo</option>
+                                    <option value="Eliminacion asignatura" @if ($solicitud->tipo == 'Eliminacion asignatura') selected="selected" @endif>Eliminación de Asignatura</option>
+                                    <option value="Inscripcion asignatura" @if ($solicitud->tipo == 'Inscripcion asignatura') selected="selected" @endif>Inscripción de Asignatura</option>
+                                    <option value="Ayudantia" @if ($solicitud->tipo == 'Ayudantia') selected="selected" @endif>Ayudantía</option>
+                                    <option value= "Facilidades" @if ($solicitud->tipo == 'Facilidades') selected="selected" @endif>Facilidades Académicas</option>
+                                @else
+                                <option value="Sobrecupo" @if (old('tipo') == 'Sobrecupo') selected="selected" @endif>Sobrecupo</option>
+                                <option value="Cambio paralelo" @if (old('tipo') == 'Cambio paralelo') selected="selected" @endif>Cambio de Paralelo</option>
+                                <option value="Eliminacion asignatura" @if (old('tipo') == 'Eliminacion asignatura') selected="selected" @endif>Eliminación de Asignatura</option>
+                                <option value="Inscripcion asignatura" @if (old('tipo') == 'Inscripcion asignatura') selected="selected" @endif>Inscripción de Asignatura</option>
+                                <option value="Ayudantia" @if (old('tipo') == 'Ayudantia') selected="selected" @endif>Ayudantía</option>
+                                <option value= "Facilidades" @if (old('tipo') == 'Facilidades') selected="selected" @endif>Facilidades Académicas</option>
+
+                                @endif
+
                             </select>
                             @error('tipo')
                             <span class="invalid-feedback" role="alert">
