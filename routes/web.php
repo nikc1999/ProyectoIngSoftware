@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect('/home');
 });
 
-Route::get('/agregarcarrera', function () {  //Manda la vista
-    return view('carreras.crear');
-});
+Route::resource('solicitudJDC', App\Http\Controllers\SolicitudJDC::class,['middleware'=>'auth']);
+
+Route::resource('carrera', App\Http\Controllers\CarreraController::class,['middleware'=>'auth']);
+
+Route::resource('contrasena', App\Http\Controllers\ContraseñaController::class,['middleware'=>'auth']);
+
+Route::resource('usuario', App\Http\Controllers\UserController::class,['middleware'=>'auth']);
+
+Route::resource('solicitud', App\Http\Controllers\SolicitudController::class,['middleware'=>'auth']);
 
 Auth::routes();
 
@@ -27,5 +34,22 @@ Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::post('/agregarusuario/crear', [App\Http\Controllers\UserController::class, 'store'])->name('agregarusuario');  //proceso para generar ,validar y guardar el usuario
+
+Route::get('/gestionarcarreras', [App\Http\Controllers\CarreraController::class, 'mostrarPanelCarreras'])->name('mostrarcarreras');
+
 Route::post('/agregarcarrera/crear', [App\Http\Controllers\CarreraController::class, 'store'])->name('crearcarrera'); //Se encarga de registrar la carrera
 
+Route::get('/agregarcarrera', [App\Http\Controllers\CarreraController::class, 'agregarCarrera'])->name('addcarrera');
+
+Route::post('/editarusuario/habilitar', [App\Http\Controllers\UserController::class, 'habilitarUsuario'])->name('habilitar');
+
+Route::post('/modificar_usuario', [App\Http\Controllers\UserController::class, 'modificarUsuario'])->name('modificar');
+
+Route::post('/modificaradministrador', [App\Http\Controllers\UserController::class, 'modificarAdmin'])->name('editarAdministrador');
+
+Route::post('/editarusuario/restablecerContrasena', [App\Http\Controllers\UserController::class, 'restablecerContrasena'])->name('restablecer');
+
+Route::get('/mostrarsolicitudespendientesjefe', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesPendientesJefe'])->name('mostrarSolicitudesPendientesJefe');
+
+Route::get('/mostrarsolicitudesdfiltrar', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesFiltrar'])->name('mostrarSolicitudesFiltrar');

@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
         'rut',
         'habilitado',
+        'rol',
+        'carrera_id'
     ];
 
     /**
@@ -31,8 +33,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
     ];
 
     /**
@@ -43,4 +43,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function solicitudes(){
+        return $this->hasMany(Solicitud::class);
+    }
 }

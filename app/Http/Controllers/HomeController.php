@@ -28,16 +28,16 @@ class HomeController extends Controller
     public function index() //hardcodeado
     {
         if (Auth::user()->rol=='Administrador') {
-             $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
-             return view('carreras.index')->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
+             //$carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
+             return view('administrador.index');//->with('carrera', $carreras); //lo que se envía como $carreras el html lo reconoce como 'carrera'
         }
         else if(Auth::user()->rol=='Jefe de Carrera'){
-            //Logica de jefe de carrera
-            //Retornar vista de jefe de carrera
+            //$carreras = Carrera::all();  //Se debería cargar todos los datos que corresponden a los de jefe carrera
+            return view('JefeCarrera.index');//Retornar la vista de jefe de carreras
         }
         else if(Auth::user()->rol=='Estudiante'){
-            //Logica de Estudiante
-            //Retornar vista de estudiante
+            $carreras = Carrera::all();  //Lo que realiza es llamar de la base de datos todas las carreras
+            return view('estudiante.index');
         }
     }
 }
