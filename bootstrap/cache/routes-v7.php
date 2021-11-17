@@ -24,7 +24,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::Cod1CZFFTWlx3h0G',
+=======
+            '_route' => 'generated::CPPzMyaJVUOS4MPh',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
           ),
           1 => NULL,
           2 => 
@@ -44,7 +48,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::3I9ynpWWRqYiRUKi',
+=======
+            '_route' => 'generated::jGOjbNs2ddPx1JAA',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
           ),
           1 => NULL,
           2 => 
@@ -64,7 +72,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::GzhtswLWd6r0yfI4',
+=======
+            '_route' => 'generated::SiCJRKsXWW9nfo6r',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
           ),
           1 => NULL,
           2 => 
@@ -437,7 +449,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::sRizr4yhWM1G0FYR',
+=======
+            '_route' => 'generated::7qF9dI1RfzsNbF3f',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
           ),
           1 => NULL,
           2 => 
@@ -492,7 +508,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::TTX7lFgsJ4v2ujkF',
+=======
+            '_route' => 'generated::e66mF2WCElndiir0',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
           ),
           1 => NULL,
           2 => 
@@ -583,7 +603,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::uW6nlUt1kSbm91gj',
+=======
+            '_route' => 'generated::x1jIgsOTDKv0kKSZ',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
           ),
           1 => NULL,
           2 => 
@@ -1444,7 +1468,11 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
+<<<<<<< HEAD
     'generated::Cod1CZFFTWlx3h0G' => 
+=======
+    'generated::CPPzMyaJVUOS4MPh' => 
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
     array (
       'methods' => 
       array (
@@ -1465,7 +1493,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
+<<<<<<< HEAD
         'as' => 'generated::Cod1CZFFTWlx3h0G',
+=======
+        'as' => 'generated::CPPzMyaJVUOS4MPh',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
       ),
       'fallback' => false,
       'defaults' => 
@@ -1481,7 +1513,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::3I9ynpWWRqYiRUKi' => 
+=======
+    'generated::jGOjbNs2ddPx1JAA' => 
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
     array (
       'methods' => 
       array (
@@ -1496,15 +1532,25 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
+<<<<<<< HEAD
         'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@FKFNp5m4O1Or3wZikmUrX+yUxmp8ZJEVj0lEq2r7o/I=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000067315c8d0000000058f01648";}}',
+=======
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@Cw3Hjc95AHFPsqvkx1cdI95kkrmPxtYHViLDzO5BTy8=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+    return $request->user();
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000078025fda00000000493ce8f6";}}',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::3I9ynpWWRqYiRUKi',
+=======
+        'as' => 'generated::jGOjbNs2ddPx1JAA',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
       ),
       'fallback' => false,
       'defaults' => 
@@ -1520,7 +1566,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::GzhtswLWd6r0yfI4' => 
+=======
+    'generated::SiCJRKsXWW9nfo6r' => 
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
     array (
       'methods' => 
       array (
@@ -1534,15 +1584,25 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
+<<<<<<< HEAD
         'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":258:{@wDHGLBY87ammQQATgd+GXIJ7QRqqhl01xn+hNV9+hNE=.a:5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
     return \\redirect(\'/home\');
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000067315c830000000058f01648";}}',
+=======
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":258:{@SNmkbuXQpLKG5NbCRIRE5r2wSVXKAZTvjqlFD86NtfU=.a:5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
+    return \\redirect(\'/home\');
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000078025fd400000000493ce8f6";}}',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::GzhtswLWd6r0yfI4',
+=======
+        'as' => 'generated::SiCJRKsXWW9nfo6r',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
       ),
       'fallback' => false,
       'defaults' => 
@@ -3179,7 +3239,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::sRizr4yhWM1G0FYR' => 
+=======
+    'generated::7qF9dI1RfzsNbF3f' => 
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
     array (
       'methods' => 
       array (
@@ -3199,7 +3263,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::sRizr4yhWM1G0FYR',
+=======
+        'as' => 'generated::7qF9dI1RfzsNbF3f',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
       ),
       'fallback' => false,
       'defaults' => 
@@ -3288,7 +3356,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::TTX7lFgsJ4v2ujkF' => 
+=======
+    'generated::e66mF2WCElndiir0' => 
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
     array (
       'methods' => 
       array (
@@ -3308,7 +3380,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::TTX7lFgsJ4v2ujkF',
+=======
+        'as' => 'generated::e66mF2WCElndiir0',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
       ),
       'fallback' => false,
       'defaults' => 
@@ -3507,7 +3583,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::uW6nlUt1kSbm91gj' => 
+=======
+    'generated::x1jIgsOTDKv0kKSZ' => 
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
     array (
       'methods' => 
       array (
@@ -3527,7 +3607,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::uW6nlUt1kSbm91gj',
+=======
+        'as' => 'generated::x1jIgsOTDKv0kKSZ',
+>>>>>>> parent of bd88ab9 (casi terminado buscar estudiante)
       ),
       'fallback' => false,
       'defaults' => 
