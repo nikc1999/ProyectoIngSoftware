@@ -152,7 +152,6 @@ class SolicitudJDC extends Controller
         ];
 
             return view('JefeCarrera.infoEstudiante')->with('datos', $datos);
-
     }
 
     /**
