@@ -24,8 +24,8 @@ class BuscarEstudiante extends Controller
         if(Auth::user()->rol=='Jefe de Carrera')
         {
             //dd(Auth::user()->rol);
-            $user = null;
-            $solicitudes = null;
+            $user = collect();
+            $solicitudes = collect();
             $datos = [
                 'estudiante' => $user,
                 'solicitudes' => $solicitudes,
@@ -77,16 +77,27 @@ class BuscarEstudiante extends Controller
         $carrera = $carrera[0];
 
         $rut = $user->rut;
-        $datos = [
-            'estudiante' => $user,
-            'solicitudes' => $solicitudes,
-            'carrera' => $carrera,
-        ];
+
+
         if ($user->carrera_id == $carreraIdJefe && $user->rol == 'Estudiante') {
+
+            $datos = [
+                'estudiante' => $user,
+                'solicitudes' => $solicitudes,
+                'carrera' => $carrera,
+            ];
+
             return view('BuscarEstudiante.index')->with('datos',$datos)->with('rut' ,$rut);
         }
+        else{
+            $datos = [
+                'estudiante' => null,
+                'solicitudes' => null,
+                'carrera' => null,
+            ];
 
-        return view('BuscarEstudiante.index')->with('datos',$datos)->with('error', 'Las contraseñas no coinciden'); //ver el error texto
+            return view('BuscarEstudiante.index')->with('datos',$datos)->with('error', 'Las contraseñas no coinciden'); //ver el error texto
+        }
     }
 
 

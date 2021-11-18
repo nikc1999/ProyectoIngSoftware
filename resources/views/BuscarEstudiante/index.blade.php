@@ -12,8 +12,6 @@
             <div class="col-lg-12 login-key">
                 <i class="fas fa-users"></i>
             </div>
-
-
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
                     <form id="formulario" method="POST" action="{{ route('buscarEstudiante') }} ">
@@ -46,7 +44,10 @@
         </div>
     </div>
     <br>
-    @if (!is_null($datos['estudiante']))
+
+    @if ($datos['estudiante']->isEmpty())
+
+    @elseif(!is_null($datos['estudiante']))
         <center><div>
             <h3>Informacion Estudiante:</h3>
             <h4>Rut Estudiante: {{$datos['estudiante']->rut}}</h4>
@@ -55,7 +56,6 @@
             <h4>Correo Estudiante: {{$datos['estudiante']->email}}</h4>
         </div></center>
         <br>
-
         <table class="table" id="TablaNormal">
             <thead>
                 <tr>
@@ -78,10 +78,11 @@
                     <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('buscarestudiante.edit', [$datos['estudiante']->id]) }}>Resolver</a></td>
                 </tr>
                 @endforeach
-
         </table>
-
-
+    @else
+    <div class="alert alert-danger" role="alert">
+        El número de la solicitud no existe
+    </div>
     @endif
 
 
