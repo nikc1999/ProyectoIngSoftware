@@ -116,9 +116,14 @@
 </div>
 </div>
 
+@if($datos['ruta'] == 'panel')
+    <center><a href={{ route('mostrarSolicitudesPendientesJefe')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
+    <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
+@else
+    <center><a href={{ route('buscarestudiante.index')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
+    <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
+@endif
 
-<center><a href={{ route('mostrarSolicitudesPendientesJefe')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
-<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
 
 
 @else

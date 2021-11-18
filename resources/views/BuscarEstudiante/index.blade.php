@@ -84,7 +84,8 @@
         <center>El RUT ingresado no existe</center>
     </div>
     @endif
-
+<br>
+<center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
 
 
 @else

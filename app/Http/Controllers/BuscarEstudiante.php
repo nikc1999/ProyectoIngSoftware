@@ -134,18 +134,23 @@ class BuscarEstudiante extends Controller
             $user = User::where('id', $id)->get();
             $user = $user[0];
 
-
-
-            $solicitudes = Solicitud::where('user_id', $user->id)->get();
-            $solicitudes = $solicitudes->sortBy('updated_at');
+            $solicitudes = Solicitud::where('user_id', $user->id)->first();
 
             $carrera = Carrera::where('id', $user->carrera_id)->get();
             $carrera = $carrera[0];
 
+            $listaestudiante = collect();
+            $listaestudiante->push($user);
+            $listasolicitud = collect();
+            $listasolicitud->push($solicitudes);
+
+            $solicitudes = $listasolicitud;
+            $user = $listaestudiante;
 
             $datos = [
                 'solicitudes' => $solicitudes,
                 'usuarios' => $user,
+                'ruta' => 'buscar',
             ];
 
             return view('JefeCarrera.infoEstudiante')->with('datos', $datos);

@@ -42,7 +42,9 @@ class SolicitudJDC extends Controller
             $datos = [
                 'solicitudes' => $solicitudes,
                 'usuarios' => $usuarios,
+                'ruta' => 'panel',
             ];
+
 
             return view('JefeCarrera.solicitudes')->with('datos', $datos);
             }
@@ -59,6 +61,7 @@ class SolicitudJDC extends Controller
                     $datos = [
                         'solicitudes' => $solicitud,
                         'usuarios' => $user,
+                        'ruta' => 'panel',
                     ];
                     return view('JefeCarrera.solicitudes')->with('datos', $datos);
                 }
@@ -69,6 +72,7 @@ class SolicitudJDC extends Controller
                     $datos = [
                         'solicitudes' => $solicitud,
                         'usuarios' => $user,
+                        'ruta' => 'panel',
                     ];
                     return view('JefeCarrera.solicitudes')->with('datos', $datos);
                 }
@@ -81,6 +85,7 @@ class SolicitudJDC extends Controller
                     $datos = [
                         'solicitudes' => $solicitud,
                         'usuarios' => $user,
+                        'ruta' => 'panel',
                     ];
                     return view('JefeCarrera.solicitudes')->with('datos', $datos);
                 }
@@ -92,6 +97,7 @@ class SolicitudJDC extends Controller
                 $datos = [
                 'solicitudes' => $solicitud,
                 'usuarios' => $user,
+                'ruta' => 'panel',
             ];
                 return view('JefeCarrera.infoEstudiante')->with('datos', $datos);
             }
@@ -152,6 +158,7 @@ class SolicitudJDC extends Controller
         $datos = [
             'solicitudes' => $solicitud,
             'usuarios' => $user,
+            'ruta' => 'panel',
         ];
 
             return view('JefeCarrera.infoEstudiante')->with('datos', $datos);

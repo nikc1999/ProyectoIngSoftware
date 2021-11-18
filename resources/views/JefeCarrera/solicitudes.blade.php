@@ -94,6 +94,8 @@
 </div>
 
 <center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
+
+
 @else
 @php
 header("Location: /home" );

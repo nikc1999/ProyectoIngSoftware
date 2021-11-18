@@ -244,6 +244,7 @@ class UserController extends Controller
         $datos = [
             'solicitudes' => $solicitudes,
             'usuarios' => $usuarios,
+            'ruta' => 'panel',
         ];
 
         return view('JefeCarrera.solicitudes')->with('datos', $datos);
@@ -291,6 +292,7 @@ class UserController extends Controller
             $datos = [
                 'solicitudes' => $solicitudes,
                 'usuarios' => $usuarios,
+                'ruta' => 'panel',
             ];
 
             return view('JefeCarrera.solicitudes')->with('datos', $datos);
@@ -317,6 +319,7 @@ class UserController extends Controller
         $datos = [
             'solicitudes' => $solicitudes,
             'usuarios' => $usuarios,
+            'ruta' => 'panel',
         ];
 
         return view('JefeCarrera.solicitudes')->with('datos', $datos);
