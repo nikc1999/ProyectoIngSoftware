@@ -131,10 +131,9 @@ class BuscarEstudiante extends Controller
         if(Auth::user()->rol=='Jefe de Carrera')
         {
             //dd($request);
-            $user = User::where('id', $id)->get();
+            $solicitudes = Solicitud::where('id', $id)->first();
+            $user = User::where('id', $solicitudes->user_id)->get();
             $user = $user[0];
-
-            $solicitudes = Solicitud::where('user_id', $user->id)->first();
 
             $carrera = Carrera::where('id', $user->carrera_id)->get();
             $carrera = $carrera[0];

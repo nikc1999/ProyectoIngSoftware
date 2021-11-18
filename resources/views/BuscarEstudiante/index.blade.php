@@ -88,7 +88,7 @@
                         <td>{!! $solicitud->tipo !!}</td>
                     @endif
                     <td>{!! $solicitud->updated_at !!}</td>
-                    <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('buscarestudiante.edit', [$datos['estudiante']->id]) }}>Resolver</a></td>
+                    <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('buscarestudiante.edit', [$solicitud->id]) }}>Resolver</a></td>
                 </tr>
                 @endforeach
         </table>
