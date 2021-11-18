@@ -2,6 +2,7 @@
 
 @section('content')
 @if (Auth::user()->rol == 'Jefe de Carrera')
+<div class="container col-md-8 col-md-offset-2">
     <div class="">
         <center><h1>Buscar Estudiante</h1></center>
     </div>
@@ -48,13 +49,25 @@
     @if ($datos['estudiante'] == 'hola' && $rut == '')
 
     @elseif(!is_null($datos['estudiante']))
-        <center><div>
-            <h3>Informacion Estudiante:</h3>
-            <h4>Rut Estudiante: {{$datos['estudiante']->rut}}</h4>
-            <h4>Nombre Estudiante: {{$datos['estudiante']->name}}</h4>
-            <h4>Carrera Estudiante: {{$datos['carrera']->nombre}}</h4>
-            <h4>Correo Estudiante: {{$datos['estudiante']->email}}</h4>
-        </div></center>
+
+        <table class="table" id="TablaNormal">
+            <thead>
+                <tr>
+                    <th>Rut Estudiante:</th>
+                    <th>Nombre Estudiante:</th>
+                    <th>Carrera Estudiante:</th>
+                    <th>Correo Estudiante:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>{!! $datos['estudiante']->rut !!}</td>
+                <td>{!! $datos['estudiante']->name !!}</td>
+                <td>{!! $datos['carrera']->nombre !!}</td>
+                <td>{!! $datos['estudiante']->email !!}</td>
+                </tr>
+
+        </table>
         <br>
         <table class="table" id="TablaNormal">
             <thead>
@@ -87,7 +100,7 @@
 <br>
 <center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
 
-
+</div>
 @else
 @php
 header("Location: /home" );
