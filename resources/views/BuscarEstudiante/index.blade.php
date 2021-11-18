@@ -45,7 +45,7 @@
     </div>
     <br>
 
-    @if ($datos['estudiante']->isEmpty())
+    @if ($datos['estudiante'] == 'hola' && $rut == '')
 
     @elseif(!is_null($datos['estudiante']))
         <center><div>
@@ -81,7 +81,7 @@
         </table>
     @else
     <div class="alert alert-danger" role="alert">
-        El número de la solicitud no existe
+        <center>El RUT ingresado no existe</center>
     </div>
     @endif
 

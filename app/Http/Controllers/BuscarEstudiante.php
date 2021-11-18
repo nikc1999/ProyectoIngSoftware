@@ -8,6 +8,8 @@ use App\Models\Solicitud;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+use function PHPUnit\Framework\isEmpty;
+
 class BuscarEstudiante extends Controller
 {
     /**
@@ -24,13 +26,14 @@ class BuscarEstudiante extends Controller
         if(Auth::user()->rol=='Jefe de Carrera')
         {
             //dd(Auth::user()->rol);
-            $user = collect();
+            $user = 'hola';
+            $rut = '';
             $solicitudes = collect();
             $datos = [
                 'estudiante' => $user,
                 'solicitudes' => $solicitudes,
             ];
-            return view('BuscarEstudiante.index')->with('datos',$datos);
+            return view('BuscarEstudiante.index')->with('datos',$datos)->with('rut',$rut);
         }
         return redirect('/home');
     }
@@ -66,8 +69,18 @@ class BuscarEstudiante extends Controller
     {
 
         $rutPedido = $request->rut;
-        $user = User::where('rut', $rutPedido)->get();
-        $user = $user[0];
+        $user = User::where('rut', $rutPedido)->first();
+
+        if($user == null){ //Aca es cuando lo ingresado por la pagina no existe como rut en el sistema
+
+            $datos = [
+                'estudiante' => null,
+                'solicitudes' => null,
+                'carrera' => null,
+            ];
+            return view('BuscarEstudiante.index')->with('datos',$datos);
+        }
+
         $carreraIdJefe = Auth::user()->carrera_id;
 
         $solicitudes = Solicitud::where('user_id', $user->id)->get();
@@ -79,7 +92,7 @@ class BuscarEstudiante extends Controller
         $rut = $user->rut;
 
 
-        if ($user->carrera_id == $carreraIdJefe && $user->rol == 'Estudiante') {
+        if ($user->carrera_id == $carreraIdJefe && $user->rol == 'Estudiante') { //Lo encuentro y es de la carrera
 
             $datos = [
                 'estudiante' => $user,
@@ -89,14 +102,15 @@ class BuscarEstudiante extends Controller
 
             return view('BuscarEstudiante.index')->with('datos',$datos)->with('rut' ,$rut);
         }
-        else{
+
+        else{ //Lo encuentro y no es de la carrera
+
             $datos = [
                 'estudiante' => null,
                 'solicitudes' => null,
                 'carrera' => null,
             ];
-
-            return view('BuscarEstudiante.index')->with('datos',$datos)->with('error', 'Las contraseñas no coinciden'); //ver el error texto
+            return view('BuscarEstudiante.index')->with('datos',$datos);
         }
     }
 
