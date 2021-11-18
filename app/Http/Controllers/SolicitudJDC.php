@@ -32,23 +32,25 @@ class SolicitudJDC extends Controller
                     $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
                     foreach($solicitudes as $solicitud){
                         $listaSolicitudes->push($solicitud);
-                    }
                 }
-
-                $solicitudes = $listaSolicitudes;
-
-                $solicitudes = $solicitudes->sortBy('created_at');
-
-                $datos = [
-                    'solicitudes' => $solicitudes,
-                    'usuarios' => $usuarios,
-                ];
-
-                return view('JefeCarrera.solicitudes')->with('datos', $datos);
             }
+
+            $solicitudes = $listaSolicitudes;
+
+            $solicitudes = $solicitudes->sortBy('created_at');
+
+            $datos = [
+                'solicitudes' => $solicitudes,
+                'usuarios' => $usuarios,
+            ];
+
+            return view('JefeCarrera.solicitudes')->with('datos', $datos);
+            }
+
             else{ //Cuando el buscador entra con algo
                 $listaSolicitudes = collect();
                 $solicitud = Solicitud::where('id', $request->search)->first();
+
 
                 if($solicitud == null){ //Cuando no existe la solicitud ingresada por el buscador
 
@@ -115,16 +117,17 @@ class SolicitudJDC extends Controller
      */
     public function store(Request $request)
     {
-
+        $hola = "hola";
+        dd($hola);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Solicitud  $solicitud
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
+    public function show(Solicitud $Solicitud)
     {
 
     }
@@ -158,10 +161,10 @@ class SolicitudJDC extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Solicitud  $solicitud
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, int $id)
+    public function update(Request $request, Solicitud $Solicitud)
     {
         //
     }
