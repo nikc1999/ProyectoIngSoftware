@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <label for="form-control-label" style="color: black">Tipo Solicitud</label>
                             <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
-                                <option >Seleccione tipo de solicitud</option>
+                                <option>Seleccione tipo de solicitud</option>
                                 <option value="Sobrecupo" @if (old('tipo') == 'Sobrecupo') selected="selected" @endif>Sobrecupo</option>
                                 <option value="Cambio paralelo" @if (old('tipo') == 'Cambio paralelo') selected="selected" @endif>Cambio de Paralelo</option>
                                 <option value="Eliminacion asignatura" @if (old('tipo') == 'Eliminacion asignatura') selected="selected" @endif>Eliminación de Asignatura</option>
@@ -201,94 +201,93 @@
     const inputProfesor = document.getElementById('groupProfesor');
     const inputAdjunto = document.getElementById('groupAdjunto');
     const button = document.getElementById('groupButton');
-    selectSolicitud.addEventListener('mouseover', () => {
-        switch (selectSolicitud.value) {
-            case "Sobrecupo":
-                inputTelefono.hidden = false;
-                inputNrc.hidden = false;
-                inputNombre.hidden = false;
-                inputDetalles.hidden = false;
-                inputCalificacion.hidden = true;
-                inputCantidad.hidden = true;
-                inputTipoFacilidad.hidden = true;
-                inputProfesor.hidden = true;
-                inputAdjunto.hidden = true;
-                button.hidden = false
-                break;
-            case "Cambio paralelo":
-                inputTelefono.hidden = false;
-                inputNrc.hidden = false;
-                inputNombre.hidden = false;
-                inputDetalles.hidden = false;
-                inputCalificacion.hidden = true;
-                inputCantidad.hidden = true;
-                inputTipoFacilidad.hidden = true;
-                inputProfesor.hidden = true;
-                inputAdjunto.hidden = true;
-                button.hidden = false
-                break;
-            case "Eliminacion asignatura":
-                inputTelefono.hidden = false;
-                inputNrc.hidden = false;
-                inputNombre.hidden = false;
-                inputDetalles.hidden = false;
-                inputCalificacion.hidden = true;
-                inputCantidad.hidden = true;
-                inputTipoFacilidad.hidden = true;
-                inputProfesor.hidden = true;
-                inputAdjunto.hidden = true;
-                button.hidden = false
-                break;
-            case "Inscripcion asignatura":
-                inputTelefono.hidden = false;
-                inputNrc.hidden = false;
-                inputNombre.hidden = false;
-                inputDetalles.hidden = false;
-                inputCalificacion.hidden = true;
-                inputCantidad.hidden = true;
-                inputTipoFacilidad.hidden = true;
-                inputProfesor.hidden = true;
-                inputAdjunto.hidden = true;
-                button.hidden = false
-                break;
-            case "Ayudantia":
-                inputTelefono.hidden = false;
-                inputNrc.hidden = true;
-                inputNombre.hidden = false;
-                inputDetalles.hidden = false;
-                inputCalificacion.hidden = false;
-                inputCantidad.hidden = false;
-                inputTipoFacilidad.hidden = true;
-                inputProfesor.hidden = true;
-                inputAdjunto.hidden = true;
-                button.hidden = false
-                break;
-            case "Facilidades":
-                inputTelefono.hidden = false;
-                inputNrc.hidden = true;
-                inputNombre.hidden = false;
-                inputDetalles.hidden = false;
-                inputCalificacion.hidden = true;
-                inputCantidad.hidden = true;
-                inputTipoFacilidad.hidden = false;
-                inputProfesor.hidden = false;
-                inputAdjunto.hidden = false;
-                button.hidden = false
-                break;
-            default:
-                inputTelefono.hidden = true;
-                inputNrc.hidden = true;
-                inputNombre.hidden = true;
-                inputDetalles.hidden = true;
-                inputCalificacion.hidden = true;
-                inputCantidad.hidden = true;
-                inputTipoFacilidad.hidden = true;
-                inputProfesor.hidden = true;
-                inputAdjunto.hidden = true;
-                button.hidden = true
-                break;
-        }
-    })
+
+    switch (selectSolicitud.value) {
+        case "Sobrecupo":
+            inputTelefono.hidden = false;
+            inputNrc.hidden = false;
+            inputNombre.hidden = false;
+            inputDetalles.hidden = false;
+            inputCalificacion.hidden = true;
+            inputCantidad.hidden = true;
+            inputTipoFacilidad.hidden = true;
+            inputProfesor.hidden = true;
+            inputAdjunto.hidden = true;
+            button.hidden = false
+            break;
+        case "Cambio paralelo":
+            inputTelefono.hidden = false;
+            inputNrc.hidden = false;
+            inputNombre.hidden = false;
+            inputDetalles.hidden = false;
+            inputCalificacion.hidden = true;
+            inputCantidad.hidden = true;
+            inputTipoFacilidad.hidden = true;
+            inputProfesor.hidden = true;
+            inputAdjunto.hidden = true;
+            button.hidden = false
+            break;
+        case "Eliminacion asignatura":
+            inputTelefono.hidden = false;
+            inputNrc.hidden = false;
+            inputNombre.hidden = false;
+            inputDetalles.hidden = false;
+            inputCalificacion.hidden = true;
+            inputCantidad.hidden = true;
+            inputTipoFacilidad.hidden = true;
+            inputProfesor.hidden = true;
+            inputAdjunto.hidden = true;
+            button.hidden = false
+            break;
+        case "Inscripcion asignatura":
+            inputTelefono.hidden = false;
+            inputNrc.hidden = false;
+            inputNombre.hidden = false;
+            inputDetalles.hidden = false;
+            inputCalificacion.hidden = true;
+            inputCantidad.hidden = true;
+            inputTipoFacilidad.hidden = true;
+            inputProfesor.hidden = true;
+            inputAdjunto.hidden = true;
+            button.hidden = false
+            break;
+        case "Ayudantia":
+            inputTelefono.hidden = false;
+            inputNrc.hidden = true;
+            inputNombre.hidden = false;
+            inputDetalles.hidden = false;
+            inputCalificacion.hidden = false;
+            inputCantidad.hidden = false;
+            inputTipoFacilidad.hidden = true;
+            inputProfesor.hidden = true;
+            inputAdjunto.hidden = true;
+            button.hidden = false
+            break;
+        case "Facilidades":
+            inputTelefono.hidden = false;
+            inputNrc.hidden = true;
+            inputNombre.hidden = false;
+            inputDetalles.hidden = false;
+            inputCalificacion.hidden = true;
+            inputCantidad.hidden = true;
+            inputTipoFacilidad.hidden = false;
+            inputProfesor.hidden = false;
+            inputAdjunto.hidden = false;
+            button.hidden = false
+            break;
+        default:
+            inputTelefono.hidden = true;
+            inputNrc.hidden = true;
+            inputNombre.hidden = true;
+            inputDetalles.hidden = true;
+            inputCalificacion.hidden = true;
+            inputCantidad.hidden = true;
+            inputTipoFacilidad.hidden = true;
+            inputProfesor.hidden = true;
+            inputAdjunto.hidden = true;
+            button.hidden = true
+            break;
+    }
     selectSolicitud.addEventListener('change', () => {
         switch (selectSolicitud.value) {
             case "Sobrecupo":
