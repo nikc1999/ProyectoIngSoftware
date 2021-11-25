@@ -6,7 +6,10 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div>
-            <h2 style="font-weight: bold">Panel de Solicitudes Pendientes</h2>
+                <h2 style="font-weight: bold">Panel de Solicitudes
+                    <span style="color:rgb(196,49,44)">Pendientes</span>
+                    <!--poner un if para que no diga pendiente, despues de que el mati agregue el filtro de estado-->
+                </h2>
             </div>
             <form method="GET" action="{{ route('mostrarSolicitudesFiltrar') }}"> <!-- Acá se usa el store pa filtrar solicitudes por tipo-->
                 <div class="form-group" style="width: 240px;">
