@@ -14,7 +14,7 @@
             <label for="form-control-label" style="color: black">Filtrar Solicitud Por:</label>
             <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
                 <option value = "Defecto">Seleccione tipo de filtro</option>
-                <option value="Numero Solicitud">Numero Solicitud</option>
+                <option value="Numero Solicitud">Número Solicitud</option>
                 <option value="Tipo Solicitud">Tipo Solicitud</option>
             </select>
             @error('tipo')
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group" id="groupNumeroSolicitud" hidden>
-            <label class="form-control-label">Numero Solicitud</label>
+            <label class="form-control-label">Número Solicitud</label>
             <input id="numeroSolicitud" type="text"
                 class="form-control @error('telefono') is-invalid @enderror" name="numeroSolicitud"
                 value="{{ old('telefono') }}" autocomplete="telefono" autofocus>
@@ -43,10 +43,10 @@
                 <option >Seleccione tipo de Solicitud</option>
                 <option value="Sobrecupo">Sobrecupo</option>
                 <option value="Cambio Paralelo">Cambio De Paralelo</option>
-                <option value="Eliminacion asignatura">Eliminacion Asignatura</option>
-                <option value="Inscripcion asignatura">Inscripcion De Asignatura</option>
+                <option value="Eliminacion asignatura">Eliminación Asignatura</option>
+                <option value="Inscripcion asignatura">Inscripción De Asignatura</option>
                 <option value="Ayudantia">Solicitud Ayudantia</option>
-                <option value="Facilidades">Facilidad Academica</option>
+                <option value="Facilidades">Facilidad Académica</option>
             </select>
             @error('tipoSolicitud')
             <span class="invalid-feedback" role="alert">

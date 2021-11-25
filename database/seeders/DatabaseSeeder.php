@@ -80,8 +80,6 @@ class DatabaseSeeder extends Seeder
             'detalles_estudiante' => 'quiero botar esta asignatura por'
         ]);
 
-
-
         \App\Models\Solicitud::Create([
             'user_id' => 2,
             'estado' => 'Pendiente',
