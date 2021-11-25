@@ -5,7 +5,9 @@
 <div class="container col-md-8 col-md-offset-2">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2>Panel de Solicitudes Pendientes</h2>
+            <div>
+            <h2 style="font-weight: bold">Panel de Solicitudes Pendientes</h2>
+            </div>
             <form method="GET" action="{{ route('mostrarSolicitudesFiltrar') }}"> <!-- Acá se usa el store pa filtrar solicitudes por tipo-->
                 <div class="form-group" style="width: 240px;">
                     <label for="form-control-label" style="color: black">Tipo Solicitud</label>
@@ -36,7 +38,6 @@
             <input type="text" name="search" id="search" placeholder="N° Solicitud">
             <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar Solicitud</button>
         </form>
-
         <br>
 
         @if(is_null($datos['solicitudes']))
@@ -60,6 +61,7 @@
                         <tr>
                             <th>N° SOLICITUD</th>
                             <th>TIPO SOLICITUD</th>
+                            <th>ESTADO</th>
                             <th>FECHA SOLICITUD</th>
                             <th>RUT ESTUDIANTE</th>
                             <th>NOMBRE ESTUDIANTE</th>
@@ -79,6 +81,7 @@
                                     @else
                                         <td>{!! $solicitud->tipo !!}</td>
                                     @endif
+                                    <td>{!! $solicitud->estado !!}</td>
                                     <td>{!! $solicitud->updated_at !!}</td>
                                     <td>{!! $us->rut !!}</td>
                                     <td>{!! $us->name !!}</td>

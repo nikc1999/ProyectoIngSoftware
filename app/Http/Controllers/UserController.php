@@ -303,7 +303,6 @@ class UserController extends Controller
         $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
 
 
-
         foreach ($usuarios as $usuario){
             $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
             foreach($solicitudes as $solicitud){
