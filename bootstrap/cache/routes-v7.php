@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::NLSYR0j4aJ69zxpW',
+            '_route' => 'generated::soAa23nFxRvJ0m0Z',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::0AcLKM1rY4qeY4ZC',
+            '_route' => 'generated::KKO7akgDwDKAfc5u',
           ),
           1 => NULL,
           2 => 
@@ -64,7 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Y0Dpwq22rnocZnge',
+            '_route' => 'generated::KlYDtlG0JTsdtez2',
           ),
           1 => NULL,
           2 => 
@@ -358,6 +358,62 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/buscarestudiante' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'buscarestudiante.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'buscarestudiante.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/buscarestudiante/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'buscarestudiante.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/login' => 
       array (
         0 => 
@@ -381,7 +437,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::9nYJFQZZxfqynraR',
+            '_route' => 'generated::9VQFIrKecuQsGUER',
           ),
           1 => NULL,
           2 => 
@@ -436,7 +492,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::e5cn0J6qPuTZ9mSw',
+            '_route' => 'generated::aUjmoV3zFOx1kaD9',
           ),
           1 => NULL,
           2 => 
@@ -527,7 +583,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3UENMm4EZ1AMTfNI',
+            '_route' => 'generated::vjF3R2MBG0EBzgbf',
           ),
           1 => NULL,
           2 => 
@@ -774,10 +830,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/infoSolicitud' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'mostrarInfoSolicitudBoton',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/solicitud(?|JDC/([^/]++)(?|(*:35)|/edit(*:47)|(*:54))|/([^/]++)(?|(*:74)|/edit(*:86)|(*:93)))|/c(?|arrera/([^/]++)(?|(*:125)|/edit(*:138)|(*:146))|ontrasena/([^/]++)(?|(*:176)|/edit(*:189)|(*:197)))|/usuario/([^/]++)(?|(*:227)|/edit(*:240)|(*:248))|/password/reset/([^/]++)(*:281))/?$}sDu',
+      0 => '{^(?|/solicitud(?|JDC/([^/]++)(?|(*:35)|/edit(*:47)|(*:54))|/([^/]++)(?|(*:74)|/edit(*:86)|(*:93)))|/c(?|arrera/([^/]++)(?|(*:125)|/edit(*:138)|(*:146))|ontrasena/([^/]++)(?|(*:176)|/edit(*:189)|(*:197)))|/usuario/([^/]++)(?|(*:227)|/edit(*:240)|(*:248))|/buscarestudiante/(?|([^/]++)(?|(*:289)|/edit(*:302)|(*:310))|buscar(*:325))|/password/reset/([^/]++)(*:358))/?$}sDu',
     ),
     3 => 
     array (
@@ -1221,7 +1297,116 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      281 => 
+      289 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'buscarestudiante.show',
+          ),
+          1 => 
+          array (
+            0 => 'buscarestudiante',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      302 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'buscarestudiante.edit',
+          ),
+          1 => 
+          array (
+            0 => 'buscarestudiante',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      310 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'buscarestudiante.update',
+          ),
+          1 => 
+          array (
+            0 => 'buscarestudiante',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'buscarestudiante.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'buscarestudiante',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      325 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'buscarEstudiante',
+          ),
+          1 => 
+          array (
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      358 => 
       array (
         0 => 
         array (
@@ -1259,7 +1444,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::NLSYR0j4aJ69zxpW' => 
+    'generated::soAa23nFxRvJ0m0Z' => 
     array (
       'methods' => 
       array (
@@ -1280,7 +1465,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::NLSYR0j4aJ69zxpW',
+        'as' => 'generated::soAa23nFxRvJ0m0Z',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1296,7 +1481,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::0AcLKM1rY4qeY4ZC' => 
+    'generated::KKO7akgDwDKAfc5u' => 
     array (
       'methods' => 
       array (
@@ -1311,15 +1496,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@mI0IBj+9z8CyRnk738Aj1WbxDqcWWOsqAS2QWJor+Ig=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@+eQ2ihTRNunHaKipdXs0riyhNpgPUDR90qWnfavpXpI=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007fea9bca000000005ebc2db1";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000004933717f000000007bc5b44c";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::0AcLKM1rY4qeY4ZC',
+        'as' => 'generated::KKO7akgDwDKAfc5u',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1335,7 +1520,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Y0Dpwq22rnocZnge' => 
+    'generated::KlYDtlG0JTsdtez2' => 
     array (
       'methods' => 
       array (
@@ -1349,15 +1534,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":260:{@vE5oV8SK1R8UFtIHasRfB3m10GkgcdmPoWEFyyRVMo4=.a:5:{s:3:"use";a:0:{}s:8:"function";s:48:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":260:{@Q0i1CjzDjiRG4Iw4mvJo9xEq61yuxueY5CtCVkmccXA=.a:5:{s:3:"use";a:0:{}s:8:"function";s:48:"function () {
     return \\redirect(\'/home\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007fea9bc4000000005ebc2db1";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000049337171000000007bc5b44c";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::Y0Dpwq22rnocZnge',
+        'as' => 'generated::KlYDtlG0JTsdtez2',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2693,6 +2878,270 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'buscarestudiante.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'buscarestudiante',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'buscarestudiante.index',
+        'uses' => 'App\\Http\\Controllers\\BuscarEstudiante@index',
+        'controller' => 'App\\Http\\Controllers\\BuscarEstudiante@index',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'buscarestudiante.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'buscarestudiante/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'buscarestudiante.create',
+        'uses' => 'App\\Http\\Controllers\\BuscarEstudiante@create',
+        'controller' => 'App\\Http\\Controllers\\BuscarEstudiante@create',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'buscarestudiante.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'buscarestudiante',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'buscarestudiante.store',
+        'uses' => 'App\\Http\\Controllers\\BuscarEstudiante@store',
+        'controller' => 'App\\Http\\Controllers\\BuscarEstudiante@store',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'buscarestudiante.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'buscarestudiante/{buscarestudiante}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'buscarestudiante.show',
+        'uses' => 'App\\Http\\Controllers\\BuscarEstudiante@show',
+        'controller' => 'App\\Http\\Controllers\\BuscarEstudiante@show',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'buscarestudiante.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'buscarestudiante/{buscarestudiante}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'buscarestudiante.edit',
+        'uses' => 'App\\Http\\Controllers\\BuscarEstudiante@edit',
+        'controller' => 'App\\Http\\Controllers\\BuscarEstudiante@edit',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'buscarestudiante.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'buscarestudiante/{buscarestudiante}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'buscarestudiante.update',
+        'uses' => 'App\\Http\\Controllers\\BuscarEstudiante@update',
+        'controller' => 'App\\Http\\Controllers\\BuscarEstudiante@update',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'buscarestudiante.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'buscarestudiante/{buscarestudiante}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'buscarestudiante.destroy',
+        'uses' => 'App\\Http\\Controllers\\BuscarEstudiante@destroy',
+        'controller' => 'App\\Http\\Controllers\\BuscarEstudiante@destroy',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'login' => 
     array (
       'methods' => 
@@ -2730,7 +3179,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::9nYJFQZZxfqynraR' => 
+    'generated::9VQFIrKecuQsGUER' => 
     array (
       'methods' => 
       array (
@@ -2750,7 +3199,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::9nYJFQZZxfqynraR',
+        'as' => 'generated::9VQFIrKecuQsGUER',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2839,7 +3288,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::e5cn0J6qPuTZ9mSw' => 
+    'generated::aUjmoV3zFOx1kaD9' => 
     array (
       'methods' => 
       array (
@@ -2859,7 +3308,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::e5cn0J6qPuTZ9mSw',
+        'as' => 'generated::aUjmoV3zFOx1kaD9',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3058,7 +3507,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::3UENMm4EZ1AMTfNI' => 
+    'generated::vjF3R2MBG0EBzgbf' => 
     array (
       'methods' => 
       array (
@@ -3078,7 +3527,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::3UENMm4EZ1AMTfNI',
+        'as' => 'generated::vjF3R2MBG0EBzgbf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3517,6 +3966,79 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'mostrarSolicitudesFiltrar',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'buscarEstudiante' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'buscarestudiante/buscar',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\BuscarEstudiante@show',
+        'controller' => 'App\\Http\\Controllers\\BuscarEstudiante@show',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'buscarEstudiante',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'mostrarInfoSolicitudBoton' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'infoSolicitud',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\UserController@mostrarInfoSolicitudBoton',
+        'controller' => 'App\\Http\\Controllers\\UserController@mostrarInfoSolicitudBoton',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'mostrarInfoSolicitudBoton',
       ),
       'fallback' => false,
       'defaults' => 
