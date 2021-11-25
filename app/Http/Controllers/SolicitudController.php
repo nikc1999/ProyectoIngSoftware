@@ -65,15 +65,7 @@ class SolicitudController extends Controller
                     'nombre' => ['required'],
                     'detalle' => ['required']
                 ]);
-                //no se que hace esto U///w///U
-                // $findUser = User::find($request->user);
 
-                // $findUser->solicitudes()->attach($request->tipo, [
-                //     'telefono' => $request->telefono,
-                //     'NRC' => $request->nrc,
-                //     'nombre_asignatura' => $request->nombre,
-                //     'detalles' => $request->detalle
-                // ]);
                 Solicitud::create([
                     'telefono' => $request->telefono,
                     'tipo' => $request->tipo,
@@ -165,12 +157,6 @@ class SolicitudController extends Controller
                 return redirect('/solicitud');
                 break;
 
-
-
-
-
-
-
             case 'Facilidades':
                 $request->validate([
                     'telefono' => ['regex:/[0-9]*/','int','required'],
@@ -178,7 +164,7 @@ class SolicitudController extends Controller
                     'detalle' => ['required'],
                     'facilidad' => ['required','in:Licencia,Inasistencia Fuerza Mayor,Representacion,Inasistencia Motivo Personal'],
                     'profesor' => ['required'],
-                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx','max:20000'],
+                    'adjunto.*' => ['mimes:pdf,png,jpg,jpeg,doc,docx','max:20000'],
                     'adjunto' => ['array','min:0','max:3'],
                 ]);
 
@@ -188,8 +174,7 @@ class SolicitudController extends Controller
 
                 if($request->adjunto != ''){
                     foreach ($request->adjunto as $file) {
-                        // todo falla cuando el archivo subido es PDF
-                        $name = $aux.time().'-'.$findUser->name;
+                        $name = $aux.time().'-'.$findUser->name.'.'.$file->getClientOriginalExtension();
                         $file->move(public_path('\storage\docs'), $name);
                         $datos[] = $name;
                         $aux++;
@@ -277,11 +262,10 @@ class SolicitudController extends Controller
 
                 if($solicitud->archivos != null){
                     foreach(json_decode($solicitud->archivos) as $link){
-                        File::delete("storage/docs/{$link}");
+                        File::delete("storage/docs/{$link}"); //cambiar esto cuando la pagina esté on-line
                         //dd($link);
                     }
                     $solicitud->archivos = null;
-
                 }
 
                 $solicitud->save();
@@ -301,13 +285,13 @@ class SolicitudController extends Controller
                 $solicitud->nombre_asignatura = $request->nombre;
                 $solicitud->NRC = $request->nrc;
                 $solicitud->detalles_estudiante = $request->detalle;
+
                 if($solicitud->archivos != null){
                     foreach(json_decode($solicitud->archivos) as $link){
                         File::delete("storage/docs/{$link}");
                         //dd($link);
                     }
                     $solicitud->archivos = null;
-
                 }
 
 
@@ -328,13 +312,13 @@ class SolicitudController extends Controller
                 $solicitud->nombre_asignatura = $request->nombre;
                 $solicitud->NRC = $request->nrc;
                 $solicitud->detalles_estudiante = $request->detalle;
+
                 if($solicitud->archivos != null){
                     foreach(json_decode($solicitud->archivos) as $link){
                         File::delete("storage/docs/{$link}");
                         //dd($link);
                     }
                     $solicitud->archivos = null;
-
                 }
 
 
@@ -355,13 +339,13 @@ class SolicitudController extends Controller
                 $solicitud->nombre_asignatura = $request->nombre;
                 $solicitud->NRC = $request->nrc;
                 $solicitud->detalles_estudiante = $request->detalle;
+
                 if($solicitud->archivos != null){
                     foreach(json_decode($solicitud->archivos) as $link){
                         File::delete("storage/docs/{$link}");
                         //dd($link);
                     }
                     $solicitud->archivos = null;
-
                 }
 
 
@@ -391,7 +375,6 @@ class SolicitudController extends Controller
                         //dd($link);
                     }
                     $solicitud->archivos = null;
-
                 }
 
 
@@ -406,7 +389,7 @@ class SolicitudController extends Controller
                     'detalle' => ['required'],
                     'facilidad' => ['required','in:Licencia,Inasistencia Fuerza Mayor,Representacion,Inasistencia Motivo Personal'],
                     'profesor' => ['required'],
-                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx,png','max:20000'],
+                    'adjunto.*' => ['mimes:pdf,png,jpg,jpeg,doc,docx','max:20000'],
                     'adjunto' => ['array','min:0','max:3'],
                 ]);
 
@@ -414,22 +397,33 @@ class SolicitudController extends Controller
 
                 $aux = 0;
 
-                if($request->adjunto != null){ //revisar
-                    foreach ($request->adjunto as $file) {
-                        // todo falla cuando el archivo subido es PDF
-                        $name = $aux.time().'-'.$findUser->name;
-                        $file->move(public_path('\storage\docs'), $name);
-                        $datos[] = $name;
-                        $aux++;
+                if ($request->archivo == 1){ //el usuario eligio subir nuevos archivos
+                    if($solicitud->archivos != null){
+                        foreach(json_decode($solicitud->archivos) as $link){
+                            File::delete("storage/docs/{$link}");
+                            //dd($link);
+                        }
+                        $solicitud->archivos = null;
                     }
+                }
 
+                if($request->archivo == 1 or $request->archivo == null){ //revisar
+                    if ($request->adjunto != null){
+                        foreach ($request->adjunto as $file) {
+                            // todo falla cuando el archivo subido es PDF
+                            $name = $aux.time().'-'.$findUser->name.'.'.$file->getClientOriginalExtension();
+                            $file->move(public_path('\storage\docs'), $name);
+                            $datos[] = $name;
+                            $aux++;
+                        }
+                        $solicitud->archivos = json_encode($datos); //revisar
+                    }
                     $solicitud->tipo = $request->tipo;
                     $solicitud->telefono = $request->telefono;
                     $solicitud->nombre_asignatura = $request->nombre;
                     $solicitud->detalles_estudiante = $request->detalle;
                     $solicitud->tipo_facilidad = $request->facilidad;
                     $solicitud->nombre_profesor = $request->profesor;
-                    $solicitud->archivos = json_encode($datos); //revisar
 
                     $solicitud->save();
                     return redirect('/solicitud');

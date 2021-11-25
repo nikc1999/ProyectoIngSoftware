@@ -35,6 +35,7 @@ class UserController extends Controller
                 $usuarios = User::simplePaginate(10);
                 return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
             }else {
+                dd($request);
                 $usuarios = User::where('rut', $request->search)->simplePaginate(1);
                 return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
             }
@@ -243,6 +244,7 @@ class UserController extends Controller
         $datos = [
             'solicitudes' => $solicitudes,
             'usuarios' => $usuarios,
+            'ruta' => 'panel',
         ];
 
         return view('JefeCarrera.solicitudes')->with('datos', $datos);
@@ -272,9 +274,35 @@ class UserController extends Controller
 
     public function mostrarSolicitudesFiltrar(Request $request){
 
+        if($request->tipo == null){
+            $listaSolicitudes = collect();
+            $carreraIdJefe = Auth::user()->carrera_id;
+            $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
+            foreach ($usuarios as $usuario){
+                $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
+                foreach($solicitudes as $solicitud){
+                    $listaSolicitudes->push($solicitud);
+                }
+            }
+
+            $solicitudes = $listaSolicitudes;
+
+            $solicitudes = $solicitudes->sortBy('created_at');
+
+            $datos = [
+                'solicitudes' => $solicitudes,
+                'usuarios' => $usuarios,
+                'ruta' => 'panel',
+            ];
+
+            return view('JefeCarrera.solicitudes')->with('datos', $datos);
+        }
+
         $listaSolicitudes = collect();
         $carreraIdJefe = Auth::user()->carrera_id;
         $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
+
+
 
         foreach ($usuarios as $usuario){
             $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
@@ -291,12 +319,22 @@ class UserController extends Controller
         $datos = [
             'solicitudes' => $solicitudes,
             'usuarios' => $usuarios,
+            'ruta' => 'panel',
         ];
 
         return view('JefeCarrera.solicitudes')->with('datos', $datos);
 
         //dd($listaSolicitudes,$listaEstudiantes);
         //return view('JefeCarrera.filtrarSolicitudes')->with('solicitudes', $listaSolicitudes)->with('datosEstudiantes' , $listaEstudiantes);
+    }
+
+    public function mostrarInfoSolicitudBoton(Request $request){
+
+
+        $datos = [
+
+        ];
+        return view('JefeCarrera.infoEstudiante')->with('datos', $datos);
     }
 
 }

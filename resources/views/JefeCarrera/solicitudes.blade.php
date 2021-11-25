@@ -10,7 +10,7 @@
                 <div class="form-group" style="width: 240px;">
                     <label for="form-control-label" style="color: black">Tipo Solicitud</label>
                     <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
-                        <option >Seleccione tipo de solicitud</option>
+                        <option value= >Seleccione tipo de solicitud</option>
                         <option value="Sobrecupo">Sobrecupo</option>
                         <option value="Cambio paralelo">Cambio de Paralelo</option>
                         <option value="Eliminacion asignatura">Eliminación de Asignatura</option>
@@ -26,8 +26,11 @@
                     @enderror
                 </div>
                 <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Tipo</button>
+                <a href={{ route('mostrarSolicitudesFiltrar') }}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
             </form>
         </div>
+
+        <br>
 
         <form method="GET" action="{{ route('solicitudJDC.index') }}">
             <input type="text" name="search" id="search" placeholder="N° Solicitud">
@@ -51,7 +54,7 @@
                     No existen solicitudes por resolver
                 </div>
             @else
-             <br>
+            <br>
                 <table class="table" id="TablaNormal">
                     <thead>
                         <tr>
@@ -79,7 +82,7 @@
                                     <td>{!! $solicitud->updated_at !!}</td>
                                     <td>{!! $us->rut !!}</td>
                                     <td>{!! $us->name !!}</td>
-                                    <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('mostrarSolicitudesFiltrar') }}>Resolver</a></td>
+                                    <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('solicitudJDC.edit', [$solicitud->id]) }}>Resolver</a></td>
                                 @endif
                             </tr>
                             @endforeach
@@ -91,6 +94,8 @@
 </div>
 
 <center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
+
+
 @else
 @php
 header("Location: /home" );

@@ -33,13 +33,12 @@
                                     <option value="Ayudantia" @if ($solicitud->tipo == 'Ayudantia') selected="selected" @endif>Ayudantía</option>
                                     <option value= "Facilidades" @if ($solicitud->tipo == 'Facilidades') selected="selected" @endif>Facilidades Académicas</option>
                                 @else
-                                <option value="Sobrecupo" @if (old('tipo') == 'Sobrecupo') selected="selected" @endif>Sobrecupo</option>
-                                <option value="Cambio paralelo" @if (old('tipo') == 'Cambio paralelo') selected="selected" @endif>Cambio de Paralelo</option>
-                                <option value="Eliminacion asignatura" @if (old('tipo') == 'Eliminacion asignatura') selected="selected" @endif>Eliminación de Asignatura</option>
-                                <option value="Inscripcion asignatura" @if (old('tipo') == 'Inscripcion asignatura') selected="selected" @endif>Inscripción de Asignatura</option>
-                                <option value="Ayudantia" @if (old('tipo') == 'Ayudantia') selected="selected" @endif>Ayudantía</option>
-                                <option value= "Facilidades" @if (old('tipo') == 'Facilidades') selected="selected" @endif>Facilidades Académicas</option>
-
+                                    <option value="Sobrecupo" @if (old('tipo') == 'Sobrecupo') selected="selected" @endif>Sobrecupo</option>
+                                    <option value="Cambio paralelo" @if (old('tipo') == 'Cambio paralelo') selected="selected" @endif>Cambio de Paralelo</option>
+                                    <option value="Eliminacion asignatura" @if (old('tipo') == 'Eliminacion asignatura') selected="selected" @endif>Eliminación de Asignatura</option>
+                                    <option value="Inscripcion asignatura" @if (old('tipo') == 'Inscripcion asignatura') selected="selected" @endif>Inscripción de Asignatura</option>
+                                    <option value="Ayudantia" @if (old('tipo') == 'Ayudantia') selected="selected" @endif>Ayudantía</option>
+                                    <option value= "Facilidades" @if (old('tipo') == 'Facilidades') selected="selected" @endif>Facilidades Académicas</option>
                                 @endif
 
                             </select>
@@ -199,6 +198,11 @@
                                     <option value= "0" >Guardar archivos anteriores</option>
                                     <option value= "1" >Cambiar archivos</option>
                                 </select>
+                                @error('archivo')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                                 <br>
 
                                 <div id="groupAdj" hidden>
@@ -249,7 +253,7 @@
 
                         <div hidden id="groupButton" class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="boton" class="btn">Editar</button>
+                                <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="boton" class="btn">Editar Solicitud</button>
                             </div>
                         </div>
                     </form>

@@ -42,7 +42,9 @@ class SolicitudJDC extends Controller
             $datos = [
                 'solicitudes' => $solicitudes,
                 'usuarios' => $usuarios,
+                'ruta' => 'panel',
             ];
+
 
             return view('JefeCarrera.solicitudes')->with('datos', $datos);
             }
@@ -59,6 +61,7 @@ class SolicitudJDC extends Controller
                     $datos = [
                         'solicitudes' => $solicitud,
                         'usuarios' => $user,
+                        'ruta' => 'panel',
                     ];
                     return view('JefeCarrera.solicitudes')->with('datos', $datos);
                 }
@@ -69,6 +72,7 @@ class SolicitudJDC extends Controller
                     $datos = [
                         'solicitudes' => $solicitud,
                         'usuarios' => $user,
+                        'ruta' => 'panel',
                     ];
                     return view('JefeCarrera.solicitudes')->with('datos', $datos);
                 }
@@ -81,6 +85,7 @@ class SolicitudJDC extends Controller
                     $datos = [
                         'solicitudes' => $solicitud,
                         'usuarios' => $user,
+                        'ruta' => 'panel',
                     ];
                     return view('JefeCarrera.solicitudes')->with('datos', $datos);
                 }
@@ -92,6 +97,7 @@ class SolicitudJDC extends Controller
                 $datos = [
                 'solicitudes' => $solicitud,
                 'usuarios' => $user,
+                'ruta' => 'panel',
             ];
                 return view('JefeCarrera.infoEstudiante')->with('datos', $datos);
             }
@@ -135,12 +141,27 @@ class SolicitudJDC extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Solicitud  $solicitud
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Solicitud $Solicitud)
+    public function edit(int $id)
     {
-        //
+        $listaSolicitudes = collect();
+
+        $solicitud = Solicitud::where('id', $id)->first();
+        $user = User::where('id', $solicitud->user_id)->get();
+
+        $listaSolicitudes->push($solicitud);
+
+        $solicitud = $listaSolicitudes;
+
+        $datos = [
+            'solicitudes' => $solicitud,
+            'usuarios' => $user,
+            'ruta' => 'panel',
+        ];
+
+            return view('JefeCarrera.infoEstudiante')->with('datos', $datos);
     }
 
     /**
