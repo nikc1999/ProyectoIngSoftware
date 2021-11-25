@@ -102,7 +102,7 @@
         </table>
     @else
     <div class="alert alert-danger" role="alert">
-        <center>El RUT ingresado no existe</center>
+        <center>El RUT ingresado no es de un estudiante o usted no tiene los privilegios para visualizar la información del rut ingresado</center>
     </div>
     @endif
 <br>
