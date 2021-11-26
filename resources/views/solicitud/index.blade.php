@@ -42,8 +42,12 @@
                                 <td>No editable</td>
                                 <td>No disponible</td>
                             @else
-                                <td><a class="btn btn-outline-rgb" style="color:white; background-color:rgb(0,181,226)" href={{ route('solicitud.show', [$solicitud]) }}>Editar</a></td>
-                                <td><a class="btn btn-outline-rgb" href={{ route('solicitud.edit', [$solicitud])}} style="color:white; background-color:rgb(196,49,44)">Anular</a></td>
+
+                            <td><a class="btn btn-outline-rgb"  style="color:white; background-color:rgb(0,181,226)" href={{ route('solicitud.show', [$solicitud]) }}>Editar</a></td>
+                            <form id="formulario" class="formularioAnular"method="GET" action="{{ route('solicitud.edit', [$solicitud])}}">
+                                @csrf
+                                <td><button class="btn botonAnular" id="boton" style="color:white; background-color:rgb(196,49,44)">Anular</button></td>
+                            </form>
                             @endif
                         </tr>
                     @endforeach
@@ -55,12 +59,46 @@
 <br>
 
 <center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
+
+<script>
+    const button = document.getElementsByClassName("botonAnular")
+    const form = document.getElementsByClassName('formularioAnular')
+    for (let i = 0; i < button.length; i++){
+        button[i].addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+            title: '¿Está seguro de anular la solicitud? esta acción no podrá cambiarse más tarde.',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Confirmar',
+            confirmButtonColor: '#00b5e2',
+            denyButtonColor: '#000000',
+            denyButtonText: `Cancelar`,
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                form[i].submit();
+            } else if (result.isDenied) {
+                Swal.fire({
+                    title: 'No guardado',
+                    icon: 'info',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#000000',
+                })
+            }
+
+        })
+        })
+    }
+
+</script>
 @else
 @php
 header("Location: /home" );
 exit();
 @endphp
 @endif
+
 
 
 @endsection
