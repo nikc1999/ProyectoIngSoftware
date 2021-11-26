@@ -8,7 +8,8 @@
             <div>
             <h2 style="font-weight: bold">Panel de Solicitudes Pendientes</h2>
             </div>
-            <form method="GET" action="{{ route('mostrarSolicitudesFiltrar') }}"> <!-- Acá se usa el store pa filtrar solicitudes por tipo-->
+
+            <form method="GET" action="{{ route('mostrarSolicitudesFiltrar') }}">
                 <div class="form-group" style="width: 240px;">
                     <label for="form-control-label" style="color: black">Tipo Solicitud</label>
                     <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
@@ -20,7 +21,6 @@
                         <option value="Ayudantia">Ayudantía</option>
                         <option value="Facilidades">Facilidades Académicas</option>
                     </select>
-
                     @error('tipo')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -28,8 +28,27 @@
                     @enderror
                 </div>
                 <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Tipo</button>
-                <a href={{ route('mostrarSolicitudesFiltrar') }}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
             </form>
+
+            <form method="GET" action="{{ route('mostrarEstadosFiltrar') }}">
+                <div class="form-group" style="width: 240px;">
+                    <label for="form-control-label" style="color: black">Estado Solicitud</label>
+                    <select class="form-control @error('estado') is-invalid @enderror" name="estado" id="estado">
+                        <option value= >Seleccione estado de solicitud</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Aceptada">Aceptada</option>
+                        <option value="Aceptada con observaciones">Aceptada con observaciones</option>
+                        <option value="Rechazada">Rechazada</option>
+                    </select>
+                    @error('estado')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar estado</button>
+            </form>
+            <a href={{ route('mostrarSolicitudesFiltrar') }}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
         </div>
 
         <br>
