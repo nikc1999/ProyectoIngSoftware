@@ -105,7 +105,7 @@
                         </div>
 
                         <div class="form-group" id="groupCantidad" hidden>
-                            <label class="form-control-label">Cantidad de ayudantias realizadas anteriormente</label>
+                            <label class="form-control-label">Cantidad de ayudantías realizadas anteriormente</label>
                             <input id="cantidad" type="text"
                                 class="form-control @error('cantidad') is-invalid @enderror" name="cantidad"
                                 value="{{ old('cantidad') }}"
@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="form-group" id="groupTipoFacilidad" hidden>
-                            <label for="form-control-label">Tipo de  facilidad académica</label>
+                            <label for="form-control-label">Tipo de facilidad académica</label>
                             <select class="form-control @error('facilidad') is-invalid @enderror" name="facilidad" id="facilidad">
                                 <option value={{null}}>Seleccione una facilidad</option>
                                 <option value="Licencia">Licencia Médica o Certificado Médico</option>

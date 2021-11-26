@@ -8,8 +8,8 @@
             <div>
             <h2 style="font-weight: bold">Panel de Solicitudes Pendientes</h2>
             </div>
-
-            <form method="GET" action="{{ route('mostrarSolicitudesFiltrar') }}">
+        <span>
+          <form method="GET" action="{{ route('mostrarSolicitudesFiltrar') }}">
                 <div class="form-group" style="width: 240px;">
                     <label for="form-control-label" style="color: black">Tipo Solicitud</label>
                     <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
@@ -48,6 +48,7 @@
                 </div>
                 <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar estado</button>
             </form>
+        </span>
             <a href={{ route('mostrarSolicitudesFiltrar') }}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
         </div>
 
@@ -84,7 +85,7 @@
                             <th>FECHA SOLICITUD</th>
                             <th>RUT ESTUDIANTE</th>
                             <th>NOMBRE ESTUDIANTE</th>
-                            <th>RESOLVER</th>
+                            <th>DETALLES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,7 +94,7 @@
 
                             @foreach($datos['solicitudes'] as $solicitud)
 
-                                @if($us->id == $solicitud->user_id && $solicitud->estado == 'Pendiente')
+                                @if($us->id == $solicitud->user_id && $solicitud->estado != 'Anulada')
                                     <td>{!! $solicitud->id !!}</td>
                                     @if ($solicitud->tipo == 'Facilidades')
                                         <td>{!! $solicitud->tipo_facilidad !!}</td>
@@ -104,7 +105,7 @@
                                     <td>{!! $solicitud->updated_at !!}</td>
                                     <td>{!! $us->rut !!}</td>
                                     <td>{!! $us->name !!}</td>
-                                    <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('solicitudJDC.edit', [$solicitud->id]) }}>Resolver</a></td>
+                                    <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('solicitudJDC.edit', [$solicitud->id]) }}>Ver</a></td>
                                 @endif
                             </tr>
                             @endforeach

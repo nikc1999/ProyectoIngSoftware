@@ -10,7 +10,9 @@ use App\Rules\ValidarRut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\Validator;
+use Mockery\Undefined;
 
+use function PHPUnit\Framework\isEmpty;
 
 class UserController extends Controller
 {
@@ -318,6 +320,7 @@ class UserController extends Controller
             'ruta' => 'panel',
         ];
 
+
         return view('JefeCarrera.solicitudes')->with('datos', $datos);
 
         //dd($listaSolicitudes,$listaEstudiantes);
@@ -364,7 +367,22 @@ class UserController extends Controller
             }
         }
 
+        $listaVacia = collect();
+
         $listaSolicitudes = $listaSolicitudes->sortBy('updated_at');
+
+        if($listaVacia == $listaSolicitudes){ //Si no se encontro ninguna solicitud se le debe enviar algo a la vista
+
+            $solicitudes = $listaSolicitudes;
+
+            $datos = [
+                'solicitudes' => $solicitudes,
+                'usuarios' => $usuarios,
+                'ruta' => 'panel',
+            ];
+
+            return view('JefeCarrera.solicitudes')->with('datos', $datos);
+        }
 
         $solicitudes = $listaSolicitudes;
 
