@@ -7,8 +7,6 @@
         <div class="panel-heading">
             <div>
                 <h2 style="font-weight: bold">Panel de Solicitudes
-                    <span style="color:rgb(196,49,44)">Pendientes</span>
-                    <!--poner un if para que no diga pendiente, despues de que el mati agregue el filtro de estado-->
                 </h2>
             </div>
         <span>

@@ -38,7 +38,7 @@
                             @endif
                             <td>{!! $solicitud->updated_at !!}</td>
                             <td>{!! $solicitud->estado !!}</td>
-                            @if ($solicitud->estado == 'Anulada' || $solicitud->estado == 'Aceptada')
+                            @if ($solicitud->estado == 'Rechazada' || $solicitud->estado == 'Aceptada con observaciones' || $solicitud->estado == 'Anulada' || $solicitud->estado == 'Aceptada')
                                 <td>No editable</td>
                                 <td>No disponible</td>
                             @else
