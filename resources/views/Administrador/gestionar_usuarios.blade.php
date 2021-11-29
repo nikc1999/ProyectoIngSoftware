@@ -3,27 +3,38 @@
 @section('content')
 
 @if (Auth::user()->rol=='Administrador')
-<div class="container col-md-8 col-md-offset-2">
-<h1>Panel de usuarios</h1>
+<div class="container">
+    <div class="row">
+        <h1>Panel de usuarios</h1>
+        <div class="col-6"></div>
+        <div>
+            <a href={{ route('usuario.index')}}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
+            <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a>
+        </div>
+
+    </div>
+
 
 <br>
+
+
 
 <div class="container" role="group" aria-label="Basic example">
         <form method="GET" action="{{ route('usuario.index') }}">
             <input type="text" name="search" id="search" placeholder="Buscar por Rut">
             <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar</button>
-        <a href={{ route('usuario.index')}}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
+
         <a href="{{ route('usuario.create') }}"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Crear Usuario</button></a>
-        <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a>
+
     </form>
-  </div>
+</div>
 
 @if ($usuarios->isEmpty())
 <br>
 <br>
 <div class="alert alert-danger" role="alert">
     No existe usuario con ese rut en el sistema.
- </div>
+</div>
 @else
 <br>
 <br>
