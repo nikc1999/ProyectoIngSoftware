@@ -2,66 +2,77 @@
 
 @section('content')
 @if (Auth::user()->rol=='Jefe de Carrera')
-<div class="container col-md-8 col-md-offset-2">
+<div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <div>
-                <h2 style="font-weight: bold">Panel de Solicitudes
-                    <span style="color:rgb(196,49,44)">Pendientes</span>
-                    <!--poner un if para que no diga pendiente, despues de que el mati agregue el filtro de estado-->
-                </h2>
+            <div class="row">
+                <h2 style="font-weight: bold">Panel de Solicitudes</h2>
+                <div class="col-6"></div>
+
+                <div class="pl-5">
+                    <a href={{ route('mostrarSolicitudesFiltrar') }}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
+                    <a class="pl-2" href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a>
+                </div>
+
             </div>
         <span>
-          <form method="GET" action="{{ route('mostrarSolicitudesFiltrar') }}">
-                <div class="form-group" style="width: 240px;">
-                    <label for="form-control-label" style="color: black">Tipo Solicitud</label>
-                    <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
-                        <option value= >Seleccione tipo de solicitud</option>
-                        <option value="Sobrecupo">Sobrecupo</option>
-                        <option value="Cambio paralelo">Cambio de Paralelo</option>
-                        <option value="Eliminacion asignatura">Eliminación de Asignatura</option>
-                        <option value="Inscripcion asignatura">Inscripción de Asignatura</option>
-                        <option value="Ayudantia">Ayudantía</option>
-                        <option value="Facilidades">Facilidades Académicas</option>
-                    </select>
-                    @error('tipo')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Tipo</button>
-            </form>
+            <br>
+            <div class= "row pl-5" >
+                <form method="GET" action="{{ route('mostrarSolicitudesFiltrar') }}">
+                    <div class="form-group" style="width: 240px;">
+                        <label for="form-control-label" style="color: black">Tipo Solicitud</label>
+                        <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
+                            <option value= >Seleccione tipo de solicitud</option>
+                            <option value="Sobrecupo">Sobrecupo</option>
+                            <option value="Cambio paralelo">Cambio de Paralelo</option>
+                            <option value="Eliminacion asignatura">Eliminación de Asignatura</option>
+                            <option value="Inscripcion asignatura">Inscripción de Asignatura</option>
+                            <option value="Ayudantia">Ayudantía</option>
+                            <option value="Facilidades">Facilidades Académicas</option>
+                        </select>
+                        @error('tipo')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Tipo</button>
+                </form>
 
-            <form method="GET" action="{{ route('mostrarEstadosFiltrar') }}">
-                <div class="form-group" style="width: 240px;">
-                    <label for="form-control-label" style="color: black">Estado Solicitud</label>
-                    <select class="form-control @error('estado') is-invalid @enderror" name="estado" id="estado">
-                        <option value= >Seleccione estado de solicitud</option>
-                        <option value="Pendiente">Pendiente</option>
-                        <option value="Aceptada">Aceptada</option>
-                        <option value="Aceptada con observaciones">Aceptada con observaciones</option>
-                        <option value="Rechazada">Rechazada</option>
-                    </select>
-                    @error('estado')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                <form class= "pl-5" method="GET" action="{{ route('mostrarEstadosFiltrar') }}">
+                    <div class="form-group" style="width: 240px;">
+                        <label for="form-control-label" style="color: black">Estado Solicitud</label>
+                        <select class="form-control @error('estado') is-invalid @enderror" name="estado" id="estado">
+                            <option value= >Seleccione estado de solicitud</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Aceptada">Aceptada</option>
+                            <option value="Aceptada con observaciones">Aceptada con observaciones</option>
+                            <option value="Rechazada">Rechazada</option>
+                        </select>
+                        @error('estado')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar estado</button>
+                </form>
+                <div class="pt-2 pl-5">
+                    <br>
+                    <form method="GET" action="{{ route('solicitudJDC.index') }}">
+                        <input type="text" name="search" id="search" placeholder="N° Solicitud">
+                        <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar Solicitud</button>
+                    </form>
                 </div>
-                <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar estado</button>
-            </form>
+
+            </div>
+
         </span>
-            <a href={{ route('mostrarSolicitudesFiltrar') }}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
+        <br>
         </div>
 
-        <br>
 
-        <form method="GET" action="{{ route('solicitudJDC.index') }}">
-            <input type="text" name="search" id="search" placeholder="N° Solicitud">
-            <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar Solicitud</button>
-        </form>
-        <br>
+
 
         @if(is_null($datos['solicitudes']))
             <br>
@@ -119,7 +130,7 @@
     </div>
 </div>
 
-<center><a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
+
 
 
 @else

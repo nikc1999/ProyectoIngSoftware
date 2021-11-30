@@ -6,6 +6,7 @@ use App\Models\Carrera;
 use Illuminate\Http\Request;
 use App\Models\Solicitud;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 
 use function PHPUnit\Framework\isEmpty;
@@ -87,7 +88,19 @@ class BuscarEstudiante extends Controller
         $solicitudes = $solicitudes->sortBy('updated_at');
 
         $carrera = Carrera::where('id', $user->carrera_id)->get();
-        $carrera = $carrera[0];
+
+        try{
+            $carrera = $carrera[0];
+        }
+        catch (Exception $e){
+            $datos = [
+                'estudiante' => null,
+                'solicitudes' => null,
+                'carrera' => null,
+            ];
+            return view('BuscarEstudiante.index')->with('datos',$datos);
+        }
+
 
         $rut = $user->rut;
 
