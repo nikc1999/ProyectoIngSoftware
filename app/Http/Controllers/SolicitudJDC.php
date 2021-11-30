@@ -26,27 +26,27 @@ class SolicitudJDC extends Controller
         {
             $carreraIdJefe = Auth::user()->carrera_id;
             if ($request->search == null) { //Cuanto por el buscador se entra vacio se muestran todos
-                $listaSolicitudes = collect();
-                $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
-                foreach ($usuarios as $usuario){
-                    $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
-                    foreach($solicitudes as $solicitud){
-                        $listaSolicitudes->push($solicitud);
+                    $listaSolicitudes = collect();
+                    $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
+                    foreach ($usuarios as $usuario){
+                        $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
+                        foreach($solicitudes as $solicitud){
+                            $listaSolicitudes->push($solicitud);
+                    }
                 }
-            }
 
-            $solicitudes = $listaSolicitudes;
+                $solicitudes = $listaSolicitudes;
 
-            $solicitudes = $solicitudes->sortBy('created_at');
+                $solicitudes = $solicitudes->sortBy('created_at');
 
-            $datos = [
-                'solicitudes' => $solicitudes,
-                'usuarios' => $usuarios,
-                'ruta' => 'panel',
-            ];
+                $datos = [
+                    'solicitudes' => $solicitudes,
+                    'usuarios' => $usuarios,
+                    'ruta' => 'panel',
+                ];
 
 
-            return view('JefeCarrera.solicitudes')->with('datos', $datos);
+                return view('JefeCarrera.solicitudes')->with('datos', $datos);
             }
 
             else{ //Cuando el buscador entra con algo
