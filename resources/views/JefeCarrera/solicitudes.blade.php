@@ -13,8 +13,9 @@
             </div>
             <form method="GET" action="{{ route('mostrarSolicitudesFiltrar') }}"> <!-- Acá se usa el store pa filtrar solicitudes por tipo-->
                 <div class="form-group" style="width: 240px;">
+
                     <label for="form-control-label" style="color: black">Tipo Solicitud</label>
-                    <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
+                  <select class="form-control @error('tipo') is-invalid @enderror" name="tipo" id="tipo">
                         <option value= >Seleccione tipo de solicitud</option>
                         <option value="Sobrecupo">Sobrecupo</option>
                         <option value="Cambio paralelo">Cambio de Paralelo</option>
@@ -30,7 +31,7 @@
                     </span>
                     @enderror
                 </div>
-                <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Tipo</button>
+                <button style="color:white; background-color:rgb(188,97,36)" class="btn ">Filtrar Tipo</button>
                 <a href={{ route('mostrarSolicitudesFiltrar') }}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
             </form>
         </div>
