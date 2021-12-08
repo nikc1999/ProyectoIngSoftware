@@ -121,7 +121,7 @@
                         </div>
 
                         <div class="form-group" id="groupCantidad" hidden>
-                            <label class="form-control-label">Cantidad de ayudantias realizadas anteriormente</label>
+                            <label class="form-control-label">Cantidad de ayudantías realizadas anteriormente</label>
                             <input id="cantidad" type="text"
                                 class="form-control @error('cantidad') is-invalid @enderror" name="cantidad"
                                 value="{{ $solicitud->cant_ayudantias }}"
@@ -129,7 +129,7 @@
                                 autocomplete="cantidad" autofocus>
                             @if(!is_null($solicitud->cant_ayudantias))
                                 <small id="calificacionHelpBlock" class="form-text text-muted">
-                                    Ejemplo: 2. Ingrese 0 en caso no haber realizado antes ayudantias
+                                    Ejemplo: 2. Ingrese 0 en caso no haber realizado antes ayudantías
                                 </small>
                             @endif
                             @error('cantidad')
@@ -140,7 +140,7 @@
                         </div>
 
                         <div class="form-group" id="groupTipoFacilidad" hidden>
-                            <label for="form-control-label">Tipo de  facilidad académica</label>
+                            <label for="form-control-label">Tipo de facilidad académica</label>
                             <select class="form-control @error('facilidad') is-invalid @enderror" name="facilidad" id="facilidad">
                                 <option value={{null}}>Seleccione una facilidad</option>
                                 <option value="Licencia" @if ($solicitud->tipo_facilidad == 'Licencia') selected="selected" @endif>Licencia Médica o Certificado Médico</option>
@@ -177,7 +177,7 @@
                                     <small id="filesHelpBlock" class="form-text text-muted">
                                         Para seleccionar varios archivos a la vez, mantener presionada la tecla Ctrl.
                                         <br>
-                                        El tamaño maximo para cada archivo es de 10Mb.
+                                        El tamaño máximo para cada archivo es de 10Mb.
                                       </small>
                                     <br>
                                     @if ($errors->has('adjunto.0'))
@@ -207,7 +207,7 @@
                                 <label class="form-control-label">Editar archivos adjuntos</label>
 
                                 <select class="form-control @error('archivo') is-invalid @enderror" name="archivo" id="archivo">
-                                    <option value={{null}}>Seleccione una opcion</option>
+                                    <option value={{null}}>Seleccione una opción</option>
                                     <option value= "0" >Guardar archivos anteriores</option>
                                     <option value= "1" >Cambiar archivos</option>
                                 </select>
@@ -224,7 +224,7 @@
                                     <small id="filesHelpBlock" class="form-text text-muted">
                                         Para seleccionar varios archivos a la vez, mantener presionada la tecla Ctrl.
                                         <br>
-                                        El tamaño maximo para cada archivo es de 10Mb.
+                                        El tamaño máximo para cada archivo es de 10Mb.
                                       </small>
                                     <br>
                                     @if ($errors->has('adjunto.0'))

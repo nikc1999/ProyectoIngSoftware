@@ -4,7 +4,7 @@
 
 @if (Auth::user()->rol=='Jefe de Carrera')
 <div class="container col-md-8 col-md-offset-2">
-<h1>Informacion Estudiante</h1>
+<h1>Información Estudiante</h1>
 
 <br>
 @if(is_null($datos['solicitudes']) || $datos['solicitudes']->isEmpty())
@@ -23,7 +23,7 @@
             <th>FECHA SOLICITUD</th>
             <th>RUT</th>
             <th>NOMBRE</th>
-            <th>TELEFONO</th>
+            <th>TELÉFONO</th>
             <th>CORREO</th>
         </tr>
     </thead>
@@ -87,7 +87,7 @@
 
         @if($solicitud->cant_ayudantias != null)
         <tr>
-            <th scope="row">Ayudantias realizadas</th>
+            <th scope="row">Ayudantías realizadas</th>
             <td>{!! $solicitud->cant_ayudantias !!}</td>
         </tr>
         @endif
