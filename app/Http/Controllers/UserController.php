@@ -35,7 +35,6 @@ class UserController extends Controller
                 $usuarios = User::simplePaginate(10);
                 return view('administrador.gestionar_usuarios')->with('usuarios', $usuarios);
             } else {
-                dd($request);
                 $usuarios = User::where('rut', $request->search)->simplePaginate(1);
                 return view('administrador.gestionar_usuarios')->with('usuarios', $usuarios);
             }
