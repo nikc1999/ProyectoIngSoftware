@@ -230,7 +230,9 @@ class UserController extends Controller
         foreach ($usuarios as $usuario) {
             $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
             foreach ($solicitudes as $solicitud) {
-                $listaSolicitudes->push($solicitud);
+                if ($solicitud->estado == 'Pendiente') {
+                    $listaSolicitudes->push($solicitud);
+                }
             }
         }
 
