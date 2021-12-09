@@ -245,6 +245,24 @@ class SolicitudController extends Controller
      */
     public function update(Request $request, Solicitud $solicitud)
     {
+        if($request->estado == 'Aceptada'){
+            $solicitud->estado = $request->estado;
+            $solicitud->save();
+            return redirect('/solicitud');
+        }
+        if($request->estado == 'Aceptada con observaciones'){
+            $solicitud->estado = $request->estado;
+            $solicitud->detalles_jefe_carrera = $request->observacion;
+            $solicitud->save();
+            return redirect('/solicitud');
+        }
+        if($request->estado == 'Rechazada'){
+            $solicitud->estado = $request->estado;
+            $solicitud->detalles_jefe_carrera = $request->observacion;
+            $solicitud->save();
+            return redirect('/solicitud');
+        }
+
         switch ($request->tipo) {
             case 'Sobrecupo':
                 $request->validate([
