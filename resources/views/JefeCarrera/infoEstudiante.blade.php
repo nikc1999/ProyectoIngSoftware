@@ -108,6 +108,45 @@
     </tbody>
 </table>
 
+<form id="formulario" method="POST" action="{{ route('solicitud.update', [$datos['solicitudes'][0]]) }}"
+    enctype="multipart/form-data">
+    @csrf
+    <input type="text" name="idUsuario" id="idUsuario" value={{Auth::user()->id}} hidden>
+    <div class="form-group">
+        <label for="form-control-label" style="color: black">Seleccionar resolución</label>
+        <select class="form-control @error('idUsuario') is-invalid @enderror" name="estado" id="estado">
+            <option value={{null}} >Seleccione una opción</option>
+            <option value="Aceptada" @if (old('estado') == 'Aceptada') selected="selected" @endif>Aceptar solicitud</option>
+            <option value="Aceptada con observaciones" @if (old('estado') == 'Aceptada con observaciones') selected="selected" @endif>Aceptar con Observacion</option>
+            <option value="Rechazada" @if (old('estado') == 'Rechazada') selected="selected" @endif>Rechazar solicitud</option>
+        </select>
+        @error('estado')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+    <br>
+
+    <div class="form-group" id="comentario" hidden>
+        <label class="form-control-label">Observación al estudiante</label>
+        <input id="observacion" type="text"
+            class="form-control @error('observacion') is-invalid @enderror" name="observacion"
+            value="{{ old('observacion') }}" autocomplete="observacion" autofocus>
+
+        @error('observacion')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+
+    <div hidden id="groupButton" class="col-lg-12 py-3">
+        <div class="col-lg-12 text-center">
+            <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="boton" class="btn">Enviar</button>
+        </div>
+    </div>
+</form>
 
 
 
@@ -134,3 +173,70 @@ exit();
 @endif
 
 @endsection
+
+
+<script type="text/javascript">
+    const selectEstado = document.getElementById('estado');
+    const comentarioMostrar = document.getElementById('comentario')
+    const botonEnviar = document.getElementById('groupButton')
+
+    console.log(selectEstado);
+    console.log(comentarioMostrar);
+    if(selectEstado != null){
+        switch(selectEstado.value) {
+            case "Aceptada":
+            comentarioMostrar.hidden = true;
+            botonEnviar.hidden = false;
+            break;
+
+            case "Aceptada con observaciones":
+            comentarioMostrar.hidden = false;
+            botonEnviar.hidden = false;
+            break;
+
+            case "Rechazada":
+            comentarioMostrar.hidden = false;
+            botonEnviar.hidden = false;
+            break;
+
+            default:
+            comentarioMostrar.hidden = true;
+            botonEnviar.hidden = true;
+            break;
+        }
+    }
+    else{
+        comentarioMostrar.hidden = true;
+        botonEnviar.hidden = true;
+        }
+
+        selectEstado.addEventListener('change', () => {
+            if(!selectEstado){
+            switch (selectEstado.value) {
+                case "Aceptada":
+                    comentarioMostrar.hidden = true;
+                    botonEnviar.hidden = false;
+                    break;
+
+                case "Aceptada con observaciones":
+                    comentarioMostrar.hidden = false;
+                    botonEnviar.hidden = false;
+                    break;
+
+                case "Rechazada":
+                    comentarioMostrar.hidden = false;
+                    botonEnviar.hidden = false;
+                    break;
+
+                default:
+                    comentarioMostrar.hidden = true;
+                    botonEnviar.hidden = true;
+                    break;
+                }
+            }
+            else{
+                comentarioMostrar.hidden = true;
+                botonEnviar.hidden = true;
+            }
+        })
+</script>
