@@ -111,14 +111,16 @@
 <form id="formulario" method="POST" action="{{ route('solicitud.update', [$datos['solicitudes'][0]]) }}"
     enctype="multipart/form-data">
     @csrf
-    <input type="text" name="idUsuario" id="idUsuario" value={{Auth::user()->id}} hidden>
+    @method('PUT')
+    <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
     <div class="form-group">
         <label for="form-control-label" style="color: black">Seleccionar resolución</label>
-        <select class="form-control @error('idUsuario') is-invalid @enderror" name="estado" id="estado">
+
+        <select class="form-control @error('estado') is-invalid @enderror" name="estado" id="estado">
             <option value={{null}} >Seleccione una opción</option>
-            <option value="Aceptada" @if (old('estado') == 'Aceptada') selected="selected" @endif>Aceptar solicitud</option>
-            <option value="Aceptada con observaciones" @if (old('estado') == 'Aceptada con observaciones') selected="selected" @endif>Aceptar con Observacion</option>
-            <option value="Rechazada" @if (old('estado') == 'Rechazada') selected="selected" @endif>Rechazar solicitud</option>
+            <option value="Aceptada">Aceptar solicitud</option>
+            <option value="Aceptada con observaciones">Aceptar con Observacion</option>
+            <option value="Rechazada">Rechazar solicitud</option>
         </select>
         @error('estado')
         <span class="invalid-feedback" role="alert">
@@ -148,41 +150,16 @@
     </div>
 </form>
 
-
-
 @endif
 </div>
 </div>
 </div>
-
-@if($datos['ruta'] == 'panel')
-    <center><a href={{ route('mostrarSolicitudesPendientesJefe')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
-    <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
-@else
-    <center><a href={{ route('buscarestudiante.index')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
-    <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
-@endif
-
-
-
-@else
-@php
-header("Location: /home" );
-exit();
-@endphp
-@endif
-
-@endsection
-
 
 <script type="text/javascript">
     const selectEstado = document.getElementById('estado');
-    const comentarioMostrar = document.getElementById('comentario')
-    const botonEnviar = document.getElementById('groupButton')
+    const comentarioMostrar = document.getElementById('comentario');
+    const botonEnviar = document.getElementById('groupButton');
 
-    console.log(selectEstado);
-    console.log(comentarioMostrar);
-    if(selectEstado != null){
         switch(selectEstado.value) {
             case "Aceptada":
             comentarioMostrar.hidden = true;
@@ -204,14 +181,8 @@ exit();
             botonEnviar.hidden = true;
             break;
         }
-    }
-    else{
-        comentarioMostrar.hidden = true;
-        botonEnviar.hidden = true;
-        }
 
-        selectEstado.addEventListener('change', () => {
-            if(!selectEstado){
+    selectEstado.addEventListener('change', () => {
             switch (selectEstado.value) {
                 case "Aceptada":
                     comentarioMostrar.hidden = true;
@@ -233,10 +204,30 @@ exit();
                     botonEnviar.hidden = true;
                     break;
                 }
-            }
-            else{
-                comentarioMostrar.hidden = true;
-                botonEnviar.hidden = true;
-            }
+
         })
 </script>
+
+@if($datos['ruta'] == 'panel')
+    <center><a href={{ route('mostrarSolicitudesPendientesJefe')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
+    <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
+@else
+    <center><a href={{ route('buscarestudiante.index')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
+    <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>
+@endif
+
+
+
+@else
+@php
+header("Location: /home" );
+exit();
+@endphp
+@endif
+
+@endsection
+
+
+
+
+
