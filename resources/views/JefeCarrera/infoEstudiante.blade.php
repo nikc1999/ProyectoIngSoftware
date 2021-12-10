@@ -108,6 +108,8 @@
     </tbody>
 </table>
 
+@if ($datos['solicitudes'][0]->estado == 'Pendiente')
+
 <form id="formulario" method="POST" action="{{ route('solicitud.update', [$datos['solicitudes'][0]]) }}"
     enctype="multipart/form-data">
     @csrf
@@ -149,6 +151,14 @@
         </div>
     </div>
 </form>
+
+@else
+
+<h2>Solicitud ya revisada</h2>
+
+@endif
+
+
 
 @endif
 </div>

@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Y3v6PpQmpOwi1B5q',
+            '_route' => 'generated::5pb5zERemZuXKzrM',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::QpDZEjTZJeblE3t0',
+            '_route' => 'generated::TOWbSs2SGXOYfiz4',
           ),
           1 => NULL,
           2 => 
@@ -64,7 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::isRdaINvs8GAxdGE',
+            '_route' => 'generated::VZeoKPwverPP5nbX',
           ),
           1 => NULL,
           2 => 
@@ -437,7 +437,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::qhW8ddjTOOtom4WH',
+            '_route' => 'generated::2LoVe06MSNlK2QKl',
           ),
           1 => NULL,
           2 => 
@@ -492,7 +492,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::N7T6TY015n5xYtn5',
+            '_route' => 'generated::9jPRjbAU76WBGzQY',
           ),
           1 => NULL,
           2 => 
@@ -583,7 +583,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::F2NfJ07NCbWLnTHd',
+            '_route' => 'generated::MWVEeJ5DvDKm2VZK',
           ),
           1 => NULL,
           2 => 
@@ -857,6 +857,46 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'mostrarInfoSolicitudBoton',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/estadisticas' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'estadistica',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/mostrarestadisticaFiltrada' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'filtrarEstadistica',
           ),
           1 => NULL,
           2 => 
@@ -1464,7 +1504,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::Y3v6PpQmpOwi1B5q' => 
+    'generated::5pb5zERemZuXKzrM' => 
     array (
       'methods' => 
       array (
@@ -1485,7 +1525,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::Y3v6PpQmpOwi1B5q',
+        'as' => 'generated::5pb5zERemZuXKzrM',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1501,7 +1541,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::QpDZEjTZJeblE3t0' => 
+    'generated::TOWbSs2SGXOYfiz4' => 
     array (
       'methods' => 
       array (
@@ -1516,15 +1556,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@FmnSpWRYljc9/x/HnGNMLkYLDeBRzHsY8DGLvlu6jRo=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@UNqUnimo+jSSuq32L2B5gGaH78da6ysRiyFSrFSWpXg=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000070f6c63e00000000660109c6";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005a92ea16000000006c8b61c4";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::QpDZEjTZJeblE3t0',
+        'as' => 'generated::TOWbSs2SGXOYfiz4',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1540,7 +1580,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::isRdaINvs8GAxdGE' => 
+    'generated::VZeoKPwverPP5nbX' => 
     array (
       'methods' => 
       array (
@@ -1554,15 +1594,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":260:{@/LutG/sHI+Cqzc67YbztmI9zu0kG2xCROOKBwt0HWtY=.a:5:{s:3:"use";a:0:{}s:8:"function";s:48:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":260:{@QPfE8Pl7cp7+HFCrQwPDJddGxzMu1hC6z3PYnhE0jYU=.a:5:{s:3:"use";a:0:{}s:8:"function";s:48:"function () {
     return \\redirect(\'/home\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000070f6c63000000000660109c6";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005a92ea18000000006c8b61c4";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::isRdaINvs8GAxdGE',
+        'as' => 'generated::VZeoKPwverPP5nbX',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3199,7 +3239,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::qhW8ddjTOOtom4WH' => 
+    'generated::2LoVe06MSNlK2QKl' => 
     array (
       'methods' => 
       array (
@@ -3219,7 +3259,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::qhW8ddjTOOtom4WH',
+        'as' => 'generated::2LoVe06MSNlK2QKl',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3308,7 +3348,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::N7T6TY015n5xYtn5' => 
+    'generated::9jPRjbAU76WBGzQY' => 
     array (
       'methods' => 
       array (
@@ -3328,7 +3368,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::N7T6TY015n5xYtn5',
+        'as' => 'generated::9jPRjbAU76WBGzQY',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3527,7 +3567,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::F2NfJ07NCbWLnTHd' => 
+    'generated::MWVEeJ5DvDKm2VZK' => 
     array (
       'methods' => 
       array (
@@ -3547,7 +3587,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::F2NfJ07NCbWLnTHd',
+        'as' => 'generated::MWVEeJ5DvDKm2VZK',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4096,6 +4136,80 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'mostrarInfoSolicitudBoton',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'estadistica' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'estadisticas',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\EstadisiticaController@showEstadistica',
+        'controller' => 'App\\Http\\Controllers\\EstadisiticaController@showEstadistica',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'estadistica',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'filtrarEstadistica' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'mostrarestadisticaFiltrada',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\EstadisiticaController@mostrarEstadisticaFiltrada',
+        'controller' => 'App\\Http\\Controllers\\EstadisiticaController@mostrarEstadisticaFiltrada',
+        'namespace' => NULL,
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'filtrarEstadistica',
       ),
       'fallback' => false,
       'defaults' => 
