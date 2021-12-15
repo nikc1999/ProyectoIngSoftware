@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
+
 
 class EstadisiticaController extends Controller
 {
@@ -26,54 +28,60 @@ class EstadisiticaController extends Controller
         $cantEnRango = 0;
 
         $usuarios = User::where('rol', 'Estudiante')->get();
+        $carreraIdJefe = Auth::user()->carrera_id;
         // dd($usuarios);
         foreach ($usuarios as $key => $usuario) {
-            foreach ($usuario->solicitudes as $key => $solicitud) {
-                $totalSolicitudes++;
-                switch ($solicitud->getOriginal()['estado']) {
-                    case 'Pendiente':
-                        $totalPendiente++;
-                        break;
-                    case 'Rechazada':
-                        $totalRechazada++;
-                        break;
-                    case 'Aceptada':
-                        $totalAceptada++;
-                        break;
-                    case 'Aceptada con observaciones':
-                        $totalAceptadaObs++;
-                        break;
-                    case 'Anulada':
-                        $totalAnulada++;
-                        break;
-                    default:
-                        # code...
-                        break;
+            if ($usuario->carrera_id == $carreraIdJefe) {
+                foreach ($usuario->solicitudes as $key => $solicitud) {
+
+                    $totalSolicitudes++;
+                    switch ($solicitud->getOriginal()['estado']) {
+                        case 'Pendiente':
+                            $totalPendiente++;
+                            break;
+                        case 'Rechazada':
+                            $totalRechazada++;
+                            break;
+                        case 'Aceptada':
+                            $totalAceptada++;
+                            break;
+                        case 'Aceptada con observaciones':
+                            $totalAceptadaObs++;
+                            break;
+                        case 'Anulada':
+                            $totalAnulada++;
+                            break;
+                        default:
+                            # code...
+                            break;
+                    }
+                    switch ($solicitud->getOriginal()['tipo']) {
+                        case 'Sobrecupo':
+                            $cantTipoSobrecupo++;
+                            break;
+                        case 'Cambio paralelo':
+                            $cantTipoCambioParalelo++;
+                            break;
+                        case 'Eliminacion asignatura':
+                            $cantTipoEliminarAsignatura++;
+                            break;
+                        case 'Inscripcion asignatura':
+                            $cantTipoInscripcionAsignatura++;
+                            break;
+                        case 'Ayudantia':
+                            $cantTipoAyudantia++;
+                            break;
+                        case 'Facilidades':
+                            $cantTipoFacilidad++;
+                            break;
+                        default:
+                            # code...
+                            break;
+                    }
                 }
-                switch ($solicitud->getOriginal()['tipo']) {
-                    case 'Sobrecupo':
-                        $cantTipoSobrecupo++;
-                        break;
-                    case 'Cambio paralelo':
-                        $cantTipoCambioParalelo++;
-                        break;
-                    case 'Eliminacion asignatura':
-                        $cantTipoEliminarAsignatura++;
-                        break;
-                    case 'Inscripcion asignatura':
-                        $cantTipoInscripcionAsignatura++;
-                        break;
-                    case 'Ayudantia':
-                        $cantTipoAyudantia++;
-                        break;
-                    case 'Facilidades':
-                        $cantTipoFacilidad++;
-                        break;
-                    default:
-                        # code...
-                        break;
-                }
+
             }
+
         }
 
         return view('Estadisticas.index')
@@ -88,6 +96,8 @@ class EstadisiticaController extends Controller
             ->with('totalAceptada', $totalAceptada)
             ->with('totalAceptadaObs', $totalAceptadaObs)
             ->with('totalAnulada', $totalAnulada)
+            ->with('cantEnRango', $cantEnRango)
+
             ;
     }
 
@@ -114,83 +124,101 @@ class EstadisiticaController extends Controller
 
         $usuarios = User::where('rol', 'Estudiante')->get();
         $fechaIn = $inicio->fecha_inicio;
-        $fechaTer = $inicio->fecha_termino;
+        $fechaTer = $inicio->fecha_fin;
+        if($fechaIn == false){// cuando no se ingresa fecha se asume que la fecha requerida es la actual
+            $fechaIn = date(now());
+        }
+        if($fechaTer == false){// cuando no se ingresa fecha se asume que la fecha requerida es la actual
+            $fechaTer= date(now());
+        }
+
 
         //creo las fechas con el formato 2021-12-04 00:00:00.0 America/Santiago (-03:00) este es igual que el sistema
         $fechaIn = strtotime($fechaIn);
         $fechaTer = strtotime($fechaTer);
+        $carreraIdJefe = Auth::user()->carrera_id;
 
 
-        foreach ($usuarios as $key => $usuario) {
-            foreach ($usuario->solicitudes as $key => $solicitud) {
-                $totalSolicitudes++;
-                $fechaSolicitud= $solicitud->created_at;
-                $fechaSolicitud= strtotime($fechaSolicitud);
-                        switch ($solicitud->getOriginal()['estado']) {
-                            case 'Pendiente':
 
-                                $totalPendiente++;
-                                if ($fechaSolicitud>$fechaIn && $fechaSolicitud> $fechaTer) {
-                                    $cantEnRango++;
-                                }
+        if($fechaIn>$fechaTer){
+            return redirect("/estadisticas")->with('error', 'La fecha inicial del rangoa es mayor que la fecha final');
 
-                                break;
-                            case 'Rechazada':
-                                $totalRechazada++;
-                                if ($fechaSolicitud>$fechaIn && $fechaSolicitud> $fechaTer) {
+        }elseif($fechaIn < $fechaTer || $fechaIn == $fechaTer){
+            foreach ($usuarios as $key => $usuario) {
+                if ($usuario->carrera_id == $carreraIdJefe) {
+                    foreach ($usuario->solicitudes as $key => $solicitud) {
+
+                        $totalSolicitudes++;
+                        $fechaSolicitud= $solicitud->updated_at; // created_at
+                        $fechaSolicitud= strtotime($fechaSolicitud);
+
+
+                        if ($fechaSolicitud>$fechaIn && $fechaSolicitud < $fechaTer) {
+                            switch ($solicitud->getOriginal()['estado']) {
+                                case 'Pendiente':
+
+                                    $totalPendiente++;
                                     $cantEnRango++;
-                                }
-                                break;
-                            case 'Aceptada':
-                                $totalAceptada++;
-                                if ($fechaSolicitud>$fechaIn && $fechaSolicitud> $fechaTer) {
+
+
+                                    break;
+                                case 'Rechazada':
+                                    $totalRechazada++;
                                     $cantEnRango++;
-                                }
-                                break;
-                            case 'Aceptada con observaciones':
-                                $totalAceptadaObs++;
-                                if ($fechaSolicitud>$fechaIn && $fechaSolicitud> $fechaTer) {
+
+                                    break;
+                                case 'Aceptada':
+                                    $totalAceptada++;
                                     $cantEnRango++;
-                                }
-                                break;
-                            case 'Anulada':
-                                $totalAnulada++;
-                                if ($fechaSolicitud>$fechaIn && $fechaSolicitud> $fechaTer) {
+                                    break;
+                                case 'Aceptada con observaciones':
+                                    $totalAceptadaObs++;
                                     $cantEnRango++;
-                                }
-                                break;
-                            default:
-                                # code...
-                                break;
-                        }
-                        switch ($solicitud->getOriginal()['tipo']) {
-                            case 'Sobrecupo':
-                                $cantTipoSobrecupo++;
-                                break;
-                            case 'Cambio paralelo':
-                                $cantTipoCambioParalelo++;
-                                break;
-                            case 'Eliminacion asignatura':
-                                $cantTipoEliminarAsignatura++;
-                                break;
-                            case 'Inscripcion asignatura':
-                                $cantTipoInscripcionAsignatura++;
-                                break;
-                            case 'Ayudantia':
-                                $cantTipoAyudantia++;
-                                break;
-                            case 'Facilidades':
-                                $cantTipoFacilidad++;
-                                break;
-                            default:
-                                # code...
-                                break;
+
+                                    break;
+                                case 'Anulada':
+                                    $totalAnulada++;
+                                    $cantEnRango++;
+                                    break;
+                                default:
+                                    # code...
+                                    break;
+                            }
+                            switch ($solicitud->getOriginal()['tipo']) {
+                                case 'Sobrecupo':
+                                    $cantTipoSobrecupo++;
+                                    break;
+                                case 'Cambio paralelo':
+                                    $cantTipoCambioParalelo++;
+                                    break;
+                                case 'Eliminacion asignatura':
+                                    $cantTipoEliminarAsignatura++;
+                                    break;
+                                case 'Inscripcion asignatura':
+                                    $cantTipoInscripcionAsignatura++;
+                                    break;
+                                case 'Ayudantia':
+                                    $cantTipoAyudantia++;
+                                    break;
+                                case 'Facilidades':
+                                    $cantTipoFacilidad++;
+                                    break;
+                                default:
+                                    # code...
+                                    break;
+                            }
                         }
                     }
-                    //dd($cantEnRango);
                 }
 
-            $suma = $totalPendiente + $totalRechazada +$totalAceptada+$totalAceptadaObs+$totalAnulada;
+
+                   //dd($cantEnRango);
+                }
+
+        }
+
+
+
 
 
             return view('Estadisticas.index')
@@ -205,7 +233,7 @@ class EstadisiticaController extends Controller
             ->with('totalAceptada', $totalAceptada)
             ->with('totalAceptadaObs', $totalAceptadaObs)
             ->with('totalAnulada', $totalAnulada)
-            ->with('suma', $suma)
+            ->with('cantEnRango', $cantEnRango)
 
             ;
     }
