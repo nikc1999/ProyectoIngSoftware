@@ -8,7 +8,7 @@
         <input id="fecha_inicio" name="fecha_inicio" value= "{{old('fecha_inicio')}}" type="date">
         <input id="fecha_fin" name="fecha_fin" value= "{{old('fecha_fin')}}" type="date">
 
-        <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Fecha</button>
+        <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Actualiza las estadísticas para las solicitudes que están entre las fechas seleccionadas en los parametros anteriores" class="btn">Filtrar Fecha</button>
 
     </form>
 

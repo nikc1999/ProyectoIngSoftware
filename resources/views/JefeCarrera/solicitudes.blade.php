@@ -36,7 +36,7 @@
                         </span>
                         @enderror
                     </div>
-                    <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Tipo</button>
+                    <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Filtra las solicitudes según su tipo de solicitud" class="btn">Filtrar Tipo</button>
                 </form>
 
                 <form class= "pl-5" method="GET" action="{{ route('mostrarEstadosFiltrar') }}">
@@ -55,7 +55,7 @@
                         </span>
                         @enderror
                     </div>
-                    <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar estado</button>
+                    <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Filtra las solicitudes según el estado de la solicitud" class="btn">Filtrar estado</button>
                 </form>
                 <div class="pt-2 pl-5">
                     <br>

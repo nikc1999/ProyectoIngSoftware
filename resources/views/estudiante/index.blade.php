@@ -8,7 +8,7 @@
 <br>
 
 <div class="d-grid gap-2">
-    <center><a href={{ route('solicitud.index')}}><button style="color:white; background-color:rgb(205,167,136)" class="btn" type="button">Administrar Solicitudes</button></a></center>
+    <center><a href={{ route('solicitud.index')}}><button style="color:white; background-color:rgb(205,167,136)" data-toggle="tooltip" data-placement="right" title="Redirecciona a la página que muestra las solicitudes del alumno" class="btn" type="button">Administrar Solicitudes</button></a></center>
 </div>
 
 @else
