@@ -18,8 +18,10 @@
         </div>
     @endif
         <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Fecha</button>
-
+        <a href={{ route('estadistica')}}><button style="color:white; background-color:rgb(188,97,36)" class="btn" type="button">Mostrar todo</button></a>
     </form>
+
+
     <br>
 
 
