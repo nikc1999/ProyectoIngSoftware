@@ -25,6 +25,7 @@
             <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar</button>
 
         <a href="{{ route('usuario.create') }}"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Crear Usuario</button></a>
+        <a href="/menucarga"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Carga Masiva</button></a>
 
     </form>
 </div>
