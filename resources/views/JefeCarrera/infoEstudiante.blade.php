@@ -218,6 +218,36 @@
         })
 </script>
 
+<script>
+    const botonConfirmar = document.getElementById('groupButton');
+    const formularioConfirmar = document.getElementById('formulario')
+    botonConfirmar.addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+            title: '¿Confirmar resolución de solicitud?',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Confirmar',
+            confirmButtonColor: '#00b5e2',
+            denyButtonColor: '#000000',
+            denyButtonText: `Cancelar`,
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                formularioConfirmar.submit();
+            } else if (result.isDenied) {
+                Swal.fire({
+                    title: 'Resolución cancelada',
+                    icon: 'info',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#000000',
+                })
+            }
+        })
+    })
+</script>
+
+
 @if($datos['ruta'] == 'panel')
     <center><a href={{ route('mostrarSolicitudesPendientesJefe')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
     <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a></center>

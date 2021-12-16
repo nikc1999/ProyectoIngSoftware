@@ -37,7 +37,7 @@ class SolicitudJDC extends Controller
 
                 $solicitudes = $listaSolicitudes;
 
-                $solicitudes = $solicitudes->sortBy('created_at');
+                $solicitudes = $solicitudes->sortBy('updated_at');
 
                 $datos = [
                     'solicitudes' => $solicitudes,

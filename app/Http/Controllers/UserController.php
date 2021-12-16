@@ -196,7 +196,22 @@ class UserController extends Controller
         $user->rut = $request->rut;
         $user->email = $request->email;
         $user->rol = $request->rol;
-        $user->carrera_id = $request->carrera;
+
+        if($user->carrera_id == $request->carrera){ //Si no se cambió de carrera todo bien
+            $user->carrera_id = $request->carrera;
+        }
+        elseif($user->carrera_id != $request->carrera){ //Si se cambió de carrera se deben anular todas las solicitudes
+
+
+            $solicitudes = Solicitud::where('user_id', $user->id)->get();
+
+            foreach($solicitudes as $solicitud){
+                $solicitud->estado = 'Anulada';
+                $solicitud->save();
+            }
+            $user->carrera_id = $request->carrera;
+        }
+
         $user->save();
         return redirect('/usuario');
     }
@@ -236,9 +251,9 @@ class UserController extends Controller
             }
         }
 
-        $solicitudes = $listaSolicitudes;
+        $solicitudes = $listaSolicitudes->sortBy('updated_at');
 
-        $solicitudes = $solicitudes->sortBy('created_at');
+        $solicitudes = $solicitudes->sortBy('updated_at');
 
         $datos = [
             'solicitudes' => $solicitudes,
@@ -284,9 +299,9 @@ class UserController extends Controller
                 }
             }
 
-            $solicitudes = $listaSolicitudes;
+            $solicitudes = $listaSolicitudes->sortBy('updated_at'); //ninguno de los dos funciona :c
 
-            $solicitudes = $solicitudes->sortBy('created_at');
+            $solicitudes = $solicitudes->sortBy('updated_at');
 
             $datos = [
                 'solicitudes' => $solicitudes,
@@ -343,7 +358,7 @@ class UserController extends Controller
 
             $solicitudes = $listaSolicitudes;
 
-            $solicitudes = $solicitudes->sortBy('created_at');
+            $solicitudes = $solicitudes->sortBy('updated_at');
 
             $datos = [
                 'solicitudes' => $solicitudes,
