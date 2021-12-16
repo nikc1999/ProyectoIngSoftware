@@ -5,12 +5,22 @@
 <div class="container">
     <form method="GET" action="{{route('filtrarEstadistica')}}">
 
-        <input id="fecha_inicio" name="fecha_inicio" value= "{{old('fecha_inicio')}}" type="date">
-        <input id="fecha_fin" name="fecha_fin" value= "{{old('fecha_fin')}}" type="date">
-
+        <input id="fecha_inicio" name="fecha_inicio" value= "{{old('fecha_inicio')}}" type="date" class="@error('fecha_inicio') is-invalid @enderror"name="fecha_inicio">
+        <input id="fecha_fin" name="fecha_fin" value= "{{old('fecha_fin')}}" type="date" class=" @error('fecha_fin') is-invalid @enderror"name="fecha_fin">
+        @error('fecha_inicio')
+        <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+        @if (session('error'))
+        <div class="alert alert-danger">
+        {{ session('error') }}
+        </div>
+    @endif
         <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Actualiza las estadísticas para las solicitudes que están entre las fechas seleccionadas en los parametros anteriores" class="btn">Filtrar Fecha</button>
 
     </form>
+    <br>
 
 
     <h1 style="font-size: 50px" class="text-center">Estadísticas del sistema</h1>
@@ -29,10 +39,19 @@
                 </div>
             </div>
         </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div id="chartContainerFecha" style="height: 300px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
 <script>
+
     var chart = new CanvasJS.Chart("chartContainerTipo", {
     animationEnabled: true,
     theme: "light1", // "light1", "light2", "dark1", "dark2"
@@ -79,8 +98,33 @@
     ]
     }]
     });
+
+
+
+    var chart3 = new CanvasJS.Chart("chartContainerFecha", {
+    animationEnabled: true,
+    theme: "light1", // "light1", "light2", "dark1", "dark2"
+    title:{
+    text: "Rango fecha"
+    },
+    axisY: {
+    title: "Cantidad de solicitudes"
+    },
+    data: [{
+    type: "column",
+    showInLegend: false,
+    legendMarkerColor: "grey",
+    legendText: "MMbbl = one million barrels",
+    dataPoints: [
+    { y: JSON.parse("{{json_encode($cantEnRango)}}"), label: "Rango" },
+    ]
+    }]
+    });
     chart.render();
     chart2.render();
+    chart3.render();
+
+
 </script>
 
 @endsection
