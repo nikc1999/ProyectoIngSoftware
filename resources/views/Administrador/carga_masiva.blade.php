@@ -3,39 +3,24 @@
 @section('content')
 @if (Auth::user()->rol == 'Administrador')
 <div>
-    <form id="formulario" method="POST" action="{{ route('crearcarrera') }}">
+    <form id="formulario" method="POST" action="{{ route('cargamasiva') }}">
         @csrf
-        <div class="form-group row">
-            <label for="codigo" class="col-md-4 col-form-label text-md-right">Código Carrera</label>
 
-            <div class="col-md-6">
-                <input id="codigo" type="text" class="form-control @error('codigo') is-invalid @enderror" name="codigo" value="{{ old('codigo') }}"  name="codigo" required autofocus>
-                @error('codigo')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+        <div class="form-group row">
+            <label class="form-control-label">Adjuntar Excel con los datos de estudiantes</label>
+
+            <input id="adjunto" type="file" class="form-control @error('adjunto') is-invalid @enderror" name="adjunto">
+            @error('adjunto')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
             @enderror
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre Carrera</label>
-
-            <div class="col-md-6">
-                <input id="nombre" type="text" class="form-control  @error('nombre') is-invalid @enderror" name="nombre" required autofocus>
-                @error('nombre')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-
-            </div>
         </div>
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button style="color:white; background-color:rgb(0,181,226)" id = "boton" type="submit" class="btn btn-info">
-                    Agregar Carrera
+                    Agregar Estudiantes
                 </button>
             </div>
         </div>
