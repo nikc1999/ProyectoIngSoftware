@@ -149,6 +149,7 @@ class EstadisiticaController extends Controller
                     foreach ($usuario->solicitudes as $key => $solicitud) {
 
                         $totalSolicitudes++;
+                        $fechaSolicitud= $solicitud->created_at; // upadte_at owo
                         $fechaSolicitud= strtotime($fechaSolicitud);
 
 
@@ -157,23 +158,27 @@ class EstadisiticaController extends Controller
                                 case 'Pendiente':
 
                                     $totalPendiente++;
+                                    //$cantEnRango++;
 
 
                                     break;
                                 case 'Rechazada':
                                     $totalRechazada++;
-                                    $cantEnRango++;
+                                    //$cantEnRango++;
 
                                     break;
                                 case 'Aceptada':
                                     $totalAceptada++;
+                                    //$cantEnRango++;
                                     break;
                                 case 'Aceptada con observaciones':
                                     $totalAceptadaObs++;
+                                    //$cantEnRango++;
 
                                     break;
                                 case 'Anulada':
                                     $totalAnulada++;
+                                    //$cantEnRango++;
                                     break;
                                 default:
                                     # code...
@@ -207,14 +212,10 @@ class EstadisiticaController extends Controller
                 }
 
 
+                   $cantEnRango= $totalPendiente + $totalRechazada + $totalAceptada +$totalAceptadaObs+ $totalAnulada ;
                 }
 
         }
-
-
-
-
-
             return view('Estadisticas.index')
             ->with('cantTipoSobrecupo', $cantTipoSobrecupo)
             ->with('cantTipoCambioParalelo', $cantTipoCambioParalelo)
