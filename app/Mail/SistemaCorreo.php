@@ -14,6 +14,7 @@ class SistemaCorreo extends Mailable
 
     public $subject = "Resolución de Solicitud";
     public $solicitud;
+    public $estado;
 
     /**
      * Create a new message instance.
@@ -23,6 +24,7 @@ class SistemaCorreo extends Mailable
     public function __construct($solicitud)
     {
         $this->solicitud = $solicitud;
+        $this->estado = $solicitud->estado;
     }
 
     /**
@@ -32,6 +34,24 @@ class SistemaCorreo extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.resolución')->with('solicitud', $this->solicitud);
+        if ($this->estado == "Aceptada") {
+            if($this->solicitud->tipo_facilidad == null){
+                return $this->view('emails.resolucionAceptada1')->with('solicitud', $this->solicitud);
+            }
+            return $this->view('emails.resolucionAceptada2')->with('solicitud', $this->solicitud);
+        }
+        if ($this->estado == "Rechazada") {
+            if($this->solicitud->tipo_facilidad == null){
+                return $this->view('emails.resolucionRechazada1')->with('solicitud', $this->solicitud);
+            }
+            return $this->view('emails.resolucionRechazada2')->with('solicitud', $this->solicitud);
+        }
+
+        if ($this->estado == "Aceptada con observaciones") {
+            if($this->solicitud->tipo_facilidad == null){
+                return $this->view('emails.resolucionAceptadaObservacion1')->with('solicitud', $this->solicitud);
+            }
+            return $this->view('emails.resolucionAceptadaObservacion2')->with('solicitud', $this->solicitud);
+        }
     }
 }
