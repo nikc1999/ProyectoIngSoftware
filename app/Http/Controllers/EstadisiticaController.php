@@ -141,7 +141,7 @@ class EstadisiticaController extends Controller
 
 
         if($fechaIn>$fechaTer){
-            return redirect("/estadisticas")->with('error', 'La fecha inicial del rangoa es mayor que la fecha final');
+            return redirect("/estadisticas")->with('error', 'La fecha inicial es mayor que la fecha final');
 
         }elseif($fechaIn < $fechaTer || $fechaIn == $fechaTer){
             foreach ($usuarios as $key => $usuario) {
