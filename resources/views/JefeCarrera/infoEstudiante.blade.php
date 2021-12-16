@@ -54,103 +54,114 @@
 <br>
 <br>
 
-<table class="table" style="width:240px;">
-    <tbody>
 
-        @if($solicitud->nombre_asignatura != null)
-        <tr>
-            <th scope="row">Nombre Asignatura</th>
-            <td>{!! $solicitud->nombre_asignatura !!}</td>
-        </tr>
-        @endif
 
-        @if($solicitud->NRC != null)
-        <tr>
-            <th scope="row">NRC</th>
-            <td>{!! $solicitud->NRC !!}</td>
-        </tr>
-        @endif
+<div class="row">
+    <div class="col">
+        <table class="table" style="width:240px;">
+            <tbody>
 
-        @if($solicitud->nombre_profesor != null)
-        <tr>
-            <th scope="row">Profesor</th>
-            <td>{!! $solicitud->nombre_profesor !!}</td>
-        </tr>
-        @endif
+                @if($solicitud->nombre_asignatura != null)
+                <tr>
+                    <th scope="row">Nombre Asignatura</th>
+                    <td>{!! $solicitud->nombre_asignatura !!}</td>
+                </tr>
+                @endif
 
-        @if($solicitud->calificacion_aprob != null)
-        <tr>
-            <th scope="row">Calificacion aprobada</th>
-            <td>{!! $solicitud->calificacion_aprob !!}</td>
-        </tr>
-        @endif
+                @if($solicitud->NRC != null)
+                <tr>
+                    <th scope="row">NRC</th>
+                    <td>{!! $solicitud->NRC !!}</td>
+                </tr>
+                @endif
 
-        @if($solicitud->cant_ayudantias != null)
-        <tr>
-            <th scope="row">Ayudantías realizadas</th>
-            <td>{!! $solicitud->cant_ayudantias !!}</td>
-        </tr>
-        @endif
+                @if($solicitud->nombre_profesor != null)
+                <tr>
+                    <th scope="row">Profesor</th>
+                    <td>{!! $solicitud->nombre_profesor !!}</td>
+                </tr>
+                @endif
 
-        @if($solicitud->detalles_estudiante != null)
-        <tr>
-            <th scope="row">Razón</th>
-            <td>{!! $solicitud->detalles_estudiante !!}</td>
-        </tr>
-        @endif
+                @if($solicitud->calificacion_aprob != null)
+                <tr>
+                    <th scope="row">Calificacion aprobada</th>
+                    <td>{!! $solicitud->calificacion_aprob !!}</td>
+                </tr>
+                @endif
 
-        @if($solicitud->archivos != null)
-        <tr>
-            <th scope="row">Archivos</th>
-            <td>{!! $solicitud->archivos !!}</td>
-        </tr>
-        @endif
-    </tbody>
-</table>
+                @if($solicitud->cant_ayudantias != null)
+                <tr>
+                    <th scope="row">Ayudantías realizadas</th>
+                    <td>{!! $solicitud->cant_ayudantias !!}</td>
+                </tr>
+                @endif
+
+                @if($solicitud->detalles_estudiante != null)
+                <tr>
+                    <th scope="row">Razón</th>
+                    <td>{!! $solicitud->detalles_estudiante !!}</td>
+                </tr>
+                @endif
+
+                @if($solicitud->archivos != null)
+                <tr>
+                    <th scope="row">Archivos</th>
+                    <td>{!! $solicitud->archivos !!}</td>
+                </tr>
+                @endif
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col">
+        <form id="formulario" method="POST" action="{{ route('solicitud.update', [$datos['solicitudes'][0]]) }}"
+        enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
+        <div class="form-group">
+            <label for="form-control-label" style="color: black">Seleccionar resolución</label>
+
+            <select class="form-control @error('estado') is-invalid @enderror" name="estado" id="estado">
+                <option value={{null}} >Seleccione una opción</option>
+                <option value="Aceptada">Aceptar solicitud</option>
+                <option value="Aceptada con observaciones">Aceptar con Observacion</option>
+                <option value="Rechazada">Rechazar solicitud</option>
+            </select>
+            @error('estado')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <br>
+
+        <div class="form-group" id="comentario" hidden>
+            <label class="form-control-label">Observación al estudiante</label>
+            <input id="observacion" type="text"
+                class="form-control @error('observacion') is-invalid @enderror" name="observacion"
+                value="{{ old('observacion') }}" autocomplete="observacion" autofocus>
+
+            @error('observacion')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div hidden id="groupButton" class="col-lg-12 py-3">
+            <div class="col-lg-12 text-center">
+                <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="boton" class="btn">Enviar</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+
 
 @if ($datos['solicitudes'][0]->estado == 'Pendiente')
 
-<form id="formulario" method="POST" action="{{ route('solicitud.update', [$datos['solicitudes'][0]]) }}"
-    enctype="multipart/form-data">
-    @csrf
-    @method('PUT')
-    <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
-    <div class="form-group">
-        <label for="form-control-label" style="color: black">Seleccionar resolución</label>
 
-        <select class="form-control @error('estado') is-invalid @enderror" name="estado" id="estado">
-            <option value={{null}} >Seleccione una opción</option>
-            <option value="Aceptada">Aceptar solicitud</option>
-            <option value="Aceptada con observaciones">Aceptar con Observacion</option>
-            <option value="Rechazada">Rechazar solicitud</option>
-        </select>
-        @error('estado')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div>
-    <br>
-
-    <div class="form-group" id="comentario" hidden>
-        <label class="form-control-label">Observación al estudiante</label>
-        <input id="observacion" type="text"
-            class="form-control @error('observacion') is-invalid @enderror" name="observacion"
-            value="{{ old('observacion') }}" autocomplete="observacion" autofocus>
-
-        @error('observacion')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div>
-
-    <div hidden id="groupButton" class="col-lg-12 py-3">
-        <div class="col-lg-12 text-center">
-            <button style="color:white; background-color:rgb(0,181,226)" type="submit" id="boton" class="btn">Enviar</button>
-        </div>
-    </div>
-</form>
 
 @else
 
@@ -217,6 +228,36 @@
 
         })
 </script>
+
+<script>
+    const botonConfirmar = document.getElementById('groupButton');
+    const formularioConfirmar = document.getElementById('formulario')
+    botonConfirmar.addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+            title: '¿Confirmar resolución de solicitud?',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Confirmar',
+            confirmButtonColor: '#00b5e2',
+            denyButtonColor: '#000000',
+            denyButtonText: `Cancelar`,
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                formularioConfirmar.submit();
+            } else if (result.isDenied) {
+                Swal.fire({
+                    title: 'Resolución cancelada',
+                    icon: 'info',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#000000',
+                })
+            }
+        })
+    })
+</script>
+
 
 @if($datos['ruta'] == 'panel')
     <center><a href={{ route('mostrarSolicitudesPendientesJefe')}}><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
