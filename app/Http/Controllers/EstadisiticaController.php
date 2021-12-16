@@ -149,7 +149,6 @@ class EstadisiticaController extends Controller
                     foreach ($usuario->solicitudes as $key => $solicitud) {
 
                         $totalSolicitudes++;
-                        $fechaSolicitud= $solicitud->updated_at; // created_at
                         $fechaSolicitud= strtotime($fechaSolicitud);
 
 
@@ -158,7 +157,6 @@ class EstadisiticaController extends Controller
                                 case 'Pendiente':
 
                                     $totalPendiente++;
-                                    $cantEnRango++;
 
 
                                     break;
@@ -169,16 +167,13 @@ class EstadisiticaController extends Controller
                                     break;
                                 case 'Aceptada':
                                     $totalAceptada++;
-                                    $cantEnRango++;
                                     break;
                                 case 'Aceptada con observaciones':
                                     $totalAceptadaObs++;
-                                    $cantEnRango++;
 
                                     break;
                                 case 'Anulada':
                                     $totalAnulada++;
-                                    $cantEnRango++;
                                     break;
                                 default:
                                     # code...
@@ -212,7 +207,6 @@ class EstadisiticaController extends Controller
                 }
 
 
-                   //dd($cantEnRango);
                 }
 
         }
