@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Estimado estudiante</h1>
-    <h3>{{ $solicitud->id }}</h3>
-    <p>Aquí se tienen que enviar todos los datos de la resolución de la solicitud</p>
+    <h3>Estimado estudiante</h3>
+
+    <p>Su solicitud N°{{$solicitud->id}} de tipo {{$solicitud->tipo}} fue {{$solicitud->estado}}</p>
+
+    <p>Para más información consultar por correo EjemploAdministración@ucn.cl</p>
 
 </body>
 </html>
