@@ -53,11 +53,21 @@ Route::post('/modificaradministrador', [App\Http\Controllers\UserController::cla
 
 Route::post('/editarusuario/restablecerContrasena', [App\Http\Controllers\UserController::class, 'restablecerContrasena'])->name('restablecer');
 
+
+
 Route::get('/mostrarsolicitudespendientesjefe', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesPendientesJefe'])->name('mostrarSolicitudesPendientesJefe');
 
 Route::get('/mostrarsolicitudesdfiltrar', [App\Http\Controllers\UserController::class, 'mostrarSolicitudesFiltrar'])->name('mostrarSolicitudesFiltrar');
 
+Route::get('/mostrarsolicitudesdfiltrar2', [App\Http\Controllers\UserController::class, 'mostrarEstadosFiltrar'])->name('mostrarEstadosFiltrar');
+
 Route::post('/buscarestudiante/buscar', [App\Http\Controllers\BuscarEstudiante::class, 'show'])->name('buscarEstudiante');
 
 Route::get('/infoSolicitud', [App\Http\Controllers\UserController::class, 'mostrarInfoSolicitudBoton'])->name('mostrarInfoSolicitudBoton');
+
+Route::get('/estadisticas', [App\Http\Controllers\EstadisiticaController::class, 'showEstadistica'])->name('estadistica');
+
+Route::get('/mostrarestadisticaFiltrada', [App\Http\Controllers\EstadisiticaController::class, 'mostrarEstadisticaFiltrada'])->name('filtrarEstadistica');
+
+
 

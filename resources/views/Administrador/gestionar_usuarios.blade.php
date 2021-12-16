@@ -3,27 +3,38 @@
 @section('content')
 
 @if (Auth::user()->rol=='Administrador')
-<div class="container col-md-8 col-md-offset-2">
-<h1>Panel de usuarios</h1>
+<div class="container">
+    <div class="row">
+        <h1>Panel de usuarios</h1>
+        <div class="col-6"></div>
+        <div>
+            <a href={{ route('usuario.index')}}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
+            <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a>
+        </div>
+
+    </div>
+
 
 <br>
+
+
 
 <div class="container" role="group" aria-label="Basic example">
         <form method="GET" action="{{ route('usuario.index') }}">
             <input type="text" name="search" id="search" placeholder="Buscar por Rut">
             <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar</button>
-        <a href={{ route('usuario.index')}}><button style="color:white; background-color:rgb(164,82,72)" class="btn" type="button">Mostrar todos</button></a>
+
         <a href="{{ route('usuario.create') }}"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Crear Usuario</button></a>
-        <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a>
+
     </form>
-  </div>
+</div>
 
 @if ($usuarios->isEmpty())
 <br>
 <br>
 <div class="alert alert-danger" role="alert">
     No existe usuario con ese rut en el sistema.
- </div>
+</div>
 @else
 <br>
 <br>
@@ -59,15 +70,15 @@
                 <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
                     @csrf
                 @if ($user->habilitado==0)
-                    <td><center><button style="background-color:rgb(72,162,79); color:white" class="btn">Habilitar</button></td></center>
+                    <td><center><button style="background-color:rgb(72,162,79); color:white" data-toggle="tooltip" data-placement="right" title="Permitir que el usuario pueda ingresar al sistema con su cuenta" class="btn">Habilitar</button></td></center>
                 @else
-                    <td><center><button style="background-color:rgb(196,49,44); color:white" class="btn">Deshabilitar</button></td></center>
+                    <td><center><button style="background-color:rgb(196,49,44); color:white" data-toggle="tooltip" data-placement="right" title="Deshabilita el ingreso del usuario al sistema hasta que vuelva a ser habilitado" class="btn">Deshabilitar</button></td></center>
                     @endif
                 </form>
 
                 <form class="formulariorestablecer" method="POST" action="{{ route('restablecer', ['id' => $user]) }}">
                     @csrf
-                    <td><button style='background-color:rgb(180,41,160); color:white' class="btn botonrestablecer">Restablecer</button></td>
+                    <td><button style='background-color:rgb(180,41,160); color:white' data-toggle="tooltip" data-placement="right" title="Reinicia la clave del usuario a los primeros 6 digitos de su rut" class="btn botonrestablecer">Restablecer</button></td>
                 </form>
                 </tr>
 

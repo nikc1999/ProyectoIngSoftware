@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SistemaCorreo;
 use App\Models\Solicitud;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\File; // clase para eliminar archivos
+use Illuminate\Support\Facades\Mail;
 
 class SolicitudController extends Controller
 {
@@ -164,7 +166,7 @@ class SolicitudController extends Controller
                     'detalle' => ['required'],
                     'facilidad' => ['required','in:Licencia,Inasistencia Fuerza Mayor,Representacion,Inasistencia Motivo Personal'],
                     'profesor' => ['required'],
-                    'adjunto.*' => ['mimes:pdf,png,jpg,jpeg,doc,docx','max:20000'],
+                    'adjunto.*' => ['mimes:pdf,png,jpg,jpeg,doc,docx','max:10000'],
                     'adjunto' => ['array','min:0','max:3'],
                 ]);
 
@@ -245,6 +247,34 @@ class SolicitudController extends Controller
      */
     public function update(Request $request, Solicitud $solicitud)
     {
+        $user = User::where('id', $solicitud->user_id)->first();
+        if($request->estado == 'Aceptada'){
+            $solicitud->estado = $request->estado;
+            $solicitud->save();
+
+            Mail::to($user->email)->send(new SistemaCorreo($solicitud));
+
+            return redirect('/mostrarsolicitudespendientesjefe');
+        }
+        if($request->estado == 'Aceptada con observaciones'){
+            $solicitud->estado = $request->estado;
+            $solicitud->detalles_jefe_carrera = $request->observacion;
+            $solicitud->save();
+
+            Mail::to($user->email)->send(new SistemaCorreo($solicitud));
+
+            return redirect('/mostrarsolicitudespendientesjefe');
+        }
+        if($request->estado == 'Rechazada'){
+            $solicitud->estado = $request->estado;
+            $solicitud->detalles_jefe_carrera = $request->observacion;
+            $solicitud->save();
+
+            Mail::to($user->email)->send(new SistemaCorreo($solicitud));
+
+            return redirect('/mostrarsolicitudespendientesjefe');
+        }
+
         switch ($request->tipo) {
             case 'Sobrecupo':
                 $request->validate([
@@ -389,7 +419,7 @@ class SolicitudController extends Controller
                     'detalle' => ['required'],
                     'facilidad' => ['required','in:Licencia,Inasistencia Fuerza Mayor,Representacion,Inasistencia Motivo Personal'],
                     'profesor' => ['required'],
-                    'adjunto.*' => ['mimes:pdf,png,jpg,jpeg,doc,docx','max:20000'],
+                    'adjunto.*' => ['mimes:pdf,png,jpg,jpeg,doc,docx','max:10000'],
                     'adjunto' => ['array','min:0','max:3'],
                 ]);
 

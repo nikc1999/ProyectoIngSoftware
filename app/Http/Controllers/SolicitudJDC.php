@@ -25,34 +25,34 @@ class SolicitudJDC extends Controller
         if(Auth::user()->rol=='Jefe de Carrera')
         {
             $carreraIdJefe = Auth::user()->carrera_id;
-            if ($request->search == null) { //Cuanto por el buscador se entra vacio
-                $listaSolicitudes = collect();
-                $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
-                foreach ($usuarios as $usuario){
-                    $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
-                    foreach($solicitudes as $solicitud){
-                        $listaSolicitudes->push($solicitud);
+            if ($request->search == null) { //Cuanto por el buscador se entra vacio se muestran todos
+                    $listaSolicitudes = collect();
+                    $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
+                    foreach ($usuarios as $usuario){
+                        $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
+                        foreach($solicitudes as $solicitud){
+                            $listaSolicitudes->push($solicitud);
+                    }
                 }
-            }
 
-            $solicitudes = $listaSolicitudes;
+                $solicitudes = $listaSolicitudes;
 
-            $solicitudes = $solicitudes->sortBy('created_at');
+                $solicitudes = $solicitudes->sortBy('updated_at');
 
-            $datos = [
-                'solicitudes' => $solicitudes,
-                'usuarios' => $usuarios,
-                'ruta' => 'panel',
-            ];
+                $datos = [
+                    'solicitudes' => $solicitudes,
+                    'usuarios' => $usuarios,
+                    'ruta' => 'panel',
+                ];
 
 
-            return view('JefeCarrera.solicitudes')->with('datos', $datos);
+                return view('JefeCarrera.solicitudes')->with('datos', $datos);
             }
 
             else{ //Cuando el buscador entra con algo
+
                 $listaSolicitudes = collect();
                 $solicitud = Solicitud::where('id', $request->search)->first();
-
 
                 if($solicitud == null){ //Cuando no existe la solicitud ingresada por el buscador
 
@@ -65,7 +65,7 @@ class SolicitudJDC extends Controller
                     ];
                     return view('JefeCarrera.solicitudes')->with('datos', $datos);
                 }
-                if($solicitud->estado != 'Pendiente'){ //Cuando la solicitud encontrada no es pendiente
+                if($solicitud->estado == 'Anulada'){ //Cuando la solicitud encontrada es anulada se muere
 
                     $solicitud = null;
                     $user = null;

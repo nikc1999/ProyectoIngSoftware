@@ -108,7 +108,11 @@
                                 class="form-control @error('calificacion') is-invalid @enderror" name="calificacion"
                                 value="{{ $solicitud->calificacion_aprob }}" autocomplete="calificacion" placeholder="Ej. 6.8"
                                 autofocus>
-
+                            @if(!is_null($solicitud->calificacion_aprob))
+                            <small id="calificacionHelpBlock" class="form-text text-muted">
+                                Ejemplo: 6.8
+                            </small>
+                            @endif
                             @error('calificacion')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -117,13 +121,17 @@
                         </div>
 
                         <div class="form-group" id="groupCantidad" hidden>
-                            <label class="form-control-label">Cantidad de ayudantias realizadas anteriormente</label>
+                            <label class="form-control-label">Cantidad de ayudantías realizadas anteriormente</label>
                             <input id="cantidad" type="text"
                                 class="form-control @error('cantidad') is-invalid @enderror" name="cantidad"
                                 value="{{ $solicitud->cant_ayudantias }}"
                                 placeholder="Ej. 2, ingrese 0 en caso no haber realizado antes ayudantias"
                                 autocomplete="cantidad" autofocus>
-
+                            @if(!is_null($solicitud->cant_ayudantias))
+                                <small id="calificacionHelpBlock" class="form-text text-muted">
+                                    Ejemplo: 2. Ingrese 0 en caso no haber realizado antes ayudantías
+                                </small>
+                            @endif
                             @error('cantidad')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -132,7 +140,7 @@
                         </div>
 
                         <div class="form-group" id="groupTipoFacilidad" hidden>
-                            <label for="form-control-label">Tipo de  facilidad académica</label>
+                            <label for="form-control-label">Tipo de facilidad académica</label>
                             <select class="form-control @error('facilidad') is-invalid @enderror" name="facilidad" id="facilidad">
                                 <option value={{null}}>Seleccione una facilidad</option>
                                 <option value="Licencia" @if ($solicitud->tipo_facilidad == 'Licencia') selected="selected" @endif>Licencia Médica o Certificado Médico</option>
@@ -164,8 +172,13 @@
 
                             @if(is_null($solicitud->archivos))
                                 <div>
-                                    <label class="form-control-label">Adjuntar archivos (hasta 3 archivos, máximo de 20Mb por archivo)</label>
+                                    <label class="form-control-label">Adjuntar archivos (hasta 3 archivos)</label>
                                     <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
+                                    <small id="filesHelpBlock" class="form-text text-muted">
+                                        Para seleccionar varios archivos a la vez, mantener presionada la tecla Ctrl.
+                                        <br>
+                                        El tamaño máximo para cada archivo es de 10Mb.
+                                      </small>
                                     <br>
                                     @if ($errors->has('adjunto.0'))
                                         <div class="alert alert-danger" role="alert">
@@ -194,7 +207,7 @@
                                 <label class="form-control-label">Editar archivos adjuntos</label>
 
                                 <select class="form-control @error('archivo') is-invalid @enderror" name="archivo" id="archivo">
-                                    <option value={{null}}>Seleccione una opcion</option>
+                                    <option value={{null}}>Seleccione una opción</option>
                                     <option value= "0" >Guardar archivos anteriores</option>
                                     <option value= "1" >Cambiar archivos</option>
                                 </select>
@@ -206,8 +219,13 @@
                                 <br>
 
                                 <div id="groupAdj" hidden>
-                                    <label class="form-control-label">Adjuntar archivos (hasta 3 archivos, máximo de 20Mb por archivo)</label>
+                                    <label class="form-control-label">Adjuntar archivos (hasta 3 archivos)</label>
                                     <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
+                                    <small id="filesHelpBlock" class="form-text text-muted">
+                                        Para seleccionar varios archivos a la vez, mantener presionada la tecla Ctrl.
+                                        <br>
+                                        El tamaño máximo para cada archivo es de 10Mb.
+                                      </small>
                                     <br>
                                     @if ($errors->has('adjunto.0'))
                                         <div class="alert alert-danger" role="alert">
@@ -240,7 +258,7 @@
                                     $i = 1
                                     @endphp
                                     @foreach (json_decode($solicitud->archivos) as $link)
-                                    <a href="http://localhost:8000/storage/docs/{{$link}}">Archivo {{$i++}}</a>
+                                    <a href="http://localhost:8000/storage/docs/{{$link}}" target="_blank">Archivo {{$i++}}</a>
                                     @endforeach
 
                                 @endif
@@ -483,9 +501,9 @@
         var input_archivos = document.getElementById("adjunto");
         for (var i = 0; i < input_archivos.size; i++) {
             let size = input_archivos.files[i].size;
-            if (size > 20000000) {
+            if (size > 10000000) {
                 let index = i+1;
-                alert("el archivo "+index+" pesa más de 20Mb");
+                alert("el archivo "+index+" pesa más de 10Mb");
                 event.preventDefault();
             }
         }

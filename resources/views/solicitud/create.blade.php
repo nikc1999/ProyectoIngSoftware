@@ -105,7 +105,7 @@
                         </div>
 
                         <div class="form-group" id="groupCantidad" hidden>
-                            <label class="form-control-label">Cantidad de ayudantias realizadas anteriormente</label>
+                            <label class="form-control-label">Cantidad de ayudantías realizadas anteriormente</label>
                             <input id="cantidad" type="text"
                                 class="form-control @error('cantidad') is-invalid @enderror" name="cantidad"
                                 value="{{ old('cantidad') }}"
@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="form-group" id="groupTipoFacilidad" hidden>
-                            <label for="form-control-label">Tipo de  facilidad académica</label>
+                            <label for="form-control-label">Tipo de facilidad académica</label>
                             <select class="form-control @error('facilidad') is-invalid @enderror" name="facilidad" id="facilidad">
                                 <option value={{null}}>Seleccione una facilidad</option>
                                 <option value="Licencia">Licencia Médica o Certificado Médico</option>
@@ -149,8 +149,13 @@
                         </div>
 
                         <div class="form-group" id="groupAdjunto" hidden>
-                            <label class="form-control-label">Adjuntar archivos (hasta 3 archivos, máximo de 20Mb por archivo)</label>
+                            <label class="form-control-label">Adjuntar archivos (hasta 3 archivos)</label>
                             <input id="adjunto" type="file" class="form-control @error('adjunto[]') is-invalid @enderror" name="adjunto[]" multiple>
+                            <small id="filesHelpBlock" class="form-text text-muted">
+                                Para seleccionar varios archivos a la vez, mantener presionada la tecla Ctrl.
+                                <br>
+                                El tamaño maximo para cada archivo es de 10Mb.
+                              </small>
                             <br>
                             @if ($errors->has('adjunto.0'))
                                 <div class="alert alert-danger" role="alert">
@@ -384,9 +389,9 @@
         var input_archivos = document.getElementById("adjunto");
         for (var i = 0; i < input_archivos.size; i++) {
             let size = input_archivos.files[i].size;
-            if (size > 20000000) {
+            if (size > 10000000) {
                 let index = i+1;
-                alert("el archivo "+index+" pesa más de 20Mb");
+                alert("el archivo "+index+" pesa más de 10Mb");
                 event.preventDefault();
             }
         }

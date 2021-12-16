@@ -7,6 +7,8 @@
         <center><h1>Buscar Estudiante</h1></center>
     </div>
 
+    <br>
+
     <div class="row">
         <div class="col-lg-3 col-md-2"></div>
         <div class="col-lg-6 col-md-8 login-box">
@@ -34,8 +36,8 @@
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button id="boton"
-                                    class="btn btn-outline-primary">{{ __('Buscar') }}</button>
+                                <button id="boton" style="color:white; background-color:rgb(0,181,226)"
+                                    class="btn">{{ __('Buscar') }}</button>
                             </div>
                         </div>
                     </form>
@@ -74,27 +76,33 @@
                 <tr>
                     <th>N° SOLICITUD</th>
                     <th>TIPO SOLICITUD</th>
+                    <th>ESTADO</th>
                     <th>FECHA SOLICITUD</th>
-                    <th>RESOLVER</th>
+                    <th>VISUALIZAR</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                 @foreach($datos['solicitudes'] as $solicitud)
-                    <td>{!! $solicitud->id !!}</td>
-                    @if ($solicitud->tipo == 'Facilidades')
-                        <td>{!! $solicitud->tipo_facilidad !!}</td>
+                    @if($solicitud->estado == 'Pendiente')
+                        <td>{!! $solicitud->id !!}</td>
+                        @if ($solicitud->tipo == 'Facilidades')
+                            <td>{!! $solicitud->tipo_facilidad !!}</td>
+                        @else
+                            <td>{!! $solicitud->tipo !!}</td>
+                        @endif
+                        <td>{!! $solicitud->estado !!}</td>
+                        <td>{!! $solicitud->updated_at !!}</td>
+                        <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('buscarestudiante.edit', [$solicitud->id]) }}>Ver Detalle</a></td>
                     @else
-                        <td>{!! $solicitud->tipo !!}</td>
+
                     @endif
-                    <td>{!! $solicitud->updated_at !!}</td>
-                    <td><a style="color:white; background-color:rgb(0,181,226)" class="btn btn-outline-info" href={{ route('buscarestudiante.edit', [$solicitud->id]) }}>Resolver</a></td>
                 </tr>
                 @endforeach
         </table>
     @else
     <div class="alert alert-danger" role="alert">
-        <center>El RUT ingresado no existe</center>
+        <center>El RUT ingresado no es de un estudiante o usted no tiene los privilegios para visualizar la información del rut ingresado</center>
     </div>
     @endif
 <br>

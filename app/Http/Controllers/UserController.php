@@ -10,7 +10,9 @@ use App\Rules\ValidarRut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\Validator;
+use Mockery\Undefined;
 
+use function PHPUnit\Framework\isEmpty;
 
 class UserController extends Controller
 {
@@ -25,19 +27,16 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        if(Auth::user()== null)
-        {
+        if (Auth::user()== null) {
             return view('auth.login');
         }
-        if(Auth::user()->rol=='Administrador')
-        {
+        if (Auth::user()->rol=='Administrador') {
             if ($request->search == null) {
                 $usuarios = User::simplePaginate(10);
-                return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
-            }else {
-                dd($request);
+                return view('administrador.gestionar_usuarios')->with('usuarios', $usuarios);
+            } else {
                 $usuarios = User::where('rut', $request->search)->simplePaginate(1);
-                return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
+                return view('administrador.gestionar_usuarios')->with('usuarios', $usuarios);
             }
             //$usuarios = User::all();  //Lo que realiza es llamar de la base de datos todos los usuarios
             //return view('administrador.gestionar_usuarios')->with('usuarios',$usuarios);
@@ -52,7 +51,6 @@ class UserController extends Controller
      */
     public function mostrarAgregarUsuario()
     {
-
     }
 
     public function create()
@@ -69,7 +67,7 @@ class UserController extends Controller
             $encontrarUsuario->habilitado = 1;
             $encontrarUsuario->save();
             return redirect('/usuario');
-        }else {
+        } else {
             $encontrarUsuario->habilitado = 0;
             $encontrarUsuario->save();
             return redirect('/usuario');
@@ -84,7 +82,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request['rol'] == 'Jefe de Carrera'){
+        if ($request['rol'] == 'Jefe de Carrera') {
             $request->validate([
                 'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -92,8 +90,7 @@ class UserController extends Controller
                 'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Estudiante'],
                 'carrera'=>['exists:App\Models\Carrera,id',new ValidarCarreraTieneJefe]
             ]);
-        }
-        else{
+        } else {
             $request->validate([
                 'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -150,7 +147,7 @@ class UserController extends Controller
             'carreras' => $carreras,
             'usuario' => $user,
         ];
-        if ($user->rol == 'Administrador'){
+        if ($user->rol == 'Administrador') {
             return view('usuario.edit')->with('datos', $datos);
         }
         return view('usuario.edit')->with('datos', $datos);
@@ -166,7 +163,7 @@ class UserController extends Controller
     public function update(Request $request, int $id)
     {
         $user = User::where('id', $id)->first();
-        if ($user->rol == 'Administrador'){
+        if ($user->rol == 'Administrador') {
             $request->validate([
                 'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
@@ -178,7 +175,7 @@ class UserController extends Controller
             $user->save();
             return redirect('/usuario');
         }
-        if ($request['rol'] == 'Estudiante' or ($request['rol'] == 'Jefe de Carrera' and $user['rol'] == 'Jefe de Carrera' and $request['carrera'] == $user['carrera_id'])){
+        if ($request['rol'] == 'Estudiante' or ($request['rol'] == 'Jefe de Carrera' and $user['rol'] == 'Jefe de Carrera' and $request['carrera'] == $user['carrera_id'])) {
             $request->validate([
                 'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
@@ -186,8 +183,7 @@ class UserController extends Controller
                 'rol' => ['string','required', 'in:Administrador,Jefe de Carrera,Estudiante'],
                 'carrera'=>['exists:App\Models\Carrera,id']
             ]);
-        }
-        else{
+        } else {
             $request->validate([
                 'nombre' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
@@ -200,7 +196,22 @@ class UserController extends Controller
         $user->rut = $request->rut;
         $user->email = $request->email;
         $user->rol = $request->rol;
-        $user->carrera_id = $request->carrera;
+
+        if($user->carrera_id == $request->carrera){ //Si no se cambió de carrera todo bien
+            $user->carrera_id = $request->carrera;
+        }
+        elseif($user->carrera_id != $request->carrera){ //Si se cambió de carrera se deben anular todas las solicitudes
+
+
+            $solicitudes = Solicitud::where('user_id', $user->id)->get();
+
+            foreach($solicitudes as $solicitud){
+                $solicitud->estado = 'Anulada';
+                $solicitud->save();
+            }
+            $user->carrera_id = $request->carrera;
+        }
+
         $user->save();
         return redirect('/usuario');
     }
@@ -220,26 +231,29 @@ class UserController extends Controller
     {
         $encontrarUsuario = User::where('id', $request->id)->first();
         $rut=$encontrarUsuario->rut;
-        $contrasena=substr($rut,0,6);
+        $contrasena=substr($rut, 0, 6);
         $encontrarUsuario->password=bcrypt($contrasena);
         $encontrarUsuario->save();
         return redirect('/usuario');
     }
 
-    public function mostrarSolicitudesPendientesJefe(){
+    public function mostrarSolicitudesPendientesJefe()
+    {
         $listaSolicitudes = collect();
         $carreraIdJefe = Auth::user()->carrera_id;
         $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
-        foreach ($usuarios as $usuario){
+        foreach ($usuarios as $usuario) {
             $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
-            foreach($solicitudes as $solicitud){
-                $listaSolicitudes->push($solicitud);
+            foreach ($solicitudes as $solicitud) {
+                if ($solicitud->estado == 'Pendiente') {
+                    $listaSolicitudes->push($solicitud);
+                }
             }
         }
 
-        $solicitudes = $listaSolicitudes;
+        $solicitudes = $listaSolicitudes->sortBy('updated_at');
 
-        $solicitudes = $solicitudes->sortBy('created_at');
+        $solicitudes = $solicitudes->sortBy('updated_at');
 
         $datos = [
             'solicitudes' => $solicitudes,
@@ -249,7 +263,7 @@ class UserController extends Controller
 
         return view('JefeCarrera.solicitudes')->with('datos', $datos);
 
-       // $listaSolicitudes = collect();
+        // $listaSolicitudes = collect();
         //$listaEstudiantes = collect();
 
         //foreach ($solicitudes as $solicitud) {
@@ -272,22 +286,22 @@ class UserController extends Controller
         //return view('JefeCarrera.solicitudes')->with('solicitudesPendientes', $listaSolicitudes)->with('datosEstudiantesPendientes' , $listaEstudiantes);
     }
 
-    public function mostrarSolicitudesFiltrar(Request $request){
-
-        if($request->tipo == null){
+    public function mostrarSolicitudesFiltrar(Request $request)
+    {
+        if ($request->tipo == null) {
             $listaSolicitudes = collect();
             $carreraIdJefe = Auth::user()->carrera_id;
             $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
-            foreach ($usuarios as $usuario){
+            foreach ($usuarios as $usuario) {
                 $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
-                foreach($solicitudes as $solicitud){
+                foreach ($solicitudes as $solicitud) {
                     $listaSolicitudes->push($solicitud);
                 }
             }
 
-            $solicitudes = $listaSolicitudes;
+            $solicitudes = $listaSolicitudes->sortBy('updated_at'); //ninguno de los dos funciona :c
 
-            $solicitudes = $solicitudes->sortBy('created_at');
+            $solicitudes = $solicitudes->sortBy('updated_at');
 
             $datos = [
                 'solicitudes' => $solicitudes,
@@ -303,12 +317,12 @@ class UserController extends Controller
         $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
 
 
-
-        foreach ($usuarios as $usuario){
+        foreach ($usuarios as $usuario) {
             $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
-            foreach($solicitudes as $solicitud){
-                if($solicitud->tipo == $request->tipo)
-                $listaSolicitudes->push($solicitud);
+            foreach ($solicitudes as $solicitud) {
+                if ($solicitud->tipo == $request->tipo) {
+                    $listaSolicitudes->push($solicitud);
+                }
             }
         }
 
@@ -322,10 +336,79 @@ class UserController extends Controller
             'ruta' => 'panel',
         ];
 
+
         return view('JefeCarrera.solicitudes')->with('datos', $datos);
 
         //dd($listaSolicitudes,$listaEstudiantes);
         //return view('JefeCarrera.filtrarSolicitudes')->with('solicitudes', $listaSolicitudes)->with('datosEstudiantes' , $listaEstudiantes);
+    }
+
+    public function mostrarEstadosFiltrar(Request $request)
+    {
+        if ($request->estado == null) {
+            $listaSolicitudes = collect();
+            $carreraIdJefe = Auth::user()->carrera_id;
+            $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
+            foreach ($usuarios as $usuario) {
+                $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
+                foreach ($solicitudes as $solicitud) {
+                    $listaSolicitudes->push($solicitud);
+                }
+            }
+
+            $solicitudes = $listaSolicitudes;
+
+            $solicitudes = $solicitudes->sortBy('updated_at');
+
+            $datos = [
+                'solicitudes' => $solicitudes,
+                'usuarios' => $usuarios,
+                'ruta' => 'panel',
+            ];
+
+            return view('JefeCarrera.solicitudes')->with('datos', $datos);
+        }
+
+        $listaSolicitudes = collect();
+        $carreraIdJefe = Auth::user()->carrera_id;
+        $usuarios = User::where('carrera_id', $carreraIdJefe)->get();
+
+
+        foreach ($usuarios as $usuario) {
+            $solicitudes = Solicitud::where('user_id', $usuario->id)->get();
+            foreach ($solicitudes as $solicitud) {
+                if ($solicitud->estado == $request->estado) {
+                    $listaSolicitudes->push($solicitud);
+                }
+            }
+        }
+
+        $listaVacia = collect();
+
+        $listaSolicitudes = $listaSolicitudes->sortBy('updated_at');
+
+        if($listaVacia == $listaSolicitudes){ //Si no se encontro ninguna solicitud se le debe enviar algo a la vista
+
+            $solicitudes = $listaSolicitudes;
+
+            $datos = [
+                'solicitudes' => $solicitudes,
+                'usuarios' => $usuarios,
+                'ruta' => 'panel',
+            ];
+
+            return view('JefeCarrera.solicitudes')->with('datos', $datos);
+        }
+
+        $solicitudes = $listaSolicitudes;
+
+        $datos = [
+            'solicitudes' => $solicitudes,
+            'usuarios' => $usuarios,
+            'ruta' => 'panel',
+        ];
+
+        return view('JefeCarrera.solicitudes')->with('datos', $datos);
     }
 
     public function mostrarInfoSolicitudBoton(Request $request){
