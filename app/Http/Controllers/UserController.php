@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\Validator;
 use Mockery\Undefined;
 
+
 use function PHPUnit\Framework\isEmpty;
 
 class UserController extends Controller
@@ -72,6 +73,7 @@ class UserController extends Controller
             $filepath = public_path('\storage\docs', $name);
             // Reading file
             $filepath= $filepath . '\\' . $name;
+
 
 
             $file = fopen($filepath, "r");
