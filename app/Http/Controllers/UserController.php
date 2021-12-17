@@ -117,15 +117,27 @@ class UserController extends Controller
                 $i++;
             }
             fclose($file); //Close after reading
-
+            set_time_limit(400);
             foreach ($importData_arr as $importData) {
                 if ($importData[0] == "CARRERA") {
                     continue;
                 }
+
                 try {
+
 
                     $rut = $request->rut;
                     $contrasena = substr($rut, 0, 6);
+
+                    $carrera = Carrera::where('codigo',$importData[0])->first();
+                    $id_carrera = $carrera->id;
+
+                    $validator = Validator::make($importData, [
+                        $importData[2] => ['required', 'string', 'max:255'],
+                        $importData[3] => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                        $importData[1] => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                        $id_carrera =>['exists:App\Models\Carrera,id']
+                    ]);
 
                     User::create([
                     'name' => $importData[2],
@@ -134,7 +146,7 @@ class UserController extends Controller
                     'rut' => $importData[1],
                     'rol' => 'Estudiante',
                     'habilitado' => 1,
-                    'carrera_id' => $importData[0]
+                    'carrera_id' => $id_carrera,
                     ]);
                     //meter el rut y el nombre en una lista
                 } catch (\Exception $e) {
