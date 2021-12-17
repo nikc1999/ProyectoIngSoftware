@@ -7,6 +7,11 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use App\Models\Carrera;
 use Illuminate\Support\Facades\Validator;
 use App\Rules\ValidarRut;
+use App\Models\Solicitud;
+use App\Rules\ValidarCarreraTieneJefe;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
+use Illuminate\Support\Facades\Input;
 
 class UsersImport implements ToModel
 {
@@ -22,25 +27,25 @@ class UsersImport implements ToModel
             $carrera = Carrera::where('codigo',$row[0])->first();
             $id_carrera = $carrera->id;
 
-            $validator = Validator::make($row, [
+            $validator = Validator::make(Input::all(),$row, [
                 $row[2] => ['required', 'string', 'max:255'],
                 $row[3] => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 $row[1] => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
-                $id_carrera =>['exists:App\Models\Carrera,id']
+                $id_carrera =>['exists:App\Models\Carrera,id'],
             ]);
 
-            if (!$validator->fails()) {
-                dd($row);
-                return new User([
-                    'name' => $row[2],
-                    'email' => $row[3],
-                    'rut' => $row[1],
-                    'rol' => 'Estudiante',
-                    'habilitado' => 1,
-                    'password' => bcrypt($contrasena),
-                    'carrera_id' => $id_carrera,
-                ]);
+            if ($validator->fails()) {
+                return;
             }
+            return new User([
+                'name' => $row[2],
+                'email' => $row[3],
+                'rut' => $row[1],
+                'rol' => 'Estudiante',
+                'habilitado' => 1,
+                'password' => bcrypt($contrasena),
+                'carrera_id' => $id_carrera,
+            ]);
         }
     }
 }
