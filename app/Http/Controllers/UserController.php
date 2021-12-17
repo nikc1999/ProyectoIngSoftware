@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\Validator;
 use Mockery\Undefined;
 
+
 use function PHPUnit\Framework\isEmpty;
 
 class UserController extends Controller
@@ -74,6 +75,7 @@ class UserController extends Controller
             $filepath= $filepath . '\\' . $name;
 
 
+
             $file = fopen($filepath, "r");
 
             $importData_arr = array(); // Read through the file and store the contents as an array
@@ -95,36 +97,49 @@ class UserController extends Controller
 
                         return redirect('/menucarga');
                     }
-                    if(!$importData_arr[$i][1] || $importData_arr[$i][0]!='RUT'){
+                    if(!$importData_arr[$i][1] || $importData_arr[$i][1]!='RUT'){
 
                         return redirect('/menucarga');
                     }
-                    if(!$importData_arr[$i][2] || $importData_arr[$i][0]!='NOMBRE'){
+                    if(!$importData_arr[$i][2] || $importData_arr[$i][2]!='NOMBRE'){
                         return redirect('/menucarga');
                     }
-                    if(!$importData_arr[$i][3] || $importData_arr[$i][0]!='CORREO'){
+                    if(!$importData_arr[$i][3] || $importData_arr[$i][3]!='CORREO'){
                         return redirect('/menucarga');
                     }
-                    $i++;
-                    continue;
+
+
                 }
-                for ($c = 0; $c < $num; $c++) {
-                    $importData_arr[$i][] = $filedata[$c];
+                if ($i != 0) {
+                    for ($c = 0; $c < $num; $c++) {
+                        $importData_arr[$i][] = $filedata[$c];
+                    }
                 }
+
                 $i++;
             }
             fclose($file); //Close after reading
-
+            set_time_limit(400);
             foreach ($importData_arr as $importData) {
-                $importData->validate([
-                    $importData[2] => ['required', 'string', 'max:255'],
-                    $importData[3] => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                    $importData[1] => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
-                    $importData[0] =>['exists:App\Models\Carrera,id']
-                ]);
+                if ($importData[0] == "CARRERA") {
+                    continue;
+                }
+
                 try {
+
+
                     $rut = $request->rut;
                     $contrasena = substr($rut, 0, 6);
+
+                    $carrera = Carrera::where('codigo',$importData[0])->first();
+                    $id_carrera = $carrera->id;
+
+                    $validator = Validator::make($importData, [
+                        $importData[2] => ['required', 'string', 'max:255'],
+                        $importData[3] => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                        $importData[1] => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                        $id_carrera =>['exists:App\Models\Carrera,id']
+                    ]);
 
                     User::create([
                     'name' => $importData[2],
@@ -133,7 +148,7 @@ class UserController extends Controller
                     'rut' => $importData[1],
                     'rol' => 'Estudiante',
                     'habilitado' => 1,
-                    'carrera_id' => $importData[0]
+                    'carrera_id' => $id_carrera,
                     ]);
                     //meter el rut y el nombre en una lista
                 } catch (\Exception $e) {
