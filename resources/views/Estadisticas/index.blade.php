@@ -5,7 +5,7 @@
 <div class="container">
     <form method="GET" action="{{route('filtrarEstadistica')}}">
 
-        <input id="fecha_inicio" name="fecha_inicio" value= "{{old('fecha_inicio')}}" type="date" class="@error('fecha_inicio') is-invalid @enderror"name="fecha_inicio">
+        <input id="fecha_inicio" name="fecha_inicio" value= "{{old('fecha_inicio')}}" type="date" class=" @error('fecha_inicio') is-invalid @enderror"name="fecha_inicio">
         <input id="fecha_fin" name="fecha_fin" value= "{{old('fecha_fin')}}" type="date" class=" @error('fecha_fin') is-invalid @enderror"name="fecha_fin">
         @error('fecha_inicio')
         <span class="invalid-feedback" role="alert">
