@@ -3,7 +3,7 @@
 @section('content')
 @if (Auth::user()->rol == 'Administrador')
 <div>
-    <form id="formulario" method="POST" action="{{ route('cargamasiva') }}">
+    <form id="formulario" method="POST" action="{{ route('cargamasiva') }}" enctype="multipart/form-data">>
         @csrf
 
         <div class="form-group row">
@@ -33,7 +33,7 @@
     button.addEventListener('click', function(e){
         e.preventDefault();
         Swal.fire({
-            title: 'El código de la carrera no es posible modificarlo una vez registrado en el sistema ¿Realizar operación?',
+            title: '¿Está seguro de cargar estudiantes de forma masiva? Esta acción no puede ser anulada',
             showDenyButton: true,
             showCancelButton: false,
             confirmButtonText: 'Confirmar',

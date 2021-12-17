@@ -60,10 +60,10 @@ class UserController extends Controller
     public function cargaMasivaEstudiantes(Request $request){
         $aux = 0;
         $request->validate([
-            'uploaded_file' => ['mimes:xlsx','max:10000'],
+            'adjunto' => ['mimes:xlsx','max:10000'],
         ]);
 
-        $file = $request->file('uploaded_file');
+        $file = $request->file('adjunto');
 
         if ($file) {
             $name = $aux.time().'.'.$file->getClientOriginalExtension();
@@ -77,7 +77,7 @@ class UserController extends Controller
             while (($filedata = fgetcsv($file, 1000, ",")) !== false) {
                 $num = count($filedata);
                 if ($num!=4){
-                    return;
+                    return redirect('/menucarga');
                 }
                 // Skip first row (Remove below comment if you want to skip the first row)
                 if ($i == 0) {
@@ -85,16 +85,16 @@ class UserController extends Controller
                         $importData_arr[$i][] = $filedata[$c];
                     }
                     if(!$importData_arr[$i][0] || $importData_arr[$i][0]!='CARRERA'){
-                        return;
+                        return redirect('/menucarga');
                     }
                     if(!$importData_arr[$i][1] || $importData_arr[$i][0]!='RUT'){
-                        return;
+                        return redirect('/menucarga');
                     }
                     if(!$importData_arr[$i][2] || $importData_arr[$i][0]!='NOMBRE'){
-                        return;
+                        return redirect('/menucarga');
                     }
                     if(!$importData_arr[$i][3] || $importData_arr[$i][0]!='CORREO'){
-                        return;
+                        return redirect('/menucarga');
                     }
                     $i++;
                     continue;
@@ -131,7 +131,9 @@ class UserController extends Controller
                     //meter el rut y nombre en una lista
                 }
             }
+            return redirect('/usuario');
         }
+        return redirect('/menucarga');
     }
 
     public function create()
