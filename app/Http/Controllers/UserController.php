@@ -9,8 +9,10 @@ use App\Rules\ValidarCarreraTieneJefe;
 use App\Rules\ValidarRut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use Mockery\Undefined;
+use App\Imports\UsersImport;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -64,12 +66,16 @@ class UserController extends Controller
         ]);
 
         $file = $request->file('adjunto');
+        Excel::import(new UsersImport,$file);
 
         if ($file) {
             $name = $aux.time().'.'.$file->getClientOriginalExtension();
-            $file->move(public_path('\storage\docs'), $name);
-            $filepath = public_path('\storage\docs', $name);
+            $file->move(public_path('\storage\docs/'. $name));
+            $filepath = public_path('\storage\docs/'. $name);
             // Reading file
+
+            //Excel::import(new UsersImport,$file);
+
             $file = fopen($filepath, "r");
             $importData_arr = array(); // Read through the file and store the contents as an array
             $i = 0;
