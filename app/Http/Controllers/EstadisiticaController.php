@@ -29,7 +29,7 @@ class EstadisiticaController extends Controller
 
         $usuarios = User::where('rol', 'Estudiante')->get();
         $carreraIdJefe = Auth::user()->carrera_id;
-        // dd($usuarios);
+
         foreach ($usuarios as $key => $usuario) {
             if ($usuario->carrera_id == $carreraIdJefe) {
                 foreach ($usuario->solicitudes as $key => $solicitud) {
@@ -125,7 +125,7 @@ class EstadisiticaController extends Controller
         $usuarios = User::where('rol', 'Estudiante')->get();
         $fechaIn = $inicio->fecha_inicio;
         $fechaTer = $inicio->fecha_fin;
-        //dd($fechaIn);
+
         if($fechaIn == false){// cuando no se ingresa fecha se asume que la fecha requerida es la actual
             $fechaIn = date(now());
         }
@@ -136,7 +136,7 @@ class EstadisiticaController extends Controller
 
         //transformo la fecha dd-mm-aaaa a un numero 000
         $fechaIn = strtotime("-1 day",strtotime($fechaIn));
-        dd($fechaIn);
+
 
         $fechaTer = strtotime("+1 day",strtotime($fechaTer));
         $carreraIdJefe = Auth::user()->carrera_id;
