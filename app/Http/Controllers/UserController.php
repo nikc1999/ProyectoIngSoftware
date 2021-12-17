@@ -60,34 +60,43 @@ class UserController extends Controller
     public function cargaMasivaEstudiantes(Request $request){
         $aux = 0;
         $request->validate([
-            'adjunto' => ['mimes:xlsx','max:10000'],
+            'adjunto' => ['max:10000'],
         ]);
 
         $file = $request->file('adjunto');
 
         if ($file) {
             $name = $aux.time().'.'.$file->getClientOriginalExtension();
+
             $file->move(public_path('\storage\docs'), $name);
             $filepath = public_path('\storage\docs', $name);
             // Reading file
+            $filepath= $filepath . '\\' . $name;
+
+
             $file = fopen($filepath, "r");
+
             $importData_arr = array(); // Read through the file and store the contents as an array
             $i = 0;
             //Read the contents of the uploaded file
             while (($filedata = fgetcsv($file, 1000, ",")) !== false) {
                 $num = count($filedata);
+
                 if ($num!=4){
                     return redirect('/menucarga');
                 }
                 // Skip first row (Remove below comment if you want to skip the first row)
                 if ($i == 0) {
+
                     for ($c = 0; $c < $num; $c++) {
                         $importData_arr[$i][] = $filedata[$c];
                     }
                     if(!$importData_arr[$i][0] || $importData_arr[$i][0]!='CARRERA'){
+
                         return redirect('/menucarga');
                     }
                     if(!$importData_arr[$i][1] || $importData_arr[$i][0]!='RUT'){
+
                         return redirect('/menucarga');
                     }
                     if(!$importData_arr[$i][2] || $importData_arr[$i][0]!='NOMBRE'){
