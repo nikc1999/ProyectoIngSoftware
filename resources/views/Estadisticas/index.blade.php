@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h1 style="font-size: 50px" class="text-center">Estadísticas del sistema</h1>
+<br>
 <div class="container">
     <form method="GET" action="{{route('filtrarEstadistica')}}">
 
@@ -17,7 +19,7 @@
         {{ session('error') }}
         </div>
     @endif
-        <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Fecha</button>
+        <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Actualiza las estadísticas según las solicitudes que se encuentran en el rango de las fechas seleccionadas" class="btn">Filtrar Fecha</button>
         <a href={{ route('estadistica')}}><button style="color:white; background-color:rgb(188,97,36)" class="btn" type="button">Mostrar todo</button></a>
     </form>
 
@@ -25,7 +27,7 @@
     <br>
 
 
-    <h1 style="font-size: 50px" class="text-center">Estadísticas del sistema</h1>
+
     <div class="row row-cols-1 row-cols-md-2">
         <div class="col mb-4">
             <div class="card h-100">
