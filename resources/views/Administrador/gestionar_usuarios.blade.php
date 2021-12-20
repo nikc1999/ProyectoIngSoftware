@@ -51,6 +51,8 @@
     </thead>
     <tbody>
         @foreach($usuarios as $user)
+
+
             @if ($user->rol=="Administrador")
             <tr>
                 <td>{!! $user->name !!}</td>
@@ -84,12 +86,17 @@
 
             @endif
 
+
+
         @endforeach
+
     </tbody>
 </table>
 @endif
 </div>
 </div>
+{{ $usuarios->links()}}
+
 </div>
 
 <script>

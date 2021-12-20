@@ -107,7 +107,7 @@
     animationEnabled: true,
     theme: "light1", // "light1", "light2", "dark1", "dark2"
     title:{
-    text: "Rango fecha"
+    text: "Cantidad por Fecha"
     },
     axisY: {
     title: "Cantidad de solicitudes"
@@ -118,7 +118,7 @@
     legendMarkerColor: "grey",
     legendText: "MMbbl = one million barrels",
     dataPoints: [
-    { y: JSON.parse("{{json_encode($cantEnRango)}}"), label: "Rango" },
+    { y: JSON.parse("{{json_encode($cantEnRango)}}"), label: "Cantidad" },
     ]
     }]
     });

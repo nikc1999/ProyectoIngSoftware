@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\Validator;
 use Mockery\Undefined;
+//aaa
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 use function PHPUnit\Framework\isEmpty;
 
