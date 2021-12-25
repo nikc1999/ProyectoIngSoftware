@@ -77,8 +77,6 @@ class UserController extends Controller
             // Reading file
             $filepath= $filepath . '\\' . $name;
 
-
-
             $file = fopen($filepath, "r");
 
             $importData_arr = array(); // Read through the file and store the contents as an array
