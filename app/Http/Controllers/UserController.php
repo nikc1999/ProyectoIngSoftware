@@ -10,6 +10,8 @@ use App\Rules\ValidarRut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\Validator;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
 use Mockery\Undefined;
 //aaa
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -59,6 +61,18 @@ class UserController extends Controller
 
     public function mostrarCargaMasivaEstudiantes(){
         return view('Administrador.carga_masiva');
+    }
+
+    public function cargarExcel(Request $request){
+        $auxDatos = new Request();
+        $auxErrores = [];
+
+        $request->validate([
+            "adjunto" => 'mimes:xlsx|required'
+        ]);
+        $doc = IOFactory::load($request->adjunto);
+        $hoja1 = $doc->getSheet(0);
+
     }
 
     public function cargaMasivaEstudiantes(Request $request){

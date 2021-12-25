@@ -39,7 +39,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/menucarga',[App\Http\Controllers\UserController::class, 'mostrarCargaMasivaEstudiantes'])->name('menucarga');
 
-Route::post('/cargamasiva',[App\Http\Controllers\UserController::class, 'cargaMasivaEstudiantes'])->name('cargamasiva');
+Route::post('/cargamasiva',[App\Http\Controllers\UserController::class, 'cargarExcel'])->name('cargamasiva');
 
 Route::post('/agregarusuario/crear', [App\Http\Controllers\UserController::class, 'store'])->name('agregarusuario');  //proceso para generar ,validar y guardar el usuario
 
