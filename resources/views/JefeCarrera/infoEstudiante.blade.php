@@ -106,28 +106,40 @@
                 @if($solicitud->archivos != null)
                 <tr>
                     <th scope="row">Archivos</th>
-                    <td>{!! $solicitud->archivos !!}</td>
+                    <td>
+                        <form action="archivitos">
+                            @php
+                            $i = 1
+                            @endphp
+                            @foreach (json_decode($solicitud->archivos) as $link)
+                            <a href="http://localhost:8000/storage/docs/{{$link}}" target="_blank">Archivo {{$i++}}</a>
+                            @endforeach
+                        </form>
+                    </td>
+
                 </tr>
                 @endif
             </tbody>
         </table>
     </div>
 
+    @if ($solicitud->estado='Peniente')
     <div class="col">
         <form id="formulario" method="POST" action="{{ route('solicitud.update', [$datos['solicitudes'][0]]) }}"
         enctype="multipart/form-data">
         @csrf
         @method('PUT')
+
         <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
         <div class="form-group">
-            <label for="form-control-label" style="color: black">Seleccionar resolución</label>
-
             <select class="form-control @error('estado') is-invalid @enderror" name="estado" id="estado">
+                <label for="form-control-label" style="color: black">Seleccionar resolución</label>
                 <option value={{null}} >Seleccione una opción</option>
                 <option value="Aceptada">Aceptar solicitud</option>
                 <option value="Aceptada con observaciones">Aceptar con Observacion</option>
                 <option value="Rechazada">Rechazar solicitud</option>
             </select>
+
             @error('estado')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -156,6 +168,7 @@
         </div>
         </form>
     </div>
+    @endif
 </div>
 
 
@@ -228,6 +241,7 @@
 
         })
 </script>
+
 
 <script>
     const botonConfirmar = document.getElementById('groupButton');
