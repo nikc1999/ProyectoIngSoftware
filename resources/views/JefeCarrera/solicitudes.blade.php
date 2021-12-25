@@ -61,7 +61,7 @@
                     <br>
                     <form method="GET" action="{{ route('solicitudJDC.index') }}">
                         <input type="text" name="search" id="search" placeholder="N° Solicitud">
-                        <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar Solicitud</button>
+                        <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Revisa directamente los detalles de la solicitud con el N° ingresado" class="btn">Buscar Solicitud</button>
                     </form>
                 </div>
 

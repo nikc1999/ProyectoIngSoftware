@@ -25,6 +25,7 @@
             <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar</button>
 
         <a href="{{ route('usuario.create') }}"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Crear Usuario</button></a>
+        <a href="/menucarga"><button style="color:white; background-color:rgb(0,181,226)" data-toggle="tooltip" data-placement="right" title="Redirecciona a la página para cargar varios estudiantes a través de un archivo" class="btn" type="button">Carga Masiva</button></a>
 
     </form>
 </div>
@@ -51,6 +52,8 @@
     </thead>
     <tbody>
         @foreach($usuarios as $user)
+
+
             @if ($user->rol=="Administrador")
             <tr>
                 <td>{!! $user->name !!}</td>
@@ -84,12 +87,17 @@
 
             @endif
 
+
+
         @endforeach
+
     </tbody>
 </table>
 @endif
 </div>
 </div>
+{{ $usuarios->links()}}
+
 </div>
 
 <script>

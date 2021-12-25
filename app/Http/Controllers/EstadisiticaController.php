@@ -29,7 +29,6 @@ class EstadisiticaController extends Controller
 
         $usuarios = User::where('rol', 'Estudiante')->get();
         $carreraIdJefe = Auth::user()->carrera_id;
-        // dd($usuarios);
         foreach ($usuarios as $key => $usuario) {
             if ($usuario->carrera_id == $carreraIdJefe) {
                 foreach ($usuario->solicitudes as $key => $solicitud) {
@@ -135,8 +134,10 @@ class EstadisiticaController extends Controller
         echo $fechaTer;
 
 
-        //creo las fechas con el formato 2021-12-04 00:00:00.0 America/Santiago (-03:00) este es igual que el sistema
-        $fechaIn = strtotime($fechaIn);
+        //transformo la fecha dd-mm-aaaa a un numero 000
+        $fechaIn = strtotime("-1 day",strtotime($fechaIn));
+
+        $fechaTer = strtotime("+1 day",strtotime($fechaTer));
         $carreraIdJefe = Auth::user()->carrera_id;
 
 
@@ -154,7 +155,7 @@ class EstadisiticaController extends Controller
                         $fechaSolicitud= strtotime($fechaSolicitud);
 
 
-                        if ($fechaSolicitud>=$fechaIn && $fechaSolicitud <= $fechaTer || $fechaSolicitud == $fechaTer) {
+                        if ($fechaSolicitud>=$fechaIn && $fechaSolicitud <= $fechaTer) {
                             switch ($solicitud->getOriginal()['estado']) {
                                 case 'Pendiente':
 

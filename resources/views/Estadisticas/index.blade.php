@@ -2,10 +2,12 @@
 
 @section('content')
 
+<h1 style="font-size: 50px" class="text-center">Estadísticas del sistema</h1>
+<br>
 <div class="container">
     <form method="GET" action="{{route('filtrarEstadistica')}}">
 
-        <input id="fecha_inicio" name="fecha_inicio" value= "{{old('fecha_inicio')}}" type="date" class="@error('fecha_inicio') is-invalid @enderror"name="fecha_inicio">
+        <input id="fecha_inicio" name="fecha_inicio" value= "{{old('fecha_inicio')}}" type="date" class=" @error('fecha_inicio') is-invalid @enderror"name="fecha_inicio">
         <input id="fecha_fin" name="fecha_fin" value= "{{old('fecha_fin')}}" type="date" class=" @error('fecha_fin') is-invalid @enderror"name="fecha_fin">
         @error('fecha_inicio')
         <span class="invalid-feedback" role="alert">
@@ -25,7 +27,7 @@
     <br>
 
 
-    <h1 style="font-size: 50px" class="text-center">Estadísticas del sistema</h1>
+
     <div class="row row-cols-1 row-cols-md-2">
         <div class="col mb-4">
             <div class="card h-100">
@@ -107,7 +109,7 @@
     animationEnabled: true,
     theme: "light1", // "light1", "light2", "dark1", "dark2"
     title:{
-    text: "Rango fecha"
+    text: "Cantidad por Fecha"
     },
     axisY: {
     title: "Cantidad de solicitudes"
@@ -118,7 +120,7 @@
     legendMarkerColor: "grey",
     legendText: "MMbbl = one million barrels",
     dataPoints: [
-    { y: JSON.parse("{{json_encode($cantEnRango)}}"), label: "Rango" },
+    { y: JSON.parse("{{json_encode($cantEnRango)}}"), label: "Cantidad" },
     ]
     }]
     });
