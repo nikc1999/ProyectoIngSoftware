@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Rules\ValidarCarreraTieneJefe;
 use App\Rules\ValidarRut;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\Validator;
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -64,6 +65,8 @@ class UserController extends Controller
     }
 
     public function cargarExcel(Request $request){
+        $auxAdd = [];
+        $auxHeader = false;
         $auxDatos = new Request();
         $auxErrores = [];
 
@@ -73,6 +76,111 @@ class UserController extends Controller
         $doc = IOFactory::load($request->adjunto);
         $hoja1 = $doc->getSheet(0);
 
+        if (is_numeric($hoja1->getCell('A1')->getValue())) { //Quiero ver si el excel tiene datos textuales
+            $auxHeader = false;
+        }
+        else {
+            $auxHeader = true;
+        }
+
+        if ($auxHeader) {
+            foreach ($hoja1->getRowIterator(2, null) as $key => $fila) {
+                foreach ($fila->getCellIterator() as $key => $celda) {
+                    switch ($celda->getColumn()) {
+                        case 'A':
+                            $auxDatos->request->add(["carrera" => $celda->getValue()]);
+                            break;
+                        case 'B':
+                            $auxDatos->request->add(["rut" => $celda->getValue()]);
+                            break;
+                        case 'C':
+                            $auxDatos->request->add(["nombre" => $celda->getValue()]);
+                            break;
+                        case 'D':
+                            $auxDatos->request->add(["email" => $celda->getValue()]);
+                            break;
+
+                        default:
+                            # code...
+                            break;
+                    }
+                }
+
+                $validator = Validator::make($auxDatos->request->all(), [
+                    'nombre' => ['required', 'string', 'max:255'],
+                    'carrera'=> ['exists:App\Models\Carrera,codigo'],
+                    'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                    'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+                ]);
+                $auxErrores["fila" . $fila->getRowIndex()] = $validator->getMessageBag()->getMessages();
+                if (!$validator->fails()) {
+
+                    $carrera = Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
+                    $contrasena = substr($auxDatos->request->all()["rut"], 0, 6);
+
+                    //crear pass
+                    $newUser = User::create([
+                        'name' => $auxDatos->request->all()["nombre"],
+                        'email' => $auxDatos->request->all()["email"],
+                        'password' => bcrypt($contrasena),
+                        'rut' => $auxDatos->request->all()["rut"],
+                        'rol' => "Estudiante",
+                        'habilitado' => 1,
+                        'carrera_id' => $carrera->id,
+                    ]);
+                    $auxAdd["fila".$fila->getRowIndex()] = $newUser;
+                }
+            }
+        }
+        else {
+            foreach ($hoja1->getRowIterator(2, null) as $key => $fila) {
+                foreach ($fila->getCellIterator() as $key => $celda) {
+                    switch ($celda->getColumn()) {
+                        case 'A':
+                            $auxDatos->request->add(["carrera" => $celda->getValue()]);
+                            break;
+                        case 'B':
+                            $auxDatos->request->add(["rut" => $celda->getValue()]);
+                            break;
+                        case 'C':
+                            $auxDatos->request->add(["nombre" => $celda->getValue()]);
+                            break;
+                        case 'D':
+                            $auxDatos->request->add(["email" => $celda->getValue()]);
+                            break;
+
+                        default:
+                            # code...
+                            break;
+                    }
+                }
+
+                $validator = Validator::make($auxDatos->request->all(), [
+                    'nombre' => ['required', 'string', 'max:255'],
+                    'carrera'=> ['exists:App\Models\Carrera,codigo'],
+                    'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                    'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+                ]);
+
+                /* dd($validator->getMessageBag()->getMessages()); */
+                $auxErrores["fila" . $fila->getRowIndex()] = $validator->getMessageBag()->getMessages();
+                if (!$validator->fails()) {
+                    $contrasena = substr($auxDatos->request->all()["rut"], 0, 6);
+                    $carrera = Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
+                    $newUser = User::create([
+                        'name' => $auxDatos->request->all()["nombre"],
+                        'email' => $auxDatos->request->all()["email"],
+                        'password' => bcrypt($contrasena),
+                        'rut' => $auxDatos->request->all()["rut"],
+                        'rol' => "Estudiante",
+                        'habilitado' => 1,
+                        'carrera_id' => $carrera->id,
+                    ]);
+                    $auxAdd["fila".$fila->getRowIndex()] = $newUser;
+                }
+            }
+        }
+        return view("Administrador.carga_masiva")->with('errores', $auxErrores)->with('nuevos', $auxAdd);
     }
 
     public function cargaMasivaEstudiantes(Request $request){

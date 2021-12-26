@@ -123,7 +123,7 @@
         </table>
     </div>
 
-    @if ($solicitud->estado='Peniente')
+    @if ($solicitud->estado =='Pendiente')
     <div class="col">
         <form id="formulario" method="POST" action="{{ route('solicitud.update', [$datos['solicitudes'][0]]) }}"
         enctype="multipart/form-data">
@@ -168,19 +168,14 @@
         </div>
         </form>
     </div>
+    @else
+    <div class="col">
+        <h2>Solicitud ya revisada</h2>
+    </div>
     @endif
 </div>
 
 
-@if ($datos['solicitudes'][0]->estado == 'Pendiente')
-
-
-
-@else
-
-<h2>Solicitud ya revisada</h2>
-
-@endif
 
 
 
