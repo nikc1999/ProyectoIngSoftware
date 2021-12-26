@@ -85,6 +85,51 @@ class UserController extends Controller
         ]);
         $doc = IOFactory::load($request->adjunto);
         $hoja1 = $doc->getSheet(0);
+         //dd($hoja1->getCell('A2')->getValue());
+         if($hoja1->getCell('A1')->getValue() == null){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('error','Error archivo vacio')->with('datos', $datos);
+        }
+        if($hoja1->getCell('A1')->getValue() != "CARRERA"){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error en el formato del archivo, se recomieda revisarlo');
+        }
+        if($hoja1->getCell('B1')->getValue() != "RUT"){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error en el formato del archivo, se recomieda revisarlo');
+        }
+        if($hoja1->getCell('C1')->getValue() != "NOMBRE"){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error en el formato del archivo, se recomieda revisarlo');
+        }
+        if($hoja1->getCell('D1')->getValue() != "CORREO"){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error en el formato del archivo, se recomieda revisarlo');
+        }
+
+        if($hoja1->getCell('A2')->getValue() == null || $hoja1->getCell('B2')->getValue() == null || $hoja1->getCell('C2')->getValue() == null || $hoja1->getCell('D2')->getValue() == null ){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error archivo vacio, se recomieda revisarlo');
+        }
+
 
         if (is_numeric($hoja1->getCell('A1')->getValue())) { //Quiero ver si el excel tiene datos textuales
             $auxHeader = false;

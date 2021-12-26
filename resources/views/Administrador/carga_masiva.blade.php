@@ -16,6 +16,11 @@
                             {{ $message }}
                         </div>
                     @enderror
+                    @if (session('error'))
+                    <div class="alert alert-danger">
+                    {{ session('error') }}
+                    </div>
+                    @endif
                 </div>
 
 
@@ -90,8 +95,8 @@
 <div class="col"></div>
 
 <div class="col pl-5">
-<center><a href="/usuario"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
-<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a> </center>
+<center><a href="/usuario"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" id = "salida1" type="button">Volver</button></a>
+<a href="{{ route('home') }}"><button class="btn btn-dark" id = "salida2"  type="button">Volver Menú</button></a> </center>
 </div>
 </div>
 
