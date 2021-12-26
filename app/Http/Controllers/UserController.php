@@ -65,7 +65,7 @@ class UserController extends Controller
 
     public function cargarExcel(Request $request){
 
-
+        set_time_limit(4444);
         $auxAdd = [];
         $auxHeader = false;
         $auxDatos = new Request();
@@ -183,6 +183,7 @@ class UserController extends Controller
         }
         return view("Administrador.carga_masiva")->with('errores', $auxErrores)->with('nuevos', $auxAdd);
     }
+
 
     public function cargaMasivaEstudiantes(Request $request){
         $aux = 0;
