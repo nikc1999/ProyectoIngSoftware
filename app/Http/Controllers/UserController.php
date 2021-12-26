@@ -65,7 +65,9 @@ class UserController extends Controller
     }
 
     public function cargarExcel(Request $request){
-        set_time_limit(1000);
+        $i=0;
+        $j=0;
+        set_time_limit(2000);
         $auxAdd = [];
         $auxHeader = false;
         $auxDatos = new Request();
@@ -119,8 +121,7 @@ class UserController extends Controller
                     $carrera = Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
                     $contrasena = substr($auxDatos->request->all()["rut"], 0, 6);
 
-                    //crear pass
-                    $newUser = User::create([
+                    User::create([
                         'name' => $auxDatos->request->all()["nombre"],
                         'email' => $auxDatos->request->all()["email"],
                         'password' => bcrypt($contrasena),
@@ -129,11 +130,13 @@ class UserController extends Controller
                         'habilitado' => 1,
                         'carrera_id' => $carrera->id,
                     ]);
-                    $auxAdd["fila".$fila->getRowIndex()] = $newUser;
+                    $newUser = array('name' => $auxDatos->request->all()["nombre"],
+                    'rut' => $auxDatos->request->all()["rut"]);
+                    $auxAdd[$j++] = $newUser;
                 }
                 else{
-                    $auxDatos->request->add(["error" => $celda->getValue()]);
-                    $auxErrores["fila" . $fila->getRowIndex()] = $validator->getMessageBag()->getMessages();
+                    $auxDatos->request->add(["error" => array_values($validator->getMessageBag()->getMessages())[0][0]]);
+                    $auxErrores[$i++] = $auxDatos->request->all();
                 }
             }
         }
@@ -169,9 +172,11 @@ class UserController extends Controller
 
                 /* dd($validator->getMessageBag()->getMessages()); */
                 if (!$validator->fails()) {
-                    $contrasena = substr($auxDatos->request->all()["rut"], 0, 6);
+
                     $carrera = Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
-                    $newUser = User::create([
+                    $contrasena = substr($auxDatos->request->all()["rut"], 0, 6);
+
+                    User::create([
                         'name' => $auxDatos->request->all()["nombre"],
                         'email' => $auxDatos->request->all()["email"],
                         'password' => bcrypt($contrasena),
@@ -180,16 +185,22 @@ class UserController extends Controller
                         'habilitado' => 1,
                         'carrera_id' => $carrera->id,
                     ]);
-                    $auxAdd["fila".$fila->getRowIndex()] = $newUser;
+                    $newUser = array('name' => $auxDatos->request->all()["nombre"],
+                    'rut' => $auxDatos->request->all()["rut"]);
+                    $auxAdd[$j++] = $newUser;
                 }
                 else{
-
-                    $auxErrores["fila" . $fila->getRowIndex()] = $validator->getMessageBag()->getMessages();
+                    $auxDatos->request->add(["error" => array_values($validator->getMessageBag()->getMessages())[0][0]]);
+                    $auxErrores[$i++] = $auxDatos->request->all();
                 }
             }
         }
-        dd($auxErrores);
-        return view("Administrador.carga_masiva")->with('errores', $auxErrores)->with('nuevos', $auxAdd);
+        $datos = [
+            'usuarios_exito' => $auxAdd,
+            'usuarios_fallo' => $auxErrores,
+        ];
+        dd($datos);
+        return view("Administrador.carga_masiva")->with('errores', $datos);
     }
 
     public function cargaMasivaEstudiantes(Request $request){
