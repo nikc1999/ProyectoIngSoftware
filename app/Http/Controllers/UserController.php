@@ -18,7 +18,6 @@ use Mockery\Undefined;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 
-
 use function PHPUnit\Framework\isEmpty;
 
 class UserController extends Controller
@@ -65,6 +64,8 @@ class UserController extends Controller
     }
 
     public function cargarExcel(Request $request){
+
+
         $auxAdd = [];
         $auxHeader = false;
         $auxDatos = new Request();
