@@ -61,7 +61,13 @@ class UserController extends Controller
     }
 
     public function mostrarCargaMasivaEstudiantes(){
-        return view('Administrador.carga_masiva');
+
+        $datos = [
+            'usuarios_exito' => null,
+            'usuarios_fallo' => null,
+        ];
+
+        return view('Administrador.carga_masiva')->with('datos',$datos);
     }
 
     public function cargarExcel(Request $request){
@@ -195,12 +201,19 @@ class UserController extends Controller
                 }
             }
         }
+
+        if($auxAdd == []){
+            $auxAdd = null;
+        }
+        if($auxErrores == []){
+            $auxErrores = null;
+        }
         $datos = [
             'usuarios_exito' => $auxAdd,
             'usuarios_fallo' => $auxErrores,
         ];
-        dd($datos);
-        return view("Administrador.carga_masiva")->with('errores', $datos);
+
+        return view("Administrador.carga_masiva")->with('datos', $datos);
     }
 
     public function cargaMasivaEstudiantes(Request $request){
