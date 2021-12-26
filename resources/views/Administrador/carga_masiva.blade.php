@@ -3,7 +3,7 @@
 @section('content')
 @if (Auth::user()->rol == 'Administrador')
 <div>
-    <form id="formulario" method="POST" action="{{ route('cargamasiva') }}" enctype="multipart/form-data">>
+    <form id="formulario" class="formulario" method="POST" action="{{ route('cargamasiva') }}" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group row">
@@ -19,7 +19,7 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button style="color:white; background-color:rgb(0,181,226)" id = "boton" type="submit" class="btn btn-info">
+                <button style="color:white; background-color:rgb(0,181,226)" id = "boton" type="submit" class="btn btn-info" onClick = "">
                     Agregar Estudiantes
                 </button>
             </div>
@@ -27,9 +27,18 @@
     </form>
 </div>
 
+<br>
+<br>
+<center><a href="/usuario"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" id='salida1' type="button">Volver</button></a>
+<a href="{{ route('home') }}"><button class="btn btn-dark" id='salida2' type="button">Volver Menú</button></a> </center>
+
+
 <script>
     const button = document.getElementById('boton');
-    const form = document.getElementById('formulario')
+    const adjunto = document.getElementById('adjunto');
+    const salida1 = document.getElementById('salida1');
+    const salida2 = document.getElementById('salida2');
+    const form = document.getElementById('formulario');
     button.addEventListener('click', function(e){
         e.preventDefault();
         Swal.fire({
@@ -43,6 +52,12 @@
             }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                adjunto.hidden = true;
+                button.hidden =true;
+                salida1.hidden =true;
+                salida2.hidden =true;
+                Swal.fire('Cargando archivo.')
+                Swal.showLoading()
                 form.submit();
             } else if (result.isDenied) {
                 Swal.fire({
@@ -55,13 +70,6 @@
         })
     })
 </script>
-
-<br>
-<br>
-<center><a href="/usuario"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
-<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a> </center>
-
-
 @else
 @php
 header("Location: /home" );
