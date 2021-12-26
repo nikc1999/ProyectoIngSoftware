@@ -31,52 +31,57 @@
 <br>
 <br>
 
+<div class=containter>
 @if(is_null($datos['usuarios_exito']))
 
 @else
-<h2>Los siguientes estudiantes se han cargado al sistema:</h2>
-<br>
-<table class="table">
-    <thead>
-        <tr>
-            <th>ESTUDIANTE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        @foreach($datos['usuarios_exito'] as $usuarioE)
-            <td>{!! $usuarioE['name'] !!}</td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
+    <div class=row>
+        <h2>Los siguientes estudiantes se han cargado al sistema:</h2>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ESTUDIANTE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                @foreach($datos['usuarios_exito'] as $usuarioE)
+                    <td>{!! $usuarioE['name'] !!}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endif
 
 @if (is_null($datos['usuarios_fallo']))
 
 @else
-
-<h2>Los siguientes datos no se pudieron cargar al sistema:</h2>
-<br>
-<table class="table">
-    <thead>
-        <tr>
-            <th>ESTUDIANTE</th>
-            <th>ERROR</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        @foreach($datos['usuarios_fallo'] as $usuarioF)
-            <td>{!! $usuarioF['nombre'] !!}</td>
-            <td>{!! $usuarioF['error'] !!}</td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
+    <div class=row>
+        <h2>Los siguientes datos no se pudieron cargar al sistema:</h2>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ESTUDIANTE</th>
+                    <th>ERROR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                @foreach($datos['usuarios_fallo'] as $usuarioF)
+                    <td>{!! $usuarioF['nombre'] !!}</td>
+                    <td>{!! $usuarioF['error'] !!}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
 
 @endif
+</div>
 
 <script>
     const button = document.getElementById('boton');
