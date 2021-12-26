@@ -3,25 +3,28 @@
 @section('content')
 @if (Auth::user()->rol == 'Administrador')
 <div>
-    <form id="formulario" method="POST" action="{{ route('cargamasiva') }}" enctype="multipart/form-data">>
+    <form id="formulario" method="POST" action="{{ route('cargamasiva') }}" enctype="multipart/form-data">
         @csrf
 
-        <div class="form-group row">
-            <label class="form-control-label">Adjuntar Excel con los datos de estudiantes</label>
+        <div class="container">
+                <div class="form-group row">
+                    <label class="form-control-label">Adjuntar Excel con los datos de estudiantes</label>
 
-            <input id="adjunto" type="file" class="form-control @error('adjunto') is-invalid @enderror" name="adjunto">
-            @error('adjunto')
-                <div class="alert alert-danger" role="alert">
-                    {{ $message }}
+                    <input id="adjunto" type="file" class="form-control @error('adjunto') is-invalid @enderror" name="adjunto">
+                    @error('adjunto')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-            @enderror
-        </div>
 
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button style="color:white; background-color:rgb(0,181,226)" id = "boton" type="submit" class="btn btn-info">
-                    Agregar Estudiantes
-                </button>
+
+            <div class="form-group row mb-0">
+                <div class="col-md-6 offset-md-4">
+                    <button style="color:white; background-color:rgb(0,181,226)" id = "boton" type="submit" class="btn btn-info">
+                        Agregar Estudiantes
+                    </button>
+                </div>
             </div>
         </div>
     </form>
@@ -31,57 +34,67 @@
 <br>
 <br>
 
-<div class=containter>
-@if(is_null($datos['usuarios_exito']))
+<div class="containter col-md-8 col-md-offset-2 ">
+    <div class= "row">
+    @if(is_null($datos['usuarios_exito']))
 
-@else
-    <div class=row>
-        <h2>Los siguientes estudiantes se han cargado al sistema:</h2>
-        <br>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ESTUDIANTE</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                @foreach($datos['usuarios_exito'] as $usuarioE)
-                    <td>{!! $usuarioE['name'] !!}</td>
+    @else
+        <div class="col" style= "width:240px ">
+            <h5>Los siguientes estudiantes se han cargado al sistema:</h5>
+            <br>
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th>ESTUDIANTE</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-@endif
+                </thead>
+                <tbody>
+                    <tr>
+                    @foreach($datos['usuarios_exito'] as $usuarioE)
+                        <td>{!! $usuarioE['name'] !!}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    @endif
 
-@if (is_null($datos['usuarios_fallo']))
+    @if (is_null($datos['usuarios_fallo']))
 
-@else
-    <div class=row>
-        <h2>Los siguientes datos no se pudieron cargar al sistema:</h2>
-        <br>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ESTUDIANTE</th>
-                    <th>ERROR</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                @foreach($datos['usuarios_fallo'] as $usuarioF)
-                    <td>{!! $usuarioF['nombre'] !!}</td>
-                    <td>{!! $usuarioF['error'] !!}</td>
+    @else
+        <div class="col" style= "width:240px ">
+            <h5>Los siguientes datos no se pudieron cargar al sistema:</h5>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ESTUDIANTE</th>
+                        <th>ERROR</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <tr>
+                    @foreach($datos['usuarios_fallo'] as $usuarioF)
+                        <td>{!! $usuarioF['nombre'] !!}</td>
+                        <td>{!! $usuarioF['error'] !!}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
-
 @endif
+<br>
+<br>
+<div class="col"></div>
+
+<div class="col pl-5">
+<center><a href="/usuario"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
+<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a> </center>
 </div>
+</div>
+
 
 <script>
     const button = document.getElementById('boton');
@@ -111,11 +124,6 @@
         })
     })
 </script>
-
-<br>
-<br>
-<center><a href="/usuario"><button style="color:white; background-color:rgb(0,48,87)" class="btn btn-info" type="button">Volver</button></a>
-<a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a> </center>
 
 
 @else
