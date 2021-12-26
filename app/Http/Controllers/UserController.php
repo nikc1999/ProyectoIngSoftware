@@ -65,6 +65,7 @@ class UserController extends Controller
     }
 
     public function cargarExcel(Request $request){
+        set_time_limit(1000);
         $auxAdd = [];
         $auxHeader = false;
         $auxDatos = new Request();
@@ -112,7 +113,7 @@ class UserController extends Controller
                     'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
                     'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
                 ]);
-                $auxErrores["fila" . $fila->getRowIndex()] = $validator->getMessageBag()->getMessages();
+
                 if (!$validator->fails()) {
 
                     $carrera = Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
@@ -129,6 +130,10 @@ class UserController extends Controller
                         'carrera_id' => $carrera->id,
                     ]);
                     $auxAdd["fila".$fila->getRowIndex()] = $newUser;
+                }
+                else{
+                    $auxDatos->request->add(["error" => $celda->getValue()]);
+                    $auxErrores["fila" . $fila->getRowIndex()] = $validator->getMessageBag()->getMessages();
                 }
             }
         }
@@ -163,7 +168,6 @@ class UserController extends Controller
                 ]);
 
                 /* dd($validator->getMessageBag()->getMessages()); */
-                $auxErrores["fila" . $fila->getRowIndex()] = $validator->getMessageBag()->getMessages();
                 if (!$validator->fails()) {
                     $contrasena = substr($auxDatos->request->all()["rut"], 0, 6);
                     $carrera = Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
@@ -178,8 +182,13 @@ class UserController extends Controller
                     ]);
                     $auxAdd["fila".$fila->getRowIndex()] = $newUser;
                 }
+                else{
+
+                    $auxErrores["fila" . $fila->getRowIndex()] = $validator->getMessageBag()->getMessages();
+                }
             }
         }
+        dd($auxErrores);
         return view("Administrador.carga_masiva")->with('errores', $auxErrores)->with('nuevos', $auxAdd);
     }
 
