@@ -8,10 +8,10 @@
 
 <br>
 @if(is_null($datos['solicitudes']) || $datos['solicitudes']->isEmpty())
-            <br>
-            <div class="alert alert-danger" role="alert">
-                No existen solicitudes pendientes
-            </div>
+    <br>
+    <div class="alert alert-danger" role="alert">
+        No existen solicitudes pendientes
+    </div>
 @else
 <br>
 <br>
@@ -215,29 +215,28 @@
         }
 
     selectEstado.addEventListener('change', () => {
-            switch (selectEstado.value) {
-                case "Aceptada":
-                    comentarioMostrar.hidden = true;
-                    botonEnviar.hidden = false;
-                    break;
+        switch (selectEstado.value) {
+            case "Aceptada":
+                comentarioMostrar.hidden = true;
+                botonEnviar.hidden = false;
+                break;
 
-                case "Aceptada con observaciones":
-                    comentarioMostrar.hidden = false;
-                    botonEnviar.hidden = false;
-                    break;
+            case "Aceptada con observaciones":
+                comentarioMostrar.hidden = false;
+                botonEnviar.hidden = false;
+                break;
 
-                case "Rechazada":
-                    comentarioMostrar.hidden = false;
-                    botonEnviar.hidden = false;
-                    break;
+            case "Rechazada":
+                comentarioMostrar.hidden = false;
+                botonEnviar.hidden = false;
+                break;
 
-                default:
-                    comentarioMostrar.hidden = true;
-                    botonEnviar.hidden = true;
-                    break;
-                }
-
-        })
+            default:
+                comentarioMostrar.hidden = true;
+                botonEnviar.hidden = true;
+                break;
+        }
+    })
 </script>
 
 

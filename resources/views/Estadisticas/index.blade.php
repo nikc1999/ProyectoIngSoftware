@@ -6,25 +6,22 @@
 <br>
 <div class="container">
     <form method="GET" action="{{route('filtrarEstadistica')}}">
-
         <input id="fecha_inicio" name="fecha_inicio" value= "{{old('fecha_inicio')}}" type="date" class=" @error('fecha_inicio') is-invalid @enderror"name="fecha_inicio">
         <input id="fecha_fin" name="fecha_fin" value= "{{old('fecha_fin')}}" type="date" class=" @error('fecha_fin') is-invalid @enderror"name="fecha_fin">
         @error('fecha_inicio')
-        <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-        </span>
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
         @enderror
         @if (session('error'))
-        <div class="alert alert-danger">
-        {{ session('error') }}
-        </div>
-    @endif
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Actualiza las estadísticas para las solicitudes que están entre las fechas seleccionadas en los parametros anteriores, si no se selecciona fecha se colocará la fecha actual" class="btn">Filtrar Fecha</button>
         <a href={{ route('estadistica')}}><button style="color:white; background-color:rgb(188,97,36)" class="btn" type="button">Mostrar todo</button></a>
         <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a>
     </form>
-
-
     <br>
 
 

@@ -146,14 +146,14 @@ class SolicitudJDC extends Controller
      */
     public function edit(int $id)
     {
-        $listaSolicitudes = collect();
+        $solicitudes = collect();
 
         $solicitud = Solicitud::where('id', $id)->first();
         $user = User::where('id', $solicitud->user_id)->get();
 
-        $listaSolicitudes->push($solicitud);
+        $solicitudes->push($solicitud);
 
-        $solicitud = $listaSolicitudes;
+        $solicitud = $solicitudes;
 
         $datos = [
             'solicitudes' => $solicitud,

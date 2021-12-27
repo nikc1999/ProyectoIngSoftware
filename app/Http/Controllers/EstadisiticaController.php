@@ -74,7 +74,6 @@ class EstadisiticaController extends Controller
                             $cantTipoFacilidad++;
                             break;
                         default:
-                            # code...
                             break;
                     }
                 }
@@ -83,21 +82,23 @@ class EstadisiticaController extends Controller
 
         }
 
-        return view('Estadisticas.index')
-            ->with('cantTipoSobrecupo', $cantTipoSobrecupo)
-            ->with('cantTipoCambioParalelo', $cantTipoCambioParalelo)
-            ->with('cantTipoEliminarAsignatura', $cantTipoEliminarAsignatura)
-            ->with('cantTipoInscripcionAsignatura', $cantTipoInscripcionAsignatura)
-            ->with('cantTipoAyudantia', $cantTipoAyudantia)
-            ->with('cantTipoFacilidad', $cantTipoFacilidad)
-            ->with('totalPendiente', $totalPendiente)
-            ->with('totalRechazada', $totalRechazada)
-            ->with('totalAceptada', $totalAceptada)
-            ->with('totalAceptadaObs', $totalAceptadaObs)
-            ->with('totalAnulada', $totalAnulada)
-            ->with('cantEnRango', $cantEnRango)
+        $datos = [
+            'cantTipoSobrecupo' => $cantTipoSobrecupo,
+            'cantTipoCambioParalelo' => $cantTipoCambioParalelo,
+            'cantTipoEliminarAsignatura' => $cantTipoEliminarAsignatura,
+            'cantTipoInscripcionAsignatura' => $cantTipoInscripcionAsignatura,
+            'cantTipoAyudantia' => $cantTipoAyudantia,
+            'cantTipoFacilidad' => $cantTipoFacilidad,
+            'totalPendiente' => $totalPendiente,
+            'totalRechazada' => $totalRechazada,
+            'totalAceptada' => $totalAceptada,
+            'totalAceptadaObs' => $totalAceptadaObs,
+            'totalAnulada' => $totalAnulada,
+            'cantEnRango' => $cantEnRango,
+        ];
 
-            ;
+        return view('Estadisticas.index')
+            ->with('datos', $datos);
     }
 
 
@@ -214,8 +215,21 @@ class EstadisiticaController extends Controller
 
                    $cantEnRango= $totalPendiente + $totalRechazada + $totalAceptada +$totalAceptadaObs+ $totalAnulada ;
                 }
-
         }
+        $datos = [
+            'cantTipoSobrecupo' => $cantTipoSobrecupo,
+            'cantTipoCambioParalelo' => $cantTipoCambioParalelo,
+            'cantTipoEliminarAsignatura' => $cantTipoEliminarAsignatura,
+            'cantTipoInscripcionAsignatura' => $cantTipoInscripcionAsignatura,
+            'cantTipoAyudantia' => $cantTipoAyudantia,
+            'cantTipoFacilidad' => $cantTipoFacilidad,
+            'totalPendiente' => $totalPendiente,
+            'totalRechazada' => $totalRechazada,
+            'totalAceptada' => $totalAceptada,
+            'totalAceptadaObs' => $totalAceptadaObs,
+            'totalAnulada' => $totalAnulada,
+            'cantEnRango' => $cantEnRango,
+        ];
             return view('Estadisticas.index')
             ->with('cantTipoSobrecupo', $cantTipoSobrecupo)
             ->with('cantTipoCambioParalelo', $cantTipoCambioParalelo)
@@ -228,8 +242,6 @@ class EstadisiticaController extends Controller
             ->with('totalAceptada', $totalAceptada)
             ->with('totalAceptadaObs', $totalAceptadaObs)
             ->with('totalAnulada', $totalAnulada)
-            ->with('cantEnRango', $cantEnRango)
-
-            ;
+            ->with('cantEnRango', $cantEnRango);
     }
 }
