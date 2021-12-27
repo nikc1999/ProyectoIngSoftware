@@ -257,6 +257,10 @@ class SolicitudController extends Controller
             return redirect('/mostrarsolicitudespendientesjefe');
         }
         if($request->estado == 'Aceptada con observaciones'){
+            //agregar validador
+            $request->validate([
+                'detalle' => ['required']
+            ]);
             $solicitud->estado = $request->estado;
             $solicitud->detalles_jefe_carrera = $request->observacion;
             $solicitud->save();
@@ -266,6 +270,11 @@ class SolicitudController extends Controller
             return redirect('/mostrarsolicitudespendientesjefe');
         }
         if($request->estado == 'Rechazada'){
+            //agregar validador
+            $request->validate([
+                'detalle' => ['required']
+            ]);
+
             $solicitud->estado = $request->estado;
             $solicitud->detalles_jefe_carrera = $request->observacion;
             $solicitud->save();
