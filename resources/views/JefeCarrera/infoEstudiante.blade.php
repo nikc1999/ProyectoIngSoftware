@@ -55,7 +55,6 @@
 <br>
 
 
-
 <div class="row">
     <div class="col">
         <table class="table" style="width:240px;">
@@ -130,6 +129,12 @@
         @csrf
         @method('PUT')
 
+        @if ($errors->any())
+        <div id="alertita" class="alert alert-danger" role="alert">
+        El comentario debe ser obligatorio si se solicita
+        </div>
+        @endif
+
         <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
         <div class="form-group">
             <select class="form-control @error('estado') is-invalid @enderror" name="estado" id="estado">
@@ -153,7 +158,6 @@
             <input id="observacion" type="text"
                 class="form-control @error('observacion') is-invalid @enderror" name="observacion"
                 value="{{ old('observacion') }}" autocomplete="observacion" autofocus>
-
             @error('observacion')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -175,19 +179,18 @@
     @endif
 </div>
 
-
-
-
-
 @endif
 </div>
 </div>
 </div>
 
+
+
 <script type="text/javascript">
     const selectEstado = document.getElementById('estado');
     const comentarioMostrar = document.getElementById('comentario');
     const botonEnviar = document.getElementById('groupButton');
+
 
         switch(selectEstado.value) {
             case "Aceptada":

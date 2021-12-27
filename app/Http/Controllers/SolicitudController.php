@@ -259,7 +259,7 @@ class SolicitudController extends Controller
         if($request->estado == 'Aceptada con observaciones'){
             //agregar validador
             $request->validate([
-                'detalle' => ['required']
+                'observacion' => ['required']
             ]);
             $solicitud->estado = $request->estado;
             $solicitud->detalles_jefe_carrera = $request->observacion;
@@ -272,7 +272,7 @@ class SolicitudController extends Controller
         if($request->estado == 'Rechazada'){
             //agregar validador
             $request->validate([
-                'detalle' => ['required']
+                'observacion' => ['required']
             ]);
 
             $solicitud->estado = $request->estado;

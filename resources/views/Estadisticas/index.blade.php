@@ -21,6 +21,7 @@
     @endif
         <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Actualiza las estadísticas para las solicitudes que están entre las fechas seleccionadas en los parametros anteriores, si no se selecciona fecha se colocará la fecha actual" class="btn">Filtrar Fecha</button>
         <a href={{ route('estadistica')}}><button style="color:white; background-color:rgb(188,97,36)" class="btn" type="button">Mostrar todo</button></a>
+        <a href="{{ route('home') }}"><button class="btn btn-dark" type="button">Volver Menú</button></a>
     </form>
 
 

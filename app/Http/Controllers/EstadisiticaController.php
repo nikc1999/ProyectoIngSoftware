@@ -130,8 +130,6 @@ class EstadisiticaController extends Controller
         if($fechaTer == false){// cuando no se ingresa fecha se asume que la fecha requerida es la actual
             $fechaTer= date(now());
         }
-        $fechaTer = strtotime('+23 hours', strtotime($fechaTer));
-        echo $fechaTer;
 
 
         //transformo la fecha dd-mm-aaaa a un numero 000
@@ -140,7 +138,7 @@ class EstadisiticaController extends Controller
         $fechaTer = strtotime("+1 day",strtotime($fechaTer));
         $carreraIdJefe = Auth::user()->carrera_id;
 
-
+        //dd($fechaIn, $fechaTer);
 
         if($fechaIn>$fechaTer){
             return redirect("/estadisticas")->with('error', 'La fecha inicial es mayor que la fecha final');
