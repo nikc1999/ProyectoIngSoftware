@@ -56,7 +56,6 @@
 </div>
 
 <script>
-
     var chart = new CanvasJS.Chart("chartContainerTipo", {
     animationEnabled: true,
     theme: "light1", // "light1", "light2", "dark1", "dark2"
