@@ -37,6 +37,10 @@ Route::get('/admin', [App\Http\Controllers\CarreraController::class, 'index'])->
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/menucarga',[App\Http\Controllers\UserController::class, 'mostrarCargaMasivaEstudiantes'])->name('menucarga');
+
+Route::post('/cargamasiva',[App\Http\Controllers\UserController::class, 'cargarExcel'])->name('cargamasiva');
+
 Route::post('/agregarusuario/crear', [App\Http\Controllers\UserController::class, 'store'])->name('agregarusuario');  //proceso para generar ,validar y guardar el usuario
 
 Route::get('/gestionarcarreras', [App\Http\Controllers\CarreraController::class, 'mostrarPanelCarreras'])->name('mostrarcarreras');

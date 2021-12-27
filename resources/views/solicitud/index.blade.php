@@ -46,7 +46,7 @@
                             <td><a class="btn btn-outline-rgb"  style="color:white; background-color:rgb(0,181,226)" href={{ route('solicitud.show', [$solicitud]) }}>Editar</a></td>
                             <form id="formulario" class="formularioAnular"method="GET" action="{{ route('solicitud.edit', [$solicitud])}}">
                                 @csrf
-                                <td><button class="btn botonAnular" id="boton" style="color:white; background-color:rgb(196,49,44)">Anular</button></td>
+                                <td><button class="btn botonAnular" id="boton" data-toggle="tooltip" data-placement="right" title="Accionar para anular solicitud" style="color:white; background-color:rgb(196,49,44)">Anular</button></td>
                             </form>
                             @endif
                         </tr>

@@ -22,7 +22,120 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123123'),
 
         ]);
+        //creacion de las carreras del listado mandado
 
+        \App\Models\Carrera::Create([
+            'nombre' => 'Arquitectura',
+            'codigo' => '8039'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Derecho',
+            'codigo' => '8043'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Geología',
+            'codigo' => '8050'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Civil Ambiental',
+            'codigo' => '8055'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Civil de Minas',
+            'codigo' => '8074'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Civil en Computacion e Informatica',
+            'codigo' => '8603'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Civil Industrial',
+            'codigo' => '8092'
+        ]);
+         \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Civil Metalúrgica',
+            'codigo' => '8132'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Civil Plan Común',
+            'codigo' => '8141'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Civil Química',
+            'codigo' => '8150'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Comercial',
+            'codigo' => '8182'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria en Computacion e Informatica',
+            'codigo' => '8184'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria en Informacion y Control de Gestión',
+            'codigo' => '8189'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria en Metalurgia',
+            'codigo' => '8221'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Ingenieria Tecnologías de Información',
+            'codigo' => '8222'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Kinesiología',
+            'codigo' => '8277'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Licenciatura en Física con mención en Astronomía',
+            'codigo' => '8305'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Licenciatura en Matemática',
+            'codigo' => '8349'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Medicina',
+            'codigo' => '8421'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Nutrición y Dietetica',
+            'codigo' => '8440'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Pedagogía en Educación Básica con Especialización',
+            'codigo' => '8474'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Pedagogía en Inglés',
+            'codigo' => '8481'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Pedagogía en Matemática en Educación Media',
+            'codigo' => '8486'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Periodismo',
+            'codigo' => '8570'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Psicología',
+            'codigo' => '8594'
+        ]);
+        \App\Models\Carrera::Create([
+            'nombre' => 'Quimica y Farmacia',
+            'codigo' => '8659'
+        ]);
+
+
+
+
+
+
+
+        //el ya creado para las pruebas
         \App\Models\Carrera::Create([
             'nombre' => 'Ingenieria Civil Industrial',
             'codigo' => '4526'

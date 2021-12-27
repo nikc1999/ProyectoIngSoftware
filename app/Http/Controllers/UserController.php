@@ -10,7 +10,16 @@ use App\Rules\ValidarRut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Importante para que reconozca el auth
 use Illuminate\Support\Facades\Validator;
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
+use phpoffice\phpspreadsheet\Spreadsheet;
+
 use Mockery\Undefined;
+//aaa
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -51,6 +60,320 @@ class UserController extends Controller
      */
     public function mostrarAgregarUsuario()
     {
+    }
+
+    public function mostrarCargaMasivaEstudiantes(){
+
+        $datos = [
+            'usuarios_exito' => null,
+            'usuarios_fallo' => null,
+        ];
+
+        return view('Administrador.carga_masiva')->with('datos',$datos);
+    }
+
+    public function cargarExcel(Request $request){
+        $i=0;
+        $j=0;
+        set_time_limit(2000);
+        $auxAdd = [];
+        $auxHeader = false;
+        $auxDatos = new Request();
+        $auxErrores = [];
+
+        $validator = Validator::make($request->all(), [
+            "adjunto" => 'mimes:xlsx|required'
+        ]);
+
+        if ($validator->fails()) {
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('error','Error: Archivo vacío o incorrecto')->with('datos', $datos);
+        }
+
+        $request->validate([
+            "adjunto" => 'mimes:xlsx|required'
+        ]);
+        $doc = IOFactory::load($request->adjunto);
+        $hoja1 = $doc->getSheet(0);
+
+
+         if($hoja1->getCell('A1')->getValue() == null){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('error','Error: Archivo vacío o incorrecto')->with('datos', $datos);
+        }
+        if($hoja1->getCell('A1')->getValue() != "CARRERA"){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error en el formato del archivo, se recomienda revisarlo');
+        }
+        if($hoja1->getCell('B1')->getValue() != "RUT"){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error en el formato del archivo, se recomienda revisarlo');
+        }
+        if($hoja1->getCell('C1')->getValue() != "NOMBRE"){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error en el formato del archivo, se recomienda revisarlo');
+        }
+        if($hoja1->getCell('D1')->getValue() != "CORREO"){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error en el formato del archivo, se recomienda revisarlo');
+        }
+
+        if($hoja1->getCell('A2')->getValue() == null || $hoja1->getCell('B2')->getValue() == null || $hoja1->getCell('C2')->getValue() == null || $hoja1->getCell('D2')->getValue() == null ){
+            $datos = [
+                'usuarios_exito' => null,
+                'usuarios_fallo' => null,
+            ];
+            return redirect("/menucarga")->with('datos', $datos)->with('error','Error archivo vacío, se recomienda revisarlo');
+        }
+
+
+        if (is_numeric($hoja1->getCell('A1')->getValue())) { //Quiero ver si el excel tiene datos textuales
+            $auxHeader = false;
+        }
+        else {
+            $auxHeader = true;
+        }
+
+        if ($auxHeader) {
+            foreach ($hoja1->getRowIterator(2, null) as $key => $fila) {
+                foreach ($fila->getCellIterator() as $key => $celda) {
+                    switch ($celda->getColumn()) {
+                        case 'A':
+                            $auxDatos->request->add(["carrera" => $celda->getValue()]);
+                            break;
+                        case 'B':
+                            $auxDatos->request->add(["rut" => $celda->getValue()]);
+                            break;
+                        case 'C':
+                            $auxDatos->request->add(["nombre" => $celda->getValue()]);
+                            break;
+                        case 'D':
+                            $auxDatos->request->add(["email" => $celda->getValue()]);
+                            break;
+
+                        default:
+                            # code...
+                            break;
+                    }
+                }
+
+                $validator = Validator::make($auxDatos->request->all(), [
+                    'nombre' => ['required', 'string', 'max:255'],
+                    'carrera'=> ['exists:App\Models\Carrera,codigo'],
+                    'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                    'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+                ]);
+
+                if (!$validator->fails()) {
+
+                    $carrera = Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
+                    $contrasena = substr($auxDatos->request->all()["rut"], 0, 6);
+
+                    User::create([
+                        'name' => $auxDatos->request->all()["nombre"],
+                        'email' => $auxDatos->request->all()["email"],
+                        'password' => bcrypt($contrasena),
+                        'rut' => $auxDatos->request->all()["rut"],
+                        'rol' => "Estudiante",
+                        'habilitado' => 1,
+                        'carrera_id' => $carrera->id,
+                    ]);
+                    $newUser = array('name' => $auxDatos->request->all()["nombre"],
+                    'rut' => $auxDatos->request->all()["rut"]);
+                    $auxAdd[$j++] = $newUser;
+                }
+                else{
+                    $auxDatos->request->add(["error" => array_values($validator->getMessageBag()->getMessages())[0][0]]);
+                    $auxErrores[$i++] = $auxDatos->request->all();
+                }
+            }
+        }
+        else {
+            foreach ($hoja1->getRowIterator(2, null) as $key => $fila) {
+                foreach ($fila->getCellIterator() as $key => $celda) {
+                    switch ($celda->getColumn()) {
+                        case 'A':
+                            $auxDatos->request->add(["carrera" => $celda->getValue()]);
+                            break;
+                        case 'B':
+                            $auxDatos->request->add(["rut" => $celda->getValue()]);
+                            break;
+                        case 'C':
+                            $auxDatos->request->add(["nombre" => $celda->getValue()]);
+                            break;
+                        case 'D':
+                            $auxDatos->request->add(["email" => $celda->getValue()]);
+                            break;
+
+                        default:
+                            # code...
+                            break;
+                    }
+                }
+
+                $validator = Validator::make($auxDatos->request->all(), [
+                    'nombre' => ['required', 'string', 'max:255'],
+                    'carrera'=> ['exists:App\Models\Carrera,codigo'],
+                    'rut' => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                    'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+                ]);
+
+                /* dd($validator->getMessageBag()->getMessages()); */
+                if (!$validator->fails()) {
+
+                    $carrera = Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
+                    $contrasena = substr($auxDatos->request->all()["rut"], 0, 6);
+
+                    User::create([
+                        'name' => $auxDatos->request->all()["nombre"],
+                        'email' => $auxDatos->request->all()["email"],
+                        'password' => bcrypt($contrasena),
+                        'rut' => $auxDatos->request->all()["rut"],
+                        'rol' => "Estudiante",
+                        'habilitado' => 1,
+                        'carrera_id' => $carrera->id,
+                    ]);
+                    $newUser = array('name' => $auxDatos->request->all()["nombre"],
+                    'rut' => $auxDatos->request->all()["rut"]);
+                    $auxAdd[$j++] = $newUser;
+                }
+                else{
+                    $auxDatos->request->add(["error" => array_values($validator->getMessageBag()->getMessages())[0][0]]);
+                    $auxErrores[$i++] = $auxDatos->request->all();
+                }
+            }
+        }
+
+        if($auxAdd == []){
+            $auxAdd = null;
+        }
+        if($auxErrores == []){
+            $auxErrores = null;
+        }
+        $datos = [
+            'usuarios_exito' => $auxAdd,
+            'usuarios_fallo' => $auxErrores,
+        ];
+
+        return view("Administrador.carga_masiva")->with('datos', $datos);
+    }
+
+    public function cargaMasivaEstudiantes(Request $request){
+        $aux = 0;
+        $request->validate([
+            'adjunto' => ['max:10000'],
+        ]);
+
+        $file = $request->file('adjunto');
+
+        if ($file) {
+            $name = $aux.time().'.'.$file->getClientOriginalExtension();
+
+            $file->move(public_path('\storage\docs'), $name);
+            $filepath = public_path('\storage\docs', $name);
+            // Reading file
+            $filepath= $filepath . '\\' . $name;
+
+            $file = fopen($filepath, "r");
+
+            $importData_arr = array(); // Read through the file and store the contents as an array
+            $i = 0;
+            //Read the contents of the uploaded file
+            while (($filedata = fgetcsv($file, 1000, ",")) !== false) {
+                $num = count($filedata);
+
+                if ($num!=4){
+                    return redirect('/menucarga');
+                }
+                // Skip first row (Remove below comment if you want to skip the first row)
+                if ($i == 0) {
+
+                    for ($c = 0; $c < $num; $c++) {
+                        $importData_arr[$i][] = $filedata[$c];
+                    }
+                    if(!$importData_arr[$i][0] || $importData_arr[$i][0]!='CARRERA'){
+
+                        return redirect('/menucarga');
+                    }
+                    if(!$importData_arr[$i][1] || $importData_arr[$i][1]!='RUT'){
+
+                        return redirect('/menucarga');
+                    }
+                    if(!$importData_arr[$i][2] || $importData_arr[$i][2]!='NOMBRE'){
+                        return redirect('/menucarga');
+                    }
+                    if(!$importData_arr[$i][3] || $importData_arr[$i][3]!='CORREO'){
+                        return redirect('/menucarga');
+                    }
+
+
+                }
+                if ($i != 0) {
+                    for ($c = 0; $c < $num; $c++) {
+                        $importData_arr[$i][] = $filedata[$c];
+                    }
+                }
+
+                $i++;
+            }
+            fclose($file); //Close after reading
+            set_time_limit(400);
+            foreach ($importData_arr as $importData) {
+                if ($importData[0] == "CARRERA") {
+                    continue;
+                }
+
+                try {
+
+
+                    $rut = $request->rut;
+                    $contrasena = substr($rut, 0, 6);
+
+                    $carrera = Carrera::where('codigo',$importData[0])->first();
+                    $id_carrera = $carrera->id;
+
+                    $validator = Validator::make($importData, [
+                        $importData[2] => ['required', 'string', 'max:255'],
+                        $importData[3] => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                        $importData[1] => ['required', 'string', 'unique:users','min:8', 'max:9',new ValidarRut],
+                        $id_carrera =>['exists:App\Models\Carrera,id']
+                    ]);
+
+                    User::create([
+                    'name' => $importData[2],
+                    'email' => $importData[3],
+                    'password' => bcrypt($contrasena),
+                    'rut' => $importData[1],
+                    'rol' => 'Estudiante',
+                    'habilitado' => 1,
+                    'carrera_id' => $id_carrera,
+                    ]);
+                    //meter el rut y el nombre en una lista
+                } catch (\Exception $e) {
+                    //meter el rut y nombre en una lista
+                }
+            }
+            return redirect('/usuario');
+        }
+        return redirect('/menucarga');
     }
 
     public function create()
@@ -196,7 +519,22 @@ class UserController extends Controller
         $user->rut = $request->rut;
         $user->email = $request->email;
         $user->rol = $request->rol;
-        $user->carrera_id = $request->carrera;
+
+        if($user->carrera_id == $request->carrera){ //Si no se cambió de carrera todo bien
+            $user->carrera_id = $request->carrera;
+        }
+        elseif($user->carrera_id != $request->carrera){ //Si se cambió de carrera se deben anular todas las solicitudes
+
+
+            $solicitudes = Solicitud::where('user_id', $user->id)->get();
+
+            foreach($solicitudes as $solicitud){
+                $solicitud->estado = 'Anulada';
+                $solicitud->save();
+            }
+            $user->carrera_id = $request->carrera;
+        }
+
         $user->save();
         return redirect('/usuario');
     }
@@ -236,9 +574,9 @@ class UserController extends Controller
             }
         }
 
-        $solicitudes = $listaSolicitudes;
+        $solicitudes = $listaSolicitudes->sortBy('updated_at');
 
-        $solicitudes = $solicitudes->sortBy('created_at');
+        $solicitudes = $solicitudes->sortBy('updated_at');
 
         $datos = [
             'solicitudes' => $solicitudes,
@@ -284,9 +622,9 @@ class UserController extends Controller
                 }
             }
 
-            $solicitudes = $listaSolicitudes;
+            $solicitudes = $listaSolicitudes->sortBy('updated_at'); //ninguno de los dos funciona :c
 
-            $solicitudes = $solicitudes->sortBy('created_at');
+            $solicitudes = $solicitudes->sortBy('updated_at');
 
             $datos = [
                 'solicitudes' => $solicitudes,
@@ -343,7 +681,7 @@ class UserController extends Controller
 
             $solicitudes = $listaSolicitudes;
 
-            $solicitudes = $solicitudes->sortBy('created_at');
+            $solicitudes = $solicitudes->sortBy('updated_at');
 
             $datos = [
                 'solicitudes' => $solicitudes,

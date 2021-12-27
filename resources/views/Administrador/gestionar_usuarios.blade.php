@@ -25,6 +25,7 @@
             <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar</button>
 
         <a href="{{ route('usuario.create') }}"><button style="color:white; background-color:rgb(0,181,226)" class="btn" type="button">Crear Usuario</button></a>
+        <a href="/menucarga"><button style="color:white; background-color:rgb(0,181,226)" data-toggle="tooltip" data-placement="right" title="Redirecciona a la página para cargar varios estudiantes a través de un archivo" class="btn" type="button">Carga Masiva</button></a>
 
     </form>
 </div>
@@ -51,6 +52,8 @@
     </thead>
     <tbody>
         @foreach($usuarios as $user)
+
+
             @if ($user->rol=="Administrador")
             <tr>
                 <td>{!! $user->name !!}</td>
@@ -70,26 +73,31 @@
                 <form method="POST" action="{{ route('habilitar', ['id' => $user]) }}">
                     @csrf
                 @if ($user->habilitado==0)
-                    <td><center><button style="background-color:rgb(72,162,79); color:white" class="btn">Habilitar</button></td></center>
+                    <td><center><button style="background-color:rgb(72,162,79); color:white" data-toggle="tooltip" data-placement="right" title="Permitir que el usuario pueda ingresar al sistema con su cuenta" class="btn">Habilitar</button></td></center>
                 @else
-                    <td><center><button style="background-color:rgb(196,49,44); color:white" class="btn">Deshabilitar</button></td></center>
+                    <td><center><button style="background-color:rgb(196,49,44); color:white" data-toggle="tooltip" data-placement="right" title="Deshabilita el ingreso del usuario al sistema hasta que vuelva a ser habilitado" class="btn">Deshabilitar</button></td></center>
                     @endif
                 </form>
 
                 <form class="formulariorestablecer" method="POST" action="{{ route('restablecer', ['id' => $user]) }}">
                     @csrf
-                    <td><button style='background-color:rgb(180,41,160); color:white' class="btn botonrestablecer">Restablecer</button></td>
+                    <td><button style='background-color:rgb(180,41,160); color:white' data-toggle="tooltip" data-placement="right" title="Reinicia la clave del usuario a los primeros 6 digitos de su rut" class="btn botonrestablecer">Restablecer</button></td>
                 </form>
                 </tr>
 
             @endif
 
+
+
         @endforeach
+
     </tbody>
 </table>
 @endif
 </div>
 </div>
+{{ $usuarios->links()}}
+
 </div>
 
 <script>

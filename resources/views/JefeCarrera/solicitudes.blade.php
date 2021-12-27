@@ -36,7 +36,7 @@
                         </span>
                         @enderror
                     </div>
-                    <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar Tipo</button>
+                    <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Filtra las solicitudes según su tipo de solicitud" class="btn">Filtrar Tipo</button>
                 </form>
 
                 <form class= "pl-5" method="GET" action="{{ route('mostrarEstadosFiltrar') }}">
@@ -55,13 +55,13 @@
                         </span>
                         @enderror
                     </div>
-                    <button style="color:white; background-color:rgb(188,97,36)" class="btn">Filtrar estado</button>
+                    <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Filtra las solicitudes según el estado de la solicitud" class="btn">Filtrar estado</button>
                 </form>
                 <div class="pt-2 pl-5">
                     <br>
                     <form method="GET" action="{{ route('solicitudJDC.index') }}">
                         <input type="text" name="search" id="search" placeholder="N° Solicitud">
-                        <button style="color:white; background-color:rgb(188,97,36)" class="btn">Buscar Solicitud</button>
+                        <button style="color:white; background-color:rgb(188,97,36)" data-toggle="tooltip" data-placement="right" title="Revisa directamente los detalles de la solicitud con el N° ingresado" class="btn">Buscar Solicitud</button>
                     </form>
                 </div>
 
